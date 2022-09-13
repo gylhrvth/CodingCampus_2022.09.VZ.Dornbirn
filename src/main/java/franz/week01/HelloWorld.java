@@ -47,7 +47,7 @@
             System.out.println("");
             int n = 10;
             int o =-10;
-            int p = 1;
+            int p = 11;
             while (o<n) {
                 System.out.println(n);
                 n-=p;}
