@@ -1,38 +1,20 @@
-public class HelloWorld {
-    public static void main (String[] args){
+    public class HelloWorld {
 
-        System.out.println("Hello World");
-        System.out.println();
-        System.out.println("     /--\\ ");
-        System.out.println("    / /\\ \\ ");
-        System.out.println("   / /  \\ \\ ");
-        System.out.println("  / /    \\ \\ ");
-        System.out.println(" /  ======= \\ ");
-        System.out.println("/_/        \\_\\ ");
-        System.out.println();
-        System.out.println("           _____                       _____                      _____                    _____                    _____                _____          ");
-        System.out.println("          /\\     \\                    / \\    \\                   /\\    \\                  /\\    \\                  /\\    \\              |\\    \\         ");
-        System.out.println("         /::\\     \\                  /:: \\    \\                 /::\\    \\                /::\\____\\                /::\\____\\             |:\\____\\        ");
-        System.out.println("        /::::\\     \\                /:::: \\    \\               /::::\\    \\              /::::|   |               /:::/    /             |::|   |        ");
-        System.out.println("       /::::::\\     \\              /:::::: \\    \\             /::::::\\    \\            /:::::|   |              /:::/    /              |::|   |        ");
-        System.out.println("      /:::/\\:::\\     \\            /:::/\\::: \\    \\           /:::/\\:::\\    \\          /::::::|   |             /:::/    /               |::|   |        ");
-        System.out.println("     /:::/__\\:::\\     \\          /:::/__\\::: \\    \\         /:::/__\\:::\\    \\        /:::/|::|   |            /:::/____/                |::|   |        ");
-        System.out.println("    /::::\\   \\:::\\     \\        /::::\\   \\::: \\    \\       /::::\\   \\:::\\    \\      /:::/ |::|   |           /::::\\    \\                |::|   |        ");
-        System.out.println("   /::::::\\   \\:::\\     \\      /::::::\\   \\::: \\    \\     /:::: \\    \\:::\\    \\      /:::/ |::|   |           /::::\\    \\                |::|   |        \\");
-        System.out.println("  /::::::: \\   \\:::\\     \\    /::::::: \\   \\::: \\    \\   /:::::: \\    \\:::\\    \\    /:::/  |::|   | _____    /::::::\\____\\________       |::|___|______  ");
-        System.out.println(" /:::/ \\::: \\   \\:::\\     \\  /:::/ \\::: \\   \\::: \\____\\ /:::/ \\:::\\    \\:::\\    \\  /:::/   |::|   |/\\    \\  /:::/\\:::::::::::\\    \\      /::::::::\\    \\ ");
-        System.out.println("/:::/   \\::: \\   \\:::\\____ \\/:::/   \\::: \\   \\:::|    |/:::/   \\:::\\    \\:::\\____\\/:: /    |::|   /::\\____\\/:::/  |:::::::::::\\____\\    /::::::::::\\____\\");
-        System.out.println("\\::/     \\::: \\   \\::/    / \\::/    |:::: \\  /:::|____|\\::/     \\:::\\   /:::/     /\\::/    /|::|  /:::/    /\\::/   |::|~~~|~~~~~        /:::/~~~~/~~      ");
-        System.out.println(" \\/____/  \\::: \\   \\/____/   \\/ ____|::::: \\ /:::/    / \\/____/  \\:::\\ /:::/     /  \\/____/ |::| /:::/    /  \\/____|::|   |            /:::/    /         ");
-        System.out.println("           \\::: \\    \\              |:::::::: /    /              \\:::::: /    /           |::|/:::/    /         |::|   |           /:::/    /          ");
-        System.out.println("            \\::: \\    \\             |:::::::::/    /               \\:::::/    /           |::|/:::/    /         |::|   |           /:::/    /          \\");
-        System.out.println("             \\::: \\____\\            |::|\\::::/    /                 \\::::/    /            |::::::/    /          |::|   |          /:::/    /           ");
-        System.out.println("              \\::/    /             |::| \\::/____/                  /:::/    /             |:::::/    /           |::|   |          \\::/    /            ");
-        System.out.println("               \\/____/              |::|  ~|                       /:::/    /              |::::/    /            |::|   |           \\/____/             ");
-        System.out.println("                                    |::|   |                      /:::/    /               /:::/    /             |::|   |                               ");
-        System.out.println("                                    \\::|   |                     /:::/    /               /:::/    /              \\::|   |                              ");
-        System.out.println("                                     \\:|   |                      \\::/    /                \\::/    /                \\:|   |                               ");
-        System.out.println("                                      \\|___|                       \\/____/                  \\/____/                  \\|___|                           ");
-    }
-      }
+        public static void main(String[] args) {
+            System.out.print("HAllo World");
+            System.out.print(" ");
+            System.out.print(" ");
+            System.out.print(" ");
+            System.out.println("2.Aufgabe");
 
+            System.out.print("2.1Aufgabe");
+            for (int i = 1; i <= 10; ++i) {
+                System.out.println(i);
+            }
+            System.out.print("2.2.Aufgabe");
+
+            int (i = 1);
+            while (i = 0; i >10; ++i) {
+                System.out.println(i+1);}
+        }
+}
