@@ -135,6 +135,7 @@ public class MethodenUndSchleifen {
                 filler(symbol, (length/2)+(rhom*2));
                 System.out.println(symbol);
             }
+
             else
                 System.out.println("in Arbeit");
         }
