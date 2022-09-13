@@ -27,8 +27,8 @@ public class FunctionPrintTrinangle {
 
     public static void printTriangleTopRight(String f, int rows) {
 
-            for (int j = 1; j <= rows; j++) { // Anfang der zweiten Zeile
-                for (int s = 1; s < j; s++) { // Leer-Zeichen schreiben
+            for (int j = 1; j <= rows; j++) { //Zeile
+                for (int s = 1; s < j; s++) {
                     System.out.print(" ");
                 }
                 for (int k = 1; k <= rows - j + 1; k++) {
@@ -52,6 +52,21 @@ public class FunctionPrintTrinangle {
         }
     }
 
+    public static void printTriangleBottomRight(String f, int m){ //nicht richtig
+        for(int j = 1; j <= m; j++) { // Zeile
+            for(int i = 1; i <= m-1; i++){ // Leer-Zeichen m-1 mal
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= m - j + 1; k++) {
+                System.out.print(f);
+
+            }
+            System.out.println();
+        }
+
+    }
+
+
 
 
         public static void main(String[] args) {
@@ -59,9 +74,9 @@ public class FunctionPrintTrinangle {
         System.out.println("\n");
         printTriangleTopLeft("x",5);
         System.out.println("\n");
-        printTriangleTopRight("x",5);
-        System.out.println("\n");
         printTriangleTopRight2("T", 5);
+        System.out.println("\n");
+        printTriangleBottomRight("x", 5);
 
     }
 }
