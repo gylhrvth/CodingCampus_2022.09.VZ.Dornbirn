@@ -1,14 +1,57 @@
-public class HelloWorld {
-    public static void main (String[] args) {
-        System.out.println("Hello World");
-        System.out.println("");
-        System.out.println("__/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_____________________________________________________________________________ ");
-        System.out.println(" _\\/\\\\\\///////////__________________________________________________/\\\\\\________________________ ");
-        System.out.println("  _\\/\\\\\\____________________________________________________________\\/\\\\\\_____________/\\\\\\__/\\\\\\_   ");
-        System.out.println("   _\\/\\\\\\\\\\\\\\\\\\\\\\_______/\\\\/\\\\\\\\\\\\\\____/\\\\\\\\\\\\\\\\\\______/\\\\/\\\\\\\\\\\\____\\/\\\\\\\\\\\\\\\\_______\\//\\\\\\/\\\\\\__   ");
-        System.out.println("    _\\/\\\\\\///////_______\\/\\\\\\/////\\\\\\__\\////////\\\\\\____\\/\\\\\\////\\\\\\___\\/\\\\\\////\\\\\\______\\//\\\\\\\\\\___  ");
-        System.out.println("     _\\/\\\\\\______________\\/\\\\\\___\\///_____/\\\\\\\\\\\\\\\\\\\\___\\/\\\\\\__\\//\\\\\\__\\/\\\\\\\\\\\\\\\\/________\\//\\\\\\____ ");
-        System.out.println("      _\\/\\\\\\______________\\/\\\\\\___________/\\\\\\/////\\\\\\___\\/\\\\\\___\\/\\\\\\__\\/\\\\\\///\\\\\\_____/\\\\_/\\\\\\_____");
-        System.out.println("       _\\/\\\\\\______________\\/\\\\\\__________\\//\\\\\\\\\\\\\\\\/\\\\__\\/\\\\\\___\\/\\\\\\__\\/\\\\\\_\\///\\\\\\__\\//\\\\\\\\/______ ");
-        System.out.println("        _\\///_______________\\///____________\\////////\\//___\\///____\\///___\\///____\\///____\\////________");
-    }}
+    public class HelloWorld {
+
+        public static void main(String[] args) {
+            System.out.println("HelloWorld");
+            System.out.println("");
+
+            System.out.println("1.1 Aufgabe for");
+            System.out.println("");
+            for (int i = 0; i <= 10; ++i) {
+                System.out.println(i);
+            }
+            System.out.println("");
+
+            System.out.print("1.2 Aufgabe while");
+            System.out.println("");
+            int j = 0;
+            while (j <= 10) {
+                System.out.println(j);
+                j += 1;}
+            System.out.println("");
+
+            System.out.print("2.1 Aufgabe 0-9 ");
+            System.out.println("");
+            int k = 0;
+            while (k < 10) {
+                System.out.println(k);
+                k += 1;}
+            System.out.println("");
+
+            System.out.print("3.1 Aufgabe nur gerade");
+            System.out.println("");
+            for (int i = 0; i <= 10; ++i) {
+                if( i%2!=0)
+                    System.out.println(i);}
+            System.out.println("");
+
+            System.out.println("");
+            System.out.print("3.2 Aufgabe nur jede zweite gerade  ");
+            System.out.println("");
+            for (int m = 0; m <= 10; ++m) {
+                if( m%2!=0)
+                    System.out.println(m);
+            System.out.println("");
+
+            System.out.println("");
+            System.out.print("4.1 -10");
+            System.out.println("");
+            int n = 10;
+            int o =-10;
+            int p = 11;
+            while (o<n) {
+                System.out.println(n);
+                n-=p;}
+            System.out.println("");}
+
+        }
+}
