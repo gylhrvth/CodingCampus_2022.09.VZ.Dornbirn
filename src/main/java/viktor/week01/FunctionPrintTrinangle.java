@@ -52,14 +52,16 @@ public class FunctionPrintTrinangle {
         }
     }
 
-    public static void printTriangleBottomRight(String f, int m){ //nicht richtig
-        for(int j = 1; j <= m; j++) { // Zeile
-            for(int i = 1; i <= m-1; i++){ // Leer-Zeichen m-1 mal
+    public static void printTriangleBottomRight(String f, int m){ // m - Zeile
+
+
+        for(int j = 1; j <= m; j++) // Zeile
+        {
+            for(int i = 1; i <= m-j; i++){   // mit Leer-Zeichen befüllen
                 System.out.print(" ");
             }
-            for (int k = 1; k <= m - j + 1; k++) {
+            for(int k = 1; k <= j; k++){
                 System.out.print(f);
-
             }
             System.out.println();
         }
