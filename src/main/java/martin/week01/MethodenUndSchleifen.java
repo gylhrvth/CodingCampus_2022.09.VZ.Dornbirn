@@ -170,8 +170,7 @@ public class MethodenUndSchleifen {
         filler(" O",(length-1)/2);
         System.out.println();
         for (int s = 0; s < 2; s++) {
-            //Variable Stammposition ausarbeiten
-            filler(" ", (length/2)+2);
+            filler(" ", ((length*2-1)-5)/2);
             filler("+", 5);
             System.out.println();
         }
