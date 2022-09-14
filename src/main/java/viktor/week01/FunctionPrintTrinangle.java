@@ -92,6 +92,33 @@ public class FunctionPrintTrinangle {
 
     }
 
+    public static void printSlash(String f, int rows, boolean c) {
+
+
+        if (c) {
+            for (int i = 0; i < rows; i++) { // Schleife für die Zeilen
+                for (int j = 0; j < i; j++) { // Schleife für die Zeichen
+                    System.out.print(" ");
+                }
+                System.out.println(f);
+            }
+        }
+        else {
+            for (int k = rows; k > 0; k--) {
+                 for (int l = 0; l < k; l++) {
+                     System.out.print(" ");
+                 }
+                 System.out.println(f);
+             }
+
+         }
+     }
+
+
+
+
+
+
 
 
 
@@ -104,7 +131,11 @@ public class FunctionPrintTrinangle {
         System.out.println("\n");
         printTriangleBottomRight("x", 5);
         System.out.println("\n");
-        printEmptySquare("x", 10);
+        printEmptySquare("A", 3);
+        System.out.println("\n");
+        printSlash("x",4, true);
+        System.out.println("\n");
+        printSlash("x", 4, false);
 
     }
 }
