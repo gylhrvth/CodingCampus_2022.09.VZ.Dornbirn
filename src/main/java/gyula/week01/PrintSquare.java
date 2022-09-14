@@ -13,6 +13,8 @@ public class PrintSquare {
         triangleTopLeft("d ", 3);
         System.out.println();
         triangleTopRight2("e ", 8);
+        System.out.println();
+        rombus("X ", 5);
     }
 
     public static void printChars(String letter, int count) {
@@ -78,6 +80,26 @@ public class PrintSquare {
                     System.out.print("  ");
                 } else {
                     System.out.print(letter);
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
+    public static void rombus(String letter, int size){
+        for (int i = 0; i < 2*size-1; i++) {
+            for (int j = 0; j < 2*size-1; j++) {
+                if (i + j == size - 1) {
+                    System.out.print(letter);
+                } else if (j == i + size - 1) {
+                    System.out.print(letter);
+                } else if (j + size - 1 == i) {
+                    System.out.print(letter);
+                } else if (i + j == 3*(size-1)) {
+                    System.out.print(letter);
+                } else {
+                    System.out.print(" ".repeat(letter.length()));
                 }
             }
             System.out.println();
