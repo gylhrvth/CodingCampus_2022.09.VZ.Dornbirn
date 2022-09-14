@@ -28,7 +28,7 @@ public class MethodenUndSchleifen {
         printTriangle("x",5);
         printTriangle("x",1);
         head("#","Print Rhombus");
-        printRhombus("x",8);
+        printRhombus("x",10);
     }
     public static int diff(int from, int to) {
         return to - from;}
@@ -76,14 +76,14 @@ public class MethodenUndSchleifen {
 
     public static void printTriangleTopRight(String symbol, int length) {
         for (int ttr = length; ttr > 0; ttr = ttr - 1) {
-            for (int trld = diff(ttr, length); trld > 0; trld = trld - 1) {
+            for (int trld = diff(ttr, length); trld > 0; trld--) {
                 System.out.print(" ");}
             printChars(symbol, ttr);}
         System.out.println();}
 
     public static void printTriangleBottomRight(String symbol, int length) {
         for (int tbr = 0; tbr <= length; ++tbr) {
-            for (int trld = diff(tbr, length); trld > 0; trld = trld - 1) {
+            for (int trld = diff(tbr, length); trld > 0; trld--) {
                 //Needs work, first line is wrong
                 //if (trld != length){
                 System.out.print(" ");}
@@ -92,9 +92,9 @@ public class MethodenUndSchleifen {
 
     public static void printEmptySquare(String symbol, int length) {
         filler(symbol, length);
-        for (int width = length; width > 2; width = width - 1) {
+        for (int width = length; width > 2; width--) {
             System.out.print(symbol);
-            for (int pes = length - 2; pes > 0; pes = pes - 1) {
+            for (int pes = length - 2; pes > 0; pes--) {
                 System.out.print(" ");}
             System.out.println(symbol);}
         filler(symbol, length);
@@ -118,8 +118,8 @@ public class MethodenUndSchleifen {
             System.out.print(" ");}
         System.out.println(symbol);
         if (length>1){
-        for (int tri = length-1; tri > 1 ; tri=tri-1) {
-            for (int trie = tri-1; trie > 0; trie=trie-1) {
+        for (int tri = length-1; tri > 1 ; tri--) {
+            for (int trie = tri-1; trie > 0; trie--) {
                 System.out.print(" ");}
             System.out.print(symbol);
             for (int trif = (length-tri-1)*2; trif >= 0; trif--) {
@@ -128,16 +128,23 @@ public class MethodenUndSchleifen {
             filler(symbol,length+2*trih);}
         System.out.println();}
     public static void printRhombus (String symbol, int length) {
-            for (int rhom = 0; rhom <= length ; rhom++) {
-            if (length%2==0){
-                filler("-",(length/2)-1);
-                System.out.print(symbol);
-                filler(symbol, (length/2)+(rhom*2));
-                System.out.println(symbol);
-            }
-
-            else
-                System.out.println("in Arbeit");
-        }
+        for (int rhomtip = (length-1)/2; rhomtip > 0; rhomtip--) {
+            System.out.print("-");}
+        if (length%2==0){System.out.print("x");}
+        System.out.println(symbol);
+        for (int rhomfall = (length-3)/2; rhomfall >= 0; rhomfall--) {
+            for (int rhomfpos = rhomfall; rhomfpos > 0; rhomfpos--) {
+                    System.out.print("-");}
+            System.out.print("x");
+            for (int rhomffil = ((length/2)-1-rhomfall)*2; rhomffil > 0; rhomffil--) {
+                System.out.print("-");}
+            System.out.println("x");}
+        for (int rhomrise = length/2; rhomrise > 0; rhomrise--) {
+            for (int rhomrpos = rhomrise; rhomrpos > 0; rhomrpos--) {
+                System.out.print("-");}
+            System.out.print("x");
+            for (int rhomrfil = ((length/2)-1-rhomrise)*2; rhomrfil > 0; rhomrfil--) {
+                System.out.print("-");}
+            System.out.println("x");}
     }
 }
