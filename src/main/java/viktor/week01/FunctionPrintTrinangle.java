@@ -52,16 +52,42 @@ public class FunctionPrintTrinangle {
         }
     }
 
-    public static void printTriangleBottomRight(String f, int m){ //nicht richtig
-        for(int j = 1; j <= m; j++) { // Zeile
-            for(int i = 1; i <= m-1; i++){ // Leer-Zeichen m-1 mal
+    public static void printTriangleBottomRight(String f, int m){ // m - Zeile
+
+
+        for(int j = 1; j <= m; j++) // Zeile
+        {
+            for(int i = 1; i <= m-j; i++){   // mit Leer-Zeichen befüllen
                 System.out.print(" ");
             }
-            for (int k = 1; k <= m - j + 1; k++) {
+            for(int k = 1; k <= j; k++){
                 System.out.print(f);
-
             }
             System.out.println();
+        }
+
+    }
+
+    public static void printEmptySquare(String f, int rows){
+        for(int i=1; i <= rows; i++){ // erste Zeile
+            System.out.print(f);
+        }
+        System.out.println();
+
+        for(int j=1; j <= rows-2; j++){
+
+            int space = rows-2;
+            System.out.print(f);
+
+            for(int k=1; k <= space; k++){
+                System.out.print(" ");
+            }
+            System.out.print(f);
+            System.out.println();
+        }
+
+        for(int l = 1; l <= rows; l++){
+            System.out.print(f);
         }
 
     }
@@ -77,6 +103,8 @@ public class FunctionPrintTrinangle {
         printTriangleTopRight2("T", 5);
         System.out.println("\n");
         printTriangleBottomRight("x", 5);
+        System.out.println("\n");
+        printEmptySquare("x", 10);
 
     }
 }
