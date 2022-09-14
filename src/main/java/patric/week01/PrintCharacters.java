@@ -4,7 +4,7 @@ public class PrintCharacters {
     public static void main(String[] args) {
         printChars("x ", 5 );
         System.out.println();
-        printSquare("a ", 5  );
+        printSquare("a ", 10 );
         System.out.println();
 
 
