@@ -16,10 +16,6 @@ public class Zaehlen {
             System.out.println(j);
 
             ++j;
-
         }
-        System.out.println("============================");
-
-
     }
 }

@@ -38,7 +38,6 @@ public class FunctionPrintTrinangle {
         }
     }
 
-
     public static void printTriangleTopRight2(String f, int rows) {
         for (int j = 1; j <= rows; j++) {
             for (int i = 1; i <= rows; i++) {
