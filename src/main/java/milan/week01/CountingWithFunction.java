@@ -49,8 +49,8 @@ public class CountingWithFunction {
     }
 
     public static void printTriangleBottomLeft(String titel, int anzahld) {
-        for (int i = 1; i <= anzahld; i++) {
-            for (int j = 1; j <= i; ++j) {
+        for (int i = 0; i < anzahld; i++) {
+            for (int j = 0; j <= i; ++j) {
                 System.out.print(titel);
             }
             System.out.println();

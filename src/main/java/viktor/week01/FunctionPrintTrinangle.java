@@ -38,7 +38,6 @@ public class FunctionPrintTrinangle {
         }
     }
 
-
     public static void printTriangleTopRight2(String f, int rows) {
         for (int j = 1; j <= rows; j++) {
             for (int i = 1; i <= rows; i++) {
@@ -118,29 +117,56 @@ public class FunctionPrintTrinangle {
         }
     }
 
-
     public static void printTriangle(String text, int zeile) {
         for (int i = 0; i < zeile; i++) {   // Zeilen
             for (int j = 0; j < 2 * zeile - 1; j++) {   // Positionen innerhalb der Zeile
                 if (i + j == zeile - 1) {   // Ist es linke Kante?
                     System.out.print(text);
+
                 } else if (i == j - zeile + 1) {    // Ist es rechte Kante?
                     System.out.print(text);
+
                 } else if (i == zeile - 1) {         // Ist es das Fussboden?
                     System.out.print(text);
+
                 } else {
-                    System.out.print("  ");
+                    System.out.print(".");
                 }
             }
             System.out.println();
         }
     }
 
+    public static void printRhombus(String f, int rows) {
+        for (int i = 0; i < rows * 2; i++) {
 
-        public static void main(String[] args) {
+            for (int j = 0; j < 2 * rows - 1; j++) {   // Positionen innerhalb der Zeile
+                    //Upper half
+                    if (i + j == rows - 1) {   // Ist es linke Kante?
+                        System.out.print(f);
+
+                    } else if (i == j - rows + 1) {    // Ist es rechte Kante?
+                        System.out.print(f);
+
+                    } else if ((i == rows - 1) && (j == i) && (j == 2 * rows - 1)) {
+                        System.out.print(f);
+                    }
+                    else {
+                        System.out.print(".");
+                    }
+
+                    //lower half
+            }
+            System.out.println();
+        }
+
+    }
+
+
+    public static void main(String[] args) {
         printTriangleBottomLeft("x", 5);
         System.out.println("\n");
-        printTriangleTopLeft("x",5);
+        printTriangleTopLeft("x", 5);
         System.out.println("\n");
         printTriangleTopRight2("T", 5);
         System.out.println("\n");
@@ -148,11 +174,14 @@ public class FunctionPrintTrinangle {
         System.out.println("\n");
         printEmptySquare("A", 3);
         System.out.println("\n");
-        printSlash("x",4, true);
+        printSlash("x", 4, true);
         System.out.println("\n");
         printSlash("x", 4, false);
         System.out.println("\n");
-        printTriangle("x",3);
+        printTriangle("x", 5);
+        System.out.println("\n");
+        printRhombus("x", 7);
+
 
     }
 }
