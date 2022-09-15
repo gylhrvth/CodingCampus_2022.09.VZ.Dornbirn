@@ -6,12 +6,6 @@ public class PrintCharacters {
         System.out.println();
         printSquare("a ", 10 );
         System.out.println();
-
-
-
-
-
-
     }
     public static void printChars(String x, int size){
         for(int i =0; i< size; ++i){
@@ -27,9 +21,7 @@ public class PrintCharacters {
             }
             System.out.println();
         }
-
-
     }
-
-
 }
+
+
