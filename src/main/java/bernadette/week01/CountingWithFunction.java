@@ -250,9 +250,9 @@ public class CountingWithFunction {
             for (int j = 1; j < treetopheight * 2; j++) {
 
                 if (j > middlecol - i && j < middlecol + i) {
-                    System.out.print(" m ");
+                    System.out.print("*");
                 } else {
-                    System.out.print("   ");
+                    System.out.print(" ");
                 }
             }
             System.out.println();
@@ -260,22 +260,23 @@ public class CountingWithFunction {
         }
         // then add the line of christmas balls
         for (int i = 1; i < treetopheight * 2; ++i) {
-            System.out.print(" O ");
-
+            System.out.print("O");
         }
         System.out.println();
 
 
         // then add the trunk of the tree
-        for (int i = 1; i < treetopheight * 2; ++i) {
-            if (i >= middlecol - 2 && i <= middlecol + 2) {
-                System.out.print(" t ");
-            } else {
-                System.out.print("   ");
+        for (int i = 1; i < 4; ++i) {
+            for (int j = 1; j < treetopheight * 2; j++) {
+                if (j >= middlecol - 2 && j <= middlecol + 2) {
+                    System.out.print("+");
+                } else {
+                    System.out.print(" ");
+                }
             }
-
-
+            System.out.println();
         }
+
     }
 }
 
