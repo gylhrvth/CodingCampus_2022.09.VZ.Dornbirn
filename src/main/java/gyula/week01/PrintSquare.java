@@ -2,6 +2,7 @@ package gyula.week01;
 
 public class PrintSquare {
     public static void main(String[] args) {
+        /*
         printChars("x", 10);
         System.out.println();
         printSquare("a ", 5);
@@ -15,6 +16,9 @@ public class PrintSquare {
         triangleTopRight2("e ", 8);
         System.out.println();
         rombus("X ", 5);
+         */
+
+        rombus2("X ", 5);
     }
 
     public static void printChars(String letter, int count) {
@@ -106,5 +110,30 @@ public class PrintSquare {
         }
     }
 
+
+    public static void printLine(int preFix, String preFixletter, String letter, int midLength, String midLetter){
+        for (int i = 0; i < preFix ; i++) {
+            System.out.print(preFixletter);
+        }
+        System.out.print(letter);
+        if (midLength >= 0){
+            for (int i = 0; i < midLength; i++) {
+                System.out.print(midLetter);
+            }
+            System.out.print(letter);
+        }
+        for (int i = 0; i < preFix; i++) {
+            System.out.print(preFixletter);
+        }
+        System.out.println();
+    }
+
+    public static void rombus2(String letter, int size){
+        for (int i = 0; i < 2 * size - 1; i++) {
+            int prefix = Math.abs(size - 1 - i);
+            int mid = 2*size - 3 - Math.abs(2*(size-1) - 2*i);
+            printLine(prefix, "  ", "X ", mid, "  ");
+        }
+    }
 
 }

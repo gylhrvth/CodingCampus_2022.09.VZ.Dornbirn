@@ -7,7 +7,7 @@ public class FunctionPrintSquare {
             for (int i = 1; i <= n; i++) {
                 System.out.print(f);
             }
-            System.out.println(f);
+            System.out.println();
         }
 
     }

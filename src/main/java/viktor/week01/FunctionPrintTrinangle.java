@@ -138,28 +138,40 @@ public class FunctionPrintTrinangle {
     }
 
     public static void printRhombus(String f, int rows) {
-        for (int i = 0; i < rows * 2; i++) {
-
-            for (int j = 0; j < 2 * rows - 1; j++) {   // Positionen innerhalb der Zeile
-                    //Upper half
-                    if (i + j == rows - 1) {   // Ist es linke Kante?
-                        System.out.print(f);
-
-                    } else if (i == j - rows + 1) {    // Ist es rechte Kante?
-                        System.out.print(f);
-
-                    } else if ((i == rows - 1) && (j == i) && (j == 2 * rows - 1)) {
-                        System.out.print(f);
-                    }
-                    else {
-                        System.out.print(".");
-                    }
-
-                    //lower half
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < rows; j++) {   // Positions in the rows
+                if ((i + j) * 2 == rows - 1) {  // Load with chars on the top left side
+                    System.out.print(f);
+                } else if ((j - i) * 2 == rows - 1) {  // Load with chars on the top right side
+                    System.out.print(f);
+                } else if ((i - j) * 2 == rows - 1) {  // Load with chars on the bottom left side
+                    System.out.print(f);
+                } else if ((i + j) * 2 == (rows - 1) * 3) {  // Load with chars on the bottom right side
+                    System.out.print(f);
+                } else {
+                    System.out.print(".");
+                }
             }
             System.out.println();
         }
+    }
 
+
+    public static void printX(String f, int rows) {
+
+        for (int i = 0; i < rows; i++) { // rows
+            for (int j = 0; j < rows; j++) { // positions in the rows
+
+                if (i + j == rows - 1) {   // condition from printSlash
+                    System.out.print(f);
+                } else if (i == j) {      //condition from printSlash
+                    System.out.print(f);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
     }
 
 
@@ -181,6 +193,8 @@ public class FunctionPrintTrinangle {
         printTriangle("x", 5);
         System.out.println("\n");
         printRhombus("x", 7);
+        System.out.println("\n");
+        printX("x", 5);
 
 
     }
