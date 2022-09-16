@@ -139,21 +139,19 @@ public class FunctionPrintTrinangle {
 
     public static void printRhombus(String f, int rows) {
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < rows; j++) {   // Positionen innerhalb der Zeile
-                if ((i + j) * 2 == rows - 1) {
+            for (int j = 0; j < rows; j++) {   // Positions in the rows
+                if ((i + j) * 2 == rows - 1) {  // Load with chars on the top left side
                     System.out.print(f);
-                } else if ((j - i) * 2 == rows - 1) {
+                } else if ((j - i) * 2 == rows - 1) {  // Load with chars on the top right side
                     System.out.print(f);
-                } else if ((i - j) * 2 == rows - 1) {
+                } else if ((i - j) * 2 == rows - 1) {  // Load with chars on the bottom left side
                     System.out.print(f);
-                } else if ((i + j) * 2 == (rows - 1) * 3) {
+                } else if ((i + j) * 2 == (rows - 1) * 3) {  // Load with chars on the bottom right side
                     System.out.print(f);
                 }
                     else{
                         System.out.print(".");
                     }
-
-                    //lower half
                 }
                 System.out.println();
             }
