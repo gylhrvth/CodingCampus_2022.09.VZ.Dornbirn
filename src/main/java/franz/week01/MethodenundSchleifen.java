@@ -17,7 +17,7 @@ public class MethodenundSchleifen {
         System.out.println("\n");
         printTriangle4("f", 6);
         System.out.println("\n");
-        printEmptySquare("f", 6);
+        printEmptySquare("f", 9);
         System.out.println("\n");
         }
 

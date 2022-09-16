@@ -26,6 +26,9 @@ public class CountingWithFunction {
         System.out.println();
         printTriangle("n ", 1);
 
+        printRhombus("x ", 7);
+
+
 
     }
 
@@ -116,10 +119,9 @@ public class CountingWithFunction {
     }
 
     public static void printEmptySquare(String text, int zeile) {
-        printChars(text, zeile);
-        for (int i = 1; i <= zeile - 2; i++) {
+        for (int i = 1; i <= zeile ; i++) {
             System.out.print(text);
-            for (int f = 1; f <= zeile - 2; f++)
+            for (int f = 1; f <= zeile ; f++)
                 System.out.print("  ");
             System.out.print(text);
             System.out.println();
@@ -133,7 +135,7 @@ public class CountingWithFunction {
     public static void printSlash(String text, int zeile, boolean b) {
         if (b) {
             for (int a = 0; a < zeile; a++) {
-                for (int i = 0; i <a; i++) {
+                for (int i = 0; i < a; i++) {
                     System.out.print(" ");
                 }
                 System.out.println(text);
@@ -144,9 +146,10 @@ public class CountingWithFunction {
         }
 
     }
-    public static void printSlash2(String text, int zeile, boolean a){
-        if (a){
-            for (int d = 0; d < zeile ; d++) {
+
+    public static void printSlash2(String text, int zeile, boolean a) {
+        if (a) {
+            for (int d = 0; d < zeile; d++) {
                 for (int i = 0; i != d; i++) {
                     System.out.print(".");
                 }
@@ -155,7 +158,7 @@ public class CountingWithFunction {
             System.out.println();
             System.out.println();
         } else {
-            for (int d = 0; d < zeile ; d++) {
+            for (int d = 0; d < zeile; d++) {
                 for (int i = 0; i < zeile - d - 1; i++) {
                     System.out.print(".");
                 }
@@ -166,25 +169,51 @@ public class CountingWithFunction {
         }
     }
 
-    public static void printTriangle(String text, int zeile){
-        for (int i = 0; i < zeile ; i++) { // Zeilen
-            for (int j = 0; j < 2 * zeile -1 ; j++) { // Positionen innerhalb der Zeile
+    public static void printTriangle(String text, int zeile) {
+        for (int i = 0; i < zeile; i++) { // Zeilen
+            for (int j = 0; j < 2 * zeile - 1; j++) { // Positionen innerhalb der Zeile
                 if (i + j == zeile - 1) { // Ist es linke Kante?
                     System.out.print(text);
                 } else if (i == j - zeile + 1) { // Ist es rechte Kante?
                     System.out.print(text);
-                } else if (i == zeile -1){ // Ist es das Fussboden?
+                } else if (i == zeile - 1) { // Ist es der Fussboden?
                     System.out.print(text);
                 } else {
                     System.out.print("  ");
                 }
             }
-
             System.out.println();
 
         }
+        System.out.println();
+        System.out.println();
+
+    }
+
+    public static void printRhombus(String text, int zeile) {
+        for (int i = 1; i< zeile ; i++) { // Zeile
+            for (int j = 1; j < 2 * zeile - 1; j++) {
+                if (j == i ) {
+                    System.out.println(text);
+                }
+
+                System.out.print(".");
+
+            }
+            System.out.println(text);
+
+
+        }
+
+
     }
 }
+
+
+
+
+
+
 
 
 
