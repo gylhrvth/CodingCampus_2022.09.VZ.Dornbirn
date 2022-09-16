@@ -138,50 +138,48 @@ public class FunctionPrintTrinangle {
     }
 
     public static void printRhombus(String f, int rows) {
-        for (int i = 0; i < rows * 2; i++) {
-
-            for (int j = 0; j < 2 * rows - 1; j++) {   // Positionen innerhalb der Zeile
-                    //Upper half
-                    if (i + j == rows - 1) {   // Ist es linke Kante?
-                        System.out.print(f);
-
-                    } else if (i == j - rows + 1) {    // Ist es rechte Kante?
-                        System.out.print(f);
-
-                    } else if ((i == rows - 1) && (j == i) && (j == 2 * rows - 1)) {
-                        System.out.print(f);
-                    }
-                    else {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < rows; j++) {   // Positionen innerhalb der Zeile
+                if ((i + j) * 2 == rows - 1) {
+                    System.out.print(f);
+                } else if ((j - i) * 2 == rows - 1) {
+                    System.out.print(f);
+                } else if ((i - j) * 2 == rows - 1) {
+                    System.out.print(f);
+                } else if ((i + j) * 2 == (rows - 1) * 3) {
+                    System.out.print(f);
+                }
+                    else{
                         System.out.print(".");
                     }
 
                     //lower half
+                }
+                System.out.println();
             }
-            System.out.println();
+
         }
 
+
+        public static void main (String[]args){
+            printTriangleBottomLeft("x", 5);
+            System.out.println("\n");
+            printTriangleTopLeft("x", 5);
+            System.out.println("\n");
+            printTriangleTopRight2("T", 5);
+            System.out.println("\n");
+            printTriangleBottomRight("x", 5);
+            System.out.println("\n");
+            printEmptySquare("A", 3);
+            System.out.println("\n");
+            printSlash("x", 4, true);
+            System.out.println("\n");
+            printSlash("x", 4, false);
+            System.out.println("\n");
+            printTriangle("x", 5);
+            System.out.println("\n");
+            printRhombus("x", 7);
+
+
+        }
     }
-
-
-    public static void main(String[] args) {
-        printTriangleBottomLeft("x", 5);
-        System.out.println("\n");
-        printTriangleTopLeft("x", 5);
-        System.out.println("\n");
-        printTriangleTopRight2("T", 5);
-        System.out.println("\n");
-        printTriangleBottomRight("x", 5);
-        System.out.println("\n");
-        printEmptySquare("A", 3);
-        System.out.println("\n");
-        printSlash("x", 4, true);
-        System.out.println("\n");
-        printSlash("x", 4, false);
-        System.out.println("\n");
-        printTriangle("x", 5);
-        System.out.println("\n");
-        printRhombus("x", 7);
-
-
-    }
-}
