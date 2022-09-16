@@ -15,8 +15,8 @@ public class PrintCharacters {
     }
 
     public static void printSquare(String x, int length) {
-        for (int rows = 0; rows < length; rows++) {
-            for (int i = 0; i < length; i++) {
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length; j++) {
                 System.out.print(x);
             }
             System.out.println();
