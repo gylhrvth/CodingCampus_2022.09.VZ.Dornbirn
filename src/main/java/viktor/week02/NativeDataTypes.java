@@ -2,20 +2,34 @@ package viktor.week02;
 
 public class NativeDataTypes {
 
-    public static void faktorial(){
-
-        long result=1;
-        for(long i = 1; i <= 20; i++){
-            result *= i;
+    public static void faktorial() {
+            long result=1;
+            for (long i = 1; i <= 20; i++) {
+                result *= i;
+                System.out.printf("%2d! = %20d%n", i, result);
+            }
         }
-        System.out.println("20! = " + result);
+
+
+        public static void taskThree(){
+        for(int i=0; i<=1000; i++){
+            System.out.println(i/10f);
+        }
     }
+
 
     public static void main(String[] args) {
         faktorial();
+        System.out.println("\n");
+        taskThree();
+        System.out.println("\n");
+
+
 
 
 
     }
+
+
 
 }
