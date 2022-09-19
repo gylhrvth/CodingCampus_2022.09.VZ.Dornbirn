@@ -16,6 +16,16 @@ public class NativeDataTypes {
         }
     }
 
+    public static void taskFour(){
+        for(int i = 0; i <= 20; i++){
+            System.out.println("Zähler: "+i);
+            System.out.println("Div:"+i/5);
+            System.out.println("Div mit float:"+i/5f);
+            System.out.println("\n");
+        }
+    }
+
+
 
 
 
@@ -24,6 +34,11 @@ public class NativeDataTypes {
         System.out.println("\n");
         taskThree();
         System.out.println("\n");
+        taskFour();
+        System.out.println("\n");
+
+        float f = 5f;
+        System.out.println(f);
 
 
 
