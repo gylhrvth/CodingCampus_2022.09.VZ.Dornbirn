@@ -10,12 +10,13 @@ public class NativeDataTypes {
             }
         }
 
-
         public static void taskThree(){
         for(int i=0; i<=1000; i++){
-            System.out.println(i/10f);
+            System.out.printf("%5.1f%n",i/10f);
         }
     }
+
+
 
 
     public static void main(String[] args) {
@@ -23,7 +24,6 @@ public class NativeDataTypes {
         System.out.println("\n");
         taskThree();
         System.out.println("\n");
-
 
 
 
