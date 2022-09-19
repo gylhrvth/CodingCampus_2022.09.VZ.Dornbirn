@@ -1,6 +1,6 @@
 package milan.week01;
 
-public class printTriangle {
+public class PrintTriangle {
 
     public static void main(String[] args) {
         System.out.println("===========");
