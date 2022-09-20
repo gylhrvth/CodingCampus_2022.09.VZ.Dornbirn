@@ -1,14 +1,9 @@
 package fatima.week01;
 
-import com.sun.source.util.SourcePositions;
-
-import java.sql.SQLOutput;
-import java.util.zip.ZipFile;
-
 public class PrintCharacters {
 
     public static void main(String[] args) {
-
+        System.out.println();
         printChars("x", 10);
         System.out.println();
         printSquare("x ", 5);
@@ -23,13 +18,18 @@ public class PrintCharacters {
         System.out.println();
         printTriangleBottomRight("x", 5);
         System.out.println();
-        printEmptySquare("o", 10);
+        printEmptySquare("x", 10);
         System.out.println();
-        printEmptySquare1("A", 3);
+        printEmptySquare1("x", 3);
         System.out.println();
-        printSlash("x", 4, true);
+        printSlash("x", 4, false);
         System.out.println();
-        printTriangle1("o", 5);
+        printTriangle("x", 3);
+        System.out.println();
+        printTriangle2("x", 5);
+        System.out.println();
+        printRhombus("x", 7);
+
     }
 
 
@@ -59,19 +59,19 @@ public class PrintCharacters {
     }
 
     public static void printTriangleBottomLeft(String text, int size) {
-        for (int i = 0; i <= size; i++) {
-            for (int j = 0; j <= i; j++) {
+        for (int j = 0; j <= size; j++) {
+            for (int i = 0; i < j; i++) {
                 System.out.print(text);
             }
             System.out.println();
         }
     }
 
+
     public static void printTriangleTopLeft(String text, int size) {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if (i <= j)
-                    System.out.print(text);
+        for (int j = 0; j < size; j++) {
+            for (int i = 0; i < size - j; i++) {
+                System.out.print(text);
             }
             System.out.println();
         }
@@ -91,7 +91,7 @@ public class PrintCharacters {
 
     public static void printTriangleBottomRight(String text, int size) {
         for (int j = 0; j < size; j++) {
-            for (int i = 0; i < size - j; i++) {
+            for (int i = 0; i < size - j - 1; i++) {
                 System.out.print(" ");
             }
             for (int k = 0; k <= j; k++) {
@@ -110,7 +110,7 @@ public class PrintCharacters {
                 else if (j == 1 || j == size)
                     System.out.print(text);
                 else
-                    System.out.print("_");
+                    System.out.print(" ");
             }
             System.out.println();
         }
@@ -139,7 +139,7 @@ public class PrintCharacters {
 
     public static void printSlashF(String text, int size) {
         for (int j = 0; j < size; j++) {
-            for (int i = 0; i < size - j; i++) {
+            for (int i = 0; i < size - j - 1; i++) {
                 System.out.print(" ");
             }
             System.out.print(text);
@@ -148,8 +148,8 @@ public class PrintCharacters {
     }
 
     public static void printSlashB(String text, int size) {
-        for (int j = 0; j < size; j++) {
-            for (int i = 0; i < j; i++) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < i; j++) {
                 System.out.print(" ");
             }
             System.out.print(text);
@@ -157,34 +157,70 @@ public class PrintCharacters {
         }
     }
 
-    public static void printTriangle1(String text, int size) {
-        for (int j = 0; j < size; j++) {
-            for (int i = 0; i < size - j - 1; i++) {
+    public static void printTriangle(String text, int size) {
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
                 System.out.print(" ");
             }
             System.out.print(text);
-            if (j > 0) {
-                for (int i = 0; i < 2*j-1; i++) {
-                    if (j < size - 1) {
-                        System.out.print(" ");
-                    } else {
-                        System.out.print(text);
-                    }
+            if (i > 0) {
+                for (int j = 0; j < 2 * i - 1; j++) {
+                    System.out.print(" ");
                 }
-                    System.out.print(text);
-                }
-                System.out.println();
+                System.out.print(text);
             }
+            System.out.println();
         }
+        for (int i = 0; i < size * 2 - 1; i++) {
+            System.out.print(text);
+        }
+        System.out.println();
     }
 
+    public static void printTriangle2(String text, int size) {
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) {
+                System.out.print(" ");
+            }
+            System.out.print(text);
+            if (i > 0) {
+                for (int k = 0; k < 2 * i - 1; k++) {
+                    System.out.print(" ");
+                }
+                System.out.print(text);
+            }
+            System.out.println();
+        }
+        for (int l = 0; l < size * 2 - 1; l++) {
+            System.out.print(text);
+        }
+        System.out.println();
+    }
 
+    public static void printRhombus(String text, int size) {
+        for (int i = 0; i < size / 2 + 1; i++) {
+            for (int j = 0; j < size / 2 - i; j++) {
+                System.out.print("_");
+            }
+            System.out.print(text);
+            if (i > 0) {
+                for (int k = 0; k < 2 * i - 1; k++) {
+                    System.out.print("-");
+                }
+                System.out.print(text);
+            }
+            System.out.println();
+        }
+        for (int m = 0; m < size / 2; m++) {
+            for (int n = 0; n < m + 1; n++) {
+                System.out.print("_");
+            }
+            System.out.print(text);
 
-
-
-
-
-
-
+            System.out.println();
+        }
+        System.out.println();
+    }
+}
 
 
