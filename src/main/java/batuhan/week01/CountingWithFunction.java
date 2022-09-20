@@ -1,4 +1,4 @@
-package alp.batuhan;
+package batuhan.week01;
 
 import patric.week01.Zaehlen;
 
