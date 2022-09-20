@@ -1,4 +1,4 @@
-package batuhan.week01;
+package alp.batuhan.week01;
 
 public class HelloWorld {
     public static void main(String[] args) {
