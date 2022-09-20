@@ -3,6 +3,7 @@ package franz.week02;
 public class PrimitiveDatentypen {
     public static void main(String[] args) {
 
+
         System.out.println("Faktorial 1-20");
         for (long i = 1; i <= 20; i++) {
             System.out.print(i);
@@ -49,12 +50,34 @@ public class PrimitiveDatentypen {
             System.out.printf("| %7d | %7d | %10.1f |\n", i, i/5, i/5.0);
         }
         System.out.println("V1 Leibniz Reihe");
-        for (double i = 0; i <=100 ; i++) {
-            System.out.print(i );
+        leibnitz( 0.00000001);
+        System.out.println("");
+        System.out.println("V2 Nilakantha Reihe");
+        nilakantha(0);
+
 
         }
-
-
+    public static void leibnitz( double precision){
+        double piMax = 9999;
+        double piMin = 0;
+        int i= 0;
+        while (piMax - piMin >= precision) {
+            piMax = piMin + 4.0 / (4 * i + 1);
+            piMin = piMax - 4.0 / (4 * i + 3);
+            ++i;
+        }
+        System.out.printf("pi %12.10f %12.10f (diff: %12.10f) \n", piMin, piMax, piMax-piMin );
     }
+    public static void nilakantha( int x){
+        for (int i = 1; i <=10; i++) {
+            System.out.print(4/(i+1.0)*(i+2)*(i+3));
+            System.out.println();
+            System.out.print(4/(i+4.0)*(i+5)*(i+6));
+
+        }
+        }
 }
+
+
+
 
