@@ -28,13 +28,15 @@ public class PrimitiveDatentypen {
 
         System.out.println("V1 Zählen 1-100in 0,1(falsch)");
         for (float i = 1; i <= 100; i += 0.1f) {
-            System.out.println(i);
+            System.out.print(i);
+            System.out.println();
         }
         System.out.println();
 
         System.out.println("V2 Zählen 1-100 (1000)in 0,1");
         for (float i = 1; i <= 1000; i++) {
-            System.out.printf("%-6.2f", i / 10f);
+            System.out.printf("%6.2f", i / 10f);
+            System.out.println();
 
         }
         System.out.println();
