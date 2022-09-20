@@ -2,7 +2,11 @@ package bernadette.week01;
 
 public class HelloWorld {
     public static void main(String[] args) {
+        System.out.println("\n");
         System.out.println("Hello World");
+        System.out.println("\n");
+
+        // to print out a backslash (\), use "\\"!
 
         System.out.println("     / --\\        ");
         System.out.println("    / / \\ \\       ");
@@ -10,18 +14,8 @@ public class HelloWorld {
         System.out.println("  / /     \\ \\     ");
         System.out.println(" / / ===== \\ \\    ");
         System.out.println("/_/         \\_\\   ");
-        System.out.println("                                                      ");
-        System.out.println("                                                      ");
-        System.out.println("                                                      ");
-        System.out.println("                                                      ");
-        System.out.println("                                                      ");
-        System.out.println("                                                      ");
-        System.out.println("                                                      ");
-        System.out.println("                                                      ");
-        System.out.println("                                                      ");
-        System.out.println("                                                      ");
 
-
+        System.out.println("\n");
 
         System.out.println(" .----------------.  .----------------.  .----------------.  .-----------------. .-----------------.             ");
         System.out.println("| .--------------. || .--------------. || .--------------. || .--------------. || .---------------. |            ");
@@ -34,7 +28,6 @@ public class HelloWorld {
         System.out.println("| |              | || |              | || |              | || |              | || |               | |            ");
         System.out.println("| '--------------' || '--------------' || '--------------' || '--------------' || '---------------' |            ");
         System.out.println("  '----------------'  '----------------'  '----------------'  '----------------'  '-----------------'            ");
-
 
 
     }
