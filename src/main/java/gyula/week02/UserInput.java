@@ -35,7 +35,7 @@ public class UserInput {
     public static int readUserInputIntegerV2(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Geben Sie eine Ganzzahl ein:");
-        int value = 1;
+        int value = 2;
         try {
             value = sc.nextInt();
         } catch (InputMismatchException ime) {
@@ -102,7 +102,7 @@ public class UserInput {
                     value = Double.MIN_VALUE;
                 }
             } catch (InputMismatchException ime) {
-                System.out.println("Es ist keine Zahl");
+                System.out.println("Es ist keine Zahl ");
             }
             sc.nextLine();
         } while (value == Double.MIN_VALUE);
