@@ -1,5 +1,6 @@
 package viktor.week02;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,17 +19,24 @@ public class Quizgame {
         System.out.println("Errate die Zahl zwischen 0 und 100!");
         int myRate = 1;
 
-        do {
-            myRate = sc.nextInt();
+            do {
+                try {
+                myRate = sc.nextInt();
 
-            if (myRate < random_number) {
-                System.out.println("Leider nicht getroffen, gib mir bitte eine grö0ere Ganzzahl ein!");
-            } else if (myRate > random_number) {
-                System.out.println("Leider nicht getroffen, gib mir bitte eine kleinere Ganzzahl ein!");
-            } else {
-                System.out.println("Super gemacht, getroffen!");
+                if (myRate < random_number) {
+                    System.out.println("Leider nicht getroffen, gib mir bitte eine grö0ere Ganzzahl ein!");
+                } else if (myRate > random_number) {
+                    System.out.println("Leider nicht getroffen, gib mir bitte eine kleinere Ganzzahl ein!");
+                } else {
+                    System.out.println("Super gemacht, getroffen!");
+                }
+
+            }catch(InputMismatchException ime){
+                System.out.println("Falsche Eingabe, gib bitte eine Ganzzahl ein!");
             }
-        } while (myRate != random_number);
+                sc.nextLine();
+            } while (myRate != random_number);
+
 
 
     }
