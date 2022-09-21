@@ -1,9 +1,10 @@
 package batuhan.week02;
 
-import batuhan.week01.CountingWithFunction;
+import batuhan.week01.CoutingWithFunction;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
 
 public class UserInput {
     public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class UserInput {
 
         String text = readUserInputString();
         int size = readUserInputIntegerV2();
-        CountingWithFunction.printTriangleBottomLeft(text, size);
+        CoutingWithFunction.printTriangleBottomLeft(text, size);
     }
 
     public static String readUserInputString() {
@@ -34,7 +35,7 @@ public class UserInput {
     public static int readUserInputIntegerV2() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Geben sie bitte eine Zahl ein: ");
-        int value = 1;
+        int value = 0;
         try {
             value = sc.nextInt();
         } catch (InputMismatchException ime) {
