@@ -1,5 +1,6 @@
 package viktor.week02;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserInput {
@@ -17,10 +18,20 @@ public class UserInput {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Gib mir bitte eine Ganzzahl an: ");
-        int number = sc.nextInt();
-        System.out.println();
+        int number = Integer.MIN_VALUE;
+
+        do{
+            try {
+                number = sc.nextInt();
+            } catch (InputMismatchException ime) {
+                System.out.println("Falsche Eingabe, gib mir bitte eine Ganzzahl an!");
+            }
+            sc.nextLine();
+        } while (number == Integer.MIN_VALUE);
+
         return number;
     }
+
 
     public static double readUserInputDouble() {
 
@@ -34,13 +45,13 @@ public class UserInput {
 
     public static void main(String[] args) {
 
-        String text = readUserInput();
+        //String text = readUserInput();
         int num = readUserInputInteger();
-        double d = readUserInputDouble();
+        //double d = readUserInputDouble();
 
-        System.out.printf("Deine Texteingabe: %5s%n",text);
-        System.out.printf("Deine Zahleingabe: %5d%n",num);
-        System.out.printf("Deine Kommazahl: %10.2f",d);
+        //System.out.printf("Deine Texteingabe: %5s%n",text);
+        System.out.printf("Deine Zahleingabe: %5d%n", num);
+        //System.out.printf("Deine Kommazahl: %10.2f",d);
 
 
     }
