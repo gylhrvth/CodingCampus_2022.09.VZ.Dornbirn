@@ -17,23 +17,27 @@ public class Ratespiel {
         do {
             try{
                 System.out.println("Gib eine Zahl zwischen 0 und " + wertebereich + " ein!");
-                eingabe = sc.nextInt();
+
                 zaehler++;
-                if (zufallsZahl < eingabe) {
+                eingabe = sc.nextInt();
+                if (zufallsZahl <= eingabe) {
                     System.out.println("Du liegst falsch! Die zu erratende Zahl ist kleiner!");
-                } if(zufallsZahl < eingabe) {
+                }
+                if(zufallsZahl >= eingabe) {
                     System.out.println("Du liegst falsch! Die zu erratende Zahl ist GRÖSSER!");
-                }sc.nextLine();
+                }
+                //sc.nextLine();
             }catch (InputMismatchException ime) {
                 System.out.println("Es ist keine Zahl");
+
             }
+            sc.nextLine();//um nicht
         }
         while (zufallsZahl != eingabe);//Schleifenbedingung im Fuß
         System.out.println("Super! Du hast " + zaehler + " Durchgänge benötigt.");
-        return;
 
     }
     public static void main(String[] args) {
-        rateZahl(100);
+        rateZahl(10000);
     }
 }
