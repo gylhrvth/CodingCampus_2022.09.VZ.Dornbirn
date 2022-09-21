@@ -1,10 +1,8 @@
-package alp.batuhan;
+package batuhan.week01;
 
-import patric.week01.Zaehlen;
+public class CoutingWithFunction {
 
-import java.util.Spliterator;
 
-public class CountingWithFunction {
 
     public static void main(String[] args) {
         printChars("x ", 10);
@@ -208,7 +206,6 @@ public class CountingWithFunction {
 
     }
 }
-
 
 
 

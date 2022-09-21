@@ -7,16 +7,19 @@ public class NativeDataTypes {
     public static void main(String[] args) {
         MethodenUndSchleifen.head("#", "Faktorial");
         printFactorial(20);
-        MethodenUndSchleifen.head("#", "Von 0 bis 100 Zaehlen in 0.1er Schritten 1");
+        //MethodenUndSchleifen.head("#", "Von 0 bis 100 Zaehlen in 0.1er Schritten 1");
         //printDecCount1();
         MethodenUndSchleifen.head("#", "Von 0 bis 100 Zaehlen in 0.1er Schritten 1");
         printDecCount2();
         MethodenUndSchleifen.head("#", "Teilen und Herrschen");
         printDivAndConq();
         MethodenUndSchleifen.head("@", "Berehcnung von Pi (Leibniz Reihe)");
-        printCalcPiLeibn(5);
+        printCalcPiLeibn(7);
         MethodenUndSchleifen.head("@", "Berechnung von Pi (Nilakantha Reihe)");
-        printCalcPiNilakantha(20);
+        printCalcPiNilakantha(7);
+        MethodenUndSchleifen.head("@", "Eulerberechnung");
+        printEulerBerechnung(100);
+        MethodenUndSchleifen.head("@","Wurzelanneherung");
     }
 
     public static void printFactorial(int factorial) {
@@ -29,10 +32,10 @@ public class NativeDataTypes {
     }
 
     //public static void printDecCount1() {
-   //     for (float i = 0; i <= 100; i = i + .1f) {
-   //         System.out.printf("%5.1f %n", i);
-  //      }
-  //  }
+    //     for (float i = 0; i <= 100; i = i + .1f) {
+    //         System.out.printf("%5.1f %n", i);
+    //      }
+    //  }
 
     public static void printDecCount2() {
         for (float i = 0; i <= 1000; i++) {
@@ -57,43 +60,56 @@ public class NativeDataTypes {
         System.out.println();
     }
 
-    public static void printCalcPiLeibn(double Kommastellen) {
-        double Pi = 0;
-        double div = 0.5;
-        double i = 1;
-        boolean subOrAdd = true;
-        double Komm = 0;
-        while (div >= 1/(10*(Kommastellen+1))) {
-            if (subOrAdd) {
-                div = 4f / i;
-                Pi = Pi + 4f / i;
-                subOrAdd = false;
-            } else {
-                div = 4f / i;
-                Pi = Pi - 4f / i;
-                subOrAdd = true;
-            }
-            i = i + 2;
-            System.out.println(div);
+    public static void printCalcPiLeibn(int Kommastellen) {
+        double PiMax = 9999;
+        double PiMin = 0;
+        int i = 0;
+        while (PiMax - PiMin >= 1 / (Math.pow(10, Kommastellen))) {
+            PiMax = PiMin + 4.0 / (4 * i + 1);
+            PiMin = PiMax - 4.0 / (4 * i + 3);
+            i++;
         }
-        System.out.printf("%1.10f %n", Pi);
-        System.out.println("Auf " + (int)Kommastellen + " Kommastellen genau berechnet.");
+        System.out.printf("Pi liegt im Bereich von %1.10f bis %1.10f mit einer Genauigkeit von %d Kommastellen.%n", PiMax, PiMin, Kommastellen);
         System.out.println();
     }
 
-    public static void printCalcPiNilakantha(int Iterationen) {
-        double calcPi = 3;
-        boolean subOrAdd = true;
-        for (int i = 3; i <= Iterationen + 3; i = i + 2) {
-            if (subOrAdd) {
-                calcPi = calcPi + 4f / ((i - 1) * i * (i + 1));
-                subOrAdd = false;
-            } else {
-                calcPi = calcPi - 4f / ((i - 1) * i * (i + 1));
-                subOrAdd = true;
-            }
+    public static void printCalcPiNilakantha(int Kommastellen) {
+        double PiMax = 9999;
+        double PiMin = 3;
+        int i = 4;
+        while (PiMax - PiMin >= 1 / (Math.pow(10, Kommastellen))) {
+            PiMax = PiMin + 4f / ((i - 2) * (i - 1) * i);
+            PiMin = PiMax - 4f / ((i + 2) * (i + 1) * i);
+            i = i + 4;
         }
-        System.out.printf("%1.8f %n", calcPi);
+        System.out.printf("Pi liegt im Bereich von %1.10f bis %1.10f mit einer Genauigkeit von %d Kommastellen.%n", PiMax, PiMin, Kommastellen);
         System.out.println();
     }
+
+    public static void printEulerBerechnung(int Wiederholungen) {
+        double e = 1;
+        double factorial=1;
+        for (int i = 0; i < Wiederholungen; i++) {
+            e += Math.pow(1,i)/(factorial=factorial*(i+1));
+        }
+        System.out.printf("Die Rechnung führt zu %.11f.\n\n",e);
+    }
+
+    /*public static void printWurzelnaeherung(int Wiederholungen) {
+        double random = new java.util.Random().nextInt(10000) + 1;
+
+        double factorial=1;
+        for (int i = 0; i < Wiederholungen; i++) {
+            random += Math.pow(1,i)/(factorial=factorial*(i+1));
+        }
+        System.out.printf("Die Rechnung führt zu %.11f.\n\n",random);
+    }
+
+    /*public static void printWurzelnaeherungFalsch(){
+        double random = new java.util.Random().nextInt(10000) + 1;
+        double randomwurzel = Math.pow(random, 0.5f);
+        System.out.printf("Die Wurzel von %.0f ist %.3f.\n\n",random,randomwurzel);
+    }*/
+
+
 }
