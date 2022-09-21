@@ -46,7 +46,7 @@ public class MethodenUndSchleifen {
     public static void filler(String symbol, int fueLae) {
         //fueLae Abk. für Füller Länge
         for (int ih = fueLae; ih > 0; ih--) {
-            System.out.print(symbol);
+            System.out.printf(symbol);
         }
     }
 
@@ -248,6 +248,8 @@ public class MethodenUndSchleifen {
     }*/
 
     public static void printChristmasTree(int length) {
+        String ANSI_GREEN = "\u001B[32m";
+        String ANSI_RESET = "\u001B[0m";
         for (int i = 0; i < length - 1; i++) {
             filler(" ", (length - 1) - i);
             filler("*", 2 * i + 1);
