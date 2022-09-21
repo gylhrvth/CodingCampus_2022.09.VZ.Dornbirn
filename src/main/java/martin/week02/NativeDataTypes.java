@@ -19,8 +19,7 @@ public class NativeDataTypes {
         printCalcPiNilakantha(7);
         MethodenUndSchleifen.head("@", "Eulerberechnung");
         printEulerBerechnung(100);
-        MethodenUndSchleifen.head("@", "Wurzelanneherung");
-        printWurzelnaeherung(2);
+        MethodenUndSchleifen.head("@","Wurzelanneherung");
     }
 
     public static void printFactorial(int factorial) {
@@ -89,33 +88,21 @@ public class NativeDataTypes {
 
     public static void printEulerBerechnung(int Wiederholungen) {
         double e = 1;
-        double factorial = 1;
+        double factorial=1;
         for (int i = 0; i < Wiederholungen; i++) {
-            e += Math.pow(1, i) / (factorial = factorial * (i + 1));
+            e += Math.pow(1,i)/(factorial=factorial*(i+1));
         }
-        System.out.printf("Die Rechnung führt zu %.11f.\n\n", e);
+        System.out.printf("Die Rechnung führt zu %.11f.\n\n",e);
     }
 
-    public static void printWurzelnaeherung(int Kommastellen) {
-        double random = 3600;
+    /*public static void printWurzelnaeherung(int Wiederholungen) {
+        double random = new java.util.Random().nextInt(10000) + 1;
 
-        double rootMax = random;
-        double rootMin = 1;
-        double root = (rootMax/2-rootMin/2);
-        int i = 0;
-        while (
-                i<100) {
-                //(Math.abs(random - (root * root))) >= (1 / (Math.pow(10, Kommastellen)))) {
-            root = ((rootMax-rootMin)/root);
-            if (root * root > random) {
-                rootMax = root;
-            } else {
-                rootMin = root;
-            }
-            i++;
-            System.out.println(rootMax+" "+rootMin);
+        double factorial=1;
+        for (int i = 0; i < Wiederholungen; i++) {
+            random += Math.pow(1,i)/(factorial=factorial*(i+1));
         }
-        System.out.printf("Die Wurzel von %f ist %.2f.\n\n", random, root);
+        System.out.printf("Die Rechnung führt zu %.11f.\n\n",random);
     }
 
     /*public static void printWurzelnaeherungFalsch(){

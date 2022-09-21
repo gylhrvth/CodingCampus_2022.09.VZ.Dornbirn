@@ -10,23 +10,17 @@ public class UserInput {
     public static void main(String[] args) {
         String text = readUserInputString();
         //int size = readUserInputIntegerV1();
-        //int size = readUserInputIntegerV2();
-        //int size = readUserInputIntegerV3();
-        int size = readUserInputIntegerV4(1, 10);
+        int size = readUserInputIntegerV2();
         PrintX.printX(text, size);
-
-        System.out.println("Das Ergebnis: " + size);
     }
-
     public static String readUserInputString() {
-        Scanner sc = new Scanner(System.in);  // erstellt ein Scanner Objekt //statt sc kann auch was anderes verwendet werden
+        Scanner sc = new Scanner(System.in);
         System.out.println("Bitte geben Sie einen Text ein:");
-        String line = sc.nextLine(); //hier wird der Input gelesen
+        String line = sc.nextLine();
 
-        return line; // zeigt an was eingegeben wurde???
+        return line;
 
     }
-
     public static int readUserInputIntegerV1() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Bitte geben Sie eine Zahl ein:");
@@ -35,7 +29,6 @@ public class UserInput {
         return value;
 
     }
-
     public static int readUserInputIntegerV2() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Bitte geben Sie eine Zahl ein:");
@@ -47,45 +40,4 @@ public class UserInput {
         }
         return value;
     }
-
-    public static int readUserInputIntegerV3() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Bitte geben Sie eine Zahl ein:");
-        int value = Integer.MIN_VALUE;
-        do {
-            try {
-                value = sc.nextInt();
-            } catch (InputMismatchException ime) {
-                System.out.println("Leider keine Zahl!");
-            }
-            sc.nextLine();
-        } while (value == Integer.MIN_VALUE);
-        return value;
-
-    }
-
-    public static int readUserInputIntegerV4(int minValue, int maxValue) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Bitte geben Sie eine Zahl ein:");
-        int value = Integer.MIN_VALUE;
-        do {
-            try {
-                value = sc.nextInt();
-                if (value < minValue) {
-                    System.out.println("Die Zahl muss größer als " + minValue + " sein.");
-                    value = Integer.MIN_VALUE;
-                }
-                if (value > maxValue) {
-                    System.out.println("Die Zahl muss kleiner als " + maxValue + " sein.");
-                    value = Integer.MIN_VALUE;
-                }
-            } catch (InputMismatchException ime) {
-                System.out.println("Leider keine Zahl!");
-            }
-            sc.nextLine();
-        } while (value == Integer.MIN_VALUE);
-        return value;
-
-    }
 }
-

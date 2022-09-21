@@ -1,6 +1,6 @@
 package batuhan.week01;
 
-public class CountingWithFunction {
+public class CoutingWithFunction {
 
 
 
@@ -63,8 +63,8 @@ public class CountingWithFunction {
     }
 
     public static void printTriangleBottomLeft(String text, int Zeile) {
-        for (int g = 1; g <= Zeile; g++) {
-            for (int i = 1; i <= g; i++) {
+        for (int g = 0; g <= Zeile; g++) {
+            for (int i = 0; i <= g; i++) {
                 System.out.print(text);
             }
             System.out.println();

@@ -6,7 +6,7 @@ public class PrimitiveDatatypes {
         System.out.println("==================");
         countToHundred();
         System.out.println("==================");
-        teilenUndHerrschen();
+        teilenundHerrschen();
         System.out.println("==================");
         piLeibnitzReihe();
         System.out.println("==================");
@@ -37,7 +37,7 @@ public class PrimitiveDatatypes {
 
     }
 
-    public static void teilenUndHerrschen() {
+    public static void teilenundHerrschen() {
         for (int i = 0; i <= 20; i++) {
             int result = i / 5;
             float result2 = i / 5.0f;
