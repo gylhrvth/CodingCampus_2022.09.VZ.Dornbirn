@@ -5,16 +5,6 @@ import java.util.Scanner;
 
 public class Quizgame {
 
-    public static int readUserInput() {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Gib mir bitte eine Ganzzahl an:");
-        int number = sc.nextInt();
-        System.out.println();
-
-        return number;
-    }
-
 
     public static void main(String[] args) {
         Random rd = new Random();
