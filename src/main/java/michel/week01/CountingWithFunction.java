@@ -1,16 +1,16 @@
 package michel.week01;
 
-import patric.week01.PrintCharacters;
+
 
 import java.sql.SQLOutput;
 
 public class CountingWithFunction {
     public static void main(String[] args) {
 
-        /*printChars("x", 10);
+        printChars("x", 10);
         System.out.println();
 
-        printSquare("x", 10);
+        printSquare("x ", 10);
         System.out.println();
 
         printRectangle("x", 10, 3);
@@ -22,13 +22,19 @@ public class CountingWithFunction {
         printTriangleTopLeft("b", 5);
         System.out.println();
 
-        printTriangleTopRight("c", 5);
+        printTriangleTopRight1("c", 5);
         System.out.println();
 
-        printTriangleBottomRight("d", 5);
+        printTriangleTopRight2("c", 5);
         System.out.println();
 
-        printEmtySquare("X", 10);
+        printTriangleBottomRight1("d", 5);
+        System.out.println();
+
+        printTriangleBottomRight2("d", 5);
+        System.out.println();
+
+        printEmtySquare("X ", 10);
         System.out.println();
 
         printEmptySquare2("A", 3);
@@ -42,18 +48,21 @@ public class CountingWithFunction {
         printTriangle("x", 5);
         System.out.println();
 
-        printRombus("X", 7);
+        printRombus1("X", 7);
+        System.out.println();
+
+        printRombus2("X", 7);
         System.out.println();
 
         printx("x", 5);
-        System.out.println();*/
+        System.out.println();
 
-        printchristmasTree();
+        printChristmasTree("*", "0", "+", 9);
         System.out.println();
 
     }
 
-    /*public static void printChars(String x, int size) {
+    public static void printChars(String x, int size) {
         for (int i = 0; i < size; ++i) {
             System.out.print(x);
         }
@@ -96,7 +105,7 @@ public class CountingWithFunction {
         }
     }
 
-    public static void printTriangleTopRight(String x, int rows) {
+    public static void printTriangleTopRight1(String x, int rows) {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < rows; j++) {
                 if (j < i) {
@@ -110,7 +119,7 @@ public class CountingWithFunction {
         }
     }
 
-    /*   public static void printTriangleTopRight(String x, int rows){
+     public static void printTriangleTopRight2(String x, int rows){
            for (int i = rows; i > 0; --i) {
                for (int j = 1; j <= rows-i; ++j) {
 
@@ -122,7 +131,7 @@ public class CountingWithFunction {
                System.out.println();
            }
        }
-       public static void printTriangleBottomRight(String x, int rows){
+       public static void printTriangleBottomRight1(String x, int rows){
            for (int i = 1; i <= rows; i++) {
                for (int j = 1; j < rows; j++) {
                    if(j <= rows -i){
@@ -136,7 +145,7 @@ public class CountingWithFunction {
            }
        }
 
-       public static void printTriangleBottomRight(String x, int rows){
+       public static void printTriangleBottomRight2(String x, int rows){
            for(int i = 0; i < rows; ++i) {
                for (int j = 0; j < rows-i-1; ++j) {
                    System.out.print(" ");
@@ -154,7 +163,7 @@ public class CountingWithFunction {
                 if (i == 1 || i == size || j == 1 || j == size)
                     System.out.print(x);
                 else
-                    System.out.print(" ");
+                    System.out.print(" ".repeat(x.length()));
             }
             System.out.println();
         }
@@ -223,7 +232,7 @@ public class CountingWithFunction {
         }
     }
 
-   public static void printRombus(String letter, int height) {
+   public static void printRombus1(String letter, int height) {
 
         int size = (height-1) / 2;
 
@@ -246,6 +255,30 @@ public class CountingWithFunction {
             System.out.println();
         }
     }
+    public static void printLine(int preFix, String preFixletter, String letter, int midLength, String midLetter){
+        for (int i = 0; i < preFix ; i++) {
+            System.out.print(preFixletter);
+        }
+        System.out.print(letter);
+        if (midLength >= 0){
+            for (int i = 0; i < midLength; i++) {
+                System.out.print(midLetter);
+            }
+            System.out.print(letter);
+        }
+        for (int i = 0; i < preFix; i++) {
+            System.out.print(preFixletter);
+        }
+        System.out.println();
+    }
+    public static void printRombus2(String letter, int size){
+        for (int i = 0; i < 2 * size - 1; i++) {
+            int prefix = Math.abs(size - 1 - i);
+            int mid = 2*size - 3 - Math.abs(2*(size-1) - 2*i);
+            printLine(prefix, "  ", "X ", mid, "  ");
+        }
+    }
+
 
 
     public static void printx(String x, int size) {
@@ -262,9 +295,39 @@ public class CountingWithFunction {
             }System.out.println();
         }
 
-    }*/
+    }
 
-    public static void printchristmasTree(){
+    public static void printChristmasTree(String tree, String baubles, String stem, int size) {
+
+        for (int i = 0; i <= size; i++) {
+            for (int j = 1; j < size * 2; j++) {
+                if (j > size - i && j < size + i) {
+                    System.out.print("*");
+                }
+//                else if (i - 1 + j == size) {
+//                    System.out.print(tree);
+//                }
+                else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+        for (int i = 0; i < 1; i++) {
+            for (int j = 0; j < size * 2 - 1; j++) {
+                System.out.print("0");
+            }
+            System.out.println();
+        }
+        for (int i = 0; i < size / 4 ; i++) {
+            for (int j = 1; j < size * 2 - 1; j++) {
+                if(j >= size - 2 && j <= size + 2) {
+                    System.out.print("+");
+                } else {
+                    System.out.print(" ");
+                }
+            } System.out.println();
+        }
 
     }
 }
