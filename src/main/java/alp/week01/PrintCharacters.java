@@ -31,7 +31,7 @@ public class PrintCharacters {
         System.out.println();
         PrintRhombus("x", 7);
         System.out.println();
-        printX("q",5);
+        printX("q", 5);
         System.out.println();
 
     }
@@ -195,15 +195,15 @@ public class PrintCharacters {
     }
 
     public static void PrintRhombus(String text, int size) {
-        for (int i = 0; i < 2 * size -1; i++) {  //länge nach unten. (länge und breite ist dasselbe bei rhombus, deshalb (2*size-1 gleich)).
+        for (int i = 0; i < 2 * size - 1; i++) {  //länge nach unten. (länge und breite ist dasselbe bei rhombus, deshalb (2*size-1 gleich)).
             for (int j = 0; j < 2 * size - 1; j++) { //breite nach rechts. (breite und länge ist dasselbe bei rhombus, deshalb (2*size-1 gleich)).
                 if (i + j == size - 1) { // Linke Seite - schräge von unten links zur mitte hin nach oben.
                     System.out.print(text);
                 } else if (i == j - size + 1) { // Rechte Seite - schräge von der mitte oben nach unten rechts.
                     System.out.print("a");
-                } else if (i + j == 3*(size - 1)) { // Rechte Seite negativ - von unten rechts nach unten zur mitte.
-                        System.out.print("q");
-                } else if (i - j == size -1 ) { // Linke Seite negativ - von der mitte nach oben links.
+                } else if (i + j == 3 * (size - 1)) { // Rechte Seite negativ - von unten rechts nach unten zur mitte.
+                    System.out.print("q");
+                } else if (i - j == size - 1) { // Linke Seite negativ - von der mitte nach oben links.
                     System.out.print("@");
                 } else {
                     System.out.print(".");
@@ -217,12 +217,20 @@ public class PrintCharacters {
 
     public static void printX(String text, int size) {
         for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size*2+1; j++) {
-                System.out.println(text);
+            for (int j = 0; j < size; j++) {
+                if (i == j) {
+                    System.out.print(text);
+                } else if (i+j==size-1) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(".");
 
+                }
             }
+            System.out.println();
 
         }
+
 
     }
 }

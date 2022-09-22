@@ -38,15 +38,15 @@ public class MethodenUndSchleifen {
         head("@", "Print circle Pythagoras");
         printPythagoras("x", 10);
         head("@", "Print circle Sinus + Cosinus");
-        printCircleSinCos("x", 12);
-//        head("@","Print accurate Circle");
-//        printAccurateCircle("x", 20);
+        printCircleSinCos("x", 10);
+        head("@","Print accurate Circle");
+        printAccurateCircle("x", 32);
     }
 
     public static void filler(String symbol, int fueLae) {
         //fueLae Abk. für Füller Länge
         for (int ih = fueLae; ih > 0; ih--) {
-            System.out.print(symbol);
+            System.out.printf(symbol);
         }
     }
 
@@ -109,7 +109,7 @@ public class MethodenUndSchleifen {
         System.out.println();
     }
 
-    public static void printEmptySquare(String symbol, int length) {
+    /*public static void printEmptySquareOrig(String symbol, int length) {
         filler(symbol, length);
         System.out.println();
         for (int width = length; width > 2; width--) {
@@ -119,6 +119,20 @@ public class MethodenUndSchleifen {
         }
         filler(symbol, length);
         System.out.println("\n");
+    }*/
+
+    public static void printEmptySquare(String symbol, int length) {
+        for (int i = 1; i <= length; i++) {
+            for (int j = 1; j <= length; j++) {
+                if (i == 1 || j == 1 || i == length || j == length) {
+                    System.out.print(symbol);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
     public static void printSlash(String symbol, int length, boolean frontslash) {
@@ -228,12 +242,14 @@ public class MethodenUndSchleifen {
         System.out.println();
     }
 
-    public static void calcRoot(double number, double root) {
+    /*public static void calcRoot(double number, double root) {
         double nth = Math.round(Math.pow(number, 1.0 / root));
         System.out.print((int) nth);
-    }
+    }*/
 
     public static void printChristmasTree(int length) {
+        String ANSI_GREEN = "\u001B[32m";
+        String ANSI_RESET = "\u001B[0m";
         for (int i = 0; i < length - 1; i++) {
             filler(" ", (length - 1) - i);
             filler("*", 2 * i + 1);
@@ -270,29 +286,41 @@ public class MethodenUndSchleifen {
     }
 
     public static void printCircleSinCos(String symbol, int r) {
-        for (double a = -r-1; a <= r; a++) {
-            for (double b = -r-1; b <= r; b++) {
-                double y = a / r;
-                double x = b / r;
-                double c =(Math.sqrt(y*y+x*x));
-                double d = Math.sin(c) + Math.cos(c);
-                if (d >= 0.9 && d <= 1.1) {
+    //    double pi = 3.14159;
+        boolean mark = false;
+        for (double a = -r - 2; a <= r + 2; a++) {
+            for (double b = -r - 2; b <= r + 2; b++) {
+                for (double rad = -180; rad <= 180; rad=rad+0.01) {
+                    if (Math.sin(rad) * b == r) {
+                            mark = true;
+                            rad= 183;
+                    } else if (Math.cos(rad) * a == r) {
+                        mark = true;
+                        rad = 183;
+                    }else {
+                        mark = false;
+                    }
+                }
+                if (mark) {
                     System.out.print(symbol);
+                    mark = false;
                 } else {
                     System.out.print("-");
                 }
+
             }
             System.out.println();
         }
         System.out.println();
     }
 
+
     public static void printAccurateCircle(String symbol, double r) {
         for (double a = -r / 2; a <= r / 2; a++) {
             for (double b = -r * 3 / 2; b <= r * 3 / 2; b++) {
                 double y = a / r;
                 double x = b / r;
-                double c = Math.sqrt(y * y * 6.7 + x * x);
+                double c = Math.sqrt(y * y * 6.76 + x * x);
                 //System.out.println("[" + x + "/" + y + "]");
 //                if (Math.sin(c) >= y) {
 //                    if (Math.cos(c) >= x) {

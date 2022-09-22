@@ -27,9 +27,9 @@ public class PrintCharacter2 {
     }
 
 
-    public static void printRectangle(String text,int height , int i) {
-        for (i = 0; i < height -7; i++) {
-            for (int j = 0; j < height; j++)
+    public static void printRectangle(String text, int width, int height) {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++)
                 System.out.print(text);
             {
                 System.out.println();
