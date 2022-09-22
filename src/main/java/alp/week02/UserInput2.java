@@ -42,4 +42,9 @@ public class UserInput2 {
         } while (value == Integer.MIN_VALUE);
         return value;
     }
-}
+
+
+
+    }
+
+
