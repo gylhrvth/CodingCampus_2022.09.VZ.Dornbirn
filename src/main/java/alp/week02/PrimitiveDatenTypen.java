@@ -2,6 +2,7 @@ package alp.week02;
 
 public class PrimitiveDatenTypen {
     public static void main(String[] args) {
+        /*
         printFaktorial(20);
         System.out.println();
         printFaktorialErweitert(20);
@@ -15,6 +16,9 @@ public class PrimitiveDatenTypen {
         teilenHerrschen2(20);
         System.out.println();
         leibnizReihe(1000000);
+        System.out.println();
+         */
+        nilakanthaReihe(100);
         System.out.println();
 
     }
@@ -91,5 +95,21 @@ public class PrimitiveDatenTypen {
             }
         }
         System.out.println(pi);
+    }
+
+    public static void nilakanthaReihe(int count) {
+        // ++i bedeutet: i = i + 1
+        // operation += bedeutet: operation = operation, es ist eine kürzere schreibweise.
+
+    double summePi = 3;
+    int base = 2;
+    int vorzeichen = 1;
+        for (int i = 1; i <= count ; i = i+1) {
+            summePi +=  vorzeichen * 4.0 / (base * (base + 1) * (base + 2));
+            vorzeichen *= -1; // das sich die vorzeichen ändern, einmal plus einmal minus.
+            base += 2; // um zwei erhöhen bei jeder klammer.
+
+            System.out.println(summePi);
+        }
     }
 }
