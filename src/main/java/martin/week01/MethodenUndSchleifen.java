@@ -1,6 +1,11 @@
 package martin.week01;
 
 public class MethodenUndSchleifen {
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+
     public static void main(String[] args) {
         head("#", "Print Characters");
         printChars("x", 8);
@@ -39,7 +44,7 @@ public class MethodenUndSchleifen {
         printPythagoras("x", 10);
         head("@", "Print circle Sinus + Cosinus");
         printCircleSinCos("x", 10);
-        head("@","Print accurate Circle");
+        head("@", "Print accurate Circle");
         printAccurateCircle("x", 32);
     }
 
@@ -248,24 +253,22 @@ public class MethodenUndSchleifen {
     }*/
 
     public static void printChristmasTree(int length) {
-        String ANSI_GREEN = "\u001B[32m";
-        String ANSI_RESET = "\u001B[0m";
         for (int i = 0; i < length - 1; i++) {
             filler(" ", (length - 1) - i);
-            filler("*", 2 * i + 1);
+            filler(String.format("%s*%s", ANSI_GREEN, ANSI_RESET), 2 * i + 1);
             System.out.println();
         }
-        filler("*", (2 * length) - 1);
+        filler(String.format("%s*%s", ANSI_GREEN, ANSI_RESET), (2 * length) - 1);
         System.out.println();
-        filler("O ", (length - 1) / 2);
+        filler(String.format("%sO %s", ANSI_RED, ANSI_RESET), (length - 1) / 2);
         if (length % 2 != 0) {
-            System.out.print("O");
+            System.out.printf("%sO%s", ANSI_RED, ANSI_RESET);
         }
-        filler(" O", (length - 1) / 2);
+        filler(String.format("%s O%s", ANSI_RED, ANSI_RESET), (length - 1) / 2);
         System.out.println();
         for (int s = 0; s < 2; s++) {
             filler(" ", ((length * 2 - 1) - 5) / 2);
-            filler("+", 5);
+            filler(String.format("%s*%s", ANSI_YELLOW, ANSI_RESET), 5);
             System.out.println();
         }
         System.out.println();
@@ -286,18 +289,18 @@ public class MethodenUndSchleifen {
     }
 
     public static void printCircleSinCos(String symbol, int r) {
-    //    double pi = 3.14159;
+        //    double pi = 3.14159;
         boolean mark = false;
         for (double a = -r - 2; a <= r + 2; a++) {
             for (double b = -r - 2; b <= r + 2; b++) {
-                for (double rad = -180; rad <= 180; rad=rad+0.01) {
+                for (double rad = -180; rad <= 180; rad = rad + 0.01) {
                     if (Math.sin(rad) * b == r) {
-                            mark = true;
-                            rad= 183;
+                        mark = true;
+                        rad = 183;
                     } else if (Math.cos(rad) * a == r) {
                         mark = true;
                         rad = 183;
-                    }else {
+                    } else {
                         mark = false;
                     }
                 }
