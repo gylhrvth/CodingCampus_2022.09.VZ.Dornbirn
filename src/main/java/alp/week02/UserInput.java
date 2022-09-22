@@ -5,7 +5,7 @@ import fatima.week01.PrintCharacters;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class userInput {  public static void main(String[] args) {
+public class UserInput {  public static void main(String[] args) {
     String text = readUserInputString();
     int size = readUserInputIntegerV4(1, 10);
     PrintCharacters.printTriangleTopLeft(text, size);
