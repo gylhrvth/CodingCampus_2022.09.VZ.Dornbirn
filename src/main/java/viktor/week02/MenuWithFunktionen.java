@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class MenuWithFunktionen {
 
-
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -24,63 +23,58 @@ public class MenuWithFunktionen {
 
         while (!choice.equals("n")) { //repeat until choice is not egual to "n"
 
-            System.out.println();
-            System.out.println("Menü:");
-            System.out.println("1 - Triangle");
-            System.out.println("2 - Quadrat");
-            System.out.println("3 - Rhombus");
-            System.out.println("n - Aussteigen");
-
-            choice = sc.nextLine();
-
-            if (choice.equals("1")) {
-                System.out.println("Sie haben das Dreieck gewählt!");
-                System.out.println("Wie groß soll das Dreieck sein?");
-                size = sc.nextInt();
-                sc.nextLine();
-                System.out.println("Welches Zeichen soll dabei verwendet werden?");
-                letter = sc.nextLine();
                 System.out.println();
-                System.out.println("Ausgabe");
-                FunctionPrintTrinangle.printTriangle(letter, size);
-                System.out.println();
-                System.out.println("Wählen Sie bitte erneut!");
+                System.out.println("Menü:");
+                System.out.println("1 - Triangle");
+                System.out.println("2 - Quadrat");
+                System.out.println("3 - R1hombus");
+                System.out.println("n - Aussteigen");
 
+                choice = sc.nextLine();
 
-            } else if (choice.equals("2")) {
-                System.out.println("Sie haben Quadrat gewählt!");
-                System.out.println("Wie groß soll das Quadrat sein?");
-                size = sc.nextInt();
-                sc.nextLine();
-                System.out.println("Welches Zeichen soll dabei verwendet werden?");
-                letter = sc.nextLine();
-                System.out.println("Ausgabe:");
-                FunctionPrintSquare.printSquare(letter, size);
-                System.out.println();
-                System.out.println("Wählen Sie bitte erneut!");
+                if (choice.equals("1")) {
+                    System.out.println("Sie haben das Dreieck gewählt!");
+                    System.out.println("Wie groß soll das Dreieck sein?");
+                    size = UserInput.readUserInputInteger();
+                    System.out.println("Welches Zeichen soll dabei verwendet werden?");
+                    letter = UserInput.readUserInput();
+                    System.out.println();
+                    System.out.println("Ausgabe");
+                    FunctionPrintTrinangle.printTriangle(letter, size);
+                    System.out.println();
+                    System.out.println("Wählen Sie bitte erneut!");
 
+                } else if (choice.equals("2")) {
+                    System.out.println("Sie haben Quadrat gewählt!");
+                    System.out.println("Wie groß soll das Quadrat sein?");
+                    size = UserInput.readUserInputInteger();
+                    System.out.println("Welches Zeichen soll dabei verwendet werden?");
+                    letter = UserInput.readUserInput();
+                    System.out.println("Ausgabe:");
+                    FunctionPrintSquare.printSquare(letter, size);
+                    System.out.println();
+                    System.out.println("Wählen Sie bitte erneut!");
 
-            } else if (choice.equals("3")) {
-                System.out.println("Sie haben den Rhombus gewählt!");
-                System.out.println("Wie groß soll der Rhombus sein? Bitte geben Sie nur ungerade Zahl an! ");
-                size = sc.nextInt();
-                sc.nextLine();
-                System.out.println("Welches Zeichen soll dabei verwendet werden?");
-                letter = sc.nextLine();
-                System.out.println();
-                System.out.println("Ausgabe:");
-                FunctionPrintTrinangle.printRhombus(letter, size);
-                System.out.println();
-                System.out.println("Wählen Sie bitte erneut!");
+                } else if (choice.equals("3")) {
+                    System.out.println("Sie haben den Rhombus gewählt!");
+                    System.out.println("Wie groß soll der Rhombus sein? Bitte geben Sie nur ungerade Zahl an! ");
+                    size = UserInput.readUserInputInteger();
+                    System.out.println("Welches Zeichen soll dabei verwendet werden?");
+                    letter = UserInput.readUserInput();
+                    System.out.println();
+                    System.out.println("Ausgabe:");
+                    FunctionPrintTrinangle.printRhombus(letter, size);
+                    System.out.println();
+                    System.out.println("Wählen Sie bitte erneut!");
 
-            } else if (choice.equals("n")) {
-                System.out.println("Auf Wiedersehen! ");
+                } else if (choice.equals("n")) {
+                    System.out.println("Auf Wiedersehen! ");
 
-            } else {
-                System.out.println("Falsche Eingabe!");
-                System.out.println("Wählen Sie bitte erneut!");
+                } else {
+                    System.out.println("Falsche Eingabe!");
+                    System.out.println("Wählen Sie bitte erneut!");
+                }
             }
         }
 
-    }
 }
