@@ -32,7 +32,7 @@ public class QuizGame {
                     System.out.println("Die Zahl ist zu niedrig");
                 }
             }catch(InputMismatchException ime){
-                System.out.println("Hier wurde keine Zahl angeben! Bitte eine Zahl angeben!");
+                System.out.println("Hier wurde keine Zahl angegeben! Bitte eine Zahl angeben!");
             }
         }
     }
