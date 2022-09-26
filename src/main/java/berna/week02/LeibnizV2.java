@@ -1,4 +1,4 @@
-package bernadette.week02;
+package berna.week02;
 
 public class LeibnizV2 {
     public static void main(String[] args) {
