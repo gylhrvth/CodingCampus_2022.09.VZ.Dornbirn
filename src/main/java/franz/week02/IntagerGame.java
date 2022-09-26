@@ -94,7 +94,6 @@ public class IntagerGame {
         } else {
             // return false;
             System.out.println("Tschau");
-
         }
     }
 
