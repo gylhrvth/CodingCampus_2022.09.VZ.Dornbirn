@@ -45,10 +45,8 @@ public class IntagerGame {
     public static void menue() {
         System.out.println("Willkommen bei meinen Aufgaben!");
         System.out.println("Was möchten Sie zeichnen?");
-        System.out.println("1 printChars");
-        System.out.println("2 printEmptySquare");
-        System.out.println("3 printSlash");
-        System.out.println("4 printTriangle1");
+        System.out.println("1 printChars\n2 printEmptySquare\n3 printSlash\n4 printTriangle1\n");
+
 
 
         System.out.println("Wähle ein Print (1-4)");
@@ -96,6 +94,7 @@ public class IntagerGame {
         } else {
             // return false;
             System.out.println("Tschau");
+
         }
     }
 
@@ -173,6 +172,7 @@ public class IntagerGame {
     }
 
     public static int fungame() {
+
         System.out.println("Willkommen beim super coolen Zahlen Ratespiel");
 
         int valuetoGuess = new Random().nextInt(0, 101);
