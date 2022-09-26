@@ -35,7 +35,7 @@ public class Menue {
         return readInt("Was möchten Sie zeichnen?\n1) X\n2) Rhombus\n3) Dreieck\nBitte wählen Sie nun!", minValue, maxValue);
     }
 
-    public static int readInt(String prompt, int minValue, int maxValue) {
+ /*   public static int readInt(String prompt, int minValue, int maxValue) {      //Gyula Version
         Scanner sc = new Scanner(System.in);
         System.out.println(prompt);
         int value = Integer.MIN_VALUE;
@@ -57,6 +57,26 @@ public class Menue {
         } while (value == Integer.MIN_VALUE);
 
         return value;
+    }
+
+  */
+
+    public static int readInt(String prompt, int minValue, int maxValue) {      //Lukas Version
+        Scanner sc = new Scanner(System.in);
+        System.out.println(prompt);
+        while (true) {
+            if (sc.hasNextInt()) {
+                int value = sc.nextInt();
+                if (value < minValue || value > maxValue) {
+                    System.out.println("Bitte eine Zahl von " + minValue + " bis " + maxValue + " angeben!");
+                } else {
+                    return value;
+                }
+            } else {
+                System.out.println("Eingabe ist keine gültige Zahl!");
+                sc.nextLine();
+            }
+        }
     }
 
     public static int readUserInputIntegerV1() {
@@ -112,9 +132,8 @@ public class Menue {
     public static String readUserInputString() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welches Zeichen soll verwendet werden?");
-        String line = sc.nextLine();
-
-        return line;
+        String text = sc.nextLine();
+        return text;
     }
 
     public static boolean continueInputString() {
@@ -122,10 +141,10 @@ public class Menue {
         System.out.println("Möchten Sie noch etwas zeichnen? (j/n)");
         String line = sc.nextLine();
 
-        if (line.equals("j")) { //Zeile 88 - 92 ist gleich wie "return line.equals("j")"
-//            return true;
-//        } else {
-//            return false;
+        if (line.equals("j")) {
+//            return true;          //ist gleich wie "return line.equals("j")"
+//        } else {                  //ist gleich wie "return line.equals("j")"
+//            return false;         //ist gleich wie "return line.equals("j")"
         }
         return line.equals("j"); // line.equals("") bedeutet line ist gleich dem Inhalt in der Klammer
     }
