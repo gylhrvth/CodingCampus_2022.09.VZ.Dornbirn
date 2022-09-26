@@ -198,17 +198,8 @@ public class CountingWithFunction { //exercises with methods and loops
             }
         }
     }
-    // kdsjhfjksdhfjksdhfkjsdhfksdjhfkjsdhfsdkfjhsdf
-    // kdsjhfjksdhfjksdhfkjsdhfksdjhfkjsdhfsdkfjhsdf
-    // kdsjhfjksdhfjksdhfkjsdhfksdjhfkjsdhfsdkfjhsdf
-    // kdsjhfjksdhfjksdhfkjsdhfksdjhfkjsdhfsdkfjhsdf
-    // kdsjhfjksdhfjksdhfkjsdhfksdjhfkjsdhfsdkfjhsdf
-    // kdsjhfjksdhfjksdhfkjsdhfksdjhfkjsdhfsdkfjhsdf
-    // kdsjhfjksdhfjksdhfkjsdhfksdjhfkjsdhfsdkfjhsdf
-    // kdsjhfjksdhfjksdhfkjsdhfksdjhfkjsdhfsdkfjhsdf
-    // kdsjhfjksdhfjksdhfkjsdhfksdjhfkjsdhfsdkfjhsdf
 
-    // 8. exercise: Rhombus mit variabler höhe
+    // 8. exercise: Rhombus of variable height
 
     public static void printRhombus(String letter, int height) {
         System.out.println();
@@ -237,7 +228,7 @@ public class CountingWithFunction { //exercises with methods and loops
 
     }
 
-    // 9. exercise: x mit variabler grösse
+    // 9. exercise: print an x of variable height
 
     public static void printX(String letter, int height) {
         System.out.println();
@@ -262,7 +253,7 @@ public class CountingWithFunction { //exercises with methods and loops
 
     }
 
-    // 10. exercise: under the christmas tree :) variable höhe
+    // 10. exercise: under the christmas tree :) variable height
 
     public static void printChristmasTree(int treetopheight) {
         System.out.println();

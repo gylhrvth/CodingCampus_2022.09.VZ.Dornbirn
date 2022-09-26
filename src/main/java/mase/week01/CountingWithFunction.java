@@ -44,9 +44,9 @@ public class CountingWithFunction {
         System.out.println();
     }
 
-    public static void printSquare(String x, int size) {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; ++j) {
+    public static void printSquare(String x, int rows) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < rows; ++j) {
                 System.out.print(x);
             }
             System.out.println();
