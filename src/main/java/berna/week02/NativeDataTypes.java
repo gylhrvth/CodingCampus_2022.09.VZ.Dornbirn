@@ -1,4 +1,4 @@
-package bernadette.week02;
+package berna.week02;
 
 import java.util.Random;
 
@@ -18,8 +18,8 @@ public class NativeDataTypes {
         System.out.println("\n");
         printSecretRow(10000);
         System.out.println("\n");
-        //printSquareRoot();
-
+        printApproachSquareRoot();
+        System.out.println("\n");
 
     }
 
