@@ -55,51 +55,45 @@ public class Calculator {
         return sc.nextLine();
     }
 
+    public static float doCalculation(String op, float num1, float num2 ){
+
+        float result=0;
+
+        if (op.equals("+")) {
+            result = num1 + num2;
+
+        } else if (op.equals("-")) {
+            result = num1 - num2;
+
+        } else if (op.equals("*")) {
+            result = num1 * num2;
+
+        } else if (op.equals("/")) {
+            result = num1 / num2;
+
+        } else if (op.equals("^")) {
+            result = powerToNumber(num1, num2);
+        }
+        return result;
+    }
+
 
     public static void main(String[] args) {
 
 
         System.out.println("Willkommen beim Taschenrechner!");
 
-        float num1 = 0f;
-        float num2 = 0f;
+        float num1 = 0;
+        float num2 = 0;
         String op = "p";
-        float result = 0;
-
         while (true) {
-
             num1 = readNumber();
             op = readOperator();
             num2 = readNumber();
-
-            if (op.equals("+")) {
-                result = num1 + num2;
-                System.out.println("Ergebnis:" + result);
-
-
-            } else if (op.equals("-")) {
-                result = num1 - num2;
-                System.out.println("Ergebnis:" + result);
-
-
-            } else if (op.equals("*")) {
-                result = num1 * num2;
-                System.out.println("Ergebnis:" + result);
-
-
-            } else if (op.equals("/")) {
-                result = num1 / num2;
-                System.out.println("Ergebnis:" + result);
-
-
-            } else if (op.equals("^")) {
-                result = powerToNumber(num1, num2);
-                System.out.println("Ergebnis:" + result);
-            }
-
+            float result = doCalculation(op,num1,num2);
+            System.out.printf("Ergebnis %f %s %f = %f%n", num1,op,num2,result);
 
             String question = question();
-
             if (!question.equals("ja")) {
                 System.out.println("Auf Wiedersehen!");
                 break;
