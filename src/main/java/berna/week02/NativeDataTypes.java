@@ -18,8 +18,6 @@ public class NativeDataTypes {
         System.out.println("\n");
         printSecretRow(10000);
         System.out.println("\n");
-        printApproachSquareRoot();
-        System.out.println("\n");
 
     }
 
@@ -120,14 +118,7 @@ public class NativeDataTypes {
         System.out.printf(" End value of row for %d iterations: %10.8f %n", iterations, x);
     }
 
-//    public static void printSquareRoot() { 
-//
-//        double random = new Random().nextInt(10000) + 1;
-//        long random2 = random;
-//        double root = random2^(-2);
-//        System.out.printf("For the random number %d the square root is approx.  %4.8f",random,root);
-//
-//    }
+
 }
 
 
