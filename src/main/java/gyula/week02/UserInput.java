@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class UserInput {
     public static void main(String[] args) {
         String text = readUserInputString();
-        int size = readUserInputIntegerV4(1, 10);
+        int size = readUserInputIntegerV5(1, 10);
         PrintCharacter2.printTriangleBottomLeft(text, size);
 
 
@@ -66,7 +66,7 @@ public class UserInput {
         Scanner sc = new Scanner(System.in);
         System.out.println("Geben Sie eine Ganzzahl ein:");
         int value = Integer.MIN_VALUE;
-        do {
+        while (value == Integer.MIN_VALUE) {
             try {
                 value = sc.nextInt();
                 if (value < minValue) {
@@ -81,7 +81,30 @@ public class UserInput {
                 System.out.println("Es ist keine Zahl");
             }
             sc.nextLine();
-        } while (value == Integer.MIN_VALUE);
+        }
+        return value;
+    }
+
+    public static int readUserInputIntegerV5(int minValue, int maxValue){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Geben Sie eine Ganzzahl ein:");
+        int value = Integer.MIN_VALUE;
+        while (value == Integer.MIN_VALUE) {
+            try {
+                String valueText = sc.nextLine();
+                value = Integer.parseInt(valueText);
+                if (value < minValue) {
+                    System.out.println("Die Zahl muss größer gleich " + minValue + " sein.");
+                    value = Integer.MIN_VALUE;
+                }
+                if (value > maxValue) {
+                    System.out.println("Die Zahl muss kleiner gleich " + maxValue + " sein.");
+                    value = Integer.MIN_VALUE;
+                }
+            } catch (NumberFormatException nfe) {
+                System.out.println("Es ist keine Zahl");
+            }
+        }
         return value;
     }
 
