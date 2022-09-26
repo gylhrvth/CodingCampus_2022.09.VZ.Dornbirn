@@ -11,14 +11,15 @@ public class UserInput {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_RED = "\u001B[31m";
-/*
+    public static final String ANSI_WBG = "\u001B[7m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
-*/
+    public static final String ANSI_GREY = "\u001B[37m";
+    public static final String ANSI_LIME = "\u001B[92m";
+    public static final String ANSI_UNDERLINE = "\u001B[4m";
 
     public static void main(String[] args) {
         //System.out.println(readUserInputString("Geben sie bitte etwas ein"));
@@ -26,8 +27,9 @@ public class UserInput {
         //System.out.println(readUserInputGuessingGame(100, 0));
         //System.out.println(readUserInputMenu());
         //readUserCalculatorWeiter();
-        //Visitenkarte();
-        mastermind();
+        //visitenkarte();
+        //mastermind();
+        ticTacToe();
     }
 
     public static String readUserInputString(String firstPrompt) {
@@ -210,43 +212,60 @@ public class UserInput {
         } while (weiter);
     }
 
-    public static void Visitenkarte() {
+    public static void visitenkarte() {
         String name = readUserInputString("Geben sie bitte ihren Namen an.");
-        int a = 4;
-        int b = 5;
-        int c = 6;
-        String topBot = ("*" + "-".repeat(45) + "*");
-        System.out.println(topBot);
-        System.out.println(topBot);
-        System.out.println(topBot);
-        System.out.println(topBot);
-        System.out.println(topBot);
-        System.out.println(topBot);
-        System.out.println(topBot);
-        System.out.println("|" + " ".repeat(a) + name + " ".repeat(a) + "|");
-        System.out.println("|" + " ".repeat(b) + name + " ".repeat(b) + "|");
-        System.out.println("|" + " ".repeat(c) + name + " ".repeat(c) + "|");
-        System.out.println("|" + " ".repeat(45) + "|");
-        System.out.println(topBot);
+        String telfeonNum = readUserInputString("Geben sie bitte ihre Telefonnummer an.");
+        String eMailAdr = readUserInputString("Geben sie bitte ihre E-Mail-Adresse ein.");
+        int a = 45 - name.length();
+        int b = 45 - telfeonNum.length();
+        int c = 45 - eMailAdr.length();
+        System.out.println(ANSI_WBG + "╔╦════╦═════════════════════════════════╦════╦╗" + ANSI_RESET);
+        System.out.println(ANSI_WBG + "╠╝▓▒░ ║    Digital Campus Vorarlberg    ║ ░▒▓╚╣" + ANSI_RESET);
+        System.out.println(ANSI_WBG + "║▓▒░ ╔╬══╦══════╦══════╦══════╦══════╦══╬╗ ░▒▓║" + ANSI_RESET);
+        System.out.println(ANSI_WBG + "║▒░  ╚╝ ╔╬╗     ║   ░▒▓║▓▒░   ║     ╔╬╗ ╚╝  ░▒║" + ANSI_RESET);
+        System.out.println(ANSI_WBG + "║░      ╠╬╣    ╔╬╗   ░▒║▒░   ╔╬╗    ╠╬╣      ░║" + ANSI_RESET);
+        System.out.println(ANSI_WBG + "║       ╚╬╝    ╚╬╝    ░║░    ╚╬╝    ╚╬╝       ║" + ANSI_RESET);
+        System.out.println(ANSI_WBG + "║        ╚══════╩══════╩══════╩══════╝        ║" + ANSI_RESET);
+        //Hauptinformation
+        System.out.print(ANSI_WBG + "║" + " ".repeat(a / 2) + name);
+        if (a % 2 == 0) {
+            System.out.println(" ".repeat(a / 2) + "║" + ANSI_RESET);
+        } else {
+            System.out.println(" ".repeat(a / 2 + 1) + "║" + ANSI_RESET);
+        }
+        System.out.print(ANSI_WBG + "║" + " ".repeat(b / 2) + telfeonNum);
+        if (b % 2 == 0) {
+            System.out.println(" ".repeat(b / 2) + "║" + ANSI_RESET);
+        } else {
+            System.out.println(" ".repeat(b / 2 + 1) + "║" + ANSI_RESET);
+        }
+        System.out.print(ANSI_WBG + "║" + " ".repeat(c / 2) + eMailAdr);
+        if (c % 2 == 0) {
+            System.out.println(" ".repeat(c / 2) + "║" + ANSI_RESET);
+        } else {
+            System.out.println(" ".repeat(c / 2 + 1) + "║" + ANSI_RESET);
+        }
+        System.out.println(ANSI_WBG + "║" + " ".repeat(45) + "║" + ANSI_RESET);
+        System.out.println(ANSI_WBG + "╚" + "═".repeat(45) + "╝" + ANSI_RESET);
     }
 
     public static void mastermind() {
-        System.out.printf("%sInitialisiere Mastermind%s%n",ANSI_RED,ANSI_RESET);
+        int versuche = 21;
+        System.out.printf("%sInitialisiere Mastermind%s%nDu hast %d Versuche.%n", ANSI_RED, ANSI_RESET, versuche);
         Random rand = new Random();
-        int firstNumber = randomDiffNumbers(rand, -1,-1,-1);
-        int secondNumber = randomDiffNumbers(rand, firstNumber,-1,-1);
-        int thirdNumber = randomDiffNumbers(rand, firstNumber,secondNumber,-1);
-        int fourthNumber = randomDiffNumbers(rand, firstNumber,secondNumber,thirdNumber);
+        int firstNumber = randomDiffNumbers(rand, -1, -1, -1);
+        int secondNumber = randomDiffNumbers(rand, firstNumber, -1, -1);
+        int thirdNumber = randomDiffNumbers(rand, firstNumber, secondNumber, -1);
+        int fourthNumber = randomDiffNumbers(rand, firstNumber, secondNumber, thirdNumber);
         //System.out.println(firstNumber + "" + secondNumber + "" + thirdNumber + "" + fourthNumber);
         int kor = 0;
         int vorh = 0;
-        int versuche = 21;
 
-        for (int v = 1; v <= versuche-1; v++) {
+        for (int v = 1; v <= versuche - 1; v++) {
             if (kor == 4) {
-                System.out.println("Gratuliere Superhirn!\nHat nur " + v + " Versuch(e) gebraucht.");
+                System.out.printf("%sGratuliere Superhirn!%s\nHat nur %d Versuch(e) gebraucht.%n", ANSI_RED, ANSI_RESET, v - 1);
                 break;
-            } else if (v == versuche-1) {
+            } else if (v == versuche - 1) {
                 System.out.println("Schwache Leistung");
                 break;
             } else {
@@ -276,7 +295,7 @@ public class UserInput {
                     vorh++;
                 }
                 System.out.println("Korrekte Ziffer(n) " + kor + ". " + vorh + " weitere Ziffern sind vorhanden.");
-                if (kor<4) {
+                if (kor < 4) {
                     kor = 0;
                 }
                 vorh = 0;
@@ -286,14 +305,67 @@ public class UserInput {
 
     private static int randomDiffNumbers(Random random, int notThatOneNumber, int notThatSecondNumber, int notThatThirdNumber) {
 /*        int randomNumber = random.nextInt(10);
-        if (randomNumber == notThatNumber) {
-            return randomNumber(random, notThatNumber);
-        }
+        if (randomNumber == notThatNumber) {return randomNumber(random, notThatNumber);}
         return randomNumber;*/
         int randomNumber;
         do {
             randomNumber = random.nextInt(10);
         } while (randomNumber == notThatOneNumber || randomNumber == notThatSecondNumber || randomNumber == notThatThirdNumber);
         return randomNumber;
+    }
+
+    public static void ticTacToe() {
+        boolean spielenttt;
+        do {
+            int colorChoice = readUserInputInt(8, 0, String.format("Wir spielen jetzt Tik Tak Toe.%nMit welcher Farbe möchtest du spielen?%n%s1)%s %s2)%s %s3)%s %s4)%s %s5)%s %s6)%s %soder %s7)%s%s ", ANSI_PURPLE, "Lila", ANSI_BLUE, "Blau", ANSI_CYAN, "Türkis", ANSI_GREEN, "Grün", ANSI_YELLOW, "Gelb", ANSI_RED, "Rot", ANSI_RESET, ANSI_GREY, "Grau", ANSI_RESET));
+            System.out.println("Gibt bitte das Symbol ein mit dem du Spielen möchtest");
+            String farbe = null;
+            if (colorChoice == 1) {
+                farbe = ANSI_PURPLE;
+            } else if (colorChoice == 2) {
+                farbe = ANSI_BLUE;
+            } else if (colorChoice == 3) {
+                farbe = ANSI_CYAN;
+            } else if (colorChoice == 4) {
+                farbe = ANSI_GREEN;
+            } else if (colorChoice == 5) {
+                farbe = ANSI_YELLOW;
+            } else if (colorChoice == 6) {
+                farbe = ANSI_RED;
+            } else if (colorChoice == 7) {
+                farbe = ANSI_GREY;
+            }
+            Scanner scanner = new Scanner(System.in);
+            String symbol = String.format("%s%s%s", scanner.next(), farbe, ANSI_RESET);
+            System.out.printf("%s 1 ║ 2 ║ 3%s %n%s═══╬═══╬═══%s%n %s4 ║ 5 ║ 6%s %n%s═══╬═══╬═══%s%n%s 7 ║ 8 ║ 9 %s%n", ANSI_WBG, ANSI_RESET, ANSI_WBG, ANSI_RESET, ANSI_WBG, ANSI_RESET, ANSI_WBG, ANSI_RESET, ANSI_WBG, ANSI_RESET);
+            int spielerPos=0;
+            int kiPos=0;
+            //Max = 1xFF;
+            int gesamtPos = 0xFF;
+            System.out.println(gesamtPos);
+            int posReadUser = readUserInputInt(10, 0, "Wo möchtest du es platzieren?") - 1;
+            double pos = Math.pow(2, posReadUser);
+            //s[(int)pos]
+            //System.out.printf(" %s1 ║ 2 ║ 3%s %n%s═══╬═══╬═══%s%n %s4 ║ 5 ║ 6%s %n%s═══╬═══╬═══%s%n%s 7 ║ 8 ║ 9 %s%n",s1,s2,);
+            spielenttt = readUserInputBool("Möchtest du weiter spielen?");
+        }
+        while (spielenttt);
+        System.out.println("Einen schönen Tag noch.");
+
+        /*
+        int a = 0x0A;
+
+        System.out.printf("a = %d\n", a);
+
+        System.out.printf("a & 0x01 = %d\n", (a & 0x01));
+        System.out.printf("a & 0x02 = %d\n", (a & 0x02));
+        System.out.printf("a & 0x04 = %d\n", (a & 0x04));
+        System.out.printf("a & 0x08 = %d\n", (a & 0x08));
+
+        System.out.printf("a & 0x01 >> 0 = %d\n", ((a & 0x01) >> 0) );
+        System.out.printf("a & 0x02 >> 1 = %d\n", ((a & 0x02) >> 1));
+        System.out.printf("a & 0x04 >> 2 = %d\n", ((a & 0x04) >> 2));
+        System.out.printf("a & 0x08 >> 3 = %d\n", ((a & 0x08) >> 3));
+         */
     }
 }
