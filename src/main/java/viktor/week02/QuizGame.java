@@ -11,9 +11,14 @@ public class QuizGame {
         System.out.println("Bitte eine Zahl angeben!");
         return sc.nextInt();
     }
+    public static void begin(){
+        System.out.println("Willkommen bei dem super coolen Ratespiel!");
+        System.out.println("Errate die Zahl zwischen 0 und 100!");
+    }
 
     public static void main(String[] args) {
 
+        begin();
         Random randomNumber = new Random();
         int random = randomNumber.nextInt(101);
         System.out.println("Random:" + random);
