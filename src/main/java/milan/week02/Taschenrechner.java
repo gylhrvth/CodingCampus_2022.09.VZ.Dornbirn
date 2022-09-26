@@ -6,24 +6,22 @@ public class Taschenrechner {
 
     public static void main(String[] args) {
 
-        float eingabe = readFloatInput("Bitte gebe eine Kommazahl ein:");
-        int auswahl = readOperatorInput("Bitte Operator angeben:\n1: +\n2: -\n3: *\n4: /", 1, 4);
-        float eingabe2 = readFloatInput("Bitte gebe eine zweite Kommazahl ein:");
+        do {
+            float eingabe = readFloatInput("Bitte gebe eine Kommazahl ein:");
+            int auswahl = readOperatorInput("Bitte Operator angeben:\n1: +\n2: -\n3: *\n4: /", 1, 4);
+            float eingabe2 = readFloatInput("Bitte gebe eine zweite Kommazahl ein:");
 
-        if (auswahl == 1) {
-            System.out.println("Ergebnis: " + (eingabe + eingabe2));
-        } else if (auswahl == 2) {
-            System.out.println("Ergebnis: " + (eingabe - eingabe2));
-        } else if (auswahl == 3) {
-            System.out.println("Ergenis: " + (eingabe * eingabe2));
-        } else {
-            System.out.println("Ergebnis: " + (eingabe / eingabe2));
-        }
-
-//        String text = "Hello World";
-//        if (text.equals("Apfel")){
-//            System.out.println("Passt. :-)");
-//        }
+            if (auswahl == 1) {
+                System.out.println("Ergebnis: " + (eingabe + eingabe2));
+            } else if (auswahl == 2) {
+                System.out.println("Ergebnis: " + (eingabe - eingabe2));
+            } else if (auswahl == 3) {
+                System.out.println("Ergenis: " + (eingabe * eingabe2));
+            } else {
+                System.out.println("Ergebnis: " + (eingabe / eingabe2));
+            }
+        } while (wiederholungInput());
+        System.out.println("Auf Wiedersehen!");
     }
 
     public static float readFloatInput(String prompt) {
@@ -59,4 +57,14 @@ public class Taschenrechner {
         }
     }
 
+    public static boolean wiederholungInput() {
+        Scanner wh = new Scanner(System.in);
+        System.out.println("Möchten Sie noch etwas berechnen? (J/N)");
+        String line = wh.nextLine();
+
+        if (line.equals("J")) {
+        }
+        return line.equals("J");
+
+    }
 }
