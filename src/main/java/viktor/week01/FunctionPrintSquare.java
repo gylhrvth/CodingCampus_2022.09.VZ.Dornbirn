@@ -2,7 +2,7 @@ package viktor.week01;
 
 public class FunctionPrintSquare {
 
-    public static void PrintSquare(String f, int n){
+    public static void printSquare(String f, int n){
         for(int j =1; j <= n; j++) {
             for (int i = 1; i <= n; i++) {
                 System.out.print(f);
@@ -13,7 +13,7 @@ public class FunctionPrintSquare {
     }
 
     public static void main(String[] args) {
-        PrintSquare("x", 10);
+        printSquare("x", 10);
 
 
     }
