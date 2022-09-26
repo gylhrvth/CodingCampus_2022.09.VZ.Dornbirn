@@ -2,6 +2,29 @@ package viktor.week01;
 
 public class FunctionPrintTrinangle {
 
+    public static void printChar(String letter, int length, String midletter, int second_size, String plusletter, int plussize) {
+        for (int i = 0; i <= length - 1; i++) {
+            System.out.print(letter);
+        }
+        System.out.print(midletter);
+        for (int j = 0; j < second_size; j++) {
+            System.out.print(midletter);
+        }
+        for (int b = 0; b < plussize; b++) {
+            System.out.print(plusletter);
+        }
+    }
+
+    public static void groundToChristmasTree(String space, int length_of_space, String letter, int length_of_letter) {
+        for (int i = 0; i < length_of_space; i++) {
+            System.out.print(space);
+        }
+        for (int j = 0; j < length_of_letter; j++) {
+            System.out.print(letter);
+        }
+    }
+
+
     public static void printTriangleBottomLeft(String f, int rows) {
         System.out.println(f);
         for (int j = 2; j <= rows; j++) {
@@ -161,7 +184,6 @@ public class FunctionPrintTrinangle {
 
         for (int i = 0; i < rows; i++) { // rows
             for (int j = 0; j < rows; j++) { // positions in the rows
-
                 if (i + j == rows - 1) {   // condition from printSlash
                     System.out.print(f);
                 } else if (i == j) {      //condition from printSlash
@@ -174,6 +196,28 @@ public class FunctionPrintTrinangle {
         }
     }
 
+    public static void printTree(String f, int rows) {
+
+        for (int i = 0; i <= rows - 1; i++) {  //upper range of the tree
+            printChar(" ", rows - 1 - i, f, i, f, i);
+            System.out.println();
+        }
+
+        for (int k = 0; k < 2 * rows - 1; k++) { //middle range of the tree
+            if (k % 2 == 0) {
+                System.out.print(0);
+            } else {
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
+
+        for (int n = 0; n <= 1; n++) {  // lower range of the tree
+            groundToChristmasTree(" ", rows-3, "x", 5);
+            System.out.println();
+        }
+
+    }
 
     public static void main(String[] args) {
         printTriangleBottomLeft("x", 5);
@@ -195,6 +239,9 @@ public class FunctionPrintTrinangle {
         printRhombus("x", 7);
         System.out.println("\n");
         printX("x", 5);
+        System.out.println("\n");
+        printTree("x", 9);
+        System.out.println("\n");
 
 
     }
