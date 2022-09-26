@@ -4,6 +4,7 @@ public class CountingWithFunction { //exercises with methods and loops
 
 
     public static void main(String[] args) {
+        /*
         System.out.println("\n");
         printChars("X", 10);
         System.out.println("\n");
@@ -29,12 +30,16 @@ public class CountingWithFunction { //exercises with methods and loops
         System.out.println("\n");
         printTriangle("X", 1);
         System.out.println("\n");
+        */
         printRhombus("X", 7);
         System.out.println("\n");
+        printRhombus("Apfelsaft", 8);
+        System.out.println("\n");
+        /*
         printX("X", 5);
         System.out.println("\n");
-        printChristmasTree(9);
-
+        printChristmasTree("*",9);
+        */
 
     }
 
@@ -204,23 +209,23 @@ public class CountingWithFunction { //exercises with methods and loops
     public static void printRhombus(String letter, int height) {
         System.out.println();
         System.out.println("8.exercise: ");
-        int symindex = (height - 1) / 2;
-        System.out.println("height = " + height + " ,index of symmetry: " + symindex);
+        //int symindex = (height - 1) / 2;
+        //System.out.println("height = " + height + " ,index of symmetry: " + symindex);
 
 
-        for (int i = 0; i < height; i++) {  //number of rows
-            for (int j = 0; j < height; j++) { //number of columns
+        for (int i = 0; i < 2 * height - 1; i++) {  //number of rows
+            for (int j = 0; j < 2 * height - 1; j++) { //number of columns
 
-                if (j == symindex - i) {       //upper left quadrant
+                if (i + j == height - 1) {       //upper left quadrant
                     System.out.print(letter);
-                } else if (j == i - symindex) {  //lower left quadrant
+                } else if (i == j + height - 1){
                     System.out.print(letter);
-                } else if (i == j - symindex) {
-                    System.out.print(letter);  //upper right quadrant
-                } else if (i == (3 * symindex) - j) {
-                    System.out.print(letter); // lower right quadrant
+                } else if (j == i + height - 1) {
+                    System.out.print(letter);
+                } else if (i + j == 3 * (height - 1)) {
+                    System.out.print(letter);
                 } else {
-                    System.out.print("  ");
+                    System.out.print(" ".repeat(letter.length()));
                 }
             }
             System.out.println();
@@ -255,7 +260,7 @@ public class CountingWithFunction { //exercises with methods and loops
 
     // 10. exercise: under the christmas tree :) variable height
 
-    public static void printChristmasTree(int treetopheight) {
+    public static void printChristmasTree(String letter, int treetopheight) {
         System.out.println();
         System.out.println("10.exercise: Happy Christmas! ");
 
@@ -267,7 +272,7 @@ public class CountingWithFunction { //exercises with methods and loops
             for (int j = 1; j < treetopheight * 2; j++) {
 
                 if (j > middlecol - i && j < middlecol + i) {
-                    System.out.print("*");
+                    System.out.print(letter);
                 } else {
                     System.out.print(" ");
                 }
