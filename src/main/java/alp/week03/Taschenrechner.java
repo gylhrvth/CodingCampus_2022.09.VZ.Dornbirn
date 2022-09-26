@@ -1,4 +1,4 @@
-package alp.week02;
+package alp.week03;
 
 import java.util.Scanner;
 
