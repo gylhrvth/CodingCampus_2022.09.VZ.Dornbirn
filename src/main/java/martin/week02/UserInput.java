@@ -10,9 +10,9 @@ import java.util.Scanner;
 public class UserInput {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_RED = "\u001B[31m";
 /*
     public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_PURPLE = "\u001B[35m";
@@ -231,60 +231,69 @@ public class UserInput {
     }
 
     public static void mastermind() {
-        System.out.println("Initialisiere Mastermind");
+        System.out.printf("%sInitialisiere Mastermind%s%n",ANSI_RED,ANSI_RESET);
         Random rand = new Random();
-        int firstNumber = randomNumber(rand, -1);
-        int secondNumber = randomNumber(rand, firstNumber);
-        int thirdNumber = randomNumber(rand, secondNumber);
-        int fourthNumber = randomNumber(rand, thirdNumber);
-        int kor=0;
-        int vorh=0;
-        Scanner sc = new Scanner(System.in);
-        int versuche = 5;
+        int firstNumber = randomDiffNumbers(rand, -1,-1,-1);
+        int secondNumber = randomDiffNumbers(rand, firstNumber,-1,-1);
+        int thirdNumber = randomDiffNumbers(rand, firstNumber,secondNumber,-1);
+        int fourthNumber = randomDiffNumbers(rand, firstNumber,secondNumber,thirdNumber);
+        //System.out.println(firstNumber + "" + secondNumber + "" + thirdNumber + "" + fourthNumber);
+        int kor = 0;
+        int vorh = 0;
+        int versuche = 21;
 
-        for (int v = 1; v <= versuche; v++) {
-            if (kor==4) {
-                System.out.println("Gratuliere Superhirn!\nHat nur "+v+" Versuch(e) gebraucht.");
+        for (int v = 1; v <= versuche-1; v++) {
+            if (kor == 4) {
+                System.out.println("Gratuliere Superhirn!\nHat nur " + v + " Versuch(e) gebraucht.");
                 break;
-            } else if (v==versuche) {
+            } else if (v == versuche-1) {
                 System.out.println("Schwache Leistung");
+                break;
             } else {
-                int guess = readUserInputInt(10000,-1,String.format("Input: %d%n",v));
-                int guessNum1 = guess/1000;
-                int guessNum2 = (guess-guessNum1)/100;
-                int guessNum3 = (guess-guessNum1-guessNum2)/10;
-                int guessNum4 = (guess-guessNum1-guessNum2-guessNum3);
-                for (int i = 1; i <= 4; i++) {
-                    if (guessNum1==firstNumber || guessNum2==secondNumber || guessNum3==thirdNumber || guessNum4==fourthNumber) {
-                        kor++;
-                    } else if ( guessNum1==secondNumber || guessNum1==thirdNumber || guessNum1==fourthNumber) {
-                        vorh++;
-                    } else if (guessNum2==firstNumber || guessNum2==thirdNumber || guessNum2==fourthNumber) {
-                        vorh++;
-                    } else if (guessNum3==firstNumber || guessNum3==secondNumber || guessNum3==fourthNumber) {
-                        vorh++;
-                    } else if (guessNum4==firstNumber || guessNum4==secondNumber || guessNum4==thirdNumber) {
-                        vorh++;
-                    }
+                int guess = readUserInputInt(10000, -1, String.format("Input %d: ", v));
+                int guessNum1 = guess / 1000;
+                int guessNum2 = guess / 100 - guessNum1 * 10;
+                int guessNum3 = guess / 10 - guessNum1 * 100 - guessNum2 * 10;
+                int guessNum4 = guess - guessNum1 * 1000 - guessNum2 * 100 - guessNum3 * 10;
+                if (guessNum1 == firstNumber) {
+                    kor++;
+                } else if (guessNum1 == secondNumber || guessNum1 == thirdNumber || guessNum1 == fourthNumber) {
+                    vorh++;
                 }
-                System.out.println(kor+"(e) Ziffer(n) ist/sind korrekt, "+vorh+" weitere Ziffern sind vorhanden.");
-                kor=0;
-                vorh=0;
-
+                if (guessNum2 == secondNumber) {
+                    kor++;
+                } else if (guessNum2 == firstNumber || guessNum2 == thirdNumber || guessNum2 == fourthNumber) {
+                    vorh++;
+                }
+                if (guessNum3 == thirdNumber) {
+                    kor++;
+                } else if (guessNum3 == firstNumber || guessNum3 == secondNumber || guessNum3 == fourthNumber) {
+                    vorh++;
+                }
+                if (guessNum4 == fourthNumber) {
+                    kor++;
+                } else if (guessNum4 == firstNumber || guessNum4 == secondNumber || guessNum4 == thirdNumber) {
+                    vorh++;
+                }
+                System.out.println("Korrekte Ziffer(n) " + kor + ". " + vorh + " weitere Ziffern sind vorhanden.");
+                if (kor<4) {
+                    kor = 0;
+                }
+                vorh = 0;
             }
         }
     }
 
-    private static int randomNumber(Random random, int notThatNumber) {
-//        int randomNumber = random.nextInt(10);
-//        if (randomNumber == notThatNumber) {
-//            return randomNumber(random, notThatNumber);
-//        }
-//        return randomNumber;
+    private static int randomDiffNumbers(Random random, int notThatOneNumber, int notThatSecondNumber, int notThatThirdNumber) {
+/*        int randomNumber = random.nextInt(10);
+        if (randomNumber == notThatNumber) {
+            return randomNumber(random, notThatNumber);
+        }
+        return randomNumber;*/
         int randomNumber;
         do {
             randomNumber = random.nextInt(10);
-        } while (randomNumber == notThatNumber);
+        } while (randomNumber == notThatOneNumber || randomNumber == notThatSecondNumber || randomNumber == notThatThirdNumber);
         return randomNumber;
     }
 }
