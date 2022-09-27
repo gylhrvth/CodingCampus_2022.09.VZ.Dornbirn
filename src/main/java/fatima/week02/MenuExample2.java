@@ -5,7 +5,7 @@ import fatima.week01.PrintCharacters;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class menuExample {
+public class MenuExample2 {
     public static void main(String[] args) {
         while (true) {
             System.out.println("Welcome to my tasks!");
