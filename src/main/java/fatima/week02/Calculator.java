@@ -3,7 +3,7 @@ package fatima.week02;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class calculator {
+public class Calculator {
 
     public static void main(String[] args) {
         while (true) {
