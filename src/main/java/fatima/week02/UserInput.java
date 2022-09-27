@@ -104,6 +104,27 @@ public class UserInput {
         } while (value == Double.MIN_VALUE);
         return value;
     }
+
+    public static int readUserInputIntegerV5(String message, int minValue, int maxValue) {
+        Scanner input = new Scanner(System.in);
+        System.out.println(message);
+        int value = Integer.MIN_VALUE;
+        do {
+            try {
+                value = input.nextInt();
+                if ((value < minValue) || (value > maxValue)) {
+                    System.out.println("The value must be between " + minValue + " and " + maxValue + ".");
+                    value = Integer.MIN_VALUE;
+                }
+            } catch (InputMismatchException ime) {
+                System.out.println("A numerical value is requested");
+            }
+            input.nextLine();
+        } while (value == Integer.MIN_VALUE);
+        return value;
+    }
+
+
 }
 
 
