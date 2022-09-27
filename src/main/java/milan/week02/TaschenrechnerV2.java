@@ -17,29 +17,26 @@ public class TaschenrechnerV2 {
 
         System.out.printf("%f %s %f = %f\n", num1, op, num2, result);
 
-        String line = askContinue("Wollen Sie mit dem Ergebnis weiterrechnen? (j/n)");
-        while (line.equals("j")) {
+        //askContinue("Wollen Sie mit dem Ergebnis weiterrechnen? (j/n)");
+        while (askContinue("Wollen Sie mit dem Ergebnis weiterrechnen? (j/n)")){
             String op2 = readOperator();
             float num3 = readFloat("Bitte gebe die nächste Zahl an!");
             float result2 = doCalculation2(op, result, num3);
 
             System.out.printf("%f %s %f = %f\n", result, op2, num3, result2);
-            //askContinue("Wollen Sie mit dem Ergebnis weiterrechnen? (j/n)");
         }
-        //askContinue("Wollen Sie mit dem Ergebnis weiterrechnen? (j/n)");
         System.out.println("Auf Wiedersehen!");
     }
 
 
-    public static String askContinue(String prompt) {
+    public static boolean askContinue(String prompt) {
         Scanner sc = new Scanner(System.in);
         System.out.println(prompt);
         String line = sc.nextLine();
 
         if (line.equals("j")) {
-
         }
-        return line;
+        return line.equals("j");
     }
 
     public static float doCalculation(String op, float num1, float num2) {

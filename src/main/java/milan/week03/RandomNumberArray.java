@@ -15,8 +15,9 @@ public class RandomNumberArray {
             template[i] = rdm;
         }
         for (int j : template) {
-            System.out.println(template);
+            System.out.print(j + " ");
         }
+        System.out.println();
         System.out.println("----------------------------");
         System.out.println(Arrays.toString(template));
     }
