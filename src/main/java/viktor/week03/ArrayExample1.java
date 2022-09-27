@@ -8,8 +8,20 @@ public class ArrayExample1 {
     public static int readSize(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Geben Sie mir die Größe des Arrays an:");
-        int size = sc.nextInt();
-        return size;
+        int number = -1;
+
+        while(number < 0) {
+            if(sc.hasNextInt()) {
+                number = sc.nextInt();
+                if (number < 0) {
+                   System.err.println("Negative Zahl ist nicht erlaubt!");
+                }
+            } else {
+                System.err.println("Falsche Eingabe! Die Eingabe muss eine Ganzzahl sein!");
+            }
+            sc.nextLine();
+        }
+        return number;
     }
 
     public static int readElement(){
@@ -18,6 +30,7 @@ public class ArrayExample1 {
         System.out.println("Bitte Element angeben:");
         return sc.nextInt();
     }
+
 
 
     public static void main(String[] args) {
