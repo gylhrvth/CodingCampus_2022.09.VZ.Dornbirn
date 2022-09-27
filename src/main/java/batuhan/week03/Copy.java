@@ -15,17 +15,22 @@ public class Copy {
             System.out.println();
 
         }
-        System.out.print("Copy" + makeACopy(arr));
+
+        int[] secondArray = makeACopy(arr);
+        secondArray[0] = -100;
+
+        System.out.println("Orig: " + Arrays.toString(arr));
+        System.out.println("Copy: " + Arrays.toString(secondArray));
 
     }
 
-    public static String makeACopy(int[] original) {
+    public static int[] makeACopy(int[] original) {
         int size = original.length;//zuerst die größe abfragen
         int[] newarray= new int[size];//neues Array erstellen
         for (int i = 0; i <size ; i++) {//größe des originals angeben
             newarray [i]= original[i];//neues Array befüllen mit den werten des Originalen Arrays
 
         }
-return Arrays.toString(newarray);
+        return newarray;
     }
 }
