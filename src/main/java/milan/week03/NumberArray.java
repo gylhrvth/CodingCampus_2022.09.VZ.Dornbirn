@@ -26,19 +26,20 @@ public class NumberArray {
 
     public static int readInput(String prompt) {
         Scanner sc = new Scanner(System.in);
-        System.out.println(prompt);
-        while (true) {
-            if (sc.hasNextInt()) {
-                int num1 = sc.nextInt();
-                if (num1 < 1) {
-                    System.out.println(prompt);
-                } else {
-                    return num1;
-                }
-            } else {
-                System.out.println(prompt);
-                sc.nextLine();
+        int num1 = -1;
+        while (num1 < 1) {
+            System.out.println(prompt);
+            String line = sc.nextLine();
+            try {
+                num1 = Integer.parseInt(line);
+            } catch (NumberFormatException nfe){
             }
+
+//            if (sc.hasNextInt()) {
+//                num1 = sc.nextInt();
+//            }
+//            sc.nextLine();
         }
+        return num1;
     }
 }
