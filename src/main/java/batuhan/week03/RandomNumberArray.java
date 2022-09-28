@@ -26,20 +26,33 @@ public class RandomNumberArray {
         System.out.println();
 
 
-//        for (int i = 1; i < arr.length; i = i + 2) {
-//            System.out.print(arr[i]+" ");
+        for (int i = 1; i < arr.length; i = i + 2) {
+            System.out.print(arr[i] + " ");
+            System.out.println();
+        }
 
 
-//        System.out.println("Length: " + arr.length);
+//            System.out.println("Length: " + arr.length);
 //
-//        System.out.println(" 2. Element: " + arr[1]);
-//        System.out.println(" 5. Element: " + arr[4]);
-//        System.out.println("10. Element: " + arr[9]);
-//        System.out.println();
+//            System.out.println(" 2. Element: " + arr[1]);
+//            System.out.println(" 5. Element: " + arr[4]);
+//            System.out.println("10. Element: " + arr[9]);
+//            System.out.println();
 
-//        for (int x : arr) { foreach-Schleife
-//    }
+
+        System.out.print("[");
+        boolean istCommaNotwendig = false;
+        for (int x : arr) { //foreach-Schleife
+            if (istCommaNotwendig) {
+                System.out.print(",");
+            }
+            System.out.print(x);
+            istCommaNotwendig = true;
+        }
+        System.out.print("]");
+        System.out.println();
     }
+
 
 }
 
