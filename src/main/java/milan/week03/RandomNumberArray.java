@@ -26,16 +26,16 @@ public class RandomNumberArray {
 
         }
         System.out.println();
+
         System.out.println("Zweiter Wert im Array: " + template[1]); // zweiter Wert im Array
         System.out.println("Fünfter Wert im Array: " + template[4]); // fünfter Wert im Array
         System.out.println("Zehnter Wert im Array: " + template[9]); // zehnter Wert im Array
+
         System.out.println();
         System.out.println("----------------------------");
         System.out.println();
         System.out.println("Jeder zweiter Wert wird ausgegeben: ");
         for (int i = 1; i < template.length; i = i + 2) {
-            int rdm = ran.nextInt(101);
-            template[i] = rdm;
             System.out.print(template[i] + " ");
         }
         System.out.println();
