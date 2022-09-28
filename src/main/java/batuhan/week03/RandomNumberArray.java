@@ -39,7 +39,7 @@ public class RandomNumberArray {
 
 //        for (int x : arr) { foreach-Schleife
 //    }
-        }
-
     }
+
 }
+
