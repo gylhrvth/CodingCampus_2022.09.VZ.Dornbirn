@@ -19,7 +19,7 @@ public class RandomNumberArrayCrazyRange {
             template[i] = rdm;
         }
 
-        for (int j: template) {
+        for (int j : template) {
             System.out.print(j + " ");
         }
         System.out.println();
