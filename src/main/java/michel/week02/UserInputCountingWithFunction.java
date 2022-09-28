@@ -7,10 +7,12 @@ import java.util.Scanner;
 
 
 public class UserInputCountingWithFunction {
-    public static void main(String[] args) {
+        public static void main(String[] args) {
+
         int length = readUserInput("Geben Sie die Länge ein:");
         int broad = readUserInput("Gebem Sie die Breite ein:");
-        CountingWithFunction.printRectangle("X", length, broad);
+            System.out.println();
+        CountingWithFunction.printRectangle("X ", length, broad);
     }
 
     public static int readUserInput(String message) {
@@ -28,3 +30,4 @@ public class UserInputCountingWithFunction {
         return value;
     }
 }
+
