@@ -12,7 +12,7 @@ public class RandomNumberArray {
         //int[] template = new int[20];
         System.out.println("----------------------------");
         System.out.println();
-        int[] template = createArrayWithRandomNum(10);
+        int[] template = createArrayWithRandomNum(10);              //!!! int[] template vor der Methode!!!!
         System.out.println();
         System.out.println("----------------------------");
         System.out.println();
