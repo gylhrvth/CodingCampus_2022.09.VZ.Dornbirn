@@ -7,37 +7,37 @@ import java.sql.SQLOutput;
 public class CountingWithFunction {
     public static void main(String[] args) {
 
-        printChars("x", 10);
+        printChars("x ", 10);
         System.out.println();
 
         printSquare("x ", 10);
         System.out.println();
 
-        printRectangle("x", 10, 3);
+        printRectangle("x ", 10, 3);
         System.out.println();
 
-        printTriangleBottomLeft("a", 4);
+        printTriangleBottomLeft("a ", 4);
         System.out.println();
 
-        printTriangleTopLeft("b", 5);
+        printTriangleTopLeft("b ", 5);
         System.out.println();
 
-        printTriangleTopRight1("c", 5);
+        printTriangleTopRight1("c ", 5);
         System.out.println();
 
-        printTriangleTopRight2("c", 5);
+        printTriangleTopRight2("c ", 5);
         System.out.println();
 
-        printTriangleBottomRight1("d", 5);
+        printTriangleBottomRight1("d ", 5);
         System.out.println();
 
-        printTriangleBottomRight2("d", 5);
+        printTriangleBottomRight2("d ", 5);
         System.out.println();
 
         printEmtySquare("X ", 10);
         System.out.println();
 
-        printEmptySquare2("A", 3);
+        printEmptySquare2("A ", 3);
         System.out.println();
 
         printSlash("x", 3, true);
@@ -239,14 +239,14 @@ public class CountingWithFunction {
         for (int i = 0; i < height; i++) {  //number of rows
             for (int j = 0; j < height; j++) { //number columns
                 if (j == size - i) {
-                    System.out.print("x ");
+                    System.out.print(letter);
                 } else if (i == j - size) {
-                    System.out.print("x ");
+                    System.out.print(letter);
                 } else if (j == i - size) {
-                    System.out.print("x ");
+                    System.out.print(letter);
                 }
                 else if (j + i == size *3){
-                    System.out.print("x");
+                    System.out.print(letter);
                 }
                 else {
                     System.out.print("  ");
@@ -302,7 +302,7 @@ public class CountingWithFunction {
         for (int i = 0; i <= size; i++) {
             for (int j = 1; j < size * 2; j++) {
                 if (j > size - i && j < size + i) {
-                    System.out.print("*");
+                    System.out.print(tree);
                 }
 //                else if (i - 1 + j == size) {
 //                    System.out.print(tree);

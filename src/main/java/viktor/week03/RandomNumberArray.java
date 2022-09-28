@@ -19,17 +19,38 @@ public class RandomNumberArray {
             myArray[i] = randomNumber;
         }
 
+        System.out.println("toString: " + Arrays.toString(myArray));
+
         System.out.println();
         System.out.println("Foreach: ");
-        for(int i: myArray){                //output with foreach
-            System.out.println(i);
+
+        boolean comma = false;
+        System.out.print("[");
+
+        for(int i: myArray){
+            if(comma) {
+                System.out.print(", ");
+            }
+            System.out.print(i);
+            comma=true;
         }
+        System.out.print("]");
+
+
+        System.out.println();
 
         System.out.println("\n");           //output with for
         System.out.println("For");
-        for(int j = 0; j < size; j++){
-            System.out.print(myArray[j] + " ");
+
+        System.out.print("[");
+        for(int j = 0; j < size; j++) {
+            if (j == size - 1) {
+                System.out.print(myArray[j]);
+            } else {
+                System.out.print(myArray[j] + ", ");
+            }
         }
+        System.out.print("]");
 
         System.out.println("\n");
         System.out.println("Zweites, fünftes, zehntes Element:");
