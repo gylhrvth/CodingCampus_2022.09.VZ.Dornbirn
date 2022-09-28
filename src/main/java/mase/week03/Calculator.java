@@ -25,6 +25,7 @@ public class Calculator {
 //        System.out.println("Wähle eine weitere Nummer");
 //        number2 = scanner.nextFloat();
 
+
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Wähle einen Operator +-*/");
                 operator = scanner.nextLine();
@@ -50,5 +51,6 @@ public class Calculator {
 
                 }return result;
     }
+
 }
 
