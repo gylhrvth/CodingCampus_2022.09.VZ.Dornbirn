@@ -11,21 +11,16 @@ public class ArraysBasics {
     private static Random rand = new Random();    // in the very beginning, initiate random
 
     public static void main(String[] args) {
-        //fillArraywith();
-//        System.out.println("\n");
-//        createArray();
-//        System.out.println("\n");
 
-        int[] testArr = createRandomArray(0, 100);
-        int[] modified = makeACopy(testArr);
-        modified[0] = -999;
-        System.out.println("modified: " + Arrays.toString(modified));
+        System.out.println("\n");
+        createArraysExamples();
+        System.out.println("\n");
+        testCopying();
+        System.out.println("\n");
+        randomNumberArrayexamples();
+        System.out.println("\n");
+        randomNumberArrayCrazyRange();
 
-
-//        randomNumberArray();
-//        System.out.println("\n");
-//        randomNumberArrayCrazyRange();
-        randomNumberArrayCount(30);
     }
 
 
@@ -54,7 +49,7 @@ public class ArraysBasics {
         return length;
     }
 
-    public static void createArray() {
+    public static void createArraysExamples() {
 
         System.out.println(" Two arrays will be created. Number 1 is like [1, 2, 3,...] and Number 2 is like  [..., 3, 2, 1]  ");
 
@@ -95,6 +90,13 @@ public class ArraysBasics {
 
     }
 
+    public static void testCopying() {
+        int[] testArr = createRandomArray(0, 100);
+        int[] modified = makeACopy(testArr);
+        modified[0] = -999;
+        System.out.println("modified: " + Arrays.toString(modified));
+    }
+
 
     public static int[] createRandomArray(int lowerbound, int upperbound) {
 
@@ -111,20 +113,35 @@ public class ArraysBasics {
     }
 
 
-    public static void randomNumberArray() {
+    public static void randomNumberArrayexamples() {
 
 
         int[] arr = createRandomArray(0, 100);
         System.out.println("Here is your random array filled with random numbers:");
         System.out.println(Arrays.toString(arr));
 
-        System.out.println("Here is your random array made with 'foreach'");
+        System.out.println("Here is your hand-made random array made with 'foreach'");
+        //foreach returns ALL VALUES of an array. to log an array which looks like [a,b,c,d] you need the values (a b c d) and commas within []
 
-        for (int i : arr) {
-            System.out.println(i);
+        System.out.print("[");
+        //change your point of view: print a comma IN FRONT OF the value!!
+        //if so, value nr. 1 is special because no comma is needed
+        //define a criteria which is only valid for the first value!
+        boolean isCommaNecessary = false;   //is false only for first iteration step
+        for (int value : arr) {
+            if (isCommaNecessary) {
+                System.out.print(", ");
+            }
+            System.out.print(value);
+            isCommaNecessary = true;        //is now true for all following iterations
         }
+        System.out.println("]");
+
+
         System.out.println("\n");
         System.out.println("Here is your hand-made random array made with 'fori'");
+
+
         System.out.print("[");
         for (int i = 0; i < arr.length; i++) {
             if (i == arr.length - 1) {
@@ -156,49 +173,31 @@ public class ArraysBasics {
 
         System.out.println("\n");
         System.out.println("Here is every second entry of your random array:");
-        // TODO: 27.09.2022 remove the space and comma after the last number
+
 
         System.out.print("[");
-        for (int i = 0; i < arr.length; i = i + 1) {
+        for (int i = 1; i < arr.length; i = i + 2) {
             //System.out.println(arr[i]);       logs single values in a column!
-            if (i % 2 != 0) {
-                System.out.print(arr[i] + ", ");
+            //if (i % 2 != 0) {         not necessary, way easier with i=i+2!
+            if (i > 1) {
+                System.out.print(", ");
             }
+            System.out.print(arr[i]);
         }
         System.out.println("]");
-
     }
+
 
     public static void randomNumberArrayCrazyRange() {
-        System.out.println("Here is your random array filled with random number from -50 to 50");
-        int[] arr = createRandomArray(-50, 50);
+        System.out.println("Here is your random array filled with random number from -50 to 50:");
+        int[] arr = createRandomArray(0, 100);
+        for (int i = 0; i < arr.length - 1; i++) {
+            arr[i] = arr[i] - 50;
+        }
         System.out.println(Arrays.toString(arr));
-
     }
 
-    public static void randomNumberArrayCount(int largerthan) {
-        int[] arr = createRandomArray(1, 100);
-        System.out.println(Arrays.toString(arr));
 
-        //int[] larger = new int[arr.length];
-        int count = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > largerthan) {
-                ++count;
-            }
-        }
-        int[] results = new int[count];
-        int j = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > largerthan) {
-                results[j] = arr[i];
-                ++j;
-            }
-        }
-        System.out.println("Anzahl Zahlen größer 30: " + count);
-        System.out.println("Results: " + Arrays.toString(results));
-
-    }
 }
 
 
