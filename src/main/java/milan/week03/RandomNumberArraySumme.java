@@ -16,7 +16,8 @@ public class RandomNumberArraySumme {
     public static int searchAndCountSum(int[] template) {
         int result = 0;
         for (int i = 0; i < template.length; i++) {
-            result = template[i];
+            result = result + template[i];
+
 
         }
         return result;
