@@ -7,12 +7,7 @@ public class ArraySumme {
     public static void main(String[] args) {
         int[] randomNumber = generateRandomNumber(5, 100);
         readArray(randomNumber);
-//        summArray(randomNumber);
     }
-
-//    private static void summArray(int[] randomNumber) {
-//
-//    }
 
     private static void readArray(int[] arr) {
         int summe = 0;
