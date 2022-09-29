@@ -6,6 +6,7 @@ import java.util.Random;
 public class ArrayCounting {
 
     public static void main(String[] args) {
+
         int[] randomNumber = createRandomArray(10, 100);
         countingArray(randomNumber);
     }
