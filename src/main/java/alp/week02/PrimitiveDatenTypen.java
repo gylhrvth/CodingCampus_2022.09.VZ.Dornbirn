@@ -2,8 +2,8 @@ package alp.week02;
 
 public class PrimitiveDatenTypen {
     public static void main(String[] args) {
-        /*
-        printFaktorial(20);
+
+        printFaktorial( 20);
         System.out.println();
         printFaktorialErweitert(20);
         System.out.println();
@@ -17,7 +17,7 @@ public class PrimitiveDatenTypen {
         System.out.println();
         leibnizReihe(1000000);
         System.out.println();
-         */
+
         nilakanthaReihe(100);
         System.out.println();
 

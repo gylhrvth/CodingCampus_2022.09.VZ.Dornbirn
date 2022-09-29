@@ -58,12 +58,12 @@ public class AufgabeMenu {
         while (true) {
             System.out.println(prompt);
             if (sc.hasNextInt()) {
-               int number = sc.nextInt();
+                int number = sc.nextInt();
                 //Frage ob Zahl gut ist?
                 if (number >= minValue && number <= maxValue) {
                     return number;
                 }
-            }else {
+            } else {
                 System.out.println("Falsche Eingabe");
                 System.out.println("Bitte Wählen Sie erneut.");
             }
