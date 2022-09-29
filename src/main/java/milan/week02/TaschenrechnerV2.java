@@ -21,9 +21,10 @@ public class TaschenrechnerV2 {
         while (askContinue("Wollen Sie mit dem Ergebnis weiterrechnen? (j/n)")){
             String op2 = readOperator();
             float num3 = readFloat("Bitte gebe die nächste Zahl an!");
-            float result2 = doCalculation2(op, result, num3);
+            float result2 = doCalculation2(op2, result, num3);
 
             System.out.printf("%f %s %f = %f\n", result, op2, num3, result2);
+            result = result2;                   // result übernimmt den Wert von result2
         }
         System.out.println("Auf Wiedersehen!");
     }
