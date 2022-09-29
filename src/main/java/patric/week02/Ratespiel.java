@@ -38,6 +38,6 @@ public class Ratespiel {
 
     }
     public static void main(String[] args) {
-        rateZahl(10000);
+        rateZahl(100);
     }
 }
