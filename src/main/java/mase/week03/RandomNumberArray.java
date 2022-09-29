@@ -42,12 +42,12 @@ public class RandomNumberArray {
         }
         System.out.println("]");
 
-
-        System.out.println("[" +
-                ((1 < arr.length)?Integer.toString(arr[1]):"") +
-                ((4 < arr.length)?", " + Integer.toString(arr[4]):"") +
-                ((9 < arr.length)?", " + Integer.toString(arr[9]):"") +
-                "]");
+//
+//        System.out.println("[" +
+//                ((1 < arr.length)?Integer.toString(arr[1]):"") +
+//                ((4 < arr.length)?", " + Integer.toString(arr[4]):"") +
+//                ((9 < arr.length)?", " + Integer.toString(arr[9]):"") +
+//                "]");
 
 
         for (int i = 1; i < arr.length;i = i+2) {
