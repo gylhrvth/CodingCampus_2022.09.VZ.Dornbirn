@@ -30,10 +30,12 @@ public class ArrayUebungen {
         System.out.println();
 
 
+
         //Neue Aufgabe
         System.out.println("Aufgabe Random Number Array Crazy Range");                //name von der Aufgabe
         System.out.println(Arrays.toString(createRandomArray(30, -50, 50)));
         System.out.println();
+
 
 
         //Neue Aufgabe
@@ -43,10 +45,10 @@ public class ArrayUebungen {
         //Werte grösser als 30
         System.out.println("Werte grösser als 30");                                 //name von der Aufgabe
         int count = countWerteUeber30(abc, 30);
-
         System.out.println(Arrays.toString(abc));
         System.out.println(count);
         System.out.println();
+
 
 
         //Neue Aufgabe
@@ -62,6 +64,8 @@ public class ArrayUebungen {
         System.out.println();
 
     }
+
+
 
 
     public static void printforeach(int[] arrayName) {                  //Aufgabe Random Number Array - Printforeach
