@@ -41,8 +41,8 @@ public class RandomNumberArrayMinMaxAvg {
     }
     public static int minimum(int[] arr){
         int minimum = arr[0];
-        for (int i = 0; i >minimum ; i++) {
-            if (arr[i] > minimum){
+        for (int i = 0; i < arr.length ; i++) {
+            if (arr[i] < minimum){
                 minimum = arr[i];
             }
 
