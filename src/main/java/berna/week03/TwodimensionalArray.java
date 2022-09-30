@@ -1,48 +1,64 @@
 package berna.week03;
 
 
-
-
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class TwodimensionalArray {
     public static void main(String[] args) {
-        //if (Math.random() > 0.5) {
-        //  throw new RuntimeException("Hi Berna, was geht ab?");
 
-        //createTwoDimArray();
-        twoDimArraySum();
+        System.out.println("So you want to create a 2D array?");
+        System.out.println("How many rows do you want? (i.e. i = ? ) Enter a number please!");
+        int row = ArraysBasics.askArrayLength();
+        System.out.println("How many columns do you want? (i.e. j = ? ) Enter a number please!");
+        int col = ArraysBasics.askArrayLength();
+
+        int[][] newMatrix = new int[row][col];
+        createTwoDimArray(row, col, newMatrix);
+        //System.out.println(Arrays.deepToString(newMatrix));
+        System.out.println("That's your 2D array! ");
+        System.out.println();
+        printTwoDimArray(row, col, newMatrix);
+        System.out.println();
+        calculateTwoDimArraySum(row, col, newMatrix);
 
     }
 
-    public static int[][] createTwoDimArray() {
+    public static void printTwoDimArray(int rows, int column, int[][] arr_a) {
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < column; j++) {
+                System.out.printf("%3d | ", arr_a[i][j]);
+            }
+            System.out.println();
+        }
+
+    }
+
+    public static int[][] createTwoDimArray(int rows, int column, int[][] arr_a) {
 
         // Create a 2d-array and fill it with random numbers
 
-        int length = ArraysBasics.askArrayLength();             //ask user which length of array
         Random randy = new Random();                            //initialize random numbers
-        int[][] twodim = new int[length][];                     //the (main) array into which other arrays will be written in !
 
-
-        for (int twodimCol = 0; twodimCol < length; twodimCol++) {      // in each col of the main array...
-            int[] newArr = new int[length];                             // ...create a new array...
-            for (int newArrCol = 0; newArrCol < newArr.length; newArrCol++) {     //... and fill its columns
-                newArr[newArrCol] = randy.nextInt(100);
+        for (int i = 0; i < rows; i++) {      // in each col of the main array...
+            int[] arr_b = new int[column];                             // ...create a new array b...
+            for (int j = 0; j < column; j++) {     //... and fill its columns
+                arr_b[j] = randy.nextInt(100);
             }
+            arr_a[i] = arr_b;             // write the array arr_b into one column of the (main) array
 
-            twodim[twodimCol] = newArr;             // write the array newArr into one column of the (main) array
         }
-        System.out.print(Arrays.deepToString(twodim));
-        return twodim;
+        //System.out.print(Arrays.deepToString(arr_a));
+        return arr_a;
 
     }
 
-    public static void twoDimArraySum() {
-        System.out.println("So you want to calculate the sum of a 2D-Array? ");
-        System.out.println("Do you need the sum of the rows (type 1!) or the sum of the columns (type 2!)");
+    public static void calculateTwoDimArraySum(int rows, int column, int[][] arr_a) {
+        System.out.println("So you want to calculate sums of your 2D-Array? ");
+        System.out.println("Do you need the sum of the rows (type: 1) or the sum of the columns (type: 2)? ");
         Scanner sc = new Scanner(System.in);
 
         int wish = 0;
@@ -59,21 +75,32 @@ public class TwodimensionalArray {
             sc.nextLine();  // reset the user input
         }
 
-        int[][] arr = createTwoDimArray();
-        System.out.println();
-
-
         if (wish == 1) {
             //sum of the rows
-            int sum = 0;
-            for (int i = 0; i < arr.length; i++) {
-                int[] newArr = new int[arr.length];
-                newArr = arr[i];
-//TODO: not yet correct, does sum1+sum2+sum3!!
-                for (int k = 0; k < arr.length; k++) {
-                    sum = sum + newArr[k];
+
+            for (int i = 0; i < rows; i++) {
+
+                int sumRow = 0;
+
+                for (int j = 0; j < column; j++) {
+
+                    sumRow = sumRow + arr_a[i][j];
                 }
-                System.out.println(sum);
+
+                System.out.printf("sumRow(%3d) = %3d \n", i , sumRow);
+            }
+        } else {
+            //sum of the columns
+
+            for (int i = 0; i < column; i++) {
+
+                int sumCol = 0;
+
+                for (int j = 0; j < rows; j++) {
+
+                    sumCol = sumCol + arr_a[j][i];
+                }
+                System.out.printf("sumCol(%3d) = %3d \n", i , sumCol);
             }
         }
     }
