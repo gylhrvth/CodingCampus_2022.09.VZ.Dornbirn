@@ -20,13 +20,13 @@ public class Bubblesort {
     }
 
     public static int[] sortAscending(int[] arr) {
-        int sor = -1;
+        int ablage = -1;
         for (int i = 0; i < arr.length; i++) {
             for (int pos = 0; pos < arr.length - 1; pos++) {
                 if (arr[pos] > arr[pos + 1]) {
-                    sor = arr[pos];
+                    ablage = arr[pos];
                     arr[pos] = arr[pos + 1];
-                    arr[pos + 1] = sor;
+                    arr[pos + 1] = ablage;
                 }
             }
         }
@@ -34,13 +34,13 @@ public class Bubblesort {
     }
 
     public static int[] sortDescending(int[] arr) {
-        int sor = -1;
+        int ablage = -1;
         for (int i = 0; i < arr.length; i++) {
             for (int pos = 0; pos < arr.length - 1; pos++) {
                 if (arr[pos] < arr[pos + 1]) {
-                    sor = arr[pos];
+                    ablage = arr[pos];
                     arr[pos] = arr[pos + 1];
-                    arr[pos + 1] = sor;
+                    arr[pos + 1] = ablage;
                 }
             }
         }
