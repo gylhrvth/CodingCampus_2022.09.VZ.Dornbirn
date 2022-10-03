@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Taschenrechner {
     public static void main(String[] args) {
-                menue();
+        menue();
         newCalculation();
 
     }
@@ -54,7 +54,7 @@ public class Taschenrechner {
     }
     public static void newCalculation(){
 
-    System.out.println("Wollen Sie noch eine Rechnung ausführen? (j/n)");
+    System.out.println("Wollen Sie eine neue Rechnung ausführen? (j/n)");
         Scanner sc = new Scanner(System.in);
     String s = sc.nextLine();
      if (s.equals("j")) {

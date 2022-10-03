@@ -16,7 +16,7 @@ public class ArraySumme {
         }
         System.out.println(Arrays.toString(arr));
         System.out.println("Die Summe ist: "+ summe);
-        System.out.println("Du Programier Gott!");
+
     }
 
     private static int[] generateRandomNumber(int length, int maxValue) {

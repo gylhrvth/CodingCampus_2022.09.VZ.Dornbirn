@@ -8,33 +8,30 @@ public class Arrays2Dim {
     public static Random randy = new Random();
 
     public static void main(String[] args) {
-        int[][] matrix = createRandomArray(10, 10);
+        int[][] matrix = createRandomArray(10, 15);
         print2DArray(matrix);
 
         int[] sumRows = sumByRow(matrix);
         System.out.println("Summe by row:    " + Arrays.toString(sumRows));
         int[] sumColums = sumByColums(matrix);
         System.out.println("Summe by Colums: " + Arrays.toString(sumColums));
-     }
-
-
+    }
 
 
     private static void print2DArray(int[][] matrix) {
 
-       int summeColums= 0;
         for (int i = 0; i < matrix.length; i++) {
-            int summeSize = 0;
-            for (int j = 0; j < matrix[i].length; j++) {
-                System.out.printf(" %3d",matrix[i][j]);
 
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.printf(" %3d", matrix[i][j]);
             }
             System.out.println();
-        }System.out.println();
+        }
+        System.out.println();
 
     }
 
-    public static int[] sumByRow(int[][] matrix){
+    public static int[] sumByRow(int[][] matrix) {
         int[] result = new int[matrix.length];
         for (int i = 0; i < result.length; i++) {
             result[i] = 0;
@@ -49,7 +46,7 @@ public class Arrays2Dim {
     }
 
     private static int[] sumByColums(int[][] matrix) {
-        if (matrix.length == 0){
+        if (matrix.length == 0) {
             return new int[0];
         }
         int[] result = new int[matrix[0].length];
