@@ -1,52 +1,47 @@
 package michel.week03;
 
+import java.util.Arrays;
+
 import static michel.week03.ArrayCounting.createRandomArray;
 
 public class ArrayBubbleSort {
 
     public static void main(String[] args) {
-        int[] randomNumber = createRandomArray(10, 1000);
+        int[] randomNumber = createRandomArray(10, 100);
+        System.out.println(Arrays.toString(randomNumber));
 
-        int[] sortAscending = doSortAscending(randomNumber);
+        doSortAscending(randomNumber);
+        System.out.println(Arrays.toString(randomNumber));
 
-        int[] sortDescending = doSortDescending(randomNumber);
-
-        for (int i = 0; i < sortAscending.length; i++) {
-            System.out.println(i + 1 + ": " + sortAscending[i]);
-        }
-        for (int i = 0; i < sortDescending.length; i++) {
-            System.out.println(i + 1 + ": " + sortDescending[i]);
-        }
-
+        doSortDescending(randomNumber);
+        System.out.println(Arrays.toString(randomNumber));
     }
 
-    private static int[] doSortDescending(int[] sortDescending) {
+    private static void doSortDescending(int[] toSortDescending) {
+        System.out.println("Sortierung absteigend:");
         int value;
-        for (int i = 1; i < sortDescending.length; i++) {
-            for (int j = 0; j < sortDescending.length - i; j++) {
-                if (sortDescending[j] > sortDescending[j + 1]) {
-                    value = sortDescending[j];
-                    sortDescending[j] = sortDescending[j + 1];
-                    sortDescending[j + 1] = value;
+        for (int i = 1; i < toSortDescending.length; i++) {
+            for (int j = 0; j < toSortDescending.length - i; j++) {
+                if (toSortDescending[j] < toSortDescending[j + 1]) {
+                    value = toSortDescending[j];
+                    toSortDescending[j] = toSortDescending[j + 1];
+                    toSortDescending[j + 1] = value;
                 }
             }
         }
-        return sortDescending;
     }
 
-    private static int[] doSortAscending(int[] sortAscending) {
+    private static void doSortAscending(int[] sortAscending) {
+        System.out.println("Sortierung aufsteigend:");
         int value;
         for (int i = 1; i < sortAscending.length; i++) {
             for (int j = 0; j < sortAscending.length - i; j++) {
-                if (sortAscending[j] < sortAscending[j + 1]) {
+                if (sortAscending[j] > sortAscending[j + 1]) {
                     value = sortAscending[j];
                     sortAscending[j] = sortAscending[j + 1];
                     sortAscending[j + 1] = value;
                 }
             }
         }
-        return sortAscending;
     }
-
-
 }

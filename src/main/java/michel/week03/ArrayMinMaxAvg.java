@@ -56,7 +56,7 @@ public class ArrayMinMaxAvg {
         System.out.println(Arrays.toString(arr));
     }
 
-    private static int[] readAverange(int[] value) {
+    private static float readAverange(int[] value) {
         float summe = 0;
         float avg = 0;
         for (int i = 0; i < value.length; i++) {
@@ -66,10 +66,10 @@ public class ArrayMinMaxAvg {
 
         System.out.println("Der Durchschnitt ist : " + avg);
 
-        return value;
+        return avg;
     }
 
-    private static int[] readMaxValue(int[] value) {
+    private static int readMaxValue(int[] value) {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < value.length; i++) {
             if (value[i] > max) {
@@ -77,10 +77,10 @@ public class ArrayMinMaxAvg {
             }
         }
         System.out.println("Die größte Zahl im Array ist: " + max);
-        return value;
+        return max;
     }
 
-    private static int[] readMinValue(int[] value) {
+    private static int readMinValue(int[] value) {
         int min = Integer.MAX_VALUE;
 
         for (int i = 0; i < value.length; i++) {
@@ -90,7 +90,7 @@ public class ArrayMinMaxAvg {
 
         }
         System.out.println("Die kleinste Zahl im Array ist: " + min + " ");
-        return value;
+        return min;
     }
 
     private static int[] generateRandomNumber(int length, int maxValue) {

@@ -32,7 +32,7 @@ public class numberArrys {
     public static int[] makeACopy(int[] orginal) {
         int[] kopie = new int[orginal.length];
         for (int i = 0; i < orginal.length; i++) {
-            kopie[i]=orginal[i];
+            kopie[i] = orginal[i];
         }
         return kopie;
     }
