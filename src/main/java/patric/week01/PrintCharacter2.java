@@ -205,7 +205,7 @@ public class PrintCharacter2 {
         //zweites Dreieck
         for (int i = 0; i < height; i++) {
             //Leerzeichen bis zum ersten "x"
-            for (int j = 0; j <  i ; j++) {
+            for (int j = 0; j < i; j++) {
                 System.out.print(" ");
             }
             //Erste "x"
@@ -214,7 +214,7 @@ public class PrintCharacter2 {
             //Ab zeile 2
             if (i < height - 1) {
                 //Leerzeichen bis zum 2ten "x"
-                for (int j = 0; j < (height- i) * 2 - 3; j++) {
+                for (int j = 0; j < (height - i) * 2 - 3; j++) {
                     System.out.print(".");
                 }
                 //"x"
