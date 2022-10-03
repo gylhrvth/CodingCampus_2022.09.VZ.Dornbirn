@@ -4,7 +4,7 @@ package stefan.week01;
 public class CountingWithFunktionen {
     public static void main(String[] args) {
 
-        printChars("x", 20);
+        printChars("x", 4);
         System.out.println();
         printSquare("a ", 10);
         System.out.println();
