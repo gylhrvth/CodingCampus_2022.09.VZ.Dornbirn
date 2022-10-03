@@ -29,6 +29,7 @@ public class ArrayMinMaxAverage {
         System.out.printf("%2d %n", findAverage(values));
         System.out.println();
         System.out.println("****TschauTschau****");
+
     }
 
     public static int findMinimum(int[] values) {

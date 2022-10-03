@@ -1,9 +1,7 @@
 package patric.week02;
 
 import patric.week01.PrintCharacter2;
-import patric.week01.Triangle;
 
-import javax.swing.*;
 import java.util.Scanner;
 
 public class Menue {
@@ -17,7 +15,7 @@ public class Menue {
             String sign = witchSign("");
             int size = readNumber2("Please choose the size of the rectangle, 1 bis 10", 1, 10);
             PrintCharacter2.printTriangleBottomLeft(sign, size);
-            String frage=frageWeiter();
+            String frage = frageWeiter();
 
         } else if (choice == 2) {
             String sign = witchSign("");
@@ -30,8 +28,6 @@ public class Menue {
             int height = readNumber2("Please choose the height of the rectangle, 1 bis 25", 1, 25);
             PrintCharacter2.printRectangle(sign, width, height);
         }
-
-
 
 
     }
@@ -70,7 +66,7 @@ public class Menue {
     }
 
     public static String frageWeiter() {
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("möchtest du weiterzeichnen???   (j/n)");
         String frage = sc.next();
         return frage;
