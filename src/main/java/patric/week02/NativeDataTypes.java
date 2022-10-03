@@ -62,29 +62,27 @@ public class NativeDataTypes {
     }
 
 
+    public static void LeibnizV2(String[] args) {
+        leibniz();
+    }
 
-        public static void LeibnizV2(String[] args) {
-            leibniz();
-        }
-
-        public static void leibniz(){
-            int vorzeichen = -1;
-            double piValue = 0.0;
-
-            for (int i = 1; i < 10000; i += 2) {
-                vorzeichen *= -1;
-
-                piValue += vorzeichen * 4.0 / i;
-                System.out.println(piValue);
-            }
-        }
-
-
-
-    public static void Nilakantha(){
+    public static void leibniz() {
         int vorzeichen = -1;
         double piValue = 0.0;
-        double sum=0;
+
+        for (int i = 1; i < 10000; i += 2) {
+            vorzeichen *= -1;
+
+            piValue += vorzeichen * 4.0 / i;
+            System.out.println(piValue);
+        }
+    }
+
+
+    public static void Nilakantha() {
+        int vorzeichen = -1;
+        double piValue = 0.0;
+        double sum = 0;
 
         for (int i = 2; i < 100; i += 4) {
             vorzeichen *= 1.0;
