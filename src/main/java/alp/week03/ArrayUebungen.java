@@ -30,12 +30,10 @@ public class ArrayUebungen {
         System.out.println();
 
 
-
         //Neue Aufgabe
         System.out.println("Aufgabe Random Number Array Crazy Range");                //name von der Aufgabe
         System.out.println(Arrays.toString(createRandomArray(30, -50, 50)));
         System.out.println();
-
 
 
         //Neue Aufgabe
@@ -50,7 +48,6 @@ public class ArrayUebungen {
         System.out.println();
 
 
-
         //Neue Aufgabe
 
         // das grün geschriebene in den System.out.printLn()funktionen,welche ausgeblendet sind. Sind fleissaufgaben. wie man statt system.out.printLn()
@@ -63,13 +60,13 @@ public class ArrayUebungen {
         numberArraySumme(abc);
         System.out.println();
 
+
+
     }
 
 
-
-
     public static void printforeach(int[] arrayName) {                  //Aufgabe Random Number Array - Printforeach
-        System.out.print("[");
+        System.out.print("[");                                          //Random Number generator ausgegeben
         boolean firstLine = true;
         for (int i : arrayName) {
             if (firstLine) {
@@ -81,8 +78,6 @@ public class ArrayUebungen {
         }
         System.out.println("]");
     }
-
-
 
 
     public static void printfori(int[] arrayName) {                     //Aufgabe Random Number Array - Printfori
@@ -102,8 +97,6 @@ public class ArrayUebungen {
     }
 
 
-
-
     public static void printchoosennumberzahl2510(int[] arrayname, int index) {                 //Aufgabe Random Number Array - Printchoosennumberzahl2510
         if (index < arrayname.length) {
             System.out.println((index + 1) + ". Value of array is " + arrayname[index]);
@@ -111,8 +104,6 @@ public class ArrayUebungen {
             System.out.println((index + 1) + ". value of array is Not available.");
         }
     }
-
-
 
 
     public static void printeverysecondnumber(int[] arrayname) {                    //Aufgabe Random Number Array - Print every second number
@@ -127,18 +118,15 @@ public class ArrayUebungen {
     }
 
 
-
     //100, min: -50, max: 50
     public static int[] createRandomArray(int length, int min, int max) {           //Aufgabe Random Number Array Crazy Range
-        Random crazy = new Random();
+        Random crazy = new Random();                                                //Random Number generator
         int[] array = new int[length];
         for (int i = 0; i < length; i++) {
             array[i] = crazy.nextInt(max - min + 1) + min;
         }
         return array;
     }
-
-
 
 
     public static int countWerteUeber30(int[] arr, int min) {                       //Aufgabe Random Number Array Zählen
@@ -152,8 +140,6 @@ public class ArrayUebungen {
     }
 
 
-
-
     public static int[] numberArraySumme(int[] arr) {                               //Aufgabe Random Number Array Summe
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -163,5 +149,6 @@ public class ArrayUebungen {
         return arr;
 
     }
+
 
 }

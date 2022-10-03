@@ -3,7 +3,7 @@ package berna.week03;
 import java.util.Arrays;
 import static berna.week03.ArraysBasics.createRandomArray;
 
-
+//TODO Seperate functions, definitions, blabla
 public class ArraysCaluclations {
     public static void main(String[] args) {
         int[] arr = createRandomArray(1, 100);
@@ -58,7 +58,7 @@ public class ArraysCaluclations {
 
     public static int randomNumberArrayMin(int[] arr) {
 
-        int minvalue = 100;
+        int minvalue = arr[0];
         for (int i = 0; i < arr.length - 1; i++) {
 
             if (arr[i] < minvalue) {

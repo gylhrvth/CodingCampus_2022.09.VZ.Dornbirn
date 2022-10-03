@@ -1,5 +1,6 @@
 package berna.week03;
 
+//TODO Seperate functions, definitions, blabla
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -27,7 +28,7 @@ public class ArraysBasics {
     public static int askArrayLength() {
 
         int length = 0; //length of array
-        System.out.println(" Length of your array?");
+        //System.out.println(" Length of your array?");
 
         Scanner sc = new Scanner(System.in);
 
