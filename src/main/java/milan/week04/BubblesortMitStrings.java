@@ -22,15 +22,28 @@ public class BubblesortMitStrings {
         System.out.println("Alphabetisch Absteigend sortiert: ");
         System.out.println(Arrays.toString(names));
         System.out.println("--------------------------------------");
+        sortNames(names, true);
+        System.out.println("--------------------------------------");
+
+
     }
 
+    public static void sortNames(String[] names, boolean ascending) {
+        if (ascending) {
+            namesAscendingAlphabetical(names);
+            System.out.println(Arrays.toString(names));
+        } else {
+            namesDescendingAlphabetical(names);
+            System.out.println(Arrays.toString(names));
+        }
+    }
 
     public static String[] namesAscendingAlphabetical(String[] names) {
-        String hold = " ";
+
         for (int i = 0; i < names.length; i++) {
             for (int pos = 0; pos < names.length - 1; pos++) {
                 if (names[pos].compareTo(names[pos + 1]) > 0) {
-                    hold = names[pos];
+                    String hold = names[pos];
                     names[pos] = names[pos + 1];
                     names[pos + 1] = hold;
                 }
@@ -40,11 +53,11 @@ public class BubblesortMitStrings {
     }
 
     public static String[] namesDescendingAlphabetical(String[] names) {
-        String hold = " ";
+
         for (int i = 0; i < names.length; i++) {
             for (int pos = 0; pos < names.length - 1; pos++) {
                 if (names[pos].compareTo(names[pos + 1]) < 0) {
-                    hold = names[pos];
+                    String hold = names[pos];
                     names[pos] = names[pos + 1];
                     names[pos + 1] = hold;
                 }
@@ -54,11 +67,10 @@ public class BubblesortMitStrings {
     }
 
     public static String[] namesAscendingLength(String[] names) {
-        String hold = " ";
         for (int i = 0; i < names.length; i++) {
             for (int pos = 0; pos < names.length - 1; pos++) {
                 if (names[pos].length() > names[pos + 1].length()) {
-                    hold = names[pos];
+                    String hold = names[pos];
                     names[pos] = names[pos + 1];
                     names[pos + 1] = hold;
                 }
