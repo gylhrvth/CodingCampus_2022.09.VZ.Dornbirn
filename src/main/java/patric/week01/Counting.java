@@ -2,11 +2,11 @@ package patric.week01;
 
 public class Counting {
     public static void main(String[] args) {
-        for(int i = 1; i <= 10; ++i){
+        for (int i = 1; i <= 10; ++i) {
             System.out.print(i);
-            if (i == 1){
+            if (i == 1) {
                 System.out.print("st");
-            } else if (i == 2){
+            } else if (i == 2) {
                 System.out.print("nd");
             } else if (i == 3) {
                 System.out.print("rd");
