@@ -8,17 +8,14 @@ public class Reverse {
 
     public static void printToReverse(String text) {
 
-
-
         char[] reservedText = text.toCharArray();
         char[] newString = new char[text.length()];
-
 
         int j = 0;
 
         for (int i = text.length() - 1; i >= 0; i--) {
 
-            while(j < text.length()-i) {
+            while (j < text.length() - i) {
                 newString[j] = reservedText[i];
                 j++;
             }
