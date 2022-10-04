@@ -21,7 +21,7 @@ public class ArrayMinMaxAvg {
 
     }
 
-    private static int [] readIndexOfMaxValue(int [] value) {
+    private static int[] readIndexOfMaxValue(int[] value) {
         int max = Integer.MIN_VALUE;
         int indexMax = 0;
         for (int i = 0; i < value.length; i++) {
