@@ -10,17 +10,17 @@ public class BubblesortMitStrings {
 
         String[] names = new String[]{"Viktor", "Batuhan", "Milan", "Stefan", "Berna", "Franky", "Fatima", "Mike", "Mase", "Patric", "Alp", "Gyula", "Lukas", "Svitlana"};
         System.out.println("--------------------------------------");
-        namesAscendingLength(names);
+        String [] sortedlgth = namesAscendingLength(names);
         System.out.println("Nach Länge sortiert: ");
-        System.out.println(Arrays.toString(names));
+        System.out.println(Arrays.toString(sortedlgth));
         System.out.println("--------------------------------------");
-        namesAscendingAlphabetical(names);
-        System.out.println("Alphabetisch Aufsteigend sortiert: ");
-        System.out.println(Arrays.toString(names));
+        String [] sortedasc = namesAscendingAlphabetical(names);
+        System.out.println("Alphabetisch aufsteigend sortiert: ");
+        System.out.println(Arrays.toString(sortedasc));
         System.out.println("--------------------------------------");
-        namesDescendingAlphabetical(names);
-        System.out.println("Alphabetisch Absteigend sortiert: ");
-        System.out.println(Arrays.toString(names));
+        String [] sortdes = namesDescendingAlphabetical(names);
+        System.out.println("Alphabetisch absteigend sortiert: ");
+        System.out.println(Arrays.toString(sortdes));
         System.out.println("--------------------------------------");
         sortNames(names, true);
         System.out.println("--------------------------------------");
