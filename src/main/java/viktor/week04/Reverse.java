@@ -9,22 +9,22 @@ public class Reverse {
     public static void printToReverse(String text) {
 
         char[] reservedText = text.toCharArray();
-        char[] newString = new char[text.length()];
+        char[] newString = new char[reservedText.length];
 
         int j = 0;
+        int pos = reservedText.length-1;
 
-        for (int i = text.length() - 1; i >= 0; i--) {
+        for (int i = 0; i < reservedText.length; i++) {
 
-            while (j < text.length() - i) {
-                newString[j] = reservedText[i];
-                j++;
+            newString[i] = reservedText[pos];
+            pos--;
+
             }
-        }
 
         String output = new String(newString);
         System.out.println("Reserve: " + output);
 
-    }
+        }
 
 
     public static void main(String[] args) {
