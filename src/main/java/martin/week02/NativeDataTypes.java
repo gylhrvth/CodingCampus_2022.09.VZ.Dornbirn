@@ -13,7 +13,7 @@ public class NativeDataTypes {
         printDecCount2();
         MethodenUndSchleifen.head("#", "Teilen und Herrschen");
         printDivAndConq();
-        MethodenUndSchleifen.head("@", "Berehcnung von Pi (Leibniz Reihe)");
+        MethodenUndSchleifen.head("@", "Berechnung von Pi (Leibniz Reihe)");
         printCalcPiLeibn(7);
         MethodenUndSchleifen.head("@", "Berechnung von Pi (Nilakantha Reihe)");
         printCalcPiNilakantha(7);

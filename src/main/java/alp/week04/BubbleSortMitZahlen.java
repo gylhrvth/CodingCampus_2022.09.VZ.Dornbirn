@@ -4,7 +4,7 @@ import alp.week03.ArrayUebungen;
 
 import java.util.Arrays;
 
-public class BubblesortmitZahlen {
+public class BubbleSortMitZahlen {
     public static void main(String[] args) {
         int[] values = ArrayUebungen.createRandomArray(20, 0, 1000);
 
