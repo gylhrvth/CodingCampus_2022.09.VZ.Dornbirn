@@ -1,10 +1,6 @@
-package stefan.weeek02;
+package stefan.week02;
 
 
-import org.w3c.dom.Text;
-import stefan.week01.CountingWithFunktionen;
-
-import javax.swing.*;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
