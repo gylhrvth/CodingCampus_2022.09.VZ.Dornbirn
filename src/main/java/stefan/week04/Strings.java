@@ -10,18 +10,14 @@ public class Strings {
 
         System.out.println("Aufsteigend");
         System.out.println(Arrays.toString(bubbleSort(namen))); //
-        System.out.println();
-        System.out.println("Absteigend");
+        System.out.println("\n Absteigend");
         System.out.println(Arrays.toString(bubbleSortAufS(namen)));
-        System.out.println();
-        System.out.println("Nach Länge sotiert");
+        System.out.println("\n Nach Länge sotiert");
         System.out.println(Arrays.toString(bubbleSortLong(namen)));
-        System.out.println();
-        System.out.println("true oder false");
+        System.out.println("\n true oder false");
         bubbleSortboolen(namen, true);
-        System.out.println();
-        System.out.println("Index");
-        exended(namen,2);
+        System.out.println("\n Index");
+        exended(namen,1);
         System.out.println((Arrays.toString(namen)));
         reverse();
         System.out.println();
