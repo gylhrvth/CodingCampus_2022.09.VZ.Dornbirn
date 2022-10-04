@@ -6,11 +6,10 @@ public class ExampleString {
     public static void main(String[] args) {
         String[] names = {"Viktor", "Batuhan", "Milan", "Stefan", "Berna", "Martin", "Franky", "Fatima", "Mike", "Mase", "Patric", "Alp", "Gyula", "Lukas", "Svitlana"};
         System.out.println("Before: " + Arrays.toString(names));
-        bubblesortAz(names);
+        bubbleSortExtended(names,true);
         System.out.println("After A-Z : " + Arrays.toString(names));
-        bubblesortZa(names);
+        bubbleSortExtended(names, false);
         System.out.println("After Z-A : " + Arrays.toString(names));
-        StringsExtended(true, false);
     }
 
     public static void bubblesortAz(String[] names) {
@@ -38,8 +37,9 @@ public class ExampleString {
         }
     }
 
-    public static void StringsExtended(boolean a, boolean b) {
-
+    public static void bubbleSortExtended(String[] names, boolean ascending) {
+        if (ascending) bubblesortAz(names);
+        else bubblesortZa(names);
     }
 
 }

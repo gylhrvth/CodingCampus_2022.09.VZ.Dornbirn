@@ -1,4 +1,4 @@
-package stefan.weeek02;
+package stefan.week02;
 
 import stefan.week01.CountingWithFunktionen;
 import java.util.InputMismatchException;
