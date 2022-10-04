@@ -1,12 +1,13 @@
 package stefan.week04;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Strings {
     public static void main(String[] args) {
 
         String[] namen = {"Viktor", "Batuhan", "Milan", "Stefan", "Berna", "Franky", "Fatima", "Mike", "Mase", "Patric", "Alp", "Gyula", "Lukas", "Svitlana"};
-        int []arr =  {1,2,3,4,5,6,7,8,9,10};
+
         System.out.println("Aufsteigend");
         System.out.println(Arrays.toString(bubbleSort(namen))); //
         System.out.println();
@@ -18,7 +19,12 @@ public class Strings {
         System.out.println();
         System.out.println("true oder false");
         bubbleSortboolen(namen, true);
-
+        System.out.println();
+        System.out.println("Index");
+        exended(namen,2);
+        System.out.println((Arrays.toString(namen)));
+        reverse();
+        System.out.println();
 
     }
 
@@ -88,12 +94,38 @@ public class Strings {
 
     }
 
-    public static int[] exended (String[] namen, int arr) {
+    public static void exended(String[] namen,int index) {
         for (int i = 0; i < namen.length; i++) {
-            if (namen[i].charAt(arr)>0) {
+            for (int j = 0; j < namen.length-i-1; j++) {
+                if (namen[j].length() >index &&
+                        namen[j+1].length() >index &&
+                        namen[j].charAt(index)> namen[j+1].charAt(index)) {
 
+                    String sotieren=namen[j];
+                namen[j]= namen[j+1];
+                namen[j+1]=sotieren;
+
+                }
             }
+
         }
-    return new int[]{arr};
+
     }
+
+    public static  String reverse() {
+        System.out.println("Geben sie ein Text ein");
+        int a =0;
+        Scanner scanner =new Scanner(System.in);
+        String zeichen = scanner.next();
+        for (int i = 0; i < zeichen.length(); i++) {
+
+        }
+
+
+
+
+        return zeichen;
+    }
+
 }
+
