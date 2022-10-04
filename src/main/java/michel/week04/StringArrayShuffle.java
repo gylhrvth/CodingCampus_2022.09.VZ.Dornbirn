@@ -5,7 +5,6 @@ import java.util.Random;
 
 import static michel.week04.ReverseStringArray.*;
 
-
 public class StringArrayShuffle {
     private static final Random rand = new Random();
 
@@ -13,6 +12,7 @@ public class StringArrayShuffle {
         String shuffleWord = userInput();
         System.out.println(shuffleString(shuffleWord));
     }
+
     private static String shuffleString(String toShuffleWord) {
         String randomizedString;
         int stringLength = toShuffleWord.length();
@@ -33,6 +33,5 @@ public class StringArrayShuffle {
         }
         randomizedString = "";
         return randomizedString;
-
     }
 }
