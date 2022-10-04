@@ -5,16 +5,16 @@ import java.util.Arrays;
 public class BubbblesortStringsCharacterIndex {
     public static void main(String[] args) {
         String[] names = new String[]{"Viktor", "Batuhan", "Milan", "Stefan", "Berna", "Franky", "Fatima", "Mike", "Mase", "Patric", "Alp", "Gyula", "Lukas", "Svitlana"};
-        bubblesortIndex(names, 1);
+        bubblesortIndex(names, 2);
         System.out.println(Arrays.toString(names));
     }
-    private static String[] bubblesortIndex(String[] names, int index) {
+    private static void bubblesortIndex(String[] names, int index) {
         for (String s : names) {
             if (s.length() <= index) {
                 System.out.println("Liste kann nicht nach diesem Index sortiert werden.");
                 System.out.println();
                 System.out.println("Daher musst du mit dem Originalen Array leben!");
-                return names;
+                return;
             }
         }
         System.out.println("Sortiert nach dem " + index + ". Index:");
@@ -27,6 +27,5 @@ public class BubbblesortStringsCharacterIndex {
                 }
             }
         }
-        return names;
     }
 }
