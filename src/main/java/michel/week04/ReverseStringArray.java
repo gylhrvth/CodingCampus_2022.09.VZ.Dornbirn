@@ -1,6 +1,6 @@
 package michel.week04;
 
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class ReverseStringArray {
