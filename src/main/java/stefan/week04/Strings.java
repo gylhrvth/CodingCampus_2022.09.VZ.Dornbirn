@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Strings {
     public static void main(String[] args) {
 
-        String[] namen = {"Viktor", "Batuhan", "Milan", "Stefan", "Berna", "Franky", "Fatima", "Mike", "Mase", "Patric", "Alp", "Gyula", "Lukas", "Svitlana"};
+        String[] namen = {"Viktor", "Batuhan", "Milan", "Stefan", "Berna","Martin", "Franky", "Fatima", "Mike", "Mase", "Patric", "Alp", "Gyula", "Lukas", "Svitlana"};
 
         System.out.println("Aufsteigend");
         System.out.println(Arrays.toString(bubbleSort(namen))); //
@@ -17,7 +17,7 @@ public class Strings {
         System.out.println("\n true oder false");
         bubbleSortboolen(namen, true);
         System.out.println("\n Index");
-        exended(namen,1);
+        exended(namen,3);
         System.out.println((Arrays.toString(namen)));
         reverse();
         System.out.println();
@@ -110,7 +110,7 @@ public class Strings {
 
     public static  String reverse() {
         System.out.println("Geben sie ein Text ein");
-        int a =0;
+
         Scanner scanner =new Scanner(System.in);
         String zeichen = scanner.next();
         for (int i = 0; i < zeichen.length(); i++) {
