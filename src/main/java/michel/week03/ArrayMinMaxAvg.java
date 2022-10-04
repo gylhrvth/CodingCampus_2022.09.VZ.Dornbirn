@@ -93,7 +93,7 @@ public class ArrayMinMaxAvg {
         return min;
     }
 
-    private static int[] generateRandomNumber(int length, int maxValue) {
+    public static int[] generateRandomNumber(int length, int maxValue) {
         Random randomNumber = new Random();
         int[] arr = new int[length];
         for (int i = 0; i < arr.length; i++) {
