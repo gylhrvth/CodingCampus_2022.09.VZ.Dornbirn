@@ -1,4 +1,4 @@
-package stefan;
+package stefan.week03;
 
 import java.util.Arrays;
 

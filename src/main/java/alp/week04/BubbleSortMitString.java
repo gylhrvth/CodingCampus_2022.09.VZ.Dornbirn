@@ -1,6 +1,6 @@
 package alp.week04;
 
-public class bubblesortmitString {
+public class BubbleSortMitString {
 
     public static void main(String[] args) {
         String[] name =new String[]{"Viktor", "Batuhan", "Milan", "Stefan", "Berna", "Franky", "Fatima", "Mike", "Mase", "Patric", "Alp", "Gyula", "Lukas", "Svitlana"};

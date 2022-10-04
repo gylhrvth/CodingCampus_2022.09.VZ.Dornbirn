@@ -1,7 +1,6 @@
-package stefan.weeek02;
+package stefan.week02;
 
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TaschenRechner1 {

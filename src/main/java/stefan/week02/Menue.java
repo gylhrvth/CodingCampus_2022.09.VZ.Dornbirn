@@ -1,8 +1,7 @@
-package stefan.weeek02;
+package stefan.week02;
 
 import stefan.week01.CountingWithFunktionen;
 
-import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Menue {
