@@ -1,4 +1,4 @@
-package stefan.weeek02;
+package stefan.week02;
 
 public class PrimitiveDatentypen {
 

@@ -231,20 +231,19 @@ public class CountingWithFunktionen {
 
     private static void printRhombus2(String text, int size) {
         //Zeile für Zeile
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size*1; i++) {
             //Leerzeichen bis zum ersten "x"
-            for (int j = 0; j <size*2 - i-2 ; j++) {
+            for (int j = 0; j <size; j++) {
                 System.out.print("ö");
             }
             //Erste "x"
             System.out.print(text);
             System.out.println();
-
             //Ab zeile 2
 
             //Leerzeichen bis zum 2ten "x"
-            for (int j = 0; j < i * 2 - 1; j++) {
-                if (i < j) {
+            for (int j = 1; j < size*i/2; j++) {
+                if (i <j) {
                     System.out.print("_");
 
                 }

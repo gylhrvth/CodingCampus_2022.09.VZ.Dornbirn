@@ -24,7 +24,8 @@ public class Bubblesort {
         System.out.println("Result: " + Arrays.toString(values));
         System.out.println();
         System.out.println("Zahlen sotiert: Klein nach Gross ");
-        sortBigToLittle(values);System.out.println("Result: " + Arrays.toString(values));
+        sortBigToLittle(values);
+        System.out.println("Result: " + Arrays.toString(values));
         System.out.println();
         System.out.println("*****TschauTschau*****");
 
