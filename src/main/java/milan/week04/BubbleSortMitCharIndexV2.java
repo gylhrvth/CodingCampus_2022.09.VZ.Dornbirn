@@ -2,17 +2,23 @@ package milan.week04;
 
 import java.util.Arrays;
 
-public class BubblesortMitCharIndex {
+public class BubbleSortMitCharIndexV2 {
+
+
     public static void main(String[] args) {
 
         String[] names = new String[]{"Viktor", "Batuhan", "Milan", "Stefan", "Berna", "Franky", "Fatima", "Mike", "Mase", "Patric", "Alp", "Gyula", "Lukas", "Svitlana"};
         System.out.println("--------------------------------------");
-        String[] sortedasc = sortIndexInputAsc(names, 3);
 
+        int position = 0;   //choose position where to sort
+        boolean bool = findMin(names, position);  //check if position exists
 
-        System.out.println("Alphabetisch aufsteigend sortiert: ");
-        System.out.println(Arrays.toString(sortedasc));
-        System.out.println("--------------------------------------");
+        if (bool) {
+            String [] names_sorted = sortIndexInputAsc(names,position);
+            System.out.println("sorted asc: " + Arrays.toString(names_sorted));
+        } else {
+            System.out.println("Position gibt es nicht!");
+        }
 
     }
 
@@ -36,6 +42,17 @@ public class BubblesortMitCharIndex {
         }
         return names;
 
+    }
+
+    public static boolean findMin(String[] names, int position) {
+
+        boolean bool = false;
+        for (String x : names) {
+            if (x.length() < position) {
+                bool = true;
+            }
+
+        }return bool;
     }
 }
 
