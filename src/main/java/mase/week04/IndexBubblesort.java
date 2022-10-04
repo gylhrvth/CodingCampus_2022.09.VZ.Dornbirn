@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class IndexBubblesort {
     public static void main(String[] args) {
         String[] names = new String[]{"Viktor", "Batuhan", "Milan", "Stefan", "Berna", "Franky", "Fatima", "Mike", "Mase", "Patric", "Alp", "Gyula", "Lukas", "Svitlana"};
-        bubbleSort(names, 2);
+        bubbleSort(names, 2  );
         System.out.println(Arrays.toString(names));
 
     }

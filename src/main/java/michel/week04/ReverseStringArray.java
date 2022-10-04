@@ -1,28 +1,31 @@
-package mase.week04;
+package michel.week04;
 
-import martin.week01.MethodenUndSchleifen;
-import martin.week02.UserInput;
-
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class ReverseString {
+public class ReverseStringArray {
     public static void main(String[] args) {
-        String reverseWord = UserInput.readUserInputString("Geben Sie ein Wort ein");
+        System.out.println("Wilkommen zum Reverse Programm:");
+        String reverseWord = userInput();
+        System.out.println("Reversed word:");
         System.out.println(reverseString(reverseWord));
+    }
+
+    public static String userInput() {
+        System.out.println("Geben Sie ein Wort ein:");
+        Scanner sc = new Scanner(System.in);
+        String line = sc.nextLine();
+        return line;
     }
 
     public static String reverseString(String reverseString) {
         String reversedString;
-
         char[] splitString = reverseString.toCharArray();
         char[] newStringCharArray = new char[reverseString.length()];
         for (int i = 0; i < reverseString.length(); i++) {
             newStringCharArray[i] = splitString[reverseString.length() - 1 - i];
-
         }
         reversedString = new String(newStringCharArray);
         return reversedString;
-
-
     }
 }
