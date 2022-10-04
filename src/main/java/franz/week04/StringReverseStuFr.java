@@ -1,13 +1,17 @@
 package franz.week04;
 
+import com.sun.jdi.ArrayReference;
+
 import javax.print.DocFlavor;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class StringReverseStuFr {
     public static void main(String[] args) {
-      userinput();
-      turnstring(userinput());
+              turnstring(userinput());
+      turnstringrandom();
+        System.out.println("____");
     }
 
     public static String userinput() {
@@ -21,19 +25,19 @@ public class StringReverseStuFr {
 
 
     public static void turnstring(String line) {
-        char[] ch = line.toCharArray();
-        for (int i = 0; i < ch.length; i++) {
-            for (int j = 0; j < ch.length -1 ; j++) {
-
-
-
-            }
-
-            System.out.print(ch[i]+" ");
-        }
-
-
-
+        String reverse= "";
+        for (int i = line.length()-1; i >=0 ; i--) {
+            reverse =reverse +line.charAt(i);
+                    }
+        System.out.println(reverse);
     }
 
+    public static void turnstringrandom() {
+        Random randy = new Random(100);
+        String reverse= "" ;
+        for (int i = randy.nextInt()-1; i >=0 ; i--) {
+            reverse =reverse +randy.nextInt(i);
+        }
+        System.out.println(reverse);
+    }
 }
