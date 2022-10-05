@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>
+        <label>Type a text: </label>
+        <input id="inp" type="text">
+    </p>
+
+    <p>
+        Reverse: <span id="result"></span>
+    </p>
+
+    <script>
+        let inp = document.getElementById("inp")
+        let resultElement = document.getElementById("result")
+        inp.addEventListener('input', () => update(inp.value))
+
+        function update(text){
+            resultElement.innerText = reverse(text)
+        }
+
+        function reverse(text) {
+            let rev = "";
+            for (let i = 0; i < text.length; ++i)
+            rev += text[text.length - 1 -i]
+            return rev;
+        }
+    </script>
+</body>
+</html>

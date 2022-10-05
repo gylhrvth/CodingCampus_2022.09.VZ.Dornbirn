@@ -3,10 +3,14 @@ package berna.week04;
 import berna.week02.SimpleUserInput;
 
 public class StringReverse {
+    //exercise: reverse
+    // user input is a word; output is the word swapped/turned
     public static void main(String[] args) {
+
         String inputText = SimpleUserInput.readUserInputString();
         String turnedText = turnAroundString(inputText);
         System.out.println("Result: " + turnedText);
+
     }
 
     public static String turnAroundString(String inputText) {
