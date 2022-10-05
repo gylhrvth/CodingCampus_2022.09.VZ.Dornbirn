@@ -5,6 +5,8 @@ import berna.week02.SimpleUserInput;
 import java.util.Random;
 
 public class StringRandomize {
+    //exercise: randomize
+    // user input text is shuffled randomly
     private static Random randy = new Random();
 
     public static void main(String[] args) {
