@@ -1,13 +1,11 @@
 package mase.week04;
-
-import martin.week01.MethodenUndSchleifen;
-import martin.week02.UserInput;
+import mase.week02.UserInput;
 
 import java.util.Scanner;
 
 public class ReverseString {
     public static void main(String[] args) {
-        String reverseWord = UserInput.readUserInputString("Geben Sie ein Wort ein");
+        String reverseWord = UserInput.readUserInputString();
         System.out.println(reverseString(reverseWord));
     }
 
@@ -22,7 +20,5 @@ public class ReverseString {
         }
         reversedString = new String(newStringCharArray);
         return reversedString;
-
-
     }
 }
