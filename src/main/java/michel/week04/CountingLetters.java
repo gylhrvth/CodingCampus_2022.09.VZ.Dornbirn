@@ -6,24 +6,24 @@ public class CountingLetters {
     public static void main(String[] args) {
         String sampleText = Texts.getSimpleText();
         System.out.println(sampleText);
-        //printCoutnLetters(countTextLetters(sampleText));
+//        printCoutnLetters(countTextLetters(sampleText));
 
-        int [] countedText = countTextLetters2(sampleText);
-
-        for (int i = 0; i < countedText.length; i++) {
-           if(countedText[i] > 0) {
-               System.out.printf("%3s - %4d %n", (char)i, countedText[i]);
+        int [] countedText = countTextLetters2(sampleText);                     // Neues Integer Array mit count Werten der Funktion countTextLetters2
+                                                                                // countedText -> Rückgabewert arrCounter
+        for (int i = 0; i < countedText.length; i++) {                          // Zählt alle Character bis Max_Value (alle Symbole)
+           if(countedText[i] > 0) {                                             // Ausschließen von allen Chars < 0
+               System.out.printf("%3s - %4d %n", (char)i, countedText[i]);      // "%3s - %4d %n" - Formatierung / (char)i- wandelt Dez in Ascii um / countedText[i] Anzahl
            }
         }
     }
 
     private static int[] countTextLetters2(String text) {
-        int [] arrCounter = new int[Character.MAX_VALUE];
-        char [] arrText = text.toCharArray();
-        for (int i = 0; i < arrText.length; i++) {
-            ++arrCounter[arrText[i]];
+        int [] arrCounter = new int[Character.MAX_VALUE];                       // Character.MAX_Value gibt alle Symbole aus ca-65000
+        char [] arrText = text.toCharArray();                                   // Erstellt Char Array aus dem Vorgabetext
+        for (int i = 0; i < arrText.length; i++) {                              // Geht jede Pos des arrText Char durch
+            ++arrCounter[arrText[i]];                                           // zählt im arrCounter immer +1 bei Symbol x im Array
         }
-        return arrCounter;
+        return arrCounter;                                                      // Gibt arrCounter zurück mit count von jedem Symbol 0-65k
     }
 
 
