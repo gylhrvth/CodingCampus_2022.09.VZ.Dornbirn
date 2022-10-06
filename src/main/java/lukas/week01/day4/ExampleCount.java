@@ -13,8 +13,6 @@ public class ExampleCount {
         count3B();
         System.out.println();
         count4();
-
-        System.out.println("Change");
     }
 
     private static void count1A() {
