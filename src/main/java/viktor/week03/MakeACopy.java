@@ -16,7 +16,7 @@ public class MakeACopy {
 
     public static void main(String[] args) {
 
-        int[] original = {1000, 2000, 3000, 4000, 500};
+        int[] original = {1, 0, 2, 1};
         int[] secArray= makeACopy(original);
         secArray[0] = original[0];
 
