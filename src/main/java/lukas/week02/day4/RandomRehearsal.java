@@ -2,6 +2,8 @@ package lukas.week02.day4;
 
 public class RandomRehearsal {
     public static void main(String[] args) {
+        System.out.println("Change");
+
         //Rauten von der Höhe 1 bis 30, ungerade zahlen
 //        for (int i = 1; i <= 30; i++) {
 //            if(i % 2 != 0) {

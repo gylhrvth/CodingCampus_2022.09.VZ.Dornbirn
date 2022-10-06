@@ -53,5 +53,7 @@ public class Rehearsal {
             }
             System.out.println();
         }
+
+        System.out.println("Change");
     }
 }

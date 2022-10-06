@@ -2,6 +2,7 @@ package lukas.week01.day4;
 
 public class Triangle {
     public static void main(String[] args) {
+        System.out.println("Change");
         printTriangle("x", 10);
     }
 
