@@ -37,10 +37,7 @@ public class TabellarischDarstellen {
         }
         return count;
     }
-//
-//    public static int countLetters2(int [] age) {
-//
-//    }
+
 }
 
 
@@ -48,4 +45,4 @@ public class TabellarischDarstellen {
 
 
 
-d
+
