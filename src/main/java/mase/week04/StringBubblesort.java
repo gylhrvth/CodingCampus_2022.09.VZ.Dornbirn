@@ -30,7 +30,7 @@ public class StringBubblesort {
                 }
             }
         }
-        System.out.println();
+
 
     }
 

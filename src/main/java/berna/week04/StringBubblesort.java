@@ -1,4 +1,5 @@
 package berna.week04;
+
 import java.lang.String;
 import java.util.Arrays;
 
@@ -6,9 +7,9 @@ import java.util.Arrays;
 public class StringBubblesort {
     public static void main(String[] args) {
 
-        String[] names = new String[]{"Viktor", "Batuhan", "Milan", "Stefan", "Berna", "Franky", "Fatima", "Mike", "Mase", "Patric", "Alp", "Gyula", "Lukas", "Svitlana" };
+        String[] names = new String[]{"Viktor", "Batuhan", "Milan", "Stefan", "Berna", "Franky", "Fatima", "Mike", "Mase", "Patric", "Alp", "Gyula", "Lukas", "Svitlana"};
 
-
+        //exercise: bubblesort with Strings
         System.out.println(" sort by length, ascending:");
         String[] sorted = StringsBubblesortLengthAscending(names);
         System.out.println(Arrays.toString(sorted));
@@ -29,114 +30,112 @@ public class StringBubblesort {
         System.out.println(Arrays.toString(sorted3));
         System.out.println();
 
-        System.out.println(" sort by alphabet, ascending or descending via parameter:");
+        //exercise: bubblesort with Strings Extended
+        System.out.println(" sort by alphabet, ascending or descending via boolean parameter:");
         String[] sorted4 = StringsBubblesortAlphabeticWayOfSorting(false, names);
         System.out.println(Arrays.toString(sorted4));
         System.out.println();
 
-        System.out.println(" sort by length, ascending or descending via parameter:");
+        System.out.println(" sort by length, ascending or descending via boolean parameter:");
         String[] sorted5 = StringsBubblesortLengthWayOfSorting(false, names);
         System.out.println(Arrays.toString(sorted5));
         System.out.println();
 
 
-
     }
 
-    public static String[] StringsBubblesortLengthAscending(String[] testString){
+    public static String[] StringsBubblesortLengthAscending(String[] testString) {
         String copy = "";
-        for (int i = 0; i < testString.length-1; i++) {
+        for (int i = 0; i < testString.length - 1; i++) {
 
-            for (int j = 0; j < testString.length-i-1; j++) {
+            for (int j = 0; j < testString.length - i - 1; j++) {
 
-                if(testString[j].length() > testString[j+1].length()) {
+                if (testString[j].length() > testString[j + 1].length()) {
                     // if i longer than i+1, switch place
                     copy = testString[j];
-                    testString[j] = testString[j+1];
-                    testString[j+1] = copy;
-                }
-
-            } //System.out.println(Arrays.toString(testString));
-
-        }
-        return testString;
-    }
-    public static String[] StringsBubblesortLengthDescending(String[] testString){
-        String copy = "";
-        for (int i = 0; i < testString.length-1; i++) {
-
-            for (int j = 0; j < testString.length-i-1; j++) {
-
-                if(testString[j].length() < testString[j+1].length()) {
-                    // if i longer than i+1, switch place
-                    copy = testString[j];
-                    testString[j] = testString[j+1];
-                    testString[j+1] = copy;
-                }
-
-            } //System.out.println(Arrays.toString(testString));
-
-        }
-        return testString;
-    }
-
-    public static String[] StringsBubblesortAlphabeticAscending(String[] testString){
-        String copy = "";
-        for (int i = 0; i < testString.length-1; i++) {
-
-            for (int j = 0; j < testString.length-i-1; j++) {
-
-                if(testString[j].compareTo(testString[j+1]) > 0) {
-
-                    copy = testString[j];
-                    testString[j] = testString[j+1];
-                    testString[j+1] = copy;
+                    testString[j] = testString[j + 1];
+                    testString[j + 1] = copy;
                 }
             }
         }
         return testString;
     }
 
-    public static String[] StringsBubblesortAlphabeticDescending(String[] testString){
+    public static String[] StringsBubblesortLengthDescending(String[] testString) {
         String copy = "";
-        for (int i = 0; i < testString.length-1; i++) {
+        for (int i = 0; i < testString.length - 1; i++) {
 
-            for (int j = 0; j < testString.length-i-1; j++) {
+            for (int j = 0; j < testString.length - i - 1; j++) {
 
-                if(testString[j].compareTo(testString[j+1]) < 0) {
-
+                if (testString[j].length() < testString[j + 1].length()) {
+                    // if i longer than i+1, switch place
                     copy = testString[j];
-                    testString[j] = testString[j+1];
-                    testString[j+1] = copy;
+                    testString[j] = testString[j + 1];
+                    testString[j + 1] = copy;
                 }
             }
         }
         return testString;
     }
 
-    public static String[] StringsBubblesortAlphabeticWayOfSorting(boolean ascending, String[] inputString){
+    public static String[] StringsBubblesortAlphabeticAscending(String[] testString) {
+        String copy = "";
+        for (int i = 0; i < testString.length - 1; i++) {
 
-        String [] sort;
+            for (int j = 0; j < testString.length - i - 1; j++) {
+
+                if (testString[j].compareTo(testString[j + 1]) > 0) {
+
+                    copy = testString[j];
+                    testString[j] = testString[j + 1];
+                    testString[j + 1] = copy;
+                }
+            }
+        }
+        return testString;
+    }
+
+    public static String[] StringsBubblesortAlphabeticDescending(String[] testString) {
+        String copy = "";
+        for (int i = 0; i < testString.length - 1; i++) {
+
+            for (int j = 0; j < testString.length - i - 1; j++) {
+
+                if (testString[j].compareTo(testString[j + 1]) < 0) {
+
+                    copy = testString[j];
+                    testString[j] = testString[j + 1];
+                    testString[j + 1] = copy;
+                }
+            }
+        }
+        return testString;
+    }
+
+    public static String[] StringsBubblesortAlphabeticWayOfSorting(boolean ascending, String[] inputString) {
+
+        String[] sort;
 
         if (ascending) {
-             sort =  StringsBubblesortAlphabeticAscending(inputString);
+            sort = StringsBubblesortAlphabeticAscending(inputString);
         } else {
-             sort =  StringsBubblesortAlphabeticDescending(inputString);
+            sort = StringsBubblesortAlphabeticDescending(inputString);
         }
         return sort;
     }
 
-    public static String[] StringsBubblesortLengthWayOfSorting(boolean ascending, String[] inputString){
+    public static String[] StringsBubblesortLengthWayOfSorting(boolean ascending, String[] inputString) {
 
-        String [] sort;
+        String[] sort;
 
         if (ascending) {
             sort = StringsBubblesortLengthAscending(inputString);
         } else {
-            sort =  StringsBubblesortLengthDescending(inputString);
+            sort = StringsBubblesortLengthDescending(inputString);
         }
         return sort;
     }
+
 }
 
 

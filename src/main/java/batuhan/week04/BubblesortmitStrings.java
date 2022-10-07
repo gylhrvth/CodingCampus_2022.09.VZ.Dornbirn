@@ -16,7 +16,7 @@ public class BubblesortmitStrings {
 
     }
 
-    public static void sortNamesAlphabetically(String[] values) {
+    public static String[] sortNamesAlphabetically(String[] values) {
         for (int i = 0; i < values.length; i++) {
             for (int j = 0; j < values.length - 1; j++) {
                 if (values[j].compareTo(values[j + 1]) > 0) {
@@ -28,8 +28,9 @@ public class BubblesortmitStrings {
 
 
         }
+        return values;
     }
-    public static void sortNamesAlphabetically2(String[] values2){
+    public static String[] sortNamesAlphabetically2(String[] values2){
         for (int i = 0; i < values2.length; i++) {
             for (int j = 0; j < values2.length - 1; j++) {
                 if (values2[j].compareTo(values2[j + 1]) < 0) {
@@ -41,7 +42,7 @@ public class BubblesortmitStrings {
 
             }
 
-        }
+        } return values2;
     }
 
 
