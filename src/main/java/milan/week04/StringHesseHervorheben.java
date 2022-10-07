@@ -3,21 +3,34 @@ package milan.week04;
 import lukas.data.Texts;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class StringHesseHervorheben {
 
     public static void main(String[] args) {
 
         String text = Texts.HESSE;
-        //text.replace("Hesse", "HESSE");
-        String[] splitText = text.split("\\s");
-        System.out.println(Arrays.toString(splitText));
+        
+        System.out.println("Bitte das zu verändernde Wort eingeben: ");
+        String input = userInput();
+        reDoInputToUppercase(text, input);
 
 
-        for (int i = 0; i < splitText.length; i++) {
-            splitText[i] = splitText[i].replace("Hesse", "HESSE");  //splitText[i] = splitText[i]replace... <--- weil die Änderung ein neuen String erstellt
+    }
 
+    public static void reDoInputToUppercase(String text, String input) {
+        String text2 = text.replaceAll(input, input.toUpperCase());
+        if (text.equals(text2)){
+            System.out.println("Wort ist nicht im Text vorhanden!!!");
+        } else {
+            System.out.println(text2);
         }
-        System.out.println(Arrays.toString(splitText));
+    }
+
+
+    public static String userInput() {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        return input;
     }
 }
