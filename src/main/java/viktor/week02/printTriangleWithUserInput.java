@@ -30,11 +30,19 @@ public class printTriangleWithUserInput {
 
         Scanner sc = new Scanner(System.in);
         int rows = 1;
+        String letter = "a";
+
         while (rows != 0) {
             try {
-                System.out.println("Gib mir bitte an, wie hoch (Anzahl der Zeilen) das Dreieck sein soll  !");
+                System.out.println("Gib mir bitte an, wie hoch (Anzahl der Zeilen) das Dreieck sein soll !");
                 rows = sc.nextInt();
-                printTriangle("x", rows);
+                sc.nextLine();
+
+                System.out.println("Welches Zeichen soll dabei verwendet werden!");
+                letter = sc.nextLine();
+
+                printTriangle(letter,rows);
+
                 System.out.println();
             } catch (InputMismatchException ime) {
                 System.out.println("Falsche Eingabe, gib bitte eine Ganzzahl an!");

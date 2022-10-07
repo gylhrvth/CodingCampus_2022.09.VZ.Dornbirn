@@ -24,7 +24,6 @@ public class StringBubbleShort {
 
         System.out.println("Sortierung nach Länge der Namen (asc): " + Arrays.toString(myArray));
 
-        String temo2 = "0";
 
 
         for(int j = 0; j < myArray.length-1; j++) {

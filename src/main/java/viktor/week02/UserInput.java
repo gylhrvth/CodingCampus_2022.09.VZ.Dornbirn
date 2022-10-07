@@ -7,7 +7,7 @@ public class UserInput {
     public static String readUserInput() {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Gib mir bitte einen Text an:");
+        System.out.println("Gib mir bitte ein Zeichen an:");
         String line = sc.nextLine();
         System.out.println();
         return line;

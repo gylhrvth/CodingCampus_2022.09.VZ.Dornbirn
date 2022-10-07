@@ -24,6 +24,7 @@ public class RandomNumberArraySumme {
             int randomNumber = random.nextInt(101);
             myArray[i] = randomNumber;
         }
+
         System.out.println("Elemente: ");
         for (int j : myArray) {
             System.out.print(j + " ");
