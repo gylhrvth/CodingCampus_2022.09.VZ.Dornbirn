@@ -32,7 +32,7 @@ public class HesseZaehlen {
         }
 
         System.out.println("Das Wort \"" + wort + "\" ist " + counter + " mal enthalten. ");
-        System.out.println("Befindet sich an der Stelhfdhghlle");
+        System.out.println("Befindet sich an der Stelle");
 
 
         printWordIndex(text, wort);
