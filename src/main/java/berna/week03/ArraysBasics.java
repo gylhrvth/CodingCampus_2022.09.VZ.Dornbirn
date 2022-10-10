@@ -1,7 +1,5 @@
 package berna.week03;
 
-//TODO Seperate functions, definitions, blabla
-
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -14,12 +12,37 @@ public class ArraysBasics {
     public static void main(String[] args) {
 
         System.out.println("\n");
-        createArraysExamples();
+        //System.out.println(" Length of your array?");
+        int length = askArrayLength();
+
+        //exercise: create an array and fill it with (1,2,3,...)
+        System.out.println("Here is your array number 1:");
+        int[] arr = createBasicArrayAscending(length);
+        System.out.println(Arrays.toString(arr));
         System.out.println("\n");
-        testCopying();
+
+        //exercise: create an array and fill it with (...,3,2,1)
+        System.out.println("Here is your array number 2:");
+        int[] arr2 = createBasicArrayDescending(length);
+        System.out.println(Arrays.toString(arr2));
         System.out.println("\n");
-        randomNumberArrayexamples();
+
+        //exercise: copy a string
+        int[] testArr = createRandomArray(0, 101);
+        int[] copy = createACopy(testArr);
+        System.out.println("original was: " + Arrays.toString(copy));
+        System.out.println("copy is:      " + Arrays.toString(copy));
         System.out.println("\n");
+
+        //test if copying worked well by changing testArr[0]=-999
+        int[] modified = testCopying(testArr);
+        System.out.println("modified: " + Arrays.toString(modified));
+
+        //exercises: foreach, fori,return arr[1,4,9],return each 2nd value of arr
+        randomNumberArrayExamples();
+        System.out.println("\n");
+
+        //exercise: array filled with random numbers range -50 to 50
         randomNumberArrayCrazyRange();
 
     }
@@ -28,7 +51,6 @@ public class ArraysBasics {
     public static int askArrayLength() {
 
         int length = 0; //length of array
-        //System.out.println(" Length of your array?");
 
         Scanner sc = new Scanner(System.in);
 
@@ -45,76 +67,65 @@ public class ArraysBasics {
             sc.nextLine();  // reset the user input
         }
 
-        //System.out.println("Your array has the length " + length);
-        //System.out.println("\n");
         return length;
     }
 
-    public static void createArraysExamples() {
-
-        System.out.println(" Two arrays will be created. Number 1 is like [1, 2, 3,...] and Number 2 is like  [..., 3, 2, 1]  ");
-
-        int length = askArrayLength();
-
+    public static int[] createBasicArrayAscending(int length) {
+        // create an array and fill it with 1,2,3
         int[] arr = new int[length];   //new array with length length
 
         for (int i = 0; i < length; i++) {      //fill the array with 1,2,3,...
             arr[i] = i + 1;
         }
+        return arr;
+    }
 
-        System.out.println("Here is your array number 1:");
-        System.out.println(Arrays.toString(arr));
-        System.out.println("\n");
+    public static int[] createBasicArrayDescending(int length) {
+        // create an array and fill it with ...,3,2,1
 
-        System.out.println("Here is your array number 2:");
         int[] arr2 = new int[length];
         for (int i = 0; i < length; i++) {      //fill the array with ...,3,2,1
             arr2[i] = length - i;
         }
-        System.out.println(Arrays.toString(arr2));
-        System.out.println("\n");
-
+        return arr2;
     }
 
 
-    public static int[] makeACopy(int[] original) {
+    public static int[] createACopy(int[] original) {
         System.out.println("we make a copy! ");
 
         int[] copy = new int[original.length];
         for (int i = 0; i < original.length; i++) {
             copy[i] = original[i];
-
         }
-        System.out.println("original was: " + Arrays.toString(copy));
-        System.out.println("copy is:      " + Arrays.toString(copy));
         return copy;
-
     }
 
-    public static void testCopying() {
-        int[] testArr = createRandomArray(0, 100);
-        int[] modified = makeACopy(testArr);
+    public static int[] testCopying(int[] testArr) {
+
+        int[] modified = createACopy(testArr);
         modified[0] = -999;
-        System.out.println("modified: " + Arrays.toString(modified));
+
+        return modified;
     }
 
 
     public static int[] createRandomArray(int lowerbound, int upperbound) {
 
         System.out.println("Let´s create an array filled with random numbers!");
-        int length = askArrayLength();
 
+        int length = askArrayLength();
         int[] arr = new int[length];
+
         for (int i = 0; i < length; ++i) {
             // TODO: 27.09.2022 nextInt() with two parameters is a new feature in Java. Older libraries may not have. Try it with the single parameter nextInt() too :-)
             arr[i] = rand.nextInt(lowerbound, upperbound);
         }
-
         return arr;
     }
 
 
-    public static void randomNumberArrayexamples() {
+    public static void randomNumberArrayExamples() {
 
 
         int[] arr = createRandomArray(0, 100);
