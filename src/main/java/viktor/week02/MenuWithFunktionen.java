@@ -27,7 +27,7 @@ public class MenuWithFunktionen {
                 System.out.println("Menü:");
                 System.out.println("1 - Triangle");
                 System.out.println("2 - Quadrat");
-                System.out.println("3 - R1hombus");
+                System.out.println("3 - Rhombus");
                 System.out.println("n - Aussteigen");
 
                 choice = sc.nextLine();
@@ -72,7 +72,10 @@ public class MenuWithFunktionen {
 
                 } else {
                     System.out.println("Falsche Eingabe!");
-                    System.out.println("Wählen Sie bitte erneut!");
+
+
+
+
                 }
             }
         }

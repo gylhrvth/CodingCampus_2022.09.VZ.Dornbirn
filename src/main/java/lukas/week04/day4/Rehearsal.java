@@ -98,6 +98,7 @@ public class Rehearsal {
         }
         System.out.println();
 
+        System.out.println("This was a change");
     }
 
     private static int add(int a, int b) {

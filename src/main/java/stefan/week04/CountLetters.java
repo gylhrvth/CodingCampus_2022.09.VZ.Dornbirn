@@ -1,6 +1,6 @@
 package stefan.week04;
 
-import fatima.week03.ArrayMinMaxAvg;
+
 import lukas.data.Texts;
 
 import java.util.Arrays;

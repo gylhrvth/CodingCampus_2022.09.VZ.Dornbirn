@@ -36,7 +36,7 @@ public class LetterCounter {
 
                     charName = Character.toString((char)j);
                 }
-                System.out.printf("%5d | (%5d) %s%n", count[j], j, charName);
+                System.out.printf("%5d | (%d) %s%n", count[j], j, charName);
 
             }
         }
@@ -48,8 +48,10 @@ public class LetterCounter {
         System.out.println(text);
         System.out.println();
 
-        String charName = Character.toString(48);
+        String charName = Character.toString(42);
         System.out.println(charName);
+
+        System.out.printf(Character.getName(20));
 
         System.out.println(Character.MAX_VALUE+1);
 

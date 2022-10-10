@@ -1,10 +1,16 @@
 package viktor.week02;
 
+import java.util.Scanner;
+
 public class NativeDataTypes {
 
     public static void faktorial() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Wie lange soll es faktoriert werden?");
+        int num = sc.nextInt();
+
             long result=1;
-            for (long i = 1; i <= 20; i++) {
+            for (long i = 1; i <= num; i++) {
                 result *= i;
                 System.out.printf("%2d! = %20d%n", i, result);
             }
@@ -52,6 +58,7 @@ public class NativeDataTypes {
 
 
 
+
     public static void main(String[] args) {
         faktorial();
         System.out.println("\n");
@@ -62,6 +69,9 @@ public class NativeDataTypes {
         leibniz();
         System.out.println("\n");
         nilakantha();
+        System.out.println("\n");
+
+
 
 
 
