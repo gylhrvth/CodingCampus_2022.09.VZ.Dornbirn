@@ -13,20 +13,21 @@ public class DayOfBirthday {
     public static void main(String[] args) {
         GregorianCalendar date = new GregorianCalendar();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
-//        System.out.println(date.get(Calendar.DAY_OF_WEEK));
-//        date.set(Calendar.DAY_OF_WEEK,1);
-
         String birthdayDate = userInputBrithday();
+
         try {
             Date myDate = sdf.parse(birthdayDate);
             date.setTime(myDate);
-//            System.out.println(sdf.format(date.getTime()));
-            System.out.print("Wochentag: ");
-            System.out.print(date.get(Calendar.DAY_OF_WEEK) + " - ");
+            System.out.print("Datum: ");
             System.out.println(date.getTime());
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
+
+        String [] daysOfWeek = {"Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"};
+        int wochentag = date.get(Calendar.DAY_OF_WEEK) -1;
+        System.out.print("Wochentag: ");
+        System.out.println(daysOfWeek[wochentag]);
     }
 
     public static String userInputBrithday() {
