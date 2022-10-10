@@ -10,3 +10,4 @@ public class FindSunday {
         today.set(Calendar.DAY_OF_WEEK, 1);
         System.out.println(today.getTime());
     }
+}
