@@ -1,4 +1,4 @@
-package gyula.week05;
+package mase.week05;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
