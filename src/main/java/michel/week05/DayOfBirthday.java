@@ -17,7 +17,6 @@ public class DayOfBirthday {
 //        date.set(Calendar.DAY_OF_WEEK,1);
 
 
-
         String birthdayDate = userInputBrithday();
         try {
             Date myDate = sdf.parse(birthdayDate);
@@ -28,10 +27,10 @@ public class DayOfBirthday {
             throw new RuntimeException(e);
         }
 
-        String [] daysOfWeek = {"Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"};
-        int wochentag = date.get(Calendar.DAY_OF_WEEK) -1;
+        String[] daysOfWeek = {"Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"};
+        int wochenTag = date.get(Calendar.DAY_OF_WEEK) - 1;
         System.out.print("Wochentag: ");
-        System.out.println(daysOfWeek[wochentag]);
+        System.out.println(daysOfWeek[wochenTag]);
     }
 
     public static String userInputBrithday() {
