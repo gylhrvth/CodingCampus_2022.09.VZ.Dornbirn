@@ -15,6 +15,7 @@ public class PrintDataTabular {
 
         float[] distanceFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
         System.out.println("|-----------------------------------------------------------------------------|");
+        Object x;
         System.out.printf("| %-15s | %-12s | %-5s | %-15s | %-16s | %n", "Vorname", "Nachname", "Alter", "Wohnort", "Entf. Hauptstadt");
         System.out.println("|-----------------------------------------------------------------------------|");
         for (int i = 0; i < firstName.length; i++) {
