@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class ArrayExample1 {
 
+
     public static int readSize(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Geben Sie mir die Größe des Arrays an:");
@@ -14,7 +15,7 @@ public class ArrayExample1 {
             if(sc.hasNextInt()) {
                 number = sc.nextInt();
                 if (number < 0) {
-                   System.err.println("Negative Zahl ist nicht erlaubt!");
+                   System.err.println("Negative Zahlen sind nicht erlaubt!");
                 }
             } else {
                 System.err.println("Falsche Eingabe! Die Eingabe muss eine Ganzzahl sein!");

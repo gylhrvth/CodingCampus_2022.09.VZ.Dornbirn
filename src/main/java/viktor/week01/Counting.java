@@ -11,11 +11,11 @@ public class Counting {
         } else if (i==2) {
             System.out.println(i + ".nd Hello World!");
         } else if (i==3){
-            System.out.println(i + ".td Hello World");
+            System.out.println(i + ".td Hello World!");
         }
         else {
          System.out.println(i + ".th Hello World!");
-        }
+             }
         }
 
         System.out.println("\n");
@@ -28,10 +28,11 @@ public class Counting {
             j++;
         }
         System.out.println("\n");
-        System.out.println("Aufgabe 2:");
+        System.out.println("2. Aufgabe:");
         for(int k=0; k<10; k++){
             System.out.println(k);
         }
+
         System.out.println("\n");
         System.out.println("3. Aufgabe:");
         for(int l=1; l<=10; l++)
@@ -45,8 +46,6 @@ public class Counting {
         for(int n=10; n >= -10; n--){
             System.out.println(n);
         }
-
-
     }
 
 }

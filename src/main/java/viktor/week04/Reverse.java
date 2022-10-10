@@ -20,11 +20,13 @@ public class Reverse {
             pos--;
 
             }
-
         String output = new String(newString);
         System.out.println("Reserve: " + output);
-
         }
+
+
+
+
 
 
     public static void main(String[] args) {
