@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class BubblesortWithStringsCharIndex {
     public static void main(String[] args) {
         String[] names = {"Viktor", "Batuhan", "Milan", "Stefan", "Berna", "Franky", "Fatima", "Mike", "Mase", "Patric", "Alp", "Gyula", "Lukas", "Svitlana"};
-        sortWithIndex(names, 2);
+        sortWithIndex(names, 0);
 
     }
 
@@ -16,7 +16,7 @@ public class BubblesortWithStringsCharIndex {
                 min = names[i].length();
             }
         }
-        if (index <= 0) {
+        if (index < 0) {
             System.out.println("Index must not be negative, choose a index >= 0");
         } else if (index >= min) {
             System.out.println("Index too large");
