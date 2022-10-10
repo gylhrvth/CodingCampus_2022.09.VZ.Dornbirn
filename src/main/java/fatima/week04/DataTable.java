@@ -19,7 +19,7 @@ public class DataTable {
 
     public static void printbody(String[] firstName, String[] lastName, int[] age, String[] place, float[] distanceFromCapital) {
         for (int i = 0; i < firstName.length; i++) {
-            System.out.printf("%-25s %-25s %3d             %-25s %20.4f\n", firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
+            System.out.printf("%-25s %-25s %3d             %-25s %20.1f\n", firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
         }
     }
 }
