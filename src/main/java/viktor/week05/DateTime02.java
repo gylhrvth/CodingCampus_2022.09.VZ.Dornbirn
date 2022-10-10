@@ -16,6 +16,8 @@ public class DateTime02 {
 
         GregorianCalendar today = new GregorianCalendar();
 
+        String[] days = new String[]{"Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"};
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Gib mir bitte deinen Geburtstag an!");
         String input = sc.nextLine();
@@ -26,7 +28,15 @@ public class DateTime02 {
              Date dateFromUser = pattern.parse(input);
              today.setTime(dateFromUser);
 
-            System.out.println("Wochentag war: " + today.get(Calendar.DAY_OF_WEEK));
+            int dayOfWeek = today.get(Calendar.DAY_OF_WEEK);
+            System.out.println("Day of week: " + dayOfWeek);
+
+            for(int i = 0; i < days.length; i++){
+                if (i == dayOfWeek) {
+
+                    System.out.println(days[i-1]);
+                }
+            }
 
 
 
