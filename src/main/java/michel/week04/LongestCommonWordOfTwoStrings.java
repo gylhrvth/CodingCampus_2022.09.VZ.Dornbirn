@@ -13,7 +13,7 @@ public class LongestCommonWordOfTwoStrings {
         System.out.print(">>> ");
         String userInput2 = sc.nextLine();
 
-        longestWord(userInput1,userInput2);
+        longestWord(userInput1, userInput2);
         longestString(userInput1, userInput2);
 
     }
@@ -37,8 +37,7 @@ public class LongestCommonWordOfTwoStrings {
     }
 
 
-
-    private static void longestWord(String userInput1,String userInput2) {
+    private static void longestWord(String userInput1, String userInput2) {
         String longestSubString = "";
         for (int i = 0; i < userInput1.length(); i++) {
             for (int j = i; j < userInput1.length(); j++) {
