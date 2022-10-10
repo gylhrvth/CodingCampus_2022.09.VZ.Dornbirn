@@ -3,7 +3,7 @@ package berna.week03;
 import java.util.Arrays;
 
 import static berna.week03.ArraysBasics.createRandomArray;
-//TODO Seperate functions, definitions, blabla
+//TODO Separate functions, definitions, blabla
 
 public class Bubblesort {
     public static void main(String[] args) {
