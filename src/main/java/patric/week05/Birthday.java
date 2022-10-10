@@ -1,4 +1,4 @@
-package batuhan.week05;
+package patric.week05;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -7,17 +7,15 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-public class MeinGeburtstag {
 
+
+public class Birthday {
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Hallo wann hast du Geburtstag? ");
+        System.out.println("Geburtstag eingeben? ");
         String input = sc.nextLine();
-
-
-
 
 
 
@@ -34,14 +32,13 @@ public class MeinGeburtstag {
         }
 
 
-
     }
 
     public static void whatforaDay(GregorianCalendar birthDay) {
         String[] daynames = {"", "Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"};
 
         int weekDay = birthDay.get(Calendar.DAY_OF_WEEK);
-        System.out.println("Der Wochentag deines Geburtstags war " + daynames[weekDay]);
+        System.out.println("Der Wochentag deines Geburtstages lautet: " + daynames[weekDay]);
     }
 
 
