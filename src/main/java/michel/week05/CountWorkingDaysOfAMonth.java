@@ -25,7 +25,6 @@ public class CountWorkingDaysOfAMonth {
                     || startDate.get(Calendar.DAY_OF_WEEK) == 4
                     || startDate.get(Calendar.DAY_OF_WEEK) == 5
                     || startDate.get(Calendar.DAY_OF_WEEK) == 6) {
-
                 count++;
 //                System.out.println(startDate.getTime());
             }
