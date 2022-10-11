@@ -1,4 +1,4 @@
-package stefan.week05.Kalender.Wann.und;
+package stefan.week05;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

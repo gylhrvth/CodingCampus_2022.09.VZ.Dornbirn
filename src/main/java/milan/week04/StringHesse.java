@@ -10,6 +10,7 @@ public class StringHesse {
         String[] splitText = text.split("\\s");
         int anzahl = countHesse(splitText);
 
+
         System.out.println();
         System.out.println("Hesse kommt " + anzahl + "mal vor!");
 
