@@ -25,11 +25,9 @@ public class CountFilesSummRekursiv {
     }
 
     public static void printFileInformation(File parent) {
-
         int summ = 0;
         if (parent.exists() && parent.isDirectory()) {
             File[] child = parent.listFiles();
-
             for (int i = 0; i < child.length; i++) {
                 System.out.printf("%6d %s\n", child[i].length(), child[i].getName());
                 summ += child[i].length();
