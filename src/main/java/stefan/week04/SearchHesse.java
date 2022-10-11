@@ -6,17 +6,24 @@ public class SearchHesse {
     public static void main(String[] args) {
 
         String letter = Texts.HESSE;
-        countletter(letter);
-
+        System.out.println(countletter(letter) + " Hesse has been found.");
+        System.out.println(letter);
 
     }
 
-    public static void countletter(String letter) {
-        int index = letter.indexOf("Hesse");
-        int count = 0;
-        while (index != -1) {
-            System.out.println(index + count+" ");
+    public static int countletter(String letter) {
+        int counter = 0;
+
+        int index = 0;
+        while (true) {
+            index = letter.indexOf("Hesse", index);
+            if (index >= 0) {
+                ++counter;
+                ++index;
+            } else {
+                break;
+            }
         }
-        System.out.println();
+        return counter;
     }
 }
