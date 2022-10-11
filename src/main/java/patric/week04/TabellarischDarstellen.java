@@ -12,7 +12,6 @@ public class TabellarischDarstellen {
         String[] place = {"Wien", "Schwarzach", "Wiener Neudorf", "Sankt Pölten", "Sankt Pölten"};
         float[] distanceFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
 
-//        System.out.printf("%20s %15s %5s %15s %20s", firstName[0],lastName[0],age[0],place[0],distanceFromCapital[0]);
 
         for (int i = 0; i < 5; i++) {
             System.out.println();
