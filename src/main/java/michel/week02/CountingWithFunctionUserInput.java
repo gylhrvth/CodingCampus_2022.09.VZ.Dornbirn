@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
-public class UserInputCountingWithFunction {
+public class CountingWithFunctionUserInput {
         public static void main(String[] args) {
 
         int length = readUserInput("Geben Sie die Länge ein:");
