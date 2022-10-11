@@ -1,10 +1,8 @@
 package michel.week05;
 
 import michel.week02.UserInputs;
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Scanner;
 
 public class CountWorkingDaysOfAMonth {
     public static void main(String[] args) {
@@ -27,7 +25,6 @@ public class CountWorkingDaysOfAMonth {
                     || startDate.get(Calendar.DAY_OF_WEEK) == 4
                     || startDate.get(Calendar.DAY_OF_WEEK) == 5
                     || startDate.get(Calendar.DAY_OF_WEEK) == 6) {
-
                 count++;
 //                System.out.println(startDate.getTime());
             }
