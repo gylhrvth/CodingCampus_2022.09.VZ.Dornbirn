@@ -2,7 +2,7 @@ package batuhan.week05;
 
 import java.io.File;
 
-public class DateienZählenundSummen {
+public class DateienZaehlenundSummen {
 
 
     public static void main(String[] args) {
