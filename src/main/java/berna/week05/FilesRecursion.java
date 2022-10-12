@@ -16,7 +16,7 @@ public class FilesRecursion {
         int a = countNrOfFiles(path2);
         System.out.println("nr. of files:  " +a);
         int b = calculateLengthOfFiles(path2);
-        System.out.println("total size:  " +b);
+        System.out.println("total size:  " +b + " bytes");
 
     }
 
@@ -48,7 +48,8 @@ public class FilesRecursion {
             File[] children = startDir.listFiles();
             if (children != null) {
                 for (File f : children) {
-                    length = length + calculateLengthOfFiles(f);
+                    //length = length + calculateLengthOfFiles(f);
+                    length += calculateLengthOfFiles(f);
                 }
             }
         }
