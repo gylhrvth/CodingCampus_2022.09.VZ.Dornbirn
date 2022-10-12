@@ -1,5 +1,7 @@
 package berna.week05;
 
+//TODO : not yet finished!
+
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
