@@ -18,12 +18,12 @@ public class Bubblesort {
         RandomNumberArray.printWithForEach(values);
 
         System.out.println();
-        System.out.println("Zahlen sotiert: Klein nach Gross ");
+        System.out.println("Zahlen sotiert: Klein nach Gross  ");
         System.out.println();
         sort(values);
         System.out.println("Result: " + Arrays.toString(values));
         System.out.println();
-        System.out.println("Zahlen sotiert: Klein nach Gross ");
+        System.out.println("Zahlen sotiert: Gross nach Klein ");
         sortBigToLittle(values);
         System.out.println("Result: " + Arrays.toString(values));
         System.out.println();
