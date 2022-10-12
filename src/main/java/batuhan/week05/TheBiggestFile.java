@@ -16,18 +16,20 @@ public class TheBiggestFile {
 
     public static File findLargestFile(File start) {
         //System.out.println(prefix + start.getName() + " ");
-        if (start.isFile()) {
+        if (start.isFile()) {//geht den path durch und schaut ob am ende des path nur eine Datei ist
             return start;
         }
 
         File biggest = null;
-        if (start.isDirectory()) {
-            File[] children = start.listFiles();
+        if (start.isDirectory()) {//sollte am ende nicht eine Datei sonder ein Ordner sein trifft diese Funktion auf und durchsucht alle ordner
+            File[] children = start.listFiles();//gib dir zurück was am ende des Path ist
             if (children != null) {
                 for (File f : children) {
                     File testFile = findLargestFile(f);
-                    if ((biggest == null) || (testFile != null) && (testFile.length() > biggest.length())) {
-                        biggest = testFile;
+                    if (testFile != null){
+                        if ((biggest == null) || (testFile.length() > biggest.length())){
+                            biggest = testFile;
+                        }
                     }
                 }
             }
