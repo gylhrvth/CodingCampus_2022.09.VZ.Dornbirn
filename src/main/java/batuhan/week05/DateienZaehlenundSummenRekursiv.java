@@ -9,7 +9,7 @@ public class DateienZaehlenundSummenRekursiv {
 
         System.out.println(f.getAbsolutePath());
         System.out.println("Count files (rekursiv): " + getCountFilesRecursive(f));
-        System.out.println("Total size: " + getSizeRecursive(f));
+
 
     }
 

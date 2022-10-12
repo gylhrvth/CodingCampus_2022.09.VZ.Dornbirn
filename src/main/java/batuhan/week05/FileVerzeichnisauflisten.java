@@ -18,7 +18,7 @@ public class FileVerzeichnisauflisten {
         File[] childFiles = f.listFiles();
         for (int i = 0; i <childFiles.length; i++) {
             for (int j = 0; j <childFiles.length ; j++) {
-                if (childFiles[i].length() > childFiles[j].length()){
+                if (childFiles[i].length() < childFiles[j].length()){
                     File temp = childFiles[i];
                     childFiles[i] = childFiles[j];
                     childFiles[j] = temp;
@@ -29,7 +29,7 @@ public class FileVerzeichnisauflisten {
         }
         if (childFiles != null) {
             for (int i = 0; i < childFiles.length; i++) {
-                System.out.println("Child: " + childFiles[i].getAbsolutePath() + " size: " +childFiles[i].length());
+                System.out.println("Child: " + childFiles[i].getAbsolutePath() + "size: " +childFiles[i].length());
             }
         } else {
             System.out.println("Es ist kein Verzeichnis");
