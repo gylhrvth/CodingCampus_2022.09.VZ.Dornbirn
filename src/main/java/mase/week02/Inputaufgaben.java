@@ -1,5 +1,7 @@
 package mase.week02;
 
+import mase.week05.Logger;
+
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
