@@ -1,7 +1,7 @@
 package michel.week03;
 
+import michel.week05.Logger;
 import java.util.Scanner;
-
 
 public class Calculator {
     public static void main(String[] args) {
@@ -18,9 +18,9 @@ public class Calculator {
             }
         }
         while (repeadInput());
+        Logger.log(Logger.INFO, "Berechnung wurde beendet");
         System.out.println("Eawas");
     }
-
 
     private static boolean repeadInput() {
         Scanner sc = new Scanner(System.in);
@@ -41,16 +41,17 @@ public class Calculator {
                 int operator = opsc.nextInt();
                 if (operator < minValue || operator > maxValue) {
                     System.out.println("Bitte eine Zahl zwischen: " + minValue + " und " + maxValue + " angeben!");
+                    Logger.log(Logger.WARNING, "Ungültiger Operator");
                 } else {
                     return operator;
                 }
             } else {
                 System.out.println("Bitte eine Zahl zwischen: " + minValue + " und " + maxValue + " angeben!");
+                Logger.log(Logger.WARNING, "Ungültiger Operator");
                 opsc.nextLine();
             }
         }
     }
-
     public static float userInputNumber(String input) {
         Scanner sc = new Scanner(System.in);
         System.out.println(input);
@@ -58,6 +59,7 @@ public class Calculator {
             if (sc.hasNextFloat()) {
                 return sc.nextFloat();
             } else {
+                Logger.log(Logger.ERROR, "Ungültige Benutzer Angabe");
                 System.out.println(input);
                 sc.nextLine();
             }

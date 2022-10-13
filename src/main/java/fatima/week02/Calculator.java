@@ -1,5 +1,7 @@
 package fatima.week02;
 
+import fatima.week05.Logger;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -26,15 +28,16 @@ public class Calculator {
         float num1 = Float.MIN_VALUE;
         Scanner input = new Scanner(System.in);
         System.out.println(message);
-
         while (num1 == Float.MIN_VALUE) {
             try {
                 num1 = input.nextFloat();
             } catch (InputMismatchException ime) {
                 System.out.println("Try again. Please enter a number");
+                Logger.log(Logger.WARNING, "User has entered a wrong number");
             }
             input.nextLine();
         }
+        Logger.log(Logger.INFO, "Value " + num1 + " has successfully read.");
         return num1;
     }
 
@@ -46,6 +49,7 @@ public class Calculator {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter operation (+, -, *, ^, /)");
         while (!operatorValid) {
+
             operation = input.nextLine();
             if (!(operation.equals("+") ||
                     operation.equals("-") ||
