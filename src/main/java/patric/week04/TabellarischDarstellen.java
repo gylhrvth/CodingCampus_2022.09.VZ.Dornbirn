@@ -15,10 +15,9 @@ public class TabellarischDarstellen {
 
         for (int i = 0; i < 5; i++) {
             System.out.println();
-            System.out.printf("%20s %15s %5s %20s %20s", firstName[i],lastName[i],age[i],place[i],distanceFromCapital[i]);
+            System.out.printf("%20s %15s %5s %20s %20s", firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
         }
     }
-
 
 
 }

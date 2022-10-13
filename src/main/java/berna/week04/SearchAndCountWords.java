@@ -9,7 +9,7 @@ public class SearchAndCountWords {
     public static void main(String[] args) {
         //input text
         String text = Texts.HESSE;
-        searchAndCountWords(text, "Hesse");
+        searchAndCount(text, "Hesse");
 
         //highlight the word in the text
         String highlighted = highlightWordInText(text, "Hesse", "HESSE");
@@ -24,23 +24,25 @@ public class SearchAndCountWords {
 
 
 
-    public static void searchAndCountWords(String inputText, String searchfor) {
+    public static int searchAndCount(String inputText, String searchfor) {
 
 
         int index = inputText.indexOf(searchfor);
         int count = 0;
-        System.out.println();
-        System.out.println("You looked for '" + searchfor + "' which can be found at index: ");
-        System.out.println();
+//        System.out.println();
+//        System.out.println("You looked for '" + searchfor + "' which can be found at index: ");
+//        System.out.println();
 
         while (index != -1) {
-            System.out.print(" " + index);
+            //System.out.print(" " + index);
             index = inputText.indexOf(searchfor, index + 1); //where is the word you look for?
             count = count + 1; //how often occurs it?
         }
 
-        System.out.println("\n");
-        System.out.println("The word '" + searchfor + "' exists " + count + " times.");
+//        System.out.println("\n");
+//        System.out.println("The word '" + searchfor + "' exists " + count + " times.");
+
+        return count;
 
     }
 
