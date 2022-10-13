@@ -1,6 +1,7 @@
 package mase.week02;
 
 import mase.week01.CountingWithFunction;
+import mase.week05.Logger;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -27,15 +28,16 @@ public class Menue {
                     selection = sc.nextInt();
                     correctInput = true;
                     if (selection < 1 || selection > 3) {
+
                         System.out.println("Bitte geben Sie eine Zahl ein von 1-3");
                     }
                 } catch (InputMismatchException ime) {
                     System.out.println("Es ist keine Zahl");
-
                     correctInput = false;
                 }
                 sc.nextLine();
             } while (!correctInput);
+
 
             switch (selection) {
                 case 1:
@@ -76,6 +78,7 @@ public class Menue {
     }
 
     public static int userInputInt() {
+
         System.out.println("Wie groß soll Ihr Zeichen werden");
         Scanner linus = new Scanner(System.in);
         return linus.nextInt();

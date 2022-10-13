@@ -7,13 +7,14 @@ import java.io.PrintStream;
 
 public class FileSchreiben {
     public static void main(String[] args) {
+
         try {
             File f = new File("assets/tmp/output.txt");
             f.getParentFile().mkdirs();
             PrintStream ps = new PrintStream(new FileOutputStream(f, true));
             ps.println("Hello World! \n So ein Spaß \n usw");
             ps.close();
-        } catch (IOException ioe){
+        } catch (IOException ioe) {
             System.out.println("kann nicht schreiben");
             ioe.printStackTrace();
         }

@@ -1,5 +1,7 @@
 package patric.week02;
 
+import patric.week05.Logger;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,13 +9,16 @@ public class ConsoleEinlesen {
 
 
     public static void main(String[] args) {
-//       String text = readUserInputString();
-//      int size = readUserInputInteger();
+       String text = readUserInputString();
+      int size = readUserInputInteger();
 
-        int width = readUserInput("Geben Sie die Breite ein:");
-        int height = readUserInput("Gebe Sie die Höhe ein:");
+//        int width = readUserInput("Geben Sie die Breite ein:");
+//        int height = readUserInput("Gebe Sie die Höhe ein:");
 
-        patric.week01.PrintCharacter2.printRectangle("X ", width, height);
+        patric.week01.PrintCharacter2.printRectangle("X ", Integer.parseInt(text), size
+        );
+
+
     }
 
     public static String readUserInputString() {
