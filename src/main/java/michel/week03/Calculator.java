@@ -1,9 +1,7 @@
 package michel.week03;
 
 import michel.week05.Logger;
-
 import java.util.Scanner;
-
 
 public class Calculator {
     public static void main(String[] args) {
@@ -23,7 +21,6 @@ public class Calculator {
         Logger.log(Logger.INFO, "Berechnung wurde beendet");
         System.out.println("Eawas");
     }
-
 
     private static boolean repeadInput() {
         Scanner sc = new Scanner(System.in);
@@ -55,7 +52,6 @@ public class Calculator {
             }
         }
     }
-
     public static float userInputNumber(String input) {
         Scanner sc = new Scanner(System.in);
         System.out.println(input);

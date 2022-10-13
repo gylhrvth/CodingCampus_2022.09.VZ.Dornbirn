@@ -40,11 +40,42 @@ public class DataStreamExamples {
         File filePath5 = new File(MWerkzeuge.readUserInputString("Geben sie bitte einen Dateipfad an, welcher durchsucht soll.\n"));
         printSearchForFile("  ╚══> ", filePath5, searchFor5);
         System.out.println();
-*/
+
         MWerkzeuge.head("#", "File schreiben");
         File filePath6 = new File("assets/tmp/output.txt");
         writeATxtFile(filePath6);
+*/
+        MWerkzeuge.head("#", "Daten tabellarisch darstellen");
+        File filePath7 = new File("assets/tmp/output.txt");
+        String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
+        String[] lastName = {"Klein", "Kinderdorfer", "Al Elmenar", "Schmidt", "Simma"};
+        int[] age = {40, 78, 5, 18, 81};
+        String[] place = {"Wien", "Schwarzach", "Wiener Neudorf", "Sankt Pölten", "Sankt Pölten"};
+        float[] distanceFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
+        writeAChartFile(filePath7, "Vorname", firstName, "Nachname", lastName, age, "Wohnort", place, distanceFromCapital);
+        System.out.print("Sehen sie bitte in " + filePath7 + " nach ob eine 'ordentlich' formatierte Tabelle vorhanden ist.");
+        String simulatedWait = "Initialtext";
+        while (simulatedWait.length() > 0) simulatedWait = MWerkzeuge.readUserInputString("");
+        System.out.println();
 
+        MWerkzeuge.head("#", "Erstelle eine Klasse für Logging");
+        System.out.println("Prüfe C:\\Users\\Martin\\IdeaProjects\\CodingCampus_2022.09.VZ.Dornbirn\\assets\\tmp\\logMW.txt nach einem entsprechenden Logfile.\n");
+        MWerkzeuge.Log(3, "Initialisiere Logfile");
+        MWerkzeuge.Log(0, "Leer Platzhalter");
+
+        MWerkzeuge.head("#", "File einlesen und Ausgeben");
+        File filePath9 = new File("C:/Users/Martin/IdeaProjects/CodingCampus_2022.09.VZ.Dornbirn/assets/tmp/output.txt");
+        MWerkzeuge.Log(3, "Initialisiere File reader");
+        fileReader(filePath9);
+
+        MWerkzeuge.head("#", "Buchstaben zählen");
+        MWerkzeuge.Log(3, "Initialisiere Buchstaben zählen");
+        File filePath10 = new File("C:/Users/Martin/IdeaProjects/CodingCampus_2022.09.VZ.Dornbirn/assets/tmp/output.txt");
+
+
+        MWerkzeuge.head("#", "Wörter zählen");
+        MWerkzeuge.head("#", "Dynamisches Wörter zählen");
+        MWerkzeuge.head("#", "Dynamisches Wörter ersetzen");
     }
 
     public static void printFileList(String prefix, File start) {
@@ -202,5 +233,43 @@ public class DataStreamExamples {
         } catch (IOException ioe) {
         }
     }
+
+    public static void writeAChartFile(File directory, String title1, String[] strArr1, String title2, String[] strArr2, int[] intValues1, String title3, String[] strArr3, float[] floatValues1) {
+        try {
+            directory.getParentFile().mkdirs();
+            PrintStream ps = new PrintStream(new FileOutputStream(directory));
+            int longestArr1 = title1.length() + 1;
+            int longestArr2 = title2.length() + 1;
+            int longestArr3 = title3.length() + 1;
+            for (int g = 0; g < strArr2.length - 1; g++) {
+                if (longestArr1 < strArr1[g].length()) longestArr1 = strArr1[g].length();
+                if (longestArr2 < strArr2[g].length()) longestArr2 = strArr2[g].length();
+                if (longestArr3 < strArr3[g].length()) longestArr3 = strArr3[g].length();
+            }
+            String formatText = String.format(" %%%ds | ", longestArr1) + String.format("%%%ds | ", longestArr2) + "%5s | " + String.format("%%%ds | ", longestArr3) + "%21s%n";
+            for (int i = 0; i < strArr1.length; i++) {
+                ps.printf((formatText), strArr1[i], strArr2[i], intValues1[i], strArr3[i], String.format("%.1f km ", floatValues1[i]));
+                ps.flush();
+            }
+            ps.close();
+        } catch (IOException ioe) {
+        }
+    }
+
+    public static void fileReader(File directory) {
+        try {
+            if (!directory.exists()) System.out.println("No readable file found");
+            BufferedReader buffRead = new BufferedReader(new FileReader(directory));
+            while (buffRead.ready()) {
+                String line = buffRead.readLine();
+                System.out.println(line);
+            }
+            buffRead.close();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        System.out.println();
+    }
 }
+
 
