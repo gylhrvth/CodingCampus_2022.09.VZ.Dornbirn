@@ -12,7 +12,6 @@ import java.util.Scanner;
 
 public class ReadFile {
     public static void main(String[] args) {
-
         System.out.println("Scanner: ");
         readFileScanner();
         System.out.println();
@@ -21,12 +20,13 @@ public class ReadFile {
         System.out.println();
         System.out.println("Buffered Reader 2: ");
         readFileBuffered2();
-
     }
 
     public static void readFileBuffered2() {
         try{
-            Reader reader = new InputStreamReader(Objects.requireNonNull(ReadFile.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")));
+            Reader reader = new InputStreamReader(
+                    Objects.requireNonNull(
+                            ReadFile.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")));
             BufferedReader br = new BufferedReader(reader);
             while(br.ready()){
                 String line = br.readLine();
@@ -39,7 +39,6 @@ public class ReadFile {
 
     public static void readFileBuffered1() {
         String fileName = "/Users/sutez/IdeaProjects/CodingCampus_2022.09.VZ.Dornbirn/assets/tmp/loggFile.txt.old";
-
         File f = new File(fileName);
 
         if (!f.canRead() || !f.isFile())
@@ -61,9 +60,7 @@ public class ReadFile {
                 } catch (IOException ie) {
                 }
         }
-
     }
-
     public static void readFileScanner() {
         Scanner scan = null;
         try {
