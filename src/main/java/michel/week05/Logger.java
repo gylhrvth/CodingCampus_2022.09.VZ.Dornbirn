@@ -16,14 +16,14 @@ public class Logger {
         GregorianCalendar calendar = new GregorianCalendar();
         SimpleDateFormat date = new SimpleDateFormat("yyyy.MM.dd.");
         SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
-//        File loggold = new File("/Users/sutez/IdeaProjects/CodingCampus_2022.09.VZ.Dornbirn/assets/tmp/loggFile.old.txt");
 
+        File f = new File("assets/tmp/loggFile.txt");
 
-
+        if (f.length() > 1000) {
+            f.renameTo(new File(f.getAbsolutePath() + ".old"));
+        }
         try {
-            File f = new File("assets/tmp/loggFile.txt");
             f.getParentFile().mkdirs();
-
             PrintStream ps = new PrintStream(new FileOutputStream(f, true));
             ps.print(date.format(calendar.getTime()) + " " + (time.format(calendar.getTime())) + "  ");
             if (severity == ERROR) {
@@ -34,9 +34,7 @@ public class Logger {
                 ps.print("INFO: ");
             }
             ps.println(message);
-
             ps.close();
-
         } catch (IOException ioe) {
             System.out.println("Ich kann nicht schreiben");
             ioe.printStackTrace();

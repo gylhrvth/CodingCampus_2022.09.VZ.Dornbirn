@@ -11,10 +11,6 @@ public class ZahlenRateSpiel {
         int computerNumber = new Random().nextInt(101);
         guessNumber(computerNumber);
         System.out.println();
-
-
-
-
     }
 
     public static int guessNumber(int computerNumber) {
@@ -40,11 +36,9 @@ public class ZahlenRateSpiel {
         } while (value != computerNumber);
 
         System.out.println("Du hast gewonnen!");
-        System.out.println("Du hast es nach dem " +counter+ ". Versuch geschafft!");
+        System.out.println("Du hast es nach dem " + counter + ". Versuch geschafft!");
 
         return value;
     }
-
-
 }
 
