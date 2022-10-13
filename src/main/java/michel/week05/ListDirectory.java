@@ -4,7 +4,7 @@ import java.io.File;
 
 public class ListDirectory {
     public static void main(String[] args) {
-        File f = new File("/Users/sutez/IdeaProjects/CodingCampus_2022.09.VZ.Dornbirn/src/main/java/michel/week05/");
+        File f = new File("/Users/sutez/IdeaProjects/CodingCampus_2022.09.VZ.Dornbirn/src/main/java/michel/");
         printFiles(sortFiles(f),f);
     }
 

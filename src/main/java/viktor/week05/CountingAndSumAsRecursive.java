@@ -26,7 +26,7 @@ public class CountingAndSumAsRecursive {
         return count;
     }
 
-    public static long sumOfFiles(File f) {
+    public static long getSumOfFiles(File f) {
 
         long sum = 0;
 
@@ -40,7 +40,7 @@ public class CountingAndSumAsRecursive {
             if (children != null) {
 
                 for (File g : children) {
-                    sum += sumOfFiles(g);
+                    sum += getSumOfFiles(g);
 
                 }
             }
@@ -55,7 +55,7 @@ public class CountingAndSumAsRecursive {
 
         System.out.println("Ordner: " + myFile.getName());
         System.out.println("Anzahl der allen Dateien innerhalb des Ordners: " + getCountingOfFiles(myFile));
-        System.out.println("Summe der Größe (byte) aller Dateien innerhalb des Ordners: " + sumOfFiles(myFile));
+        System.out.println("Summe der Größe (byte) aller Dateien innerhalb des Ordners: " + getSumOfFiles(myFile));
 
 
     }
