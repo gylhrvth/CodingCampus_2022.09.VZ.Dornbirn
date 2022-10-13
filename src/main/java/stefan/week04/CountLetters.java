@@ -19,13 +19,10 @@ public class CountLetters {
 
     public static void countString(String text) {
 
-        int countletters =0;
+        int countletters = 0;
 
-        for (int i = 0; i <text.length() ; i++) {
+        for (int i = 0; i < text.length(); i++) {
             countletters++;
-             {
-
-            }
         }
 
         System.out.println(countletters);
@@ -34,7 +31,7 @@ public class CountLetters {
     public static void countletters(String text) {
         char[] array = text.toCharArray();
         int[] counter = new int[1 + Character.MAX_VALUE];
-        for (int i = 0; i < array.length ; i++) {
+        for (int i = 0; i < array.length; i++) {
             char c = array[i];
             ++counter[c];
             //System.out.println(c + " " + (int)c);

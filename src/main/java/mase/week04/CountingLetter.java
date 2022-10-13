@@ -1,6 +1,7 @@
 package mase.week04;
 
 import lukas.data.Texts;
+import mase.week05.Logger;
 
 public class CountingLetter {
     public static void main(String[] args) {
