@@ -1,5 +1,7 @@
 package viktor.week02;
 
+import viktor.week05.Logging;
+
 import java.util.Scanner;
 
 public class Calculator {
@@ -12,9 +14,11 @@ public class Calculator {
         while (true) {
             if (sc.hasNextFloat()) {
                 number = sc.nextFloat();
+                Logging.log(3, "Eingabe wurde durchgeführt!");
                 return number;
             } else {
                 System.out.println("Falsche Eingabe! Geben Sie mir bitte eine Kommazahl an!");
+                Logging.log(1, "Die Eingabe war falsch!");
                 sc.nextLine();
             }
         }
@@ -30,7 +34,13 @@ public class Calculator {
                 operator.equals("/") ||
                 operator.equals("^"))) {
 
-            System.out.println("Geben Sie mir bitte einen Operator an: (+, - , * , / , ^ )");
+
+                //Logging.log(3,"Operator wurde angegeben!");
+
+                //Logging.log(2, "Falsche Eingabe");
+
+
+             System.out.println("Geben Sie mir bitte einen Operator an: (+, - , * , / , ^ )");
              operator = sc.nextLine();
             }
         return operator;
@@ -52,6 +62,7 @@ public class Calculator {
     public static String question() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Möchten Sie noch weiterrechnen?");
+        Logging.log(2,"Frage zum Aussteigen! ");
         return sc.nextLine();
     }
 
@@ -80,8 +91,9 @@ public class Calculator {
 
     public static void main(String[] args) {
 
-
+        Logging.log(3,"Software wurde gestartet!");
         System.out.println("Willkommen beim Taschenrechner!");
+
 
         float num1 = 0;
         float num2 = 0;
