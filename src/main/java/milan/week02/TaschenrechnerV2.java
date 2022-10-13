@@ -1,10 +1,14 @@
 package milan.week02;
 
+import milan.week05.Logger;
+
 import java.util.Scanner;
 
 public class TaschenrechnerV2 {
 
     public static void main(String[] args) {
+
+        Logger.log(Logger.Severity.INFO, "Start Taschenrechner");
 
         // Liest 1. Float
         float num1 = readFloat("Bitte gebe die erste Zahl an!");
@@ -73,8 +77,11 @@ public class TaschenrechnerV2 {
         System.out.println(message);
         while (true) {
             if (sc.hasNextFloat()) {
-                return sc.nextFloat();
+                float f = sc.nextFloat();
+                Logger.log(Logger.Severity.INFO, "readFloat() hat " + f + " erhalten");
+                return f;
             } else {
+                Logger.log(Logger.Severity.WARNING, "readFloat() hat keine Float erhalten");
                 System.out.println(message);
                 sc.nextLine();
             }
