@@ -76,7 +76,7 @@ public class UserInputs {
     }
 
     public static String userInputString() {
-        System.out.println("Geben Sie einen Text ein:");
+//        System.out.println("Geben Sie einen Text ein:");
         System.out.print(">>>");
         String Value = sc.nextLine();
         return Value;
