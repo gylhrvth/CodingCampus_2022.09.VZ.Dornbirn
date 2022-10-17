@@ -6,33 +6,19 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Arrays;
 import java.util.Objects;
-import java.util.Scanner;
 
-public class FileReaderWithBRAndUserInput {
+public class FileReaderWithBRCountWords {
 
     public static void main(String[] args) {
 
-        String input = userInput();
-        String text = readFileWithBufferedReader("txt/simpleText.txt");
-        while (!input.equals("")) {
-            int count = checkIfContainsAndCount(text, input);
-            System.out.println("Das Wort \"" + input + "\" kommt " + count + " mal vor!");
-            input = userInput();
-        }
-    }
 
-    public static int checkIfContainsAndCount(String text, String input) {
-        int count = 0;
-        if (text.contains(input)) {
-            String[] arr = text.split("\\s+");
-            for (String x : arr) {
-                if (x.equals(input)) {
-                    ++count;
-                }
-            }
-        }
-        return count;
+        String text = readFileWithBufferedReader("txt/simpleText.txt");
+        int anzahl = countLetter(text);
+        System.out.println("Anzahl der Wörter: " + anzahl);
+
+
     }
 
     public static String readFileWithBufferedReader(String ressourceName) {
@@ -52,10 +38,15 @@ public class FileReaderWithBRAndUserInput {
         return content.toString();
     }
 
-    public static String userInput() {
-        System.out.println("Bitte das gesuchte Wort eingeben!");
-        System.out.print(">> ");
-        Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
+    public static int countLetter(String text) {
+
+        String text2 = text
+                //.replaceAll("[“„,.;!?()*/0-9†]", " ");
+                .replaceAll("\\P{IsLatin}", " ")
+                .replaceAll("\\s+", " ")
+                .trim();
+        String[] arr = text2.split("\\s+");
+        System.out.println(Arrays.toString(arr));
+        return arr.length;
     }
 }
