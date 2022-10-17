@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import batuhan.week01.CountingWithFunction;
+import batuhan.week06.Logger;
 
 
 public class ZeichnenAufgabe {
@@ -71,14 +72,17 @@ public class ZeichnenAufgabe {
                 if (value < minValue) {
                     System.out.println("Die Zahl muss größer als " + minValue + " sein.");
                     value = Integer.MIN_VALUE;
+                    Logger.log(2,"Zu kleine Zahl");
                 } else if (value > maxValue) {
                     System.out.println("Die Zahl muss kleiner als " + maxValue + " sein.");
                     value = Integer.MIN_VALUE;
+                    Logger.log(2,"Zu große  Zahl");
                 } else {
                     break;
                 }
             } catch (InputMismatchException ime) {
                 System.err.println("Es ist keine Zahl.");
+                Logger.log(1,"Falsche eingabe" );
             }
             sc.nextLine();
         }
@@ -88,7 +92,9 @@ public class ZeichnenAufgabe {
     public static String readUserInputString() {
         Scanner sc = new Scanner(System.in);
         String line = sc.nextLine();
+        Logger.log(3,line);
         return line;
+
     }
 }
 
