@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class ReadFile {
     public static void main(String[] args) {
+
         System.out.println("Scanner: ");
         readFileScanner();
         System.out.println();
@@ -20,6 +21,7 @@ public class ReadFile {
         System.out.println();
         System.out.println("Buffered Reader 2: ");
         readFileBuffered2();
+
     }
 
     public static void readFileBuffered2() {
@@ -62,6 +64,7 @@ public class ReadFile {
         }
     }
     public static void readFileScanner() {
+
         Scanner scan = null;
         try {
             scan = new Scanner(new File("/Users/sutez/IdeaProjects/CodingCampus_2022.09.VZ.Dornbirn/assets/tmp/loggFile.txt.old"));
@@ -72,5 +75,6 @@ public class ReadFile {
             System.out.println("Read Line with Scanner: " + scan.nextLine());
         }
         scan.close();
+
     }
 }

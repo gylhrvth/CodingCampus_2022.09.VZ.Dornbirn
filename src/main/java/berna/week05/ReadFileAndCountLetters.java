@@ -11,7 +11,7 @@ public class ReadFileAndCountLetters {
 
         //Location input text
         String input = "txt/simpleText.txt";
-        String letter = "*";
+        String letter = "b";
         // How many of "letter"?
         int amount = readFileAndCountLetter(input,letter);
         System.out.println("amount '" + letter + "' : " + amount);
@@ -27,7 +27,6 @@ public class ReadFileAndCountLetters {
         System.out.println("e: " + readFileAndCountLetter(input,"e"));
 
         System.out.println("Sum: " + sum);
-
 
     }
 

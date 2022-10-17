@@ -7,15 +7,27 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Objects;
+import java.util.Scanner;
 
-public class FileReaderWithBufferedReaderCountLetters {
+public class FileReaderWithBRAndUserInputReplace {
 
     public static void main(String[] args) {
 
-
         String text = readFileWithBufferedReader("txt/simpleText.txt");
-        //countLetter(text);
+        String prompt = "Bitte das zu ersetzende Wort angeben ";
+        String prompt2 = "Mit welchem Wort soll es ersetzt werden?";
 
+        String input1 = userInput(prompt);
+        String input2 = userInput(prompt2);
+        String finalText = replaceWords(text, input1, input2);
+        System.out.println(finalText);
+    }
+
+    public static String replaceWords(String text, String input, String input2) {
+        if (text.contains(input)){
+            return text.replaceAll(input,input2);
+        }
+        return "Das zu ersetzende Wort kommt nicht im Text vor!";
     }
 
     public static String readFileWithBufferedReader(String ressourceName) {
@@ -33,5 +45,12 @@ public class FileReaderWithBufferedReaderCountLetters {
             ieo.printStackTrace();
         }
         return content.toString();
+    }
+
+    public static String userInput(String prompt) {
+        System.out.println(prompt);
+        System.out.println(">>");
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine();
     }
 }
