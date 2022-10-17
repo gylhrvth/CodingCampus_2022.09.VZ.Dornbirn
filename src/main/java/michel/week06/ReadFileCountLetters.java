@@ -10,14 +10,14 @@ import java.util.Scanner;
 
 public class ReadFileCountLetters {
     public static void main(String[] args) {
-//        String text = userInputSampleTextScanner();
-        String text2 = userInputSampleTextStream("txt/simpleText.txt");
-        System.out.println(text2);
-        countLetters(text2);
-        System.out.println(countChar(text2, 'a'));
+//        String text = userInputSampleTextScanner();       // UserInput mit ganzem Pfad - Scanner
+        String text = userInputSampleTextStream("txt/simpleText.txt");      // User Input mit File Name
+        System.out.println(text);
+        countLetters(text);
+        System.out.println(countChar(text, 'a'));
         char[] charsToCount = {'a', 'z', 'e'};
-        System.out.println(countChars(text2, charsToCount));
-        System.out.println(countWords(text2));
+        System.out.println(countChars(text, charsToCount));
+        System.out.println(countWords(text));
     }
 
     private static int countWords(String text2) {
