@@ -9,24 +9,16 @@ import java.io.Reader;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class FileReaderWithBRCountLetters {
+public class FileReaderWithBRCountWords {
+
     public static void main(String[] args) {
 
+
         String text = readFileWithBufferedReader("txt/simpleText.txt");
-        char c = 'a';
-        int anzahlZeichen = countLetter(text, c);
-        System.out.println("Der Buchstabe: \"" + c + "\" kommt " + anzahlZeichen + " mal vor!");
-    }
+        int anzahl = countLetter(text);
+        System.out.println("Anzahl der Wörter: " + anzahl);
 
-    public static int countLetter(String text, char c) {
-        int count = 0;
-        for (int i = 0; i < text.length(); i++) {
-            if (text.charAt(i) == c) {
-                ++count;
-            }
-        }
 
-        return count;
     }
 
     public static String readFileWithBufferedReader(String ressourceName) {
@@ -46,4 +38,15 @@ public class FileReaderWithBRCountLetters {
         return content.toString();
     }
 
+    public static int countLetter(String text) {
+
+        String text2 = text
+                //.replaceAll("[“„,.;!?()*/0-9†]", " ");
+                .replaceAll("\\P{IsLatin}", " ")
+                .replaceAll("\\s+", " ")
+                .trim();
+        String[] arr = text2.split("\\s+");
+        System.out.println(Arrays.toString(arr));
+        return arr.length;
+    }
 }
