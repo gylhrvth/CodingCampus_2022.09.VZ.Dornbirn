@@ -41,13 +41,13 @@ public class DatenTabellarischdarstellen {
             int longestarr3 = titel3.length() + 1;
             for (int i = 0; i < strarr1.length; i++) {
                 if (longestarr1 < strarr1[i].length()) longestarr1 = strarr1[i].length();
-                if (longestarr2 < strarr1[i].length()) longestarr2 = strarr2[i].length();
-                if (longestarr3 < strarr1[i].length()) longestarr3 = strarr3[i].length();
+                if (longestarr2 < strarr2[i].length()) longestarr2 = strarr2[i].length();
+                if (longestarr3 < strarr3[i].length()) longestarr3 = strarr3[i].length();
 
             }
 
             String formatText = String.format(" %%%ds | ", longestarr1) + String.format("%%%ds | ", longestarr2) + "%5s | " + String.format("%%%ds | ", longestarr3) + "%21s%n";
-            ps.printf((formatText), titel1, titel2, "Alter", titel3, "Distanz zu Hauptstadt");
+            ps.printf((formatText), titel1, titel2, "Alter", titel3, " Distanz zu Hauptstadt");
             for (int i = 0; i < strarr1.length; i++) {
                 ps.printf((formatText), strarr1[i], strarr2[i], age[i], strarr3[i], String.format("%.1f km ", distanceFromCapital[i]));
                 ps.flush();
