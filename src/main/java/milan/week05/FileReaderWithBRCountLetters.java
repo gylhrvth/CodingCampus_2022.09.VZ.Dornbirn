@@ -6,15 +6,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Arrays;
 import java.util.Objects;
 
-public class FileReaderWithBufferedReaderCountLetters {
+public class FileReaderWithBRCountLetters {
 
     public static void main(String[] args) {
 
 
         String text = readFileWithBufferedReader("txt/simpleText.txt");
-        //countLetter(text);
+        int anzahl = countLetter(text);
+        System.out.println("Anzahl der Wörter: " + anzahl);
+
 
     }
 
@@ -33,5 +36,13 @@ public class FileReaderWithBufferedReaderCountLetters {
             ieo.printStackTrace();
         }
         return content.toString();
+    }
+
+    public static int countLetter(String text) {
+
+        String text2 = text.replaceAll("[“„,.;!?()*/0-9†]", " ");
+        String[] arr = text2.split("\\s+");
+        System.out.println(Arrays.toString(arr));
+        return arr.length;
     }
 }
