@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class BuchstabenZaehlen {
+public class FileLesenMitScanner {
 
     public static void main(String[] args) {
-        File f = new File("assets/log/logging.txt");
+        File f = new File("C:\\Users\\pabos\\IdeaProjects\\CodingCampus_2022.09.VZ.Dornbirn\\assets\\log\\logging.txt");
 
         try {
             Scanner sc = new Scanner(f);
