@@ -1,8 +1,10 @@
 package martin.week05;
 
+import gyula.week04.RegularExpressionExample;
 import martin.MWerkzeuge;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -44,7 +46,7 @@ public class DataStreamExamples {
         MWerkzeuge.head("#", "File schreiben");
         File filePath6 = new File("assets/tmp/output.txt");
         writeATxtFile(filePath6);
-*/
+
         MWerkzeuge.head("#", "Daten tabellarisch darstellen");
         File filePath7 = new File("assets/tmp/output.txt");
         String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
@@ -53,29 +55,45 @@ public class DataStreamExamples {
         String[] place = {"Wien", "Schwarzach", "Wiener Neudorf", "Sankt Pölten", "Sankt Pölten"};
         float[] distanceFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
         writeAChartFile(filePath7, "Vorname", firstName, "Nachname", lastName, age, "Wohnort", place, distanceFromCapital);
-        System.out.print("Sehen sie bitte in " + filePath7 + " nach ob eine 'ordentlich' formatierte Tabelle vorhanden ist.");
+        System.out.print("Sehen sie bitte in " + filePath7.getAbsolutePath() + " nach ob eine 'ordentlich' formatierte Tabelle vorhanden ist.");
         String simulatedWait = "Initialtext";
         while (simulatedWait.length() > 0) simulatedWait = MWerkzeuge.readUserInputString("");
         System.out.println();
 
         MWerkzeuge.head("#", "Erstelle eine Klasse für Logging");
-        System.out.println("Prüfe C:\\Users\\Martin\\IdeaProjects\\CodingCampus_2022.09.VZ.Dornbirn\\assets\\tmp\\logMW.txt nach einem entsprechenden Logfile.\n");
+        System.out.println("Prüfe " + MWerkzeuge.getLogFile().getAbsolutePath() + " nach einem entsprechenden Logfile.\n");
         MWerkzeuge.Log(3, "Initialisiere Logfile");
         MWerkzeuge.Log(0, "Leer Platzhalter");
 
         MWerkzeuge.head("#", "File einlesen und Ausgeben");
-        File filePath9 = new File("C:/Users/Martin/IdeaProjects/CodingCampus_2022.09.VZ.Dornbirn/assets/tmp/output.txt");
+        File filePath9 = new File("assets/tmp/output.txt");
         MWerkzeuge.Log(3, "Initialisiere File reader");
         fileReader(filePath9);
-
+*/
         MWerkzeuge.head("#", "Buchstaben zählen");
         MWerkzeuge.Log(3, "Initialisiere Buchstaben zählen");
-        File filePath10 = new File("C:/Users/Martin/IdeaProjects/CodingCampus_2022.09.VZ.Dornbirn/assets/tmp/output.txt");
-
+        File filePath10 = new File("assets/tmp/output.txt");
+        char[] charsToCount = {'a', 'z', 'e'};
+        System.out.println("Die Symbole " + Arrays.toString(charsToCount) + " wurden " + countChars(filePath10, charsToCount) + "-mal im Text gefunden.\n");
 
         MWerkzeuge.head("#", "Wörter zählen");
+        MWerkzeuge.Log(3, "Initialisiere Wörter zählen");
+        File filePath11 = new File("src/main/resources/txt/simpleText.txt");
+        fileReader(filePath11);
+        System.out.println("Es wurden " + countWords(filePath11, "", true) + " Wörter gefunden.\n");
+
         MWerkzeuge.head("#", "Dynamisches Wörter zählen");
+        MWerkzeuge.Log(3, "Initialisiere Dynamisches Wörter zählen");
+        String searchWord12 = MWerkzeuge.readUserInputString("Nach welchem Wort soll gesucht werden? ");
+        System.out.printf("Das Wort \"%s \" wurde %d-mal im Text gefunden.%n%n", searchWord12, countWords(filePath11, searchWord12, false));
+
+
         MWerkzeuge.head("#", "Dynamisches Wörter ersetzen");
+        MWerkzeuge.Log(3, "Initialisiere Dynamisches Wörter ersetzen");
+        String searchWord13 = MWerkzeuge.readUserInputString("Welches Wort soll ersetzt werden? ");
+        String replaceWord13 = MWerkzeuge.readUserInputString("Welches Wort willst du einsetzen? ");
+        System.out.printf("%n%s%n",replaceWord(filePath11,searchWord13,replaceWord13));
+
     }
 
     public static void printFileList(String prefix, File start) {
@@ -247,9 +265,9 @@ public class DataStreamExamples {
                 if (longestArr3 < strArr3[g].length()) longestArr3 = strArr3[g].length();
             }
             String formatText = String.format(" %%%ds | ", longestArr1) + String.format("%%%ds | ", longestArr2) + "%5s | " + String.format("%%%ds | ", longestArr3) + "%21s%n";
+            ps.printf((formatText), title1, title2, "Alter", title3, "Distanz zu Hauptstadt");
             for (int i = 0; i < strArr1.length; i++) {
                 ps.printf((formatText), strArr1[i], strArr2[i], intValues1[i], strArr3[i], String.format("%.1f km ", floatValues1[i]));
-                ps.flush();
             }
             ps.close();
         } catch (IOException ioe) {
@@ -270,6 +288,51 @@ public class DataStreamExamples {
         }
         System.out.println();
     }
+
+    public static int countChars(File directory, char[] countWhichChars) {
+        int charsFound = 0;
+        try {
+            Scanner sc = new Scanner(directory);
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                char[] chars = line.toCharArray();
+                for (int i = 0; i < countWhichChars.length; i++) for (int j = 0; j < chars.length; j++) if (countWhichChars[i] == chars[j]) ++charsFound;
+            }
+        } catch (FileNotFoundException fnfe) {
+            fnfe.printStackTrace();
+        }
+        return charsFound;
+    }
+
+    public static int countWords(File directory, String searchWord, boolean countAll) {
+        int wordsFound = 0;
+        try {
+            Scanner sc = new Scanner(directory);
+            StringBuilder fullText = new StringBuilder(" ");
+            while (sc.hasNext()) fullText.append(sc.nextLine());
+            fullText = new StringBuilder(fullText.toString().trim().replaceAll("\\P{IsLatin}", " ").replaceAll("\\s+", " "));
+            String[] pureLine = fullText.toString().split(" ");
+            if (countAll) wordsFound = pureLine.length;
+            else for (String s : pureLine) if (Objects.equals(s, searchWord)) wordsFound++;
+        } catch (FileNotFoundException fnfe) {
+            fnfe.printStackTrace();
+        }
+        return wordsFound;
+    }
+
+    public static String replaceWord(File directory, String oldWord, String newWord) {
+        String newText = "";
+        try {
+            Scanner sc = new Scanner(directory);
+            StringBuilder oldText = new StringBuilder();
+            while (sc.hasNext()) oldText.append(sc.nextLine()).append("\n");
+            newText=oldText.toString().replaceAll(oldWord, newWord);
+        } catch (FileNotFoundException fnfe) {
+            fnfe.printStackTrace();
+        }
+        return newText;
+    }
+
 }
 
 
