@@ -1,6 +1,4 @@
 package martin.week05;
-
-import gyula.week04.RegularExpressionExample;
 import martin.MWerkzeuge;
 
 import java.io.*;
@@ -10,16 +8,6 @@ import java.util.Scanner;
 
 public class DataStreamExamples {
     public static void main(String[] args) {
-
-        //Bytestrom
-        InputStream inputStream = Objects.requireNonNull(DataStreamExamples.class.getClassLoader().getResourceAsStream("txt/simpleText.txt"));
-        //Zeichenstrom
-        Reader reader = new InputStreamReader(Objects.requireNonNull(DataStreamExamples.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")));
-        //Bsp.: Scanner
-        Scanner scanner = new Scanner(inputStream);
-        //Bsp.: BufferedReader
-        BufferedReader bufferedReader = new BufferedReader(reader);
-/*
         MWerkzeuge.head("#", "Verzeichnis auflisten");
         File file1 = new File("C:/Users/Public");
         printSortedDirectories(file1);
@@ -69,7 +57,7 @@ public class DataStreamExamples {
         File filePath9 = new File("assets/tmp/output.txt");
         MWerkzeuge.Log(3, "Initialisiere File reader");
         fileReader(filePath9);
-*/
+
         MWerkzeuge.head("#", "Buchstaben zählen");
         MWerkzeuge.Log(3, "Initialisiere Buchstaben zählen");
         File filePath10 = new File("assets/tmp/output.txt");
@@ -92,7 +80,7 @@ public class DataStreamExamples {
         MWerkzeuge.Log(3, "Initialisiere Dynamisches Wörter ersetzen");
         String searchWord13 = MWerkzeuge.readUserInputString("Welches Wort soll ersetzt werden? ");
         String replaceWord13 = MWerkzeuge.readUserInputString("Welches Wort willst du einsetzen? ");
-        System.out.printf("%n%s%n",replaceWord(filePath11,searchWord13,replaceWord13));
+        System.out.printf("%n%s%n", replaceWord(filePath11, searchWord13, replaceWord13));
 
     }
 
@@ -242,8 +230,12 @@ public class DataStreamExamples {
             System.out.println("Wir schreiben jetzt eine Txt Datei. Schreibe nach Herzenslust und beende den Roman mit einem Enter ohne Eingabe.");
             while (newInput.length() > 0) {
                 newInput = MWerkzeuge.readUserInputString("");
-                if (notFirstLine) notFirstLine = false;
-                else ps.append("\n");
+                if (notFirstLine) {
+                    notFirstLine = false;
+                }
+                else {
+                    ps.append("\n");
+                }
                 ps.append(newInput);
                 ps.flush();
             }
@@ -276,7 +268,9 @@ public class DataStreamExamples {
 
     public static void fileReader(File directory) {
         try {
-            if (!directory.exists()) System.out.println("No readable file found");
+            if (!directory.exists()) {
+                System.out.println("No readable file found");
+            }
             BufferedReader buffRead = new BufferedReader(new FileReader(directory));
             while (buffRead.ready()) {
                 String line = buffRead.readLine();
@@ -296,7 +290,11 @@ public class DataStreamExamples {
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
                 char[] chars = line.toCharArray();
-                for (int i = 0; i < countWhichChars.length; i++) for (int j = 0; j < chars.length; j++) if (countWhichChars[i] == chars[j]) ++charsFound;
+                for (char countWhichChar : countWhichChars) {
+                    for (char aChar : chars) {
+                        if (countWhichChar == aChar) ++charsFound;
+                    }
+                }
             }
         } catch (FileNotFoundException fnfe) {
             fnfe.printStackTrace();
@@ -309,11 +307,18 @@ public class DataStreamExamples {
         try {
             Scanner sc = new Scanner(directory);
             StringBuilder fullText = new StringBuilder(" ");
-            while (sc.hasNext()) fullText.append(sc.nextLine());
+            while (sc.hasNext()) {
+                fullText.append(sc.nextLine());
+            }
             fullText = new StringBuilder(fullText.toString().trim().replaceAll("\\P{IsLatin}", " ").replaceAll("\\s+", " "));
             String[] pureLine = fullText.toString().split(" ");
-            if (countAll) wordsFound = pureLine.length;
-            else for (String s : pureLine) if (Objects.equals(s, searchWord)) wordsFound++;
+            if (countAll) {
+                wordsFound = pureLine.length;
+            } else {
+                for (String s : pureLine) {
+                    if (Objects.equals(s, searchWord)) wordsFound++;
+                }
+            }
         } catch (FileNotFoundException fnfe) {
             fnfe.printStackTrace();
         }
@@ -325,8 +330,10 @@ public class DataStreamExamples {
         try {
             Scanner sc = new Scanner(directory);
             StringBuilder oldText = new StringBuilder();
-            while (sc.hasNext()) oldText.append(sc.nextLine()).append("\n");
-            newText=oldText.toString().replaceAll(oldWord, newWord);
+            while (sc.hasNext()) {
+                oldText.append(sc.nextLine()).append("\n");
+            }
+            newText = oldText.toString().replaceAll(oldWord, newWord);
         } catch (FileNotFoundException fnfe) {
             fnfe.printStackTrace();
         }
