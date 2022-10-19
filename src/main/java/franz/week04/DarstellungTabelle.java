@@ -32,10 +32,10 @@ public class DarstellungTabelle {
 
     public static void printNew(String[] description, String[] firstName, String[] lastName, int[] age, String[] place, float[] distanceFromCapital) {
 
-        System.out.printf("%-20s %-20s %-10s %-15s %-22s\n", description[0], description[1], description[2], description[3], description[4]);
+        System.out.printf("%-20s %-15s %10s %-15s %17s\n", description[0], description[1], description[2], description[3], description[4]);
 
         for (int i = 0; i < firstName.length; i++) {
-            System.out.printf("%-20s %-20s %-10d %-15s %3.2f\n", firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
+            System.out.printf("%-20s %-15s %10d %-15s %17.2f\n", firstName[i], lastName[i], age[i], place[i], distanceFromCapital[i]);
         }
 
 
