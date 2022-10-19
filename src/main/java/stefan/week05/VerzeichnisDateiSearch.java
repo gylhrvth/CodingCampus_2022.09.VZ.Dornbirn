@@ -3,7 +3,7 @@ package stefan.week05;
 import java.io.File;
 import java.util.Scanner;
 
-public class VerzeichnisDateiSeach {
+public class VerzeichnisDateiSearch {
     public static void main(String[] args) {
         File f = new File(userImput());
         File result = findLargestFileInDirectory(f);

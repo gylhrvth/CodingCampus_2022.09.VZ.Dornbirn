@@ -1,11 +1,14 @@
 package stefan.week02;
 
 
+import stefan.week05.Logger;
+
 import java.util.Scanner;
 
 public class TaschenRechner1 {
 
     public static void main(String[] args) {
+Logger.log(Logger.Info,"Programm Taschenrechner würde Gestartet");
         do {
             System.out.println("Tachenrechner");
 
@@ -17,17 +20,19 @@ public class TaschenRechner1 {
             if (operator.equals("+")) {
                 System.out.println("Egebnis:" + (zahl1 + zahl2));
             } else if (operator.equals("-")) {
-                System.out.println("Egebnis:" + (zahl1 - zahl2));
+               System.out.println("Egebnis:" + (zahl1 - zahl2));
             } else if (operator.equals("*")) {
                 System.out.println("Ergebnis;" + (zahl1 * zahl2));
             } else if (operator.equals("/")) {
                 System.out.println("Egebnis:" + (zahl1 / zahl2));
             } else {
+
                 System.out.println("Unbekannte Operator \"" + operator + "\". Die folgenden Operatoren sind unterstützt: + - *  /");
             }
 
 
         } while (benutzereingabe());
+        Logger.log(Logger.Info,"Programm Tachenrechner wurde  beendet ");
         System.out.println("Auf wiedersehen");
 
     }
@@ -51,6 +56,7 @@ public class TaschenRechner1 {
             } else if (operator.equals("/")) {
                 return operator;
             } else {
+              Logger.log(Logger.Warning,"Unbekannter Operator wurde angegeben");
                 System.out.println("Geben sie ein operator ein [+|-|/|*]");
                 benutzereingabe.nextLine();
             }

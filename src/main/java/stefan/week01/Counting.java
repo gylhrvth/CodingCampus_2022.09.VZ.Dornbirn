@@ -6,26 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Counting {
-    public static void main(String[] args) {
-        for (int i = 1; i <= 10; ++i) {
 
-            System.out.print(i);
-
-            if (i == 1) {
-                System.out.print("st ");
-            } else if (i == 2) {
-                System.out.print("nd ");
-            } else
-
-
-                System.out.print("th ");
-            System.out.println("Hello World");
-
-        }
-
-
-
-    }
 
     public static class Test {
         public static void main(String[] args) {
@@ -45,6 +26,7 @@ public class Counting {
             System.out.println();
             System.out.println("Prüfen;ob die Beute fair aufgeteilt werden kann");
             beuteAufteilen();
+            helloWorld();
         }
 
         public static void weihnachtsbaum(String text, int hoehe) {
@@ -155,6 +137,26 @@ public class Counting {
 
         }
 
+
+
+
+    }
+    public static void helloWorld() {
+        for (int i = 1; i <= 10; ++i) {
+
+            System.out.print(i);
+
+            if (i == 1) {
+                System.out.print("st ");
+            } else if (i == 2) {
+                System.out.print("nd ");
+            } else
+
+
+                System.out.print("th ");
+            System.out.println("Hello World");
+
+        }
 
 
 
