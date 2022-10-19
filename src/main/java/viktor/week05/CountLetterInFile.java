@@ -63,7 +63,7 @@ public class CountLetterInFile {
 
                 int[] count = LetterCounter.counterLetter(input);
                 LetterCounter.print(count);
-                    countLetter += counterLetterInFile(input, 'r');
+                    countLetter += counterLetterInFile(input, 'a');
                     countLetterInArray += counterLettersFromCharArray(input,charsToCount);
             }
             System.out.println();
