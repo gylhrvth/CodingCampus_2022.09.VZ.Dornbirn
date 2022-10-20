@@ -45,6 +45,7 @@ public class Person {
         this.height = height;
     }
 
+    @SuppressWarnings("unused")
     public int getWeight() {
         return weight;
     }
