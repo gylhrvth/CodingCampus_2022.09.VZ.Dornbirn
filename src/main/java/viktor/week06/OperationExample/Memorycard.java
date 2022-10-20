@@ -37,13 +37,18 @@ public class Memorycard {
     }
 
 
-
     public void savePhoto(double sizeOfPhoto) {
-        freeMemory -= sizeOfPhoto;
-        if(freeMemory == 0){
-            System.out.println("Your memory card is full! Please change it!");
-        }
+            freeMemory -= sizeOfPhoto;
         takenPhotos++;
+    }
+
+    public boolean checkTheCapacity(double sizeOfPhoto){
+        if (freeMemory < sizeOfPhoto){
+            System.out.println("You don't have enough storage space! Please change it!");
+            return false;
+        }else{
+            return true;
+        }
     }
 
     public double getFreeMemory() {
@@ -53,4 +58,5 @@ public class Memorycard {
     public int getTakenPhotos() {
         return takenPhotos;
     }
+
 }
