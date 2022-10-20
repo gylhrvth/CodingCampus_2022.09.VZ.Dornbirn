@@ -1,6 +1,6 @@
 package batuhan.week06.DataClass;
 
-import gyula.week06.PersonExample.Identifypersom;
+
 
 public class tests {
 
