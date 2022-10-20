@@ -1,7 +1,7 @@
 package lukas.week06.day4;
 
 public class ArrayStatistics {
-    public int max;
+    private int max;
     private int min;
     private double avg;
 
