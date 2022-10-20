@@ -10,7 +10,8 @@ public class IntArrayObjectAnalyser {
     private int min;
     private float avg;
     private int max;
-
+    private final String cReset = "\u001B[0m";
+    private final String cLime = "\u001B[92m";
 
     public IntArrayObjectAnalyser(int[] arrayTo) {
         int id = lastID;
@@ -54,12 +55,8 @@ public class IntArrayObjectAnalyser {
 
     @Override
     public String toString() {
-        return String.format(
-                "%sMinimum:%s %d%n" +
-                        "%sAverage:%s %.1f%n" +
-                        "%sMaximum:%s %d%n",
-                min, avg, max);
+        return String.format("%sMinimum:%s %d ", cLime, cReset, min) +
+                String.format("%sAverage:%s %.1f ", cLime, cReset, avg) +
+                String.format("%sMaximum:%s %d%n", cLime, cReset, max);
     }
-
-
 }
