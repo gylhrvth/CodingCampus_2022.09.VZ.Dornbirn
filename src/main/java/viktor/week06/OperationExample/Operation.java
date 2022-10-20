@@ -5,50 +5,64 @@ import java.util.Random;
 public class Operation {
 
 
-    private int[] array;
+    private int min;
+    private int max;
+    private double avg;
 
 
-    public Operation(int[] array) {
-        this.array = array;
+    public Operation() {
+
 
     }
 
+    public Operation(int min){
+        this(min,0);
+
+
+    }
+
+    public Operation(int min, int max) {
+        this(min, max, 0);
+
+    }
+
+    public Operation(int min, int max, double avg) {
+        this.min = min;
+        this.max = max;
+        this.avg = avg;
+    }
+
+
+    public void setMin(int min) {
+        this.min = min;
+
+    }
 
     public int getMin() {
-        int min = Integer.MAX_VALUE;
-
-        for (int i : array) {
-            if (min > i) {
-                min = i;
-            }
-        }
         return min;
     }
 
+    public void setMax(int max) {
+        this.max = max;
+    }
+
     public int getMax() {
-        int max = Integer.MIN_VALUE;
-        for (int j : array) {
-            if (max < j) {
-                max = j;
-            }
-        }
         return max;
     }
 
+    public void setAvg(int avg) {
+        this.avg = avg;
+    }
 
     public double getAvg() {
-        double sum = 0;
-        double avg = 0;
-        for (int k : array) {
-            sum += k;
-        }
-        avg = sum / array.length;
         return avg;
     }
 
 
     public String toString() {
-        return "Min: " + getMin() + " Max: " + getMax() + " Avg: " + getAvg() + "\n";
+        return "Min: " + min + "\n"+
+                "Max: " + max + "\n" +
+                "Avg: " + avg;
 
     }
 }
