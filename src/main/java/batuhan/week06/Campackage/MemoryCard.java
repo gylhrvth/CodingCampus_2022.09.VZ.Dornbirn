@@ -2,31 +2,31 @@ package batuhan.week06.Campackage;
 
 public class MemoryCard {
     private String memoryCardModel;
-    private double memorycapacity;
+    private double memoryCapacityInMb;
 
-    private double freeMemory;
+    private double freeMemoryInMb;
     private int takenFotos;
 
-    public MemoryCard(String memoryCardModel, long memorycapacity) {
+    public MemoryCard(String memoryCardModel, long memoryCapacityInMb) {
         this.memoryCardModel = memoryCardModel;
-        this.memorycapacity = memorycapacity;
-        this.freeMemory = memorycapacity;
+        this.memoryCapacityInMb = memoryCapacityInMb;
+        this.freeMemoryInMb = memoryCapacityInMb;
     }
 
     public String getMemoryCardModel() {
         return memoryCardModel;
     }
 
-    public double getMemorycapacity() {
-        return memorycapacity;
+    public double getMemoryCapacityInMb() {
+        return memoryCapacityInMb;
     }
 
-    public double getFreeMemory() {
-        return freeMemory;
+    public double getFreeMemoryInMb() {
+        return freeMemoryInMb;
     }
 
-    private void savePicture(double dataInMb) {
-        freeMemory = freeMemory - dataInMb;
+    public void savePicture(double dataInMb) {
+        freeMemoryInMb = freeMemoryInMb - dataInMb;
         takenFotos++;
     }
 

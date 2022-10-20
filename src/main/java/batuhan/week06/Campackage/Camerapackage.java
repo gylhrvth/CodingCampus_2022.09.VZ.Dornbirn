@@ -12,7 +12,7 @@ public class Camerapackage {
     private int brennweiteMax;
     private int brennweiteMin;
     private int megapixel;
-    private double memoryCard;
+    private MemoryCard memoryCard;
 
 
     public Camerapackage(String model, String hersteller) {
@@ -27,8 +27,6 @@ public class Camerapackage {
         brennweiteMax = 50;
         brennweiteMin = 25;
         megapixel = 1;
-        memoryCard =  32;
-
     }
 
     public void setbrennweite(int brennweite) {
@@ -47,11 +45,10 @@ public class Camerapackage {
         this.megapixel = megapixel;
         
     }
-    public void setMemoryCard(double memoryCard){
+
+    public void setMemoryCard(MemoryCard memoryCard) {
         this.memoryCard = memoryCard;
     }
-
-
 
     public String getmodel() {
         return model;
@@ -76,20 +73,20 @@ public class Camerapackage {
     public int getMegapixel() {
         return megapixel;
     }
-    public double getMemoryCard(){
+
+    public MemoryCard getMemoryCard() {
         return memoryCard;
     }
 
-
-    public void takeFoto(double memory) {
-        int photo = 0;
+    public void takeFoto() {
         double size = 0.3;
-                
-        memory = (photo * size) / memory;
-            memory = memory;
-        System.out.println(memory);
-        
-        
+        double photoSize = megapixel * size;
+        if(memoryCard.getFreeMemoryInMb() >= photoSize) {
+            //Foto machen
+            memoryCard.savePicture(photoSize);
+        } else {
+            System.out.println("Kann kein Foto machen!");
+        }
         //Ausrechnen wie groß das Foto wird Megapixel * 0.3
     }
 
