@@ -1,7 +1,7 @@
 package lukas.week06.day4;
 
 public class ArrayStatistics {
-    public int max;
+    private int max;
     private int min;
     private double avg;
 
@@ -54,15 +54,5 @@ public class ArrayStatistics {
     @Override
     public String toString() {
         return "Minimum: " + min + "\nMaximum: " + max + "\nAverage: " + avg + "\n" + super.toString();
-    }
-
-
-    public void calculateStatistics(int[] arr) {
-
-        //calculate statistics
-
-        this.max = 10;
-        this.min = 20;
-        this.avg = 30;
     }
 }
