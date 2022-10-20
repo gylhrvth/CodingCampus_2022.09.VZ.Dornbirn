@@ -55,14 +55,4 @@ public class ArrayStatistics {
     public String toString() {
         return "Minimum: " + min + "\nMaximum: " + max + "\nAverage: " + avg + "\n" + super.toString();
     }
-
-
-    public void calculateStatistics(int[] arr) {
-
-        //calculate statistics
-
-        this.max = 10;
-        this.min = 20;
-        this.avg = 30;
-    }
 }
