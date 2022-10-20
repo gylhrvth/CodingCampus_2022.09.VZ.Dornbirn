@@ -20,7 +20,7 @@ public class schleifen {
         System.out.println("");
 
         System.out.print("2.1 Aufgabe 0-9 ");
-        System.out.println("");
+        System.out.println("\n");
         int k = 0;
         while (k < 10) {
             System.out.println(k);
