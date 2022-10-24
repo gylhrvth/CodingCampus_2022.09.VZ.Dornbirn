@@ -18,7 +18,7 @@ public class UserInput {
 
     public static String readUserInputString() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Geben Sie ein Text ein:");
+        System.out.println("Enter a text");
         String line = input.nextLine();
 
         return line;

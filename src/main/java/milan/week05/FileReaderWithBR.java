@@ -14,7 +14,7 @@ public class FileReaderWithBR {
         try {
             Reader reader = new InputStreamReader(
                     Objects.requireNonNull(
-                            ReadFileFromRessorcesWithBufferedReader.class.getClassLoader().getResourceAsStream("txt/simpleText.txt")));
+                            ReadFileFromRessorcesWithBufferedReader.class.getClassLoader().getResourceAsStream("txt/simpleText.txt"))); ///Re
             BufferedReader br = new BufferedReader(reader);
             while (br.ready()){
                 String line = br.readLine();

@@ -28,11 +28,10 @@ public class Bubblesort {
     public static void sortAscending(int[] value) {
         for (int j = 0; j < value.length; j++) {
             for (int i = 0; i < value.length - 1; i++) {
-                int firstNumber = value[i];
-                int secondNumber = value[i + 1];
-                if (firstNumber > secondNumber) {
-                    value[i] = secondNumber;
-                    value[i + 1] = firstNumber;
+                if (value[i] > value[i+1]) {
+                    int temp = value[i];
+                    value[i] = value[i+1];
+                    value[i + 1] = temp;
                 }
             }
         }

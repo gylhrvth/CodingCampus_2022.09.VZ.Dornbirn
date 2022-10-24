@@ -13,13 +13,13 @@ public class FileReaderWithBRAndUserInput {
 
     public static void main(String[] args) {
 
-        int count = 0;
+        String input = userInput();
         String text = readFileWithBufferedReader("txt/simpleText.txt");
-        do {
-            String input = userInput();
-            count = checkIfContainsAndCount(text, input);
+        while (!input.equals("")) {
+            int count = checkIfContainsAndCount(text, input);
             System.out.println("Das Wort \"" + input + "\" kommt " + count + " mal vor!");
-        } while (count == 0);
+            input = userInput();
+        }
     }
 
     public static int checkIfContainsAndCount(String text, String input) {
@@ -54,7 +54,7 @@ public class FileReaderWithBRAndUserInput {
 
     public static String userInput() {
         System.out.println("Bitte das gesuchte Wort eingeben!");
-        System.out.println(">>");
+        System.out.print(">> ");
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
