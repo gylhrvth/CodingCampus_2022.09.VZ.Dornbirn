@@ -33,10 +33,13 @@ public class MemoryCard {
         return photoCounter;
     }
 
-    public void savePhoto(long PhotoSize) {
-       freeStorage -= PhotoSize;
-       photoCounter++;
-    }
+    public void savePhoto(long photoSize) throws FullMemoryCardException {
+        if (freeStorage < photoSize) {
+            throw new FullMemoryCardException();
+        }
+        freeStorage  -= photoSize;
+        photoCounter++;
+     }
 
     public float getFreeStorage() {
         return freeStorage;
