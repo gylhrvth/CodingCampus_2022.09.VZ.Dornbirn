@@ -1,16 +1,26 @@
 package batuhan.week06.Campackage;
 
 public class MemoryCard {
+    private static  int latsId = 1;
+    private int id;
     private String memoryCardModel;
     private double memoryCapacityInMb;
 
     private double freeMemoryInMb;
     private int takenFotos;
+    private boolean slotted;
 
     public MemoryCard(String memoryCardModel, long memoryCapacityInMb) {
+        id = latsId;
+        latsId++;
         this.memoryCardModel = memoryCardModel;
         this.memoryCapacityInMb = memoryCapacityInMb;
         this.freeMemoryInMb = memoryCapacityInMb;
+    slotted = false;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getMemoryCardModel() {
@@ -33,6 +43,7 @@ public class MemoryCard {
     public int getTakenFotos() {
         return takenFotos;
     }
+
 }
 
 
