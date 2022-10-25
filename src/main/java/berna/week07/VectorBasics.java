@@ -33,7 +33,7 @@ public class VectorBasics {
     }
 
 
-    private static Vector<Integer> createVectorRandom(int amountNumbers, int MaxRandomNr) {
+    public static Vector<Integer> createVectorRandom(int amountNumbers, int MaxRandomNr) {
 
         Vector<Integer> v = new Vector<>(amountNumbers);
         for (int i = 0; i < amountNumbers; i++) {
@@ -42,7 +42,7 @@ public class VectorBasics {
         return v;
     }
 
-    private static int countEvenNumbers(Vector<Integer> inputVector) {
+    public static int countEvenNumbers(Vector<Integer> inputVector) {
         int counter = 0;
         for (Integer x : inputVector) {
             if (x % 2 == 0) {
@@ -60,7 +60,7 @@ public class VectorBasics {
 
     }
 
-    private static int searchSmallestNumber(Vector<Integer> inputVector) {
+    public static int searchSmallestNumber(Vector<Integer> inputVector) {
         int min = inputVector.get(0);
         for (Integer x : inputVector) {
             if (x < min) {
@@ -70,7 +70,7 @@ public class VectorBasics {
         return min;
     }
 
-    private static int searchLargestNumber(Vector<Integer> inputVector) {
+    public static int searchLargestNumber(Vector<Integer> inputVector) {
         int max = inputVector.get(0);
         for (Integer x : inputVector) {
             if (x > max) {
@@ -80,7 +80,7 @@ public class VectorBasics {
         return max;
     }
 
-    private static Vector<Integer> bubblesortVector(Vector<Integer> inputVector) {
+    public static Vector<Integer> bubblesortVector(Vector<Integer> inputVector) {
         int smallerValue = inputVector.get(0);
         for (int i = 0; i < inputVector.size() - 1; i++) {
             for (int j = 0; j < inputVector.size() - 1; j++) {
@@ -94,7 +94,7 @@ public class VectorBasics {
         return inputVector;
     }
 
-    private static Vector<Integer> deleteUnevens(Vector<Integer> inputVector) {
+    public static Vector<Integer> deleteUnevens(Vector<Integer> inputVector) {
 
         Vector<Integer> evensOnly = new Vector<>();
         for (Integer x : inputVector) {
