@@ -38,7 +38,7 @@ public class UserInput {
             } catch (InputMismatchException ime) {
                 System.out.println("Keine Zahl. Neue Zahl eingeben");
             }
-            sc.nextLine();
+
         }
         while (value == Integer.MIN_VALUE);
         return value;
