@@ -16,7 +16,7 @@ public class Fotoapparat {
     }
 
     private static final int FOTO_SIZE_IN_BYTES_PER_MEGAPIXEL = 300000;
-    private static final int BATTERY_CONSUMPTION_IN_MILLIAMPERE = 33;
+    private static final int BATTERY_CONSUMPTION_IN_MILLIAMPERE = 3;
     private String model;
     private String hersteller;
     private float megapixel;
@@ -40,12 +40,17 @@ public class Fotoapparat {
         this.currentMode = mode;
     }
 
+    public Mode getCurrentMode() {
+        return currentMode;
+    }
+
     public void resetFotoCounter() {
         takenFotos = 0;
     }
 
     public String toString() {
         return "Hersteller: " + hersteller + "\n" +
+                "aktiver Modus: " + getCurrentMode() + "\n" +
                 "Model: " + model + "\n" +
                 "Megapixel: " + megapixel + "\n";
     }
