@@ -15,8 +15,8 @@ public class Camera {
 
 
 
-        samsung.setMegapixel(108);
-        apple.setMegapixel(48);
+//        samsung.setMegapixel(108);
+//        apple.setMegapixel(48);
 
 
         System.out.println(apple);
