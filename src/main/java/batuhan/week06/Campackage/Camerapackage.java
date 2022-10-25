@@ -4,84 +4,104 @@ public class Camerapackage {
 
 
     private static int lastID = 1;
-
     private int id;
     private String hersteller;
-    private int brennweite;
     private String model;
-    private int brennweiteMax;
-    private int brennweiteMin;
     private int megapixel;
     private MemoryCard memoryCard;
+    private CameraLens CamLens;
+    private boolean cover;
+    private boolean slotted;
+    private boolean hasCamLens;
+    private boolean hasmemoryCard;
 
 
     public Camerapackage(String model, String hersteller) {
 
-
         id = lastID;
         ++lastID;
-
         this.model = model;
         this.hersteller = hersteller;
-        brennweite = 38;
-        brennweiteMax = 50;
-        brennweiteMin = 25;
-        megapixel = 1;
+        megapixel = 48;
+        cover = false;
+        slotted = false;
+        this.CamLens = null;
+        this.memoryCard = null;
+        hasmemoryCard = false;
     }
 
-    public void setbrennweite(int brennweite) {
-        this.brennweite = brennweite;
+
+    public void setBrennweite(int brennweite) {
+        if (brennweite < this.CamLens.getBrennweiteMin()) {
+            System.out.printf("%s%d Unterschreitet minimale Brennweite.%s%n", "\u001B[31m", brennweite, "[0m");
+        } else if (brennweite > CamLens.getBrennweiteMax()) {
+            System.out.printf("%s%d Überschreitet maximale Brennweite.%s%n", "[31m", brennweite, "\u001B[0m");
+        } else {
+            this.CamLens.setBrennweite(brennweite);
+            System.out.printf("%sBrennweite auf %d gesetzt.%s%n", "[92m", CamLens.getBrennweite(), "\u001B[0m");
+        }
     }
 
-    public void setBrennweiteMax(int brennweiteMax) {
-        this.brennweiteMax = brennweiteMax;
+
+    public int getId() {
+        return id;
+    }
+    public int getBrennweiteMin(){
+        return CamLens.getBrennweiteMin();
     }
 
-    public void setBrennweiteMin(int brennweiteMin) {
-        this.brennweiteMin = brennweiteMin;
+
+    public int getBrennweiteMax(){
+        return CamLens.getBrennweiteMax();
     }
 
-    public void setMegapixel(int megapixel) {
-        this.megapixel = megapixel;
-        
-    }
+
 
     public void setMemoryCard(MemoryCard memoryCard) {
         this.memoryCard = memoryCard;
     }
-
     public String getmodel() {
         return model;
     }
-
     public String gethersteller() {
         return hersteller;
     }
-
-    public int getBrennweite() {
-        return brennweite;
-    }
-
-    public int getBrennweiteMax() {
-        return brennweiteMax;
-    }
-
-    public int getBrennweiteMin() {
-        return brennweiteMin;
-    }
-
     public int getMegapixel() {
         return megapixel;
     }
 
-    public MemoryCard getMemoryCard() {
-        return memoryCard;
+    public boolean getcover(){
+        return getcover();
     }
+    public void slotted(){
+        this.slotted = true;
+    }
+
+    public void fillMemoryCard(){
+
+    }
+
+
+
+
+
+
 
     public void takeFoto() {
         double size = 0.3;
         double photoSize = megapixel * size;
         if(memoryCard.getFreeMemoryInMb() >= photoSize) {
+            System.out.println(   "            __,__\n" +
+                    "   .--.  .-\"     \"-.  .--.\n" +
+                    "  / .. \\/  .-. .-.  \\/ .. \\\n" +
+                    " | |  '|  /   Y   \\  |'  | |\n" +
+                    " | \\   \\  \\ 0 | 0 /  /   / |\n" +
+                    "  \\ '- ,\\.-\"`` ``\"-./, -' /\n" +
+                    "   `'-' /_   ^ ^   _\\ '-'`\n" +
+                    "       |  \\._   _./  |\n" +
+                    "       \\   \\ `~` /   /\n" +
+                    "        '._ '-=-' _.'\n" +
+                    "           '~---~'");
             //Foto machen
             memoryCard.savePicture(photoSize);
         } else {
@@ -99,19 +119,8 @@ public class Camerapackage {
                 + ". \nEs hat "
                 + megapixel
                 + " Megapixel"
-                + "\n \n \n \n \nAchtung gleich öffnet sich die innenkamera\n" +
-                "\n\n\n\n\n\n\n\n\n\n" +
-                "            __,__\n" +
-                "   .--.  .-\"     \"-.  .--.\n" +
-                "  / .. \\/  .-. .-.  \\/ .. \\\n" +
-                " | |  '|  /   Y   \\  |'  | |\n" +
-                " | \\   \\  \\ 0 | 0 /  /   / |\n" +
-                "  \\ '- ,\\.-\"`` ``\"-./, -' /\n" +
-                "   `'-' /_   ^ ^   _\\ '-'`\n" +
-                "       |  \\._   _./  |\n" +
-                "       \\   \\ `~` /   /\n" +
-                "        '._ '-=-' _.'\n" +
-                "           '~---~'";
+                + "\n \n Achtung gleich öffnet sich die innenkamera\n";
+
     }
 
 }
