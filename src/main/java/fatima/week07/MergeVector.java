@@ -1,10 +1,6 @@
 package fatima.week07;
 
-import java.util.Collections;
-import java.util.Vector;
-
-
-public class MergeVector {
+/*public class MergeVector {
     public static void main(String[] args) {
         Vector<Integer> vA = CreateVector.createRandomVector(20);
         Vector<Integer> vB = CreateVector.createRandomVector(20);
@@ -45,3 +41,4 @@ public class MergeVector {
         return merged;
     }
 }
+ */
