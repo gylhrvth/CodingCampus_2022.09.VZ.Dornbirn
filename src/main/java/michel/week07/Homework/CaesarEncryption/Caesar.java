@@ -29,7 +29,7 @@ public class Caesar {
     }
 
     private void shiftCaesar(int shift) {
-        for (char i = 0; i <= 'ü'; i++) {
+        for (char i = 0; i <= 'ü'; i++) {  // Ascii Tabelle 0 - 252
             if (i >= 'A' && i <= 'Z') {
                 if ((shift + i) <= 'Z') {
                     encrypt.put(i, (char) (i + shift));
