@@ -20,10 +20,10 @@ public class Caesar {
         return translate(text, decrypt);
     }
 
-    private String translate(String text, HashMap<Character, Character> alphabet) {
+    private String translate(String text, HashMap<Character, Character> encryption) {
         StringBuilder output = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {
-            output.append(alphabet.get(text.charAt(i)));
+            output.append(encryption.get(text.charAt(i)));
         }
         return output.toString();
     }
