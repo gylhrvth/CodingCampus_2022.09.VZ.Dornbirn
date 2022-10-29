@@ -33,6 +33,7 @@ public class TicTacToe {
             checkWinner();
             round++;
         } while (!win);
+        showMatchField();
         System.out.println("\nSpiel ist beendet!");
     }
 
@@ -50,16 +51,16 @@ public class TicTacToe {
                 default -> null;
             };
             if (line.equals("XXX")) {
-                System.out.println("\nGratuliere! Spieler X hat nach " + round + " Runden gewonnen!");
+                System.out.println("\nGratuliere! Spieler X hat nach " + round + " Runden gewonnen!\n");
                 return win = true;
             }
             if (line.equals("OOO")) {
-                System.out.println("\nSpieler O hat nach " + round + " Runden gewonnen!");
+                System.out.println("\nSpieler O hat nach " + round + " Runden gewonnen!\n");
                 return win = true;
             }
         }
         if (round == 8) {
-            System.out.println("\nUnentschieden, Danke fürs spielen.");
+            System.out.println("\nUnentschieden, Danke fürs spielen.\n");
             return win = true;
         }
         return win = false;
