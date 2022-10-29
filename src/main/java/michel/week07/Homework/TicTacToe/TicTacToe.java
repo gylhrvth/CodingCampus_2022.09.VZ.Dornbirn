@@ -13,8 +13,6 @@ public class TicTacToe {
 
 
     public static void main(String[] args) {
-        //Variablen initialisieren:
-
         fields = new String[9];
         for (int i = 0; i < fields.length; i++) {
             fields[i] = String.valueOf((i + 1));
@@ -22,11 +20,8 @@ public class TicTacToe {
         player = "X";       //Erster Spieler
         round = 1;
         win = false;
-
         //Los gehts!
         System.out.println("\nWillkommen zum 3x3 TicTacToe!\n");
-
-        //Startet das Spiel
         do {
             choice = userInput(); // geprüft, ob richtige Eingabe und ob frei
             setField();
@@ -65,7 +60,6 @@ public class TicTacToe {
         }
         return win = false;
     }
-
     private static void setField() {
         String choiceString = String.valueOf(choice);
         if (fields[choice - 1].equals(choiceString) && player.equals("X")) {
@@ -76,9 +70,7 @@ public class TicTacToe {
         }
         player = (player.equals("X")) ? "O" : "X";
     }
-
     public static int userInput() {
-
         int choice = 0;
         boolean validInput = false;
         do {
@@ -103,7 +95,6 @@ public class TicTacToe {
         System.out.println();
         return choice;
     }
-
     public static void showMatchField() {
         System.out.println(fields[0] + " | " + fields[1] + " | " + fields[2]);
         System.out.println(fields[3] + " | " + fields[4] + " | " + fields[5]);
