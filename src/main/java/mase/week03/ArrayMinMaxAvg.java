@@ -40,7 +40,7 @@ public class ArrayMinMaxAvg {
         int max = value[0];
         for (int i = 0; i < value.length; i++) {
             if (value[i] > max)
-                max = value[i];
+                max     = value[i];
         }
         System.out.print("Das ist der maximal Wert: ");
         System.out.println(max);
