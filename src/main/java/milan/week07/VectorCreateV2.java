@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.Vector;
 
 public class VectorCreateV2 {
+
     public static void main(String[] args) {
 
         Vector<Integer> zahlen = VectorCreateV1.vectorWithRandomNum(20);
@@ -14,7 +15,7 @@ public class VectorCreateV2 {
         int sumEvenNum = countEvenNum(zahlen);
         int smallestNum = findSmallestNum(zahlen);
         int biggestNum = findBiggestNum(zahlen);
-        System.out.println("Die Summe aller geraden Zahlen ist: " + sumEvenNum +
+        System.out.println("Die Anzahl aller geraden Zahlen ist: " + sumEvenNum +
                 "\nDie kleinste Zahl ist: " + smallestNum +
                 "\nDie größte Zahl ist: " + biggestNum);
         System.out.print("Vector absteigend sortiert: ");
@@ -39,8 +40,8 @@ public class VectorCreateV2 {
         Arrays.sort(test, new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-                if (o1 % 2 == 1) o1 = o1 - 100000;
-                if (o2 % 2 == 1) o2 = o2 - 100000;
+                if (o1 % 2 == 1) o1 = o1 - 99999;
+                if (o2 % 2 == 1) o2 = o2 - 99999;
                 return o1 - o2;
             }
         });
@@ -97,7 +98,7 @@ public class VectorCreateV2 {
         int sum = 0;
         for (int x : zahlen) {
             if (x % 2 == 0) {
-                sum += x;
+                ++sum;
             }
         }
         return sum;
