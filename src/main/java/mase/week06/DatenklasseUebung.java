@@ -9,16 +9,34 @@ public class DatenklasseUebung {
     public double avg;
 
 
+    public void setArr(int[] arr) {
+        this.arr = arr;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
+    }
+
+    public void setMin(int min) {
+        this.min = min;
+    }
+
+    public void setAvg(double avg) {
+        this.avg = avg;
+    }
+
     public DatenklasseUebung(int[] arr) {
         this.arr = arr;
         max = getMax(arr);
         min = getMin(arr);
         avg = getAvg(arr);
 
-        }
-public String toString(){
-        return Arrays.toString(arr) +"\n" +  "max array: " + max + "\n"  + "min array: " + min + "\n" + "avg array: "+ avg;
     }
+
+    public String toString() {
+        return Arrays.toString(arr) + "\n" + "max array: " + max + "\n" + "min array: " + min + "\n" + "avg array: " + avg;
+    }
+
     public static int getMax(int[] arr) {
         int max = arr[0];
         for (int i = 0; i < arr.length; i++) {
@@ -30,9 +48,9 @@ public String toString(){
 
     public static int getMin(int[] arr) {
         int min = arr[0];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < min)
-                min = arr[i];
+        for (int j : arr) {
+            if (j < min)
+                min = j;
         }
         return min;
     }

@@ -6,9 +6,7 @@ public class Camera {
     private String brand;
     private double megapixel;
     private String takePhoto;
-
     private MemoryCard memoryCard;
-
     private Objective objective;
 
 
@@ -28,22 +26,34 @@ public class Camera {
 
     public String takePhoto() {
         double sizeOfPhoto = megapixel * 0.3;
-        if ((memoryCard.getFreeStorage() >= sizeOfPhoto)) {
+        try {
             memoryCard.savePhoto((long) sizeOfPhoto);
             return """
-                       
-                       ---------------------------
-                       |                         |
-                       |     -----     -----     |
-                       |       O         O       |
-                       |            >            |
-                       |                         |
-                       |        ---------        |
-                       |                         |
-                       ---------------------------
-                """;
-        } else {
-            return null;
+                           
+                           ---------------------------
+                           |                         |
+                           |     -----     -----     |
+                           |       O         O       |
+                           |            >            |
+                           |                         |
+                           |        ---------        |
+                           |                         |
+                           ---------------------------
+                    """;
+        } catch (FullMemoryCardException fmce){
+            fmce.printStackTrace();
+            return """
+                           
+                           ---------------------------
+                           |                         |
+                           |     -----     -----     |
+                           |       O         O       |
+                           |            >            |
+                           |                         |
+                           |         -------         |
+                           |        /       \\        |
+                           ---------------------------
+                    """;
         }
         //Speicherbedarf von foto anhand von megapixel berechnen
         //schauen ob genügend speicherplatz auf sd karte vorhanden
