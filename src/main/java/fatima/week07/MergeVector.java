@@ -1,6 +1,8 @@
 package fatima.week07;
 
-/*public class MergeVector {
+import java.util.Vector;
+
+public class MergeVector {
     public static void main(String[] args) {
         Vector<Integer> vA = CreateVector.createRandomVector(20);
         Vector<Integer> vB = CreateVector.createRandomVector(20);
@@ -13,7 +15,15 @@ package fatima.week07;
     }
 
     private static void sortVector(Vector<Integer> v) {
-        Collections.sort(v);
+        for (int i = 0; i < v.size(); i++) {
+            for (int j = 0; j < v.size() - 1; j++) {
+                if (v.get(j) > v.get(j + 1)) {
+                    int temp = v.get(j);
+                    v.set(j, v.get(j + 1));
+                    v.set(j + 1, temp);
+                }
+            }
+        }
         System.out.println(v);
     }
 
@@ -41,4 +51,3 @@ package fatima.week07;
         return merged;
     }
 }
- */
