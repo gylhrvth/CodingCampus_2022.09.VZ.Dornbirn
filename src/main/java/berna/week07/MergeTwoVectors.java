@@ -2,7 +2,6 @@ package berna.week07;
 
 
 import java.util.Vector;
-import berna.week07.VectorBasics;
 
 public class MergeTwoVectors {
     //exercise: 2 vectors, sorted descending are merged in a third vector, also sorted descending
@@ -10,13 +9,14 @@ public class MergeTwoVectors {
 
     public static void main(String[] args) {
 
-        Vector<Integer> v1 = VectorBasics.createVectorRandom(20,99);
-        Vector<Integer> v2 = VectorBasics.createVectorRandom(20,99);
-        Vector<Integer> v1sorted = VectorBasics.bubblesortVector(v1);
-        Vector<Integer> v2sorted = VectorBasics.bubblesortVector(v2);
+        Vector<Integer> v1 = VectorBasicsDefensive.createVectorRandom(20,99);
+        Vector<Integer> v2 = VectorBasicsDefensive.createVectorRandom(20,99);
+        Vector<Integer> v1sorted = VectorBasicsDefensive.bubblesortVectorDefensive(v1);
+        Vector<Integer> v2sorted = VectorBasicsDefensive.bubblesortVectorDefensive(v2);
 
-        Vector<Integer> merged = mergeVectors(v1,v2);
-        Vector<Integer> mergedSorted = VectorBasics.bubblesortVector(merged);
+        Vector<Integer> mergedSorted = mergeVectors(v1sorted,v2sorted);
+        // Invalid Operation!!!
+        // Vector<Integer> mergedSorted = VectorBasicsDefensive.bubblesortVectorDefensive(merged);
 
         System.out.println();
         System.out.println("Vector 1 sorted: ");
@@ -32,10 +32,28 @@ public class MergeTwoVectors {
     }
 
     public static Vector<Integer> mergeVectors(Vector<Integer> v1, Vector<Integer> v2) {
-
         Vector<Integer> merged = new Vector<>();
-        merged.addAll(v1);
-        merged.addAll(v2);
+        int index1 = 0;
+        int index2 = 0;
+
+        while (index1 < v1.size() && index2 < v2.size()) {
+            if (v1.get(index1) > v2.get(index2)) {
+                merged.add(v1.get(index1));
+                ++index1;
+            } else {
+                merged.add(v2.get(index2));
+                ++index2;
+            }
+        }
+        while (index1 < v1.size()) {
+            merged.add(v1.get(index1));
+            ++index1;
+        }
+        while (index2 < v2.size()) {
+            merged.add(v2.get(index2));
+            ++index2;
+        }
+
         return merged;
     }
 

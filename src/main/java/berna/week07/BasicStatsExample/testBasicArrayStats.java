@@ -1,4 +1,4 @@
-package berna.week06.BasicStatsExample;
+package berna.week07.BasicStatsExample;
 
 public class testBasicArrayStats {
 
