@@ -2,7 +2,7 @@ package fatima.week07;
 
 /*public class MergeVector {
     public static void main(String[] args) {
-        Vector<Integer> vA = CreateVector.createRandomVector(20);
+        /*Vector<Integer> vA = CreateVector.createRandomVector(20);
         Vector<Integer> vB = CreateVector.createRandomVector(20);
         System.out.print("vA: ");
         sortVector(vA);

@@ -36,14 +36,14 @@ public class SortByHeightAgeWeight {
         PersonTwoPointNull p1 = new PersonTwoPointNull(180, 45, "Peter", 80);
         PersonTwoPointNull p2 = new PersonTwoPointNull(190, 40, "Jörg", 85);
         PersonTwoPointNull p3 = new PersonTwoPointNull(200, 50, "Johanna", 95);
-        PersonTwoPointNull p4 = new PersonTwoPointNull(165, 35, "Adam", 65);
+        PersonTwoPointNull p4 = new PersonTwoPointNull(165, 35, "Stephan", 65);
 
         list.add(p1);
         list.add(p2);
         list.add(p3);
         list.add(p4);
 
-        sort(list,sortingBy.age);
+        sort(list,sortingBy.name);
 
     }
 }
