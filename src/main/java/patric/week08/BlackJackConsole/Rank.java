@@ -1,4 +1,4 @@
-package patric.BlackJackConsole;
+package patric.week08.BlackJackConsole;
 
 //Contains the Ranks of Cards, Names, and Values
 

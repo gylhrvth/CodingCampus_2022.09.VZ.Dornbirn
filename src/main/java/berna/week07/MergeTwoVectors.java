@@ -2,7 +2,6 @@ package berna.week07;
 
 
 import java.util.Vector;
-import berna.week07.VectorBasics;
 
 public class MergeTwoVectors {
     //exercise: 2 vectors, sorted descending are merged in a third vector, also sorted descending

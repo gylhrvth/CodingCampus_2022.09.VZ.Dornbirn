@@ -85,7 +85,7 @@ public class ArrayPractice {
         MethodenUndSchleifen.head("#", "Formular Generieren (Anw. von Pascal Dreieck)");
         int binomGroesse = UserInput.readUserInputInt(Integer.MAX_VALUE, 0, "Geben sie bitte n, für die Binomeberechnung (a+b)^n, an. ");
         System.out.println(generateBinomeFunktion(binomGroesse) + "\n");
-        MethodenUndSchleifen.head("#", "TicTacToe");
+        MethodenUndSchleifen.head("#", "patric/week08/TicTacToe");
         TicTacToe();
 
     }
