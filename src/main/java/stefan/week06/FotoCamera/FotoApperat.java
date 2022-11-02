@@ -6,39 +6,45 @@ public class FotoApperat {
     private String model;
     private String hersteller;
     private int megapixel;
-    private int foto;
-
+    private Objektiv objektiv;
+    private int fotos;
 
     public void setMemory(SpeicherKarte memory) {
         this.memory = memory;
     }
 
-    public FotoApperat(String hersteller, String model,int foto) {
+    public FotoApperat(String hersteller, String model) {
         megapixel = 50;
         this.hersteller = hersteller;
         this.model = model;
-        this.foto=foto;
+
     }
 
     public int getMegapixel() {
         return megapixel;
     }
 
-    public void setMegapixel(int megapixel) {
-        this.megapixel = megapixel;
-    }
 
-
+//    public void insertmemory(SpeicherKarte foAp) {
+//        if (memory != null) {
+//            System.out.println("Legen sie eine momeroy card ein");
+//        } else {
+//            memory = foAp;
+//        }
+//    }
 
     public String takephoto() {
 
-            
 
+            double sizeOfFoto = megapixel * 0.3;
+            if (memory.getFreeMemory() > sizeOfFoto) {
+                memory.setMemory((int) (memory.getFreeMemory() - sizeOfFoto));
+
+        }
 
         //Berechnen wie groß das foto ist
         //Schauen ob genügend freier speicher auf der speicherkarte vorhanden ist
         //foto auf speicherkarte speichern
-
 
 
         return
