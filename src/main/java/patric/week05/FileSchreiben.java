@@ -11,7 +11,7 @@ public class FileSchreiben {
         try {
             File f = new File("assets/tmp/output.txt");
             f.getParentFile().mkdirs();
-            PrintStream ps = new PrintStream(new FileOutputStream(f, true));
+            PrintStream ps = new PrintStream(new FileOutputStream(f, false));   //true = ersetzen false isch anfügen
             ps.println("Hello World! \n So ein Spaß \n usw");
             ps.close();
         } catch (IOException ioe) {
