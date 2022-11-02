@@ -11,7 +11,7 @@ public class ObjectDaten {
 
         int[] array3 = new int[random.nextInt(100)];
         for (int i = 0; i < array3.length; i++) {
-            int randomNr= random.nextInt(100)-50;
+            int randomNr = random.nextInt(100) - 50;
             array3[i] = randomNr;
         }
 
@@ -21,8 +21,10 @@ public class ObjectDaten {
 
         DatenklasseUebung a3 = new DatenklasseUebung(array3);
 
-
-
+        DatenklasseUebung a4 = new DatenklasseUebung(new int[]{45,55,66});
+        a4.setMax(67);
+        a2.setAvg(3);
+        System.out.println(a4);
         System.out.println(array);
         System.out.println(a2);
         System.out.println(a3);

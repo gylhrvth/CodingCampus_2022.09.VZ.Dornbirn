@@ -5,8 +5,8 @@ import java.util.Vector;
 public class VectorCombine {
     public static void main(String[] args) {
 
-        Vector<Integer> vectorA = VectorCreateV1.vectorWithRandomNum(5000);
-        Vector<Integer> vectorB = VectorCreateV1.vectorWithRandomNum(5000);
+        Vector<Integer> vectorA = VectorCreateV1.vectorWithRandomNum(50000);
+        Vector<Integer> vectorB = VectorCreateV1.vectorWithRandomNum(50000);
         VectorCreateV2.sortVectorDescending(vectorA);
         VectorCreateV2.sortVectorDescending(vectorB);
 //        System.out.println("Erster Vector: " + vectorA + "\nZweiter Vector: " + vectorB);

@@ -4,10 +4,10 @@ public class Person {
 
     //attributes
 
-    int size;
-    int age;
-    String name;
-    int weight;
+    private int size;
+    private int age;
+    private String name;
+    private int weight;
 
     //Constructor
 
@@ -20,6 +20,7 @@ public class Person {
 
     //methods
 
+    @Override
     public String toString (){
         return "Personal data: " + "\n" +
                 "name: " +name + "\n" +

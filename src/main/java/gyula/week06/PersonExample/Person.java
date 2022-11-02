@@ -11,7 +11,7 @@ public class Person {
     private String place;
     private double distance;
 
-    public Person(String firstName, String lastName){
+    public Person(String firstName, String lastName) {
         id = lastID;
         ++lastID;
         this.firstName = firstName;
@@ -31,7 +31,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return  id +
+        return id +
                 ": Ich bin " +
                 firstName +
                 " " +

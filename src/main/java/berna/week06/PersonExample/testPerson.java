@@ -9,7 +9,5 @@ public class testPerson {
         System.out.println("the two behind me are:");
         System.out.println(mase);
         System.out.println(mike);
-
-
     }
 }
