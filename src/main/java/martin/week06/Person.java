@@ -47,10 +47,10 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
-    public int getGewicht() {
+    public int getWeight() {
         return gewicht;
     }
-    public void setGewicht(int gewicht) {
+    public void setWeight(int gewicht) {
         this.gewicht = gewicht;
     }
     @Override
