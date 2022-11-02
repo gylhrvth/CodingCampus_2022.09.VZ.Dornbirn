@@ -2,7 +2,6 @@ package martin.week07;
 
 import martin.week06.Person;
 
-import java.sql.SQLOutput;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -18,7 +17,7 @@ public class PersonExamples {
         Person d = new Person(182, 36, "Ignatius", 90);
         Person e = new Person(172, 65, "Mormisch", 112);
         List<Person> personen = new LinkedList<>();
-        for (int i = 0; i < 3; ++i) {
+        for (int i = 0; i < 10; ++i) {
             personen.add(generatePerson());
         }
         for (Person pers : personen) {
@@ -34,11 +33,14 @@ public class PersonExamples {
         System.out.println("The average Person is:  " + getAvgAge(personen) + " years old.");
         System.out.println("The youngest Person is: " + getAge(personen, false) + " years old.");
         System.out.println();
-        System.out.println("The heaviest Person is: " + getWeight(personen, true) + "kg heavy.");
-        System.out.println("The average Person is:  " + getAvgWeight(personen) + "kg heavy.");
-        System.out.println("The lightest Person is: " + getWeight(personen, false) + "kg heavy.");
+        System.out.println("The heaviest Person has: " + getWeight(personen, true));
+        System.out.println("The average Person has:  " + getAvgWeight(personen));
+        System.out.println("The lightest Person has: " + getWeight(personen, false));
         System.out.println();
-        //sortByHeightAsc(personen);
+        sortPersListBy(personen, 1);
+        printList(personen);
+        System.out.println();
+        sortPersListBy(personen, 7);
         printList(personen);
 
     }
@@ -114,13 +116,13 @@ public class PersonExamples {
         ListIterator<Person> li = personen.listIterator();
         int gewicht = -1;
         if (personen.size() > 0) {
-            gewicht = li.next().getGewicht();
+            gewicht = li.next().getWeight();
             while (li.hasNext()) {
                 Person next = li.next();
-                if (biggestTrue && (next.getGewicht() > gewicht))
-                    gewicht = next.getGewicht();
-                if (!biggestTrue && (next.getGewicht() < gewicht))
-                    gewicht = next.getGewicht();
+                if (biggestTrue && (next.getWeight() > gewicht))
+                    gewicht = next.getWeight();
+                if (!biggestTrue && (next.getWeight() < gewicht))
+                    gewicht = next.getWeight();
             }
         }
         return gewicht;
@@ -131,32 +133,155 @@ public class PersonExamples {
         int avgweight = 0;
         if (personen.size() > 0) {
             while (li.hasNext()) {
-                avgweight += li.next().getGewicht();
+                avgweight += li.next().getWeight();
             }
             avgweight = avgweight / personen.size();
         }
         return avgweight;
     }
 
+    private static void printList(List<Person> personen) {
+        for (Person person : personen) {
+            System.out.println(person);
+        }
+    }
+
     private static void sortByHeightAsc(List<Person> personen) {
-        ListIterator<Person> li = personen.listIterator();
         if (personen.size() > 0) {
             for (int i = 0; i < personen.size(); i++) {
-                for (int j = i; j < personen.size(); j++) {
-                    if (li.next().getHeightmm()<li.next().getHeightmm()){
-                        li.previousIndex();
-                        li.previousIndex();
+                for (int j = 0; j < personen.size() - 1; j++) {
+                    if (personen.get(j).getHeightmm() < personen.get(j + 1).getHeightmm()) {
+                        Person temp = personen.get(j);
+                        personen.set(j, personen.get(j + 1));
+                        personen.set(j + 1, temp);
                     }
-
                 }
             }
         }
     }
 
-    private static void printList(List<Person> personen){
-        for (int i = 0; i < personen.size(); i++) {
-            System.out.println(personen.get(i));
+    private static void sortByHeightDesc(List<Person> personen) {
+        if (personen.size() > 0) {
+            for (int i = 0; i < personen.size(); i++) {
+                for (int j = 0; j < personen.size() - 1; j++) {
+                    if (personen.get(j).getHeightmm() > personen.get(j + 1).getHeightmm()) {
+                        Person temp = personen.get(j);
+                        personen.set(j, personen.get(j + 1));
+                        personen.set(j + 1, temp);
+                    }
+                }
+            }
         }
     }
 
+    private static void sortByAgeAsc(List<Person> personen) {
+        if (personen.size() > 0) {
+            for (int i = 0; i < personen.size(); i++) {
+                for (int j = 0; j < personen.size() - 1; j++) {
+                    if (personen.get(j).getAge() < personen.get(j + 1).getAge()) {
+                        Person temp = personen.get(j);
+                        personen.set(j, personen.get(j + 1));
+                        personen.set(j + 1, temp);
+                    }
+                }
+            }
+        }
+    }
+
+    private static void sortByAgeDesc(List<Person> personen) {
+        if (personen.size() > 0) {
+            for (int i = 0; i < personen.size(); i++) {
+                for (int j = 0; j < personen.size() - 1; j++) {
+                    if (personen.get(j).getAge() > personen.get(j + 1).getAge()) {
+                        Person temp = personen.get(j);
+                        personen.set(j, personen.get(j + 1));
+                        personen.set(j + 1, temp);
+                    }
+                }
+            }
+        }
+    }
+
+    private static void sortByWeightAsc(List<Person> personen) {
+        if (personen.size() > 0) {
+            for (int i = 0; i < personen.size(); i++) {
+                for (int j = 0; j < personen.size() - 1; j++) {
+                    if (personen.get(j).getWeight() < personen.get(j + 1).getWeight()) {
+                        Person temp = personen.get(j);
+                        personen.set(j, personen.get(j + 1));
+                        personen.set(j + 1, temp);
+                    }
+                }
+            }
+        }
+    }
+
+    private static void sortByWeightDesc(List<Person> personen) {
+        if (personen.size() > 0) {
+            for (int i = 0; i < personen.size(); i++) {
+                for (int j = 0; j < personen.size() - 1; j++) {
+                    if (personen.get(j).getWeight() > personen.get(j + 1).getWeight()) {
+                        Person temp = personen.get(j);
+                        personen.set(j, personen.get(j + 1));
+                        personen.set(j + 1, temp);
+                    }
+                }
+            }
+        }
+    }
+
+    private static void sortByNameAsc(List<Person> personen) {
+        if (personen.size() > 0) {
+            for (int i = 0; i < personen.size(); i++) {
+                for (int j = 0; j < personen.size() - 1; j++) {
+                    if (personen.get(j).getName().compareTo(personen.get(j + 1).getName()) > 0) {
+                        Person temp = personen.get(j);
+                        personen.set(j, personen.get(j + 1));
+                        personen.set(j + 1, temp);
+                    }
+                }
+            }
+        }
+    }
+
+    private static void sortByNameDesc(List<Person> personen) {
+        if (personen.size() > 0) {
+            for (int i = 0; i < personen.size(); i++) {
+                for (int j = 0; j < personen.size() - 1; j++) {
+                    if (personen.get(j).getName().compareTo(personen.get(j + 1).getName()) < 0) {
+                        Person temp = personen.get(j);
+                        personen.set(j, personen.get(j + 1));
+                        personen.set(j + 1, temp);
+                    }
+                }
+            }
+        }
+    }
+
+    private static void sortPersListBy(List<Person> personen, int sortBy) {
+        if (sortBy == 1) {
+            sortByHeightAsc(personen);
+        }
+        if (sortBy == 2) {
+            sortByHeightDesc(personen);
+        }
+        if (sortBy == 3) {
+            sortByAgeAsc(personen);
+        }
+        if (sortBy == 4) {
+            sortByAgeDesc(personen);
+        }
+        if (sortBy == 5) {
+            sortByWeightAsc(personen);
+        }
+        if (sortBy == 6) {
+            sortByWeightDesc(personen);
+        }
+        if (sortBy == 7) {
+            sortByNameAsc(personen);
+        }
+        if (sortBy == 8) {
+            sortByNameDesc(personen);
+        }
+    }
 }
