@@ -1,4 +1,4 @@
-package martin.week07;
+package martin.week07.dynamicDatastructures;
 
 import java.util.List;
 import java.util.ListIterator;
