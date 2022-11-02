@@ -1,4 +1,4 @@
-package patric.TicTacToe;
+package patric.week08.TicTacToe;
 
 import java.io.*;
 

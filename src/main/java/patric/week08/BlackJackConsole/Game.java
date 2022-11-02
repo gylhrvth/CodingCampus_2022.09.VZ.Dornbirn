@@ -1,4 +1,4 @@
-package patric.BlackJackConsole;
+package patric.week08.BlackJackConsole;
 
 public class Game {
 
