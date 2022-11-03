@@ -1,9 +1,6 @@
 package lukas.week07;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 public class Rehearsal {
     public static void main(String[] args) {
@@ -61,6 +58,33 @@ public class Rehearsal {
         System.out.println("Is the same: "+tmp2.equals(completeList));
         Collections.shuffle(completeList);
         System.out.println("Is the same after shuffle: "+tmp2.equals(completeList));
+
+        //Mixed values in List, useful???
+        System.out.println("Mixed values in a list");
+        List<Object> mixedValues = new ArrayList<>();
+        mixedValues.add(20.5);
+        mixedValues.add(10);
+        mixedValues.add("Hallo");
+
+        //Sort list
+//        Collections.sort(tmp2, new Comparator<Integer>() {
+//            @Override
+//            public int compare(Integer o1, Integer o2) {
+//                return o1 - o2;
+//            }
+//        });
+
+        for (Object obj : mixedValues) {
+            System.out.println(obj);
+
+            if(obj instanceof Integer) {
+                System.out.println("This was a number");
+            } else if(obj instanceof Double) {
+                System.out.println("This was a floating point number");
+            } if(obj instanceof String) {
+                System.out.println("This was a string");
+            }
+        }
     }
 
     private static void printList(List<Integer> data) {
