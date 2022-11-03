@@ -1,7 +1,7 @@
 package berna.week08.ZooExample;
 
 public class Zoo {
-    // Basic Version of Zoo: Tiergarten Dornbirn only.
+    // Basic Version of Zoo: Tiergarten Dornbirn only!!
     public String zooName;
     public int yearFounded;
 
