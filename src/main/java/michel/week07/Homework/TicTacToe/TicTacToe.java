@@ -4,35 +4,30 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TicTacToe {
-    static Scanner sc = new Scanner(System.in);
-    static String[] fields;
-    static String player;
-    static int round;
-    static int choice;
-    static boolean win;
 
 
     public static void main(String[] args) {
-        fields = new String[9];
+        String player = "X";
+        int round = 1;
+        String[] fields = new String[9];
         for (int i = 0; i < fields.length; i++) {
             fields[i] = String.valueOf((i + 1));
         }
-        player = "X";       //Erster Spieler
-        round = 1;
-        win = false;
+        boolean win = false;
         //Los gehts!
         System.out.println("\nWillkommen zum 3x3 TicTacToe!\n");
-        do {
-            choice = userInput(); // geprüft, ob richtige Eingabe und ob frei
-            setField();
-            checkWinner();
+        while (!win) {
+            int choice = userInput(player,fields); // geprüft, ob richtige Eingabe und ob frei
+            setField(fields, choice, player);
+            win = checkWinner(fields, round);
             round++;
-        } while (!win);
-        showMatchField();
+            player = (player.equals("X")) ? "O" : "X";
+        }
+        showMatchField(fields);
         System.out.println("\nSpiel ist beendet!");
     }
 
-    private static boolean checkWinner() {
+    private static boolean checkWinner(String[] fields, int round) {
         for (int i = 0; i < 8; i++) {
             String line = switch (i) {
                 case 0 -> fields[0] + fields[1] + fields[2];
@@ -47,20 +42,21 @@ public class TicTacToe {
             };
             if (line.equals("XXX")) {
                 System.out.println("\nGratuliere! Spieler X hat nach " + round + " Runden gewonnen!\n");
-                return win = true;
+                return true;
             }
             if (line.equals("OOO")) {
-                System.out.println("\nSpieler O hat nach " + round + " Runden gewonnen!\n");
-                return win = true;
+                System.out.println("\nGratuliere! Spieler O hat nach " + round + " Runden gewonnen!\n");
+                return true;
             }
         }
         if (round == 8) {
-            System.out.println("\nUnentschieden, Danke fürs spielen.\n");
-            return win = true;
+            System.out.println("\nSchade unentschieden, Danke fürs spielen.\n");
+            return true;
         }
-        return win = false;
+        return false;
     }
-    private static void setField() {
+
+    private static void setField(String[] fields, int choice, String player) {
         String choiceString = String.valueOf(choice);
         if (fields[choice - 1].equals(choiceString) && player.equals("X")) {
             fields[choice - 1] = "X";
@@ -68,14 +64,15 @@ public class TicTacToe {
         if (fields[choice - 1].equals(choiceString) && player.equals("O")) {
             fields[choice - 1] = "O";
         }
-        player = (player.equals("X")) ? "O" : "X";
     }
-    public static int userInput() {
+
+    public static int userInput(String player, String [] fields) {
+        Scanner sc = new Scanner(System.in);
         int choice = 0;
         boolean validInput = false;
         do {
             try {
-                showMatchField();
+                showMatchField(fields);
                 System.out.println("\nSpieler: " + player + " ist an der Reihe! ");
                 System.out.print(">>>");
                 choice = sc.nextInt();
@@ -95,7 +92,8 @@ public class TicTacToe {
         System.out.println();
         return choice;
     }
-    public static void showMatchField() {
+
+    public static void showMatchField(String[] fields) {
         System.out.println(fields[0] + " | " + fields[1] + " | " + fields[2]);
         System.out.println(fields[3] + " | " + fields[4] + " | " + fields[5]);
         System.out.println(fields[6] + " | " + fields[7] + " | " + fields[8]);
