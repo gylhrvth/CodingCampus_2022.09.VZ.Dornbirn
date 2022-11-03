@@ -33,9 +33,9 @@ public class PersonExamples {
         System.out.println("The average Person is:  " + getAvgAge(personen) + " years old.");
         System.out.println("The youngest Person is: " + getAge(personen, false) + " years old.");
         System.out.println();
-        System.out.println("The heaviest Person has: " + getWeight(personen, true));
-        System.out.println("The average Person has:  " + getAvgWeight(personen));
-        System.out.println("The lightest Person has: " + getWeight(personen, false));
+        System.out.println("The heaviest Person has: " + getWeight(personen, true) + "kg.");
+        System.out.println("The average Person has:  " + getAvgWeight(personen) + "kg.");
+        System.out.println("The lightest Person has: " + getWeight(personen, false) + "kg.");
         System.out.println();
         sortPersListBy(personen, 1);
         printList(personen);
