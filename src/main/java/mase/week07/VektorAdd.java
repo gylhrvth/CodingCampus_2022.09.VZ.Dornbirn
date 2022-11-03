@@ -8,10 +8,12 @@ public class VektorAdd {
 
     public static void main(String[] args) {
         Vector<Integer> a = generateRandomVector(20);
+        sortVector(a);
         System.out.println(a);
         Vector<Integer> b = generateRandomVector(20);
+        sortVector(b);
         System.out.println(b);
-        Vector<Integer> c = merge(a,b);
+        Vector<Integer> c = merge(a, b);
         System.out.println(c);
     }
 
@@ -27,6 +29,7 @@ public class VektorAdd {
                 result.add(two.get(indexB));
                 indexB++;
             }
+        }
             while (indexA < one.size()) {
                 result.add(one.get(indexA));
                 indexA++;
@@ -36,15 +39,26 @@ public class VektorAdd {
                 indexB++;
             }
 
-        }
+
         return result;
     }
 
-    public static Vector<Integer> generateRandomVector(int generate){
+    public static Vector<Integer> generateRandomVector(int generate) {
         Vector<Integer> result = new Vector<>();
         for (int i = 0; i < generate; i++) {
             result.add(randy.nextInt(100));
         }
         return result;
+    }
+    public static void sortVector(Vector<Integer>sort){
+        for (int i = 1; i < sort.size(); i++) {
+            for (int j = 0; j < sort.size() - i; j++) {
+                if (sort.get(j) < sort.get(j + 1)) {
+                    int value = sort.get(j);
+                    sort.set(j, sort.get(j + 1));
+                    sort.set(j + 1, value);
+                }
+            }
+        }
     }
 }
