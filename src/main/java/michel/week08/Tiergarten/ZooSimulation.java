@@ -9,9 +9,9 @@ public class ZooSimulation {
         Enclosure enclosure2 = new Enclosure("Ried");
         Enclosure enclosure3 = new Enclosure("Terrarium (warm)");
         Animal animal1 = new Animal("Rijska","Kuh");
-        Animal animal2 = new Animal("Rijska","Kuh");
-        Animal animal3 = new Animal("Rijska","Kuh");
-        Animal animal4 = new Animal("Rijska","Kuh");
+        Animal animal2 = new Animal("Garmond","Storh");
+        Animal animal3 = new Animal("Hugo","Storh");
+        Animal animal4 = new Animal("Idaxis","Storh");
         myZoo.addGehege(enclosure1);
         myZoo.addGehege(enclosure2);
         myZoo.addGehege(enclosure3);
