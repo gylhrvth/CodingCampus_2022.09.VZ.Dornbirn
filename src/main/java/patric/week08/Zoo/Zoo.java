@@ -17,9 +17,11 @@ public class Zoo {
     public void putGehegeToZoo(Gehege d) {
         list.add(d);
     }
+
     public void removeGehegeFromZoo(Gehege d) {
         list.remove(d);
     }
+
 
     public void printListWithGehege() {
 
@@ -28,6 +30,14 @@ public class Zoo {
             g.printGehege();
 
         }
+    }
+
+    public double calculateFoodPricePerDay() {
+        double price = 0;
+        for (Gehege g : list) {
+            price += g.calculateFoodPricePerDay();
+        }
+        return price;
     }
 
     public String toString() {

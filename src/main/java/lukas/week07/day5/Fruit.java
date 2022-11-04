@@ -10,4 +10,11 @@ public class Fruit {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "Fruit{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }
