@@ -1,4 +1,4 @@
-package lukas.week07;
+package lukas.week07.day4;
 
 import mase.week06.Person;
 
@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WhatIsAnEnum {
+
     public enum PersonCriteria {
         WEIGHT,
         AGE,
