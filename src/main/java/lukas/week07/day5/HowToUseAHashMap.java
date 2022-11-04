@@ -1,9 +1,6 @@
 package lukas.week07.day5;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class HowToUseAHashMap {
     public static void main(String[] args) {
@@ -63,8 +60,36 @@ public class HowToUseAHashMap {
             fruitAmount.put(currentFruit, menge);
         }
 
+
         for (Map.Entry<Fruit, Integer> entry : fruitAmount.entrySet()) {
             System.out.printf("%-10s %10d Stück\n", entry.getKey().getName(), entry.getValue());
         }
+
+        System.out.println("Alle Früchte in der Map: ");
+        for (Fruit fruit : fruitAmount.keySet()) {
+            System.out.println(fruit.getName());
+        }
+
+        System.out.println("All Werte der Map: ");
+        for (Integer menge : fruitAmount.values()) {
+            System.out.println(menge);
+        }
+        System.out.println("Walnuss wird gelöscht...");
+        fruitAmount.remove(walnuss);
+
+        List<Fruit> sortedFruits = new ArrayList<>();
+        sortedFruits.addAll(fruitAmount.keySet());
+        Collections.sort(sortedFruits, new Comparator<Fruit>() {
+            @Override
+            public int compare(Fruit o1, Fruit o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+
+        for (Fruit fruit : sortedFruits) {
+            System.out.println("Frucht: " + fruit.getName() + ", Menge: " + fruitAmount.get(fruit));
+        }
+
+
     }
 }
