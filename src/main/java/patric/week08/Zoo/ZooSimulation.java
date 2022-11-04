@@ -75,28 +75,31 @@ public class ZooSimulation {
 //        overallPrice += tier5.getFutterToTier().getEinheitPreis() * tier5.getAmountOfFutter();
 //        overallPrice += tier6.getFutterToTier().getEinheitPreis() * tier6.getAmountOfFutter();
 
-        List<Tier> tierList = new ArrayList<>();
-        tierList.add(tier1);
-        tierList.add(tier2);
-        tierList.add(tier3);
-        tierList.add(tier4);
-        tierList.add(tier5);
-        tierList.add(tier6);
+//        List<Tier> tierList = new ArrayList<>();
+//        tierList.add(tier1);
+//        tierList.add(tier2);
+//        tierList.add(tier3);
+//        tierList.add(tier4);
+//        tierList.add(tier5);
+//        tierList.add(tier6);
+//
+//        //Futter wird als Schlüssel verwendet
+//        //der Wert ist die Menge vom Futter
+//        Map<Futter, Double> futterAmountMap = new HashMap<>();
+//
+//        for(Tier t : tierList) {
+//            Futter currentFutter = t.getFutterToTier();
+//            Double currentSumOfTierFutter = futterAmountMap.get(currentFutter);
+//            if(currentSumOfTierFutter == null) {
+//                currentSumOfTierFutter = t.getAmountOfFutter();
+//            } else {
+//                currentSumOfTierFutter += t.getAmountOfFutter();
+//            }
+//            futterAmountMap.put(currentFutter, currentSumOfTierFutter);
+//        }
 
-        //Futter wird als Schlüssel verwendet
-        //der Wert ist die Menge vom Futter
-        Map<Futter, Double> futterAmountMap = new HashMap<>();
+        Map<Futter, Double> futterAmountMap = myZoo.calculateFoodMap();
 
-        for(Tier t : tierList) {
-            Futter currentFutter = t.getFutterToTier();
-            Double currentSumOfTierFutter = futterAmountMap.get(currentFutter);
-            if(currentSumOfTierFutter == null) {
-                currentSumOfTierFutter = t.getAmountOfFutter();
-            } else {
-                currentSumOfTierFutter += t.getAmountOfFutter();
-            }
-            futterAmountMap.put(currentFutter, currentSumOfTierFutter);
-        }
         System.out.println("Tagesbedarf Futter:");
         System.out.println();
         System.out.println("Heu: "+ futterAmountMap.get(heu)+" x "+heu.getEinheit());
