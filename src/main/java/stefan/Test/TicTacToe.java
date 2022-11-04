@@ -6,16 +6,16 @@ public class TicTacToe {
 
 
     public static void main(String[] args) {
-        char[][] board = {{' ', '|', ' ', '|', ' '},
+        char[][] board = {{'1', '|', '2', '|', '3'},
                 {'-', '+', '-', '+', '-'},
-                {' ', '|', ' ', '|', ' '},
+                {'4', '|', '5', '|', '6'},
                 {'-', '+', '-', '+', '-'},
-                {' ', '|', ' ', '|', ' '}};
+                {'7', '|', '8', '|', '9'}};
 
         prinntboard(board);
+        boolean win = false;
 
-
-        while (true) {
+        while (!win) {
             Scanner scan = new Scanner(System.in);
             System.out.println("Gib deine postion an (1-9)");
             int playerpos = scan.nextInt();
@@ -80,6 +80,6 @@ public class TicTacToe {
                 break;
         }
     }
-
-
 }
+
+

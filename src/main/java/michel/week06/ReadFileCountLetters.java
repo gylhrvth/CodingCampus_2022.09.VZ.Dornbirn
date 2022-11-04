@@ -18,6 +18,28 @@ public class ReadFileCountLetters {
         char[] charsToCount = {'a', 'z', 'e'};
         System.out.println(countChars(text, charsToCount));
         System.out.println(countWords(text));
+        System.out.println(dynCountWords(text)+"< mal vor");
+    }
+
+    private static int dynCountWords(String text) {
+
+
+        int count = 0;
+        text = text
+                .replaceAll("\\P{IsLatin}"," ")
+                .replaceAll("\\s+"," ")
+                .trim();
+        String [] arrWords = text.split(" ");
+        System.out.println("Welches wort soll gezählt werden? ");
+        Scanner sc = new Scanner(System.in);
+        String wordToChange =  sc.nextLine();
+        for (int i = 0; i < arrWords.length; i++) {
+            if(arrWords[i].equals(wordToChange)){
+                ++count;
+            }
+        }
+        System.out.print("Das eingegebene Wort >" + wordToChange + "< kommt im Text >");
+        return count;
     }
 
     private static int countWords(String text2) {
@@ -30,20 +52,6 @@ public class ReadFileCountLetters {
         String [] arrWords = text2.split(" ");                 // Erstellt ein Array aus dem Text und splittet immer bei "Space"
         System.out.print("Gezählte Wörter im Text: ");
         return arrWords.length;
-    }
-
-    private static String userInputSampleTextStream(String ressourceName) {
-        StringBuilder sampleText = new StringBuilder();
-
-        InputStream inputStream = Objects.requireNonNull(
-                ReadFileCountLetters.class.getClassLoader().getResourceAsStream(ressourceName));
-        Scanner sc = new Scanner(inputStream);
-        while (sc.hasNextLine()) {
-            String line = sc.nextLine();
-            sampleText.append(line);
-            sampleText.append("\n");
-        }
-        return sampleText.toString();
     }
 
     private static int countChars(String text, char[] charsToCount) {
@@ -91,6 +99,20 @@ public class ReadFileCountLetters {
         }
         int result = counter - countSpaceLF;
         System.out.println("Gezählte Buchstaben im Text: " + result);
+    }
+
+    private static String userInputSampleTextStream(String ressourceName) {
+        StringBuilder sampleText = new StringBuilder();
+
+        InputStream inputStream = Objects.requireNonNull(
+                ReadFileCountLetters.class.getClassLoader().getResourceAsStream(ressourceName));
+        Scanner sc = new Scanner(inputStream);
+        while (sc.hasNextLine()) {
+            String line = sc.nextLine();
+            sampleText.append(line);
+            sampleText.append("\n");
+        }
+        return sampleText.toString();
     }
 
 //    private static String userInputSampleTextScanner() {

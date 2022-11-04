@@ -10,7 +10,10 @@ public class testBasicArrayStats {
 
         //give this array to the class
         BasicArrayStats stats = new BasicArrayStats(basic);
+
         System.out.println(stats);
+
+
     }
 
     public static int[] getBasicArray(int lengthOfArray) {
@@ -21,4 +24,5 @@ public class testBasicArrayStats {
         }
         return x;
     }
+
 }
