@@ -23,8 +23,5 @@ public class ArrayCrazyRange {
             System.out.print(value);
         }
         System.out.println("]");
-
-
-
     }
 }
