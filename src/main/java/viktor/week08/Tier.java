@@ -1,4 +1,4 @@
-package viktor.week08;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +14,8 @@ public class Tier {
         this.name = name;
         this.gattung = gattung;
     }
+
+
 
 
     @Override

@@ -1,5 +1,7 @@
 package viktor.week08;
 
+import patric.week08.Zoo.Tier;
+
 public class ZooSimulation {
 
     public static void main(String[] args) {
