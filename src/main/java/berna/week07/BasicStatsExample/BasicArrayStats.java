@@ -1,4 +1,4 @@
-package berna.week06.BasicStatsExample;
+package berna.week07.BasicStatsExample;
 
 
 import java.util.Arrays;
@@ -49,7 +49,6 @@ public class BasicArrayStats {
         }
         float nrValues = arr.length;
         return avg = sum / nrValues;
-
     }
 
 

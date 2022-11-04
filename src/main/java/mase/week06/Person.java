@@ -14,6 +14,7 @@ public Person(String name,int age,double size,float weight){
 }
 
 public int getAge(){
+    System.out.println(age);
     return age;
 }
 public void setAge(int age){

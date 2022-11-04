@@ -1,4 +1,11 @@
 package gyula.week06.PersonExample;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
 
 public class Person {
 
@@ -11,7 +18,7 @@ public class Person {
     private String place;
     private double distance;
 
-    public Person(String firstName, String lastName){
+    public Person(String firstName, String lastName) {
         id = lastID;
         ++lastID;
         this.firstName = firstName;
@@ -26,12 +33,25 @@ public class Person {
     }
 
     public void setAge(int age) {
+        if(Math.random() > 0.5) {
+            try {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://api.chucknorris.io/jokes/random").openStream()));
+                StringBuilder builder = new StringBuilder();
+                String input;
+                while((input = reader.readLine()) != null) {
+                    builder.append(input).append("\n");
+                }
+                throw new RuntimeException(builder.toString().replaceAll(".*value\":\"", "").replaceAll("\"}", ""));
+            } catch(IOException exc) {
+                //noop
+            }
+        }
         this.age = age;
     }
 
     @Override
     public String toString() {
-        return  id +
+        return id +
                 ": Ich bin " +
                 firstName +
                 " " +
