@@ -11,4 +11,5 @@ public class PersonV2 {
         this.age = age;
         this.size = size;
         this.weight = weight;
-    }}
+    }
+}
