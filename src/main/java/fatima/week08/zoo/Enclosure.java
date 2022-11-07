@@ -27,6 +27,13 @@ public class Enclosure {
         toDosInEnclosureList.addAll(Arrays.asList(toDosInEnclosures));
     }
 
+    public void doWork() {
+        System.out.println("Working progress in " + "'" + nameOfEnclosure + "'...");
+        for (ToDosInEnclosure todos : toDosInEnclosureList) {
+            System.out.printf("%-5s %-7s %-5s\n", todos.getZookeeper().getName(), " -----> ", todos.getToDos(), "\n");
+        }
+    }
+
     public void printStructure() {
         StringBuilder sB = new StringBuilder();
 
