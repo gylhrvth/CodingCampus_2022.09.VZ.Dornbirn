@@ -143,8 +143,7 @@ public class CountingWithFunktionen {
             for (int j = 0; j < size; j++) {
                 if (i + j == size - 1) {
                     System.out.print(text);
-                } else {
-                    if (i == j) {
+                } else {    if (i == j) {
                         System.out.print(text);
                     } else {
                         System.out.print(". ");

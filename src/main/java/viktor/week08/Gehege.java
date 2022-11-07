@@ -1,5 +1,7 @@
 package viktor.week08;
 
+import patric.week08.Zoo.Tier;
+
 import java.util.ArrayList;
 import java.util.List;
 

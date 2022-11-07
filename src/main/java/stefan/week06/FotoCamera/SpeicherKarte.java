@@ -2,35 +2,38 @@ package stefan.week06.FotoCamera;
 
 public class SpeicherKarte {
     private int memory;
-    private int freeMemory;
+    private double freeMemory;
 
     private int takenFotos;
 
     public SpeicherKarte(int memory) {
         this.memory = memory;
-        this.freeMemory = memory;
+        freeMemory = memory;
 
     }
 
-    public void saveFoto(int sizeOfFoto) {
+    public void saveFoto(double sizeOfFoto) {
         takenFotos++;
-        freeMemory = freeMemory - sizeOfFoto;
+        freeMemory = (double) freeMemory - sizeOfFoto;
+
     }
 
-    public int setMemory() {
-        return memory;
+    public void setMemory(int freeMemory) {
+      this.freeMemory=freeMemory;
     }
 
     public int getTakenFotos() {
         return takenFotos;
     }
 
-    public int getFreeMemory() {
-        return freeMemory;
-    }
+   public double getFreeMemory() {
+        return freeMemory-takenFotos;
+   }
 
-    public int getMemory() {
-        return memory;
+
+    @Override
+    public String toString() {
+       return "Ganzer Speicher: "+memory+"\nFreier Speicher: "+freeMemory;
     }
 }
 

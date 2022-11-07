@@ -1,18 +1,18 @@
 package milan.week08.zoo;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
-import java.net.URL;
 
 public class Tier {
+    private static int lastId = 1;
 
+    private int id;
     private String name;
     private String gattung;
     private Futter nahrung;
     private double menge;
 
     public Tier(String name, String gattung) {
+        id = lastId;
+        ++lastId;
         this.name = name;
         this.gattung = gattung;
     }
@@ -47,5 +47,9 @@ public class Tier {
 
     public String getGattung() {
         return gattung;
+    }
+
+    public int getId() {
+        return id;
     }
 }
