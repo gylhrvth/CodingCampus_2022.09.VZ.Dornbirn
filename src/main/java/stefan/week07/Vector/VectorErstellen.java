@@ -1,4 +1,4 @@
-package stefan.week07;
+package stefan.week07.Vector;
 
 import java.util.Random;
 import java.util.Vector;
