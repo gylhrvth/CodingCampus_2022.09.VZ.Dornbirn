@@ -7,12 +7,23 @@ public class Zoo {
     private int yearFounding;
     private Gehege gehege;
     private Vector<Gehege> gehegeListe;
+    private Vector<Pfleger> mitarbeiterListe;
 
 
     public Zoo(String name) {
         this.name = name;
         yearFounding = 0;
         gehegeListe = new Vector<>();
+        mitarbeiterListe = new Vector<>();
+    }
+
+    public void rumbleInTheJungle() {
+        for (Gehege gehege : gehegeListe) {
+            for (Tier tier : gehege.getTiereListe()) {
+                gehege.getTiereListe().get(0).setGesundheit(gehege.getTiereListe().get(0).getGesundheit() - tier.attack());
+
+            }
+        }
     }
 
     public String printFoodStatistic() {
@@ -36,7 +47,7 @@ public class Zoo {
                     case "Trockenfutter" -> sumTrockenfutter = sumTrockenfutter + y.getMenge();
                     case "Nassfutter" -> sumNassfutter = sumNassfutter + y.getMenge();
                     case "Gras" -> sumGras = sumGras + y.getMenge();
-                    case "Insekt"  -> sumInsect = sumInsect + y.getMenge();
+                    case "Insekt" -> sumInsect = sumInsect + y.getMenge();
                 }
             }
         }
@@ -77,6 +88,10 @@ public class Zoo {
         gehegeListe.add(gehege);
     }
 
+    public void addPflegerToList(Pfleger pfleger) {
+        mitarbeiterListe.add(pfleger);
+    }
+
     @Override
     public String toString() {
         return getName() + ", gegründet " + getYearFounding();
@@ -96,5 +111,13 @@ public class Zoo {
 
     public String getName() {
         return name;
+    }
+
+    public Vector<Gehege> getGehegeListe() {
+        return gehegeListe;
+    }
+
+    public Vector<Pfleger> getMitarbeiterListe() {
+        return mitarbeiterListe;
     }
 }
