@@ -1,6 +1,8 @@
 package patric.week08.Zoo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Zoo {
     private String name;
@@ -38,6 +40,25 @@ public class Zoo {
             price += g.calculateFoodPricePerDay();
         }
         return price;
+    }
+
+    public Map<Futter, Double> calculateFoodMap() {
+        //Futter wird als Schlüssel verwendet
+        //der Wert ist die Menge vom Futter
+        Map<Futter, Double> futterAmountMap = new HashMap<>();
+        for(Gehege g : list) {
+            for(Tier t : g.listOfAnimals) {
+                Futter currentFutter = t.getFutterToTier();
+                Double currentSumOfTierFutter = futterAmountMap.get(currentFutter);
+                if (currentSumOfTierFutter == null) {
+                    currentSumOfTierFutter = t.getAmountOfFutter();
+                } else {
+                    currentSumOfTierFutter += t.getAmountOfFutter();
+                }
+                futterAmountMap.put(currentFutter, currentSumOfTierFutter);
+            }
+        }
+        return futterAmountMap;
     }
 
     public String toString() {

@@ -48,4 +48,8 @@ public class Gehege {
     public Vector<Tier> getTiereListe() {
         return tiereListe;
     }
+
+    public ArrayList<Aufgabe> getToDo() {
+        return toDo;
+    }
 }

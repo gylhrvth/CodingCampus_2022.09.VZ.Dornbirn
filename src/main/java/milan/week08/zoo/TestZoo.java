@@ -1,13 +1,14 @@
 package milan.week08.zoo;
 
 public class TestZoo {
+
     public static void main(String[] args) {
 
         Zoo zoo1 = new Zoo("Tiergarten Dornbirn");
         zoo1.setYearFounding(2022);
         Gehege alpenwiese = new Gehege("Alpenwiese");
         Gehege ried = new Gehege("Ried");
-        Gehege terrarium = new Gehege("Terrarium (warm)");
+        Gehege terrarium = new Gehege("Terrarium");
         Gehege affenKaefig = new Gehege("Affenkäfig");
         zoo1.addGehegeToList(ried);
         zoo1.addGehegeToList(alpenwiese);
@@ -44,13 +45,38 @@ public class TestZoo {
         tier4.setMenge(0.28);
         System.out.println("------------------------");
         System.out.println(zoo1.printFoodStatistic());
+        System.out.println("------------------------");
         Pfleger milan = new Pfleger("Milan");
-        Aufgabe kehren = new Aufgabe("kehren");
-        Aufgabe fuettern = new Aufgabe("fuettern");
-        Aufgabe wasserAuffuellen = new Aufgabe("Wasser auffüllen");
-        Aufgabe scheibenPutzen = new Aufgabe("Scheiben putzen");
-
-
-
+        Pfleger marie = new Pfleger("Marie");
+        Pfleger hans = new Pfleger("Hans");
+        milan.addGehege(terrarium);
+        milan.addGehege(ried);
+        marie.addGehege(alpenwiese);
+        hans.addGehege(affenKaefig);
+        hans.addGehege(ried);
+        Aufgabe beobachten = new Aufgabe("beochbachtet");
+        Aufgabe kehren = new Aufgabe("kehrt");
+        Aufgabe fuettern = new Aufgabe("fuettert");
+        Aufgabe wasserAuffuellen = new Aufgabe("füllt Wasser");
+        Aufgabe scheibenPutzen = new Aufgabe("putzt die Scheiben");
+        Aufgabe wasserFiltern = new Aufgabe("filtert das Wasser");
+        ried.addToDos(fuettern);
+        ried.addToDos(beobachten);
+        ried.addToDos(wasserAuffuellen);
+        alpenwiese.addToDos(fuettern);
+        alpenwiese.addToDos(beobachten);
+        alpenwiese.addToDos(wasserAuffuellen);
+        affenKaefig.addToDos(fuettern);
+        affenKaefig.addToDos(beobachten);
+        affenKaefig.addToDos(wasserAuffuellen);
+        affenKaefig.addToDos(kehren);
+        terrarium.addToDos(scheibenPutzen);
+        terrarium.addToDos(fuettern);
+        terrarium.addToDos(beobachten);
+        terrarium.addToDos(wasserAuffuellen);
+        terrarium.addToDos(wasserFiltern);
+        milan.getToTheChoppa();
+        marie.getToTheChoppa();
+        hans.getToTheChoppa();
     }
 }

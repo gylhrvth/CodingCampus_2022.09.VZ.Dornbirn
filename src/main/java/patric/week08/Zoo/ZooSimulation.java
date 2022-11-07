@@ -52,10 +52,10 @@ public class ZooSimulation {
         myGehege1.removeTierFromGehege(tier5);
 
         //Futter Erstellung
-        Futter kitkat = new Futter("KitKat", "500g Dose", 0.79);
-        Futter trocken = new Futter("Trockenfutter", "300g Pack", 1.99);
+        Futter kitkat = new Futter("KitKat", "500g Dose", 1.79);
+        Futter trocken = new Futter("Trockenfutter", "300g Pack", 3.99);
         Futter flocken = new Futter("Fischflocken", "5g", 0.09);
-        Futter heu = new Futter("Heu", "1Ballen", 5.0);
+        Futter heu = new Futter("Heu", "1 Ballen", 20.0);
 
         tier2.setFutter(heu, 10);
         tier3.setFutter(trocken, 5);
@@ -75,39 +75,44 @@ public class ZooSimulation {
 //        overallPrice += tier5.getFutterToTier().getEinheitPreis() * tier5.getAmountOfFutter();
 //        overallPrice += tier6.getFutterToTier().getEinheitPreis() * tier6.getAmountOfFutter();
 
-        List<Tier> tierList = new ArrayList<>();
-        tierList.add(tier1);
-        tierList.add(tier2);
-        tierList.add(tier3);
-        tierList.add(tier4);
-        tierList.add(tier5);
-        tierList.add(tier6);
+//        List<Tier> tierList = new ArrayList<>();
+//        tierList.add(tier1);
+//        tierList.add(tier2);
+//        tierList.add(tier3);
+//        tierList.add(tier4);
+//        tierList.add(tier5);
+//        tierList.add(tier6);
+//
+//        //Futter wird als Schlüssel verwendet
+//        //der Wert ist die Menge vom Futter
+//        Map<Futter, Double> futterAmountMap = new HashMap<>();
+//
+//        for(Tier t : tierList) {
+//            Futter currentFutter = t.getFutterToTier();
+//            Double currentSumOfTierFutter = futterAmountMap.get(currentFutter);
+//            if(currentSumOfTierFutter == null) {
+//                currentSumOfTierFutter = t.getAmountOfFutter();
+//            } else {
+//                currentSumOfTierFutter += t.getAmountOfFutter();
+//            }
+//            futterAmountMap.put(currentFutter, currentSumOfTierFutter);
+//        }
 
-        //Futter wird als Schlüssel verwendet
-        //der Wert ist die Menge vom Futter
-        Map<Futter, Double> futterAmountMap = new HashMap<>();
+        Map<Futter, Double> futterAmountMap = myZoo.calculateFoodMap();
 
-        for(Tier t : tierList) {
-            Futter currentFutter = t.getFutterToTier();
-            Double currentSumOfTierFutter = futterAmountMap.get(currentFutter);
-            if(currentSumOfTierFutter == null) {
-                currentSumOfTierFutter = t.getAmountOfFutter();
-            } else {
-                currentSumOfTierFutter += t.getAmountOfFutter();
-            }
-            futterAmountMap.put(currentFutter, currentSumOfTierFutter);
-        }
-
-        System.out.println("Heu: "+ futterAmountMap.get(heu)+" kg");
-        System.out.println("Trocken: "+ futterAmountMap.get(trocken)+" kg");
-        System.out.println("Flocken: "+ futterAmountMap.get(flocken)+" kg");
-        System.out.println("Kitkat: "+ futterAmountMap.get(kitkat)+" kg");
+        System.out.println("Tagesbedarf Futter:");
+        System.out.println();
+        System.out.println("Heu: "+ futterAmountMap.get(heu)+" x "+heu.getEinheit());
+        System.out.println("Trocken: "+ futterAmountMap.get(trocken)+" x " +trocken.getEinheit());
+        System.out.println("Flocken: "+ futterAmountMap.get(flocken)+" x "+flocken.getEinheit());
+        System.out.println("Kitkat: "+ futterAmountMap.get(kitkat)+" x "+kitkat.getEinheit());
 
 //        for(Map.Entry<Futter, Double> futterEntry: futterAmountMap.entrySet()) {
 //            System.out.println("Futter: "+futterEntry.getKey().getName()+ ", Gesamtverbrauch: "+futterEntry.getValue());
 //        }
-
+        System.out.println();
         System.out.println("Preis für Futter pro Tag: " + myZoo.calculateFoodPricePerDay()+" €");
+        System.out.println();
 
 
 
