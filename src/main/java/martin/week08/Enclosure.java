@@ -8,6 +8,7 @@ public class Enclosure {
     private String name;
     private List<Animal> animalsInEnclosure = new LinkedList<>();
     private List<Caretaker> caretakers = new LinkedList<>();
+    private List<Enclosuretasks> tasksOfEncl = new LinkedList<>();
 
     public Enclosure() {
         name = "leeres Gehege";
@@ -25,14 +26,26 @@ public class Enclosure {
         animalsInEnclosure.remove(enToRem);
     }
 
+    public void addEnclTask(Enclosuretasks encl) {
+        tasksOfEncl.add(encl);
+    }
+
+    public void remEnclTask(Enclosuretasks encl) {
+        tasksOfEncl.remove(encl);
+    }
+
 //    public void addPfleger(Pfleger pfleger, Tätigkeit tätigkeit) {
 //        GehegeTätigkeit t = new Gehegetätigkeit(pfleger, this, tätigkeit);
 //        pflegerTätigkeitenListe.add(t);
 //        this.pflegers.add(pfleger);
 //        pfleger.addGehegetätigkeit(t);}
 
-    public void addCaretaker(Caretaker caret,Enclosuretasks enclTask) {
-        caret.addEnclosureAndTask(this,enclTask);
+    public void addCaretaker(Caretaker caret, Enclosuretasks enclTask) {
+        caret.addEnclosureAndTask(this, enclTask);
+    }
+
+    public void remCaretaker(Caretaker caret, Enclosuretasks enclTask){
+        caret.remEnclosureAndTask(this, enclTask);
     }
 
     @Override
@@ -42,7 +55,7 @@ public class Enclosure {
             enclFormat.append("│   ├───┬─── ").append(name).append(" - ");
             enclFormat.append(caretakers.toString())
                     //.replaceAll("[\\[\\]]","")).
-            .append("\n");
+                    .append("\n");
             for (int i = 0; i < animalsInEnclosure.size(); i++) {
                 if (i + 1 == animalsInEnclosure.size()) {
                     enclFormat.append("│   │   └─ ").append(animalsInEnclosure.get(i));
