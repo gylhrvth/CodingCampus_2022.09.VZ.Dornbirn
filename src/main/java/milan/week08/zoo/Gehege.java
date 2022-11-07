@@ -1,10 +1,12 @@
 package milan.week08.zoo;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Vector;
 
 public class Gehege {
 
+    private static Random ran = new Random();
     private String name;
     private Vector<Tier> tiereListe;
     private ArrayList<Aufgabe> toDo;
@@ -45,6 +47,14 @@ public class Gehege {
 
     public void addAnimalToList(Tier tier) {
         tiereListe.add(tier);
+    }
+
+    public void rumbleInTheJungle() {
+            for (Tier tier : tiereListe) {
+                int opfer = ran.nextInt(tiereListe.size());
+                tiereListe.get(opfer).setGesundheit(tiereListe.get(opfer).getGesundheit() - tier.attack());
+
+            }
     }
 
     public String printStructure() {

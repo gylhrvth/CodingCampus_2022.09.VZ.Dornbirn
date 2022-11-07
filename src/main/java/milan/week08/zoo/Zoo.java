@@ -17,14 +17,17 @@ public class Zoo {
         mitarbeiterListe = new Vector<>();
     }
 
-    public void rumbleInTheJungle() {
-        for (Gehege gehege : gehegeListe) {
-            for (Tier tier : gehege.getTiereListe()) {
-                gehege.getTiereListe().get(0).setGesundheit(gehege.getTiereListe().get(0).getGesundheit() - tier.attack());
-
-            }
+    public void zooSimulation() {
+        for (Pfleger mitarbeiter : mitarbeiterListe) {
+            mitarbeiter.getToTheChoppa();
         }
+        for (Gehege gehege : gehegeListe){
+            gehege.rumbleInTheJungle();
+        }
+
     }
+
+
 
     public String printFoodStatistic() {
 //        StringBuilder text = new StringBuilder();

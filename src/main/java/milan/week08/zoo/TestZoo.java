@@ -119,9 +119,7 @@ public class TestZoo {
         terrarium.addToDos(wasserFiltern);
 
         //Arbeitsauftrag erteilen:
-        milan.getToTheChoppa();
-        marie.getToTheChoppa();
-        hans.getToTheChoppa();
+        zoo1.zooSimulation();
 
 
         System.out.println(ried.getStatusText());
