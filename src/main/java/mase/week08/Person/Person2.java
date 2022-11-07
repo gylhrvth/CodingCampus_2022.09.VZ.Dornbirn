@@ -1,4 +1,4 @@
-package mase.week08;
+package mase.week08.Person;
 
 public class Person2 {
 

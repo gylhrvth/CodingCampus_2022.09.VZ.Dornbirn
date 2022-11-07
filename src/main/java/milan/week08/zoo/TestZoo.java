@@ -8,14 +8,20 @@ public class TestZoo {
         zoo1.setYearFounding(2022);
         Gehege alpenwiese = new Gehege("Alpenwiese");
         Gehege ried = new Gehege("Ried");
-        Gehege terrarium = new Gehege("Terrarium (warm)");
+        Gehege terrarium = new Gehege("Terrarium");
+        Gehege affenKaefig = new Gehege("Affenkäfig");
         zoo1.addGehegeToList(ried);
         zoo1.addGehegeToList(alpenwiese);
         zoo1.addGehegeToList(terrarium);
+        zoo1.addGehegeToList(affenKaefig);
         Tier tier1 = new Tier("Rijska", "Kuh");
         Tier tier2 = new Tier("Garmond","Storch");
         Tier tier3 = new Tier("Hugo", "Storch");
         Tier tier4 = new Tier("Idaxis", "Storch");
+        Tier tier5 = new Tier("Samba", "Orang-Utan");
+        Tier tier6 = new Tier("Glubschaugi","Pfeilgiftfrosch");
+        terrarium.addAnimalToList(tier6);
+        affenKaefig.addAnimalToList(tier5);
         ried.addAnimalToList(tier2);
         ried.addAnimalToList(tier3);
         ried.addAnimalToList(tier4);
@@ -24,6 +30,11 @@ public class TestZoo {
         Futter trockenfutter = new Futter("Trockenfutter", 4.99);
         Futter nassfutter = new Futter("Nassfutter", 7.99);
         Futter gras = new Futter("Gras", 0.05);
+        Futter insekt = new Futter("Insekt", 0.9);
+        tier6.setNahrung(insekt);
+        tier6.setMenge(0.02);
+        tier5.setNahrung(trockenfutter);
+        tier5.setMenge(3);
         tier1.setNahrung(gras);
         tier1.setMenge(100);
         tier2.setNahrung(nassfutter);
@@ -34,8 +45,38 @@ public class TestZoo {
         tier4.setMenge(0.28);
         System.out.println("------------------------");
         System.out.println(zoo1.printFoodStatistic());
-
-
-
+        System.out.println("------------------------");
+        Pfleger milan = new Pfleger("Milan");
+        Pfleger marie = new Pfleger("Marie");
+        Pfleger hans = new Pfleger("Hans");
+        milan.addGehege(terrarium);
+        milan.addGehege(ried);
+        marie.addGehege(alpenwiese);
+        hans.addGehege(affenKaefig);
+        hans.addGehege(ried);
+        Aufgabe beobachten = new Aufgabe("beochbachtet");
+        Aufgabe kehren = new Aufgabe("kehrt");
+        Aufgabe fuettern = new Aufgabe("fuettert");
+        Aufgabe wasserAuffuellen = new Aufgabe("füllt Wasser");
+        Aufgabe scheibenPutzen = new Aufgabe("putzt die Scheiben");
+        Aufgabe wasserFiltern = new Aufgabe("filtert das Wasser");
+        ried.addToDos(fuettern);
+        ried.addToDos(beobachten);
+        ried.addToDos(wasserAuffuellen);
+        alpenwiese.addToDos(fuettern);
+        alpenwiese.addToDos(beobachten);
+        alpenwiese.addToDos(wasserAuffuellen);
+        affenKaefig.addToDos(fuettern);
+        affenKaefig.addToDos(beobachten);
+        affenKaefig.addToDos(wasserAuffuellen);
+        affenKaefig.addToDos(kehren);
+        terrarium.addToDos(scheibenPutzen);
+        terrarium.addToDos(fuettern);
+        terrarium.addToDos(beobachten);
+        terrarium.addToDos(wasserAuffuellen);
+        terrarium.addToDos(wasserFiltern);
+        milan.getToTheChoppa();
+        marie.getToTheChoppa();
+        hans.getToTheChoppa();
     }
 }

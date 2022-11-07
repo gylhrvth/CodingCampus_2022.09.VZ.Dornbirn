@@ -4,13 +4,24 @@ public class Foto {
 
 
     public static void main(String[] args) {
-        FotoApperat fo1 = new FotoApperat("Nikon","Gugus",500);
+        FotoApperat foAp = new FotoApperat("Nikon", "Gugus");
         System.out.println("_________________");
-        System.out.println(fo1);
+        System.out.println(foAp);
         System.out.println("_________________");
-        System.out.println(fo1.takephoto());
-        fo1.takephoto();
-        SpeicherKarte memorycard= new SpeicherKarte(1000000);
+        Objektiv ob1 = new Objektiv(10);
+        SpeicherKarte memorycard = new SpeicherKarte(0);
+        foAp.setMemory(memorycard);
+
+
+        for (int i = 0; i <4 ; i++) {
+            System.out.println(foAp.takephoto());
+        }
+        System.out.println(memorycard);
+
+        // System.out.println(ob1.toString());
+
 
     }
+
 }
+
