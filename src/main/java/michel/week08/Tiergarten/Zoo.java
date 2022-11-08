@@ -4,12 +4,12 @@ import java.util.*;
 
 public class Zoo {
 
-    private String name;
+    private final String name;
     private final int foundingYear;
 
-    private List<Enclosure> enclosureList = new ArrayList<>();
+    private final List<Enclosure> enclosureList = new ArrayList<>();
 
-    private List<ZooKeeper> zooKeeperList = new ArrayList<>();
+    private final List<ZooKeeper> zooKeeperList = new ArrayList<>();
 
     public Zoo(String name, int foundingYear) {
         this.name = name;
@@ -43,7 +43,7 @@ public class Zoo {
     }
 
     public void printZoo() {
-        System.out.println("├── Zoo: " + name + ", gegründet " + foundingYear);
+        System.out.println("\n├── Zoo: " + name + ", gegründet " + foundingYear);
         for (Enclosure enc : enclosureList) {
             enc.printEnclosure();
         }
@@ -63,15 +63,15 @@ public class Zoo {
         return enc;
     }
 
-    public Animal searchAndCreateAnimal(String enclosureName, String name, String art, AnimalFeed food, Double amountOfFood) {
+    public Animal searchAndCreateAnimal(String enclosureName, String name, String art, AnimalFeed food, Double amountOfFood,int bite,int maxHealth) {
         Enclosure enc = searchAndCreateEnclosure(enclosureName);
-        return enc.searchAndCreate(name, art, food, amountOfFood);
+        return enc.searchAndCreate(name, art, food, amountOfFood,bite,maxHealth);
     }
 
-    public ZooKeeper searchAndCreateZooKeeper(String name, String... enclosureNames) {
+    public void searchAndCreateZooKeeper(String name, String... enclosureNames) {
         for (ZooKeeper zooKeeper : zooKeeperList) {
             if (zooKeeper.getName().equals(name)) {
-                return zooKeeper;
+                return;
             }
 
         }
@@ -80,7 +80,6 @@ public class Zoo {
         for (String encName : enclosureNames) {
             zooKeeper.putTaskToZooKeeper(searchAndCreateEnclosure(encName));
         }
-        return zooKeeper;
     }
     public void simulateDay(){
         Vector<Enclosure>enclosuresToClean = new Vector<>();
@@ -94,6 +93,10 @@ public class Zoo {
         }
         for (Enclosure enclosure:enclosuresToClean) {
             System.out.println(enclosure.getName() + " hat keinen Pfleger, es wurde nicht betreut!");
+        }
+        System.out.println();
+        for (Enclosure enc:enclosureList) {
+            enc.simulateAttacks();
         }
     }
 
