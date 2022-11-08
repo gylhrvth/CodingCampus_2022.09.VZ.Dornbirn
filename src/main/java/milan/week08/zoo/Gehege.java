@@ -26,9 +26,9 @@ public class Gehege {
         return status;
     }
 
-    public String getStatusText(){
+    public String getStatusText() {
         String result = null;
-        if (status){
+        if (status) {
             result = "Aufgaben in " + name + " wurden erledigt!!";
         } else {
             result = "Aufgaben in " + name + " wurden noch nicht erledigt!!";
@@ -49,12 +49,58 @@ public class Gehege {
         tiereListe.add(tier);
     }
 
-    public void rumbleInTheJungle() {
-            for (Tier tier : tiereListe) {
-                int opfer = ran.nextInt(tiereListe.size());
-                tiereListe.get(opfer).setGesundheit(tiereListe.get(opfer).getGesundheit() - tier.attack());
-
+    public Tier findWeakestAnimal() {
+        Tier tmp = null;
+        for (Tier x : tiereListe) {
+            if (tmp == null || x.getRelativeGesundheit() < tmp.getRelativeGesundheit()) {
+                tmp = x;
             }
+        }
+        return tmp;
+    }
+
+    public void removeDeadAnimals() {
+        for (int i = 0; i < tiereListe.size(); ) {
+            Tier x = tiereListe.get(i);
+            if (x.getGesundheit() < 1) {
+                System.out.println(x.getName() + " ist gestorben\n ---- R.I.P ----");
+                tiereListe.remove(i);
+            } else {
+                ++i;
+            }
+        }
+    }
+    /* Alternative:
+        public void removeDeadAnimals() {
+            Vector<Tier> deadAnimals = new Vector<>();
+            for (Tier x : tiereListe) {
+                if (x.getGesundheit() < 1) {
+                    System.out.println(x.getName() + " ist gestorben\n ---- R.I.P ----");
+                    deadAnimals.add(x);
+                }
+            }
+            for (Tier x: deadAnimals) {
+                tiereListe.remove(x);
+            }
+        }
+    */
+
+
+    public void rumbleInTheJungle() {
+        for (Tier tier : tiereListe) {
+            int opfer = ran.nextInt(tiereListe.size());
+            if (opfer != tiereListe.indexOf(tier)) {
+                tier.attack(tiereListe.get(opfer));
+            }
+        }
+    }
+
+    public void printTierGesundheitStatistic() {
+        StringBuilder text = new StringBuilder("|--- Gehege: " + getName() + "\n");
+        for (Tier tier : tiereListe) {
+            text.append("|    |--- Tier: ").append(tier.getName()).append(" hat eine Gesundheit von: ").append(tier.getRelativeGesundheit()).append("%.\n");
+        }
+        System.out.println(text);
     }
 
     public String printStructure() {
