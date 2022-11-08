@@ -1,8 +1,5 @@
 package patric.week08.Zoo;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class ZooSimulation {
@@ -114,7 +111,22 @@ public class ZooSimulation {
         System.out.println("Preis für Futter pro Tag: " + myZoo.calculateFoodPricePerDay()+" €");
         System.out.println();
 
+        Pfleger pf1 = new Pfleger("Hansi");
+        Pfleger pf2 = new Pfleger("Jürgen");
 
+        pf1.putAufgabeToPfleger("Käfig reinigen");
+        pf1.putAufgabeToPfleger("Müll lehren");
+        pf1.putAufgabeToPfleger("Futter bestellen");
+
+        pf2.putAufgabeToPfleger("Futter nachfüllen");
+        pf2.putAufgabeToPfleger("Tiere waschen");
+        pf2.putAufgabeToPfleger("Tiere streicheln");
+
+        myGehege1.putPflegerToGehege(pf1);
+        myGehege2.putPflegerToGehege(pf2);
+        myGehege3.putPflegerToGehege(pf1);
+        riedNeu.putPflegerToGehege(pf2);
+        wasserwelt.putPflegerToGehege(pf2);
 
         myZoo.printListWithGehege();
     }

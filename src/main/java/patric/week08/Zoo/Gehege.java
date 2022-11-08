@@ -9,6 +9,8 @@ public class Gehege {
 
     ArrayList<Tier> listOfAnimals = new ArrayList<Tier>();
 
+    ArrayList<Pfleger> pflegerList = new ArrayList<>();
+
     public Gehege(String description) {
         this.description = description;
     }
@@ -28,9 +30,15 @@ public class Gehege {
 
     public void printGehege() {
         System.out.println("|   |---Gehege: " + description);
+        if (pflegerList.isEmpty()) {
+            System.out.println("|   |---Pfleger: kein Pfleger eingeteilt ! ");
+        }
         if (listOfAnimals.isEmpty()) {
             System.out.println("|             |---- (Leer)");
         } else {
+            for (Pfleger pf : pflegerList) {
+                System.out.println("|    |----" + pf);
+            }
             for (Tier t : listOfAnimals) {
                 {
                     System.out.printf("|             |------------------- " + t);
@@ -41,12 +49,14 @@ public class Gehege {
 
     public double calculateFoodPricePerDay() {
         double price = 0;
-        for(Tier t: listOfAnimals) {
-            price +=t.getFutterToTier().getEinheitPreis() * t.getAmountOfFutter();
+        for (Tier t : listOfAnimals) {
+            price += t.getFutterToTier().getEinheitPreis() * t.getAmountOfFutter();
         }
         return price;
     }
-
+    public void putPflegerToGehege(Pfleger pf){
+        pflegerList.add(pf);
+    }
     @Override
     public String toString() {
         return "Gehege{" +
