@@ -1,48 +1,21 @@
 package michel.week08.Tiergarten;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Zoo {
 
     private String name;
-    private int foundingYear;
+    private final int foundingYear;
 
-    private Enclosure enclosure;
-    private Animal animal;
     private List<Enclosure> enclosureList = new ArrayList<>();
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getFoundingYear() {
-        return foundingYear;
-    }
-
-    public void setFoundingYear(int foundingYear) {
-        this.foundingYear = foundingYear;
-    }
-
+    private List<ZooKeeper> zooKeeperList = new ArrayList<>();
 
     public Zoo(String name, int foundingYear) {
         this.name = name;
         this.foundingYear = foundingYear;
     }
 
-    public void addGehege(Enclosure selectedEnclosure) {
-        enclosureList.add(selectedEnclosure);
-    }
-
-    public void removeGehege(Enclosure selectedEnclosure) {
-        enclosureList.remove(selectedEnclosure);
-    }
 
     public void getDailyFoodNeedsAndCosts() {
         Map<AnimalFeed, Double> foods = new HashMap<>();
@@ -64,19 +37,64 @@ public class Zoo {
             double amount = entry.getValue();
             Double price = food.getUnitPrice() * amount;
             overallPrice += price;
-            System.out.printf("%-17s %10.2f kg | %5.2f €\n", entry.getKey().getName(), entry.getValue(), price);
+            System.out.printf("%-17s %10.2f kg | %7.2f €\n", entry.getKey().getName(), entry.getValue(), price);
         }
-        System.out.printf("Gesammtkosten pro Tag:  %15.2f €\n\n", overallPrice);
+        System.out.printf("Gesamtkosten pro Tag:  %18.2f €\n\n", overallPrice);
     }
 
     public void printZoo() {
-        System.out.println("|--- Zoo: " + name + ", gegründet " + foundingYear);
-        for (Enclosure g : enclosureList) {
-            g.printEnclosure();
+        System.out.println("├── Zoo: " + name + ", gegründet " + foundingYear);
+        for (Enclosure enc : enclosureList) {
+            enc.printEnclosure();
+        }
+        for (ZooKeeper zooKeeper : zooKeeperList) {
+            zooKeeper.printZooKeeper();
         }
     }
 
-    public String toString() {
-        return "Zoo: " + name + ", gegründet " + foundingYear;
+    public Enclosure searchAndCreateEnclosure(String name) {
+        for (Enclosure enc : enclosureList) {
+            if (enc.getName().equals(name)) {
+                return enc;
+            }
+        }
+        Enclosure enc = new Enclosure(name);
+        enclosureList.add(enc);
+        return enc;
     }
+
+    public Animal searchAndCreateAnimal(String enclosureName, String name, String art, AnimalFeed food, Double amountOfFood) {
+        Enclosure enc = searchAndCreateEnclosure(enclosureName);
+        return enc.searchAndCreate(name, art, food, amountOfFood);
+    }
+
+    public ZooKeeper searchAndCreateZooKeeper(String name, String... enclosureNames) {
+        for (ZooKeeper zooKeeper : zooKeeperList) {
+            if (zooKeeper.getName().equals(name)) {
+                return zooKeeper;
+            }
+
+        }
+        ZooKeeper zooKeeper = new ZooKeeper(name);
+        zooKeeperList.add(zooKeeper);
+        for (String encName : enclosureNames) {
+            zooKeeper.putTaskToZooKeeper(searchAndCreateEnclosure(encName));
+        }
+        return zooKeeper;
+    }
+    public void simulateDay(){
+        Vector<Enclosure>enclosuresToClean = new Vector<>();
+        enclosuresToClean.addAll(enclosureList);
+        int countEnclosureLeftToClean = Integer.MAX_VALUE;
+        while(!enclosuresToClean.isEmpty()&&enclosuresToClean.size()<countEnclosureLeftToClean){
+            countEnclosureLeftToClean = enclosuresToClean.size();
+            for (ZooKeeper zooKeeper:zooKeeperList) {
+                zooKeeper.simulateDay(enclosuresToClean);
+            }
+        }
+        for (Enclosure enclosure:enclosuresToClean) {
+            System.out.println(enclosure.getName() + " hat keinen Pfleger, es wurde nicht betreut!");
+        }
+    }
+
 }
