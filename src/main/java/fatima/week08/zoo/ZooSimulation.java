@@ -22,15 +22,19 @@ public class ZooSimulation {
         Zookeeper zK2 = new Zookeeper("Anna");
         Zookeeper zK3 = new Zookeeper("Tom");
 
-        ToDosInEnclosure feeding = new ToDosInEnclosure("feeding", zK1, e1);
-        ToDosInEnclosure cleaning = new ToDosInEnclosure("cleaning", zK3, e1);
-        ToDosInEnclosure medicalControl = new ToDosInEnclosure("medical control", zK2, e1);
-        ToDosInEnclosure checkAttendance = new ToDosInEnclosure("checking attendance", zK1, e2);
+        ToDosInEnclosure feeding = new ToDosInEnclosure("is feeding", zK1, e1);
+        ToDosInEnclosure cleaning = new ToDosInEnclosure("is cleaning", zK3, e1);
+        ToDosInEnclosure medicalControl = new ToDosInEnclosure("is doing medical control", zK2, e1);
+        ToDosInEnclosure checkAttendance = new ToDosInEnclosure("is checking the attendance", zK1, e2);
 
 
         e1.addToDosInEnclosure(feeding, cleaning, medicalControl, checkAttendance);
         e2.addToDosInEnclosure(feeding, cleaning, medicalControl, checkAttendance);
 
         z1.printStructure();
+        System.out.println();
+
+        z1.simulateOneDay();
+
     }
 }

@@ -1,20 +1,33 @@
 package milan.week08.zoo;
 
 
-public class Tier {
-    private static int lastId = 1;
+import java.util.Random;
 
-    private int id;
+public class Tier {
+
+    private static Random ran = new Random();
     private String name;
     private String gattung;
     private Futter nahrung;
     private double menge;
+    private int maxGesundheit;
+    private int biss;
+    private int gesundheit;
 
     public Tier(String name, String gattung) {
-        id = lastId;
-        ++lastId;
         this.name = name;
         this.gattung = gattung;
+        maxGesundheit = 100;
+        biss = 15;
+        gesundheit = maxGesundheit;
+    }
+
+    public int attack() {
+        int wahrscheinlichkeit = ran.nextInt(101);
+        if (wahrscheinlichkeit > 40) {
+            return 0;
+        }
+        return getBiss();
     }
 
     public void setMenge(double menge) {
@@ -49,7 +62,15 @@ public class Tier {
         return gattung;
     }
 
-    public int getId() {
-        return id;
+    public int getGesundheit() {
+        return gesundheit;
+    }
+
+    public void setGesundheit(int gesundheit) {
+        this.gesundheit = gesundheit;
+    }
+
+    public int getBiss() {
+        return biss;
     }
 }
