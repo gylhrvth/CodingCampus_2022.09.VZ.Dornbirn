@@ -1,20 +1,44 @@
 package milan.week08.zoo;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Vector;
 
 public class Gehege {
 
+    private static Random ran = new Random();
     private String name;
     private Vector<Tier> tiereListe;
     private ArrayList<Aufgabe> toDo;
+
+    private boolean status;
 
     public Gehege(String name) {
 
         this.name = name;
         tiereListe = new Vector<>();
         toDo = new ArrayList<>();
+        status = false;
 
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public String getStatusText(){
+        String result = null;
+        if (status){
+            result = "Aufgaben in " + name + " wurden erledigt!!";
+        } else {
+            result = "Aufgaben in " + name + " wurden noch nicht erledigt!!";
+        }
+        return result;
+        //return status?"Aufgaben in " + name + " wurden erledigt!!":"Aufgaben in " + name + " wurden noch nicht erledigt!!";
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public void addToDos(Aufgabe todo) {
@@ -23,6 +47,14 @@ public class Gehege {
 
     public void addAnimalToList(Tier tier) {
         tiereListe.add(tier);
+    }
+
+    public void rumbleInTheJungle() {
+            for (Tier tier : tiereListe) {
+                int opfer = ran.nextInt(tiereListe.size());
+                tiereListe.get(opfer).setGesundheit(tiereListe.get(opfer).getGesundheit() - tier.attack());
+
+            }
     }
 
     public String printStructure() {
@@ -47,5 +79,9 @@ public class Gehege {
 
     public Vector<Tier> getTiereListe() {
         return tiereListe;
+    }
+
+    public ArrayList<Aufgabe> getToDo() {
+        return toDo;
     }
 }

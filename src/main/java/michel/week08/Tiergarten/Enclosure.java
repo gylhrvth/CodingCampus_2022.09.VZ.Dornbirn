@@ -1,43 +1,49 @@
 package michel.week08.Tiergarten;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Vector;
 
 public class Enclosure {
-    public String getDescription() {
-        return description;
+
+    private String name;
+    private Vector<Animal> animalList = new Vector<>();
+
+    public Vector<Animal> getAnimalList() {
+        return animalList;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Enclosure(String name) {
+        this.name = name;
     }
 
-    private String description;
-    private List<Animal> animalList =new ArrayList<>();
-
-    public Enclosure(String description){
-        this.description=description;
+    public String getName() {
+        return name;
     }
 
-    public void addAnimal(Animal animal){
-        animalList.add(animal);
-    }
-    public void removeAnimal(Animal animal){
-        animalList.remove(animal);
-    }
-    public void printEnclosure(){
-        System.out.println( "|   |--- Gehege: " + description);
-        if(animalList.size()>0) {
+
+    public void printEnclosure() {
+        System.out.println("│   ├── Gehege: " + name);
+        if (animalList.size() > 0) {
             for (Animal a : animalList) {
-                System.out.println("|        |--- " + a.toString());
+                a.printAnimal();
             }
-        }else{
-            System.out.println("|        |--- " + "(leer)");
+        } else {
+            System.out.println("│       ├──  " + "(leer)");
         }
     }
-    @Override
-    public String toString() {
-       return description;
+
+    public Animal searchAndCreate(String name, String art, AnimalFeed food, Double amountOfFood) { //Sucht und erstellt neues Tier
+        for (Animal animal : animalList) {        // prüft, ob Tier bereits vorhanden ist
+            if (animal.getName().equals(name)) {
+                return animal;          // wenn ja, wird es zurückgegeben
+            }
+        }
+        Animal animal = new Animal(name, art, food, amountOfFood);       // wenn nicht, wird ein neues Tier erstellt
+        animalList.add(animal);
+        return animal;
+    }
+
+    public void simulateDay(ZooKeeper zooKeeper) {
+        System.out.printf("%s füttert die Tiere und reinigt das Gehege %s\n", zooKeeper.getName(), name);
     }
 }
 

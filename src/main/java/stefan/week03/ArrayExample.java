@@ -1,4 +1,4 @@
-package stefan.week04.week03;
+package stefan.week03;
 
 
 import javax.naming.PartialResultException;

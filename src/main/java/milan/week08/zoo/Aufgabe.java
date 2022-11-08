@@ -2,17 +2,19 @@ package milan.week08.zoo;
 
 public class Aufgabe {
 
-    private String aufgabe;
+    private String aufgaben;
 
-    public Aufgabe(String aufgabe){
-        this.aufgabe = aufgabe;
+
+    public Aufgabe(String aufgaben) {
+        this.aufgaben = aufgaben;
     }
 
     public String getAufgabe() {
-        return aufgabe;
+        return aufgaben;
     }
 
     public void setAufgabe(String aufgabe) {
-        this.aufgabe = aufgabe;
+        this.aufgaben = aufgabe;
     }
+
 }
