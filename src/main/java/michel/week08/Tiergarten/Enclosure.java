@@ -4,10 +4,10 @@ import java.util.Random;
 import java.util.Vector;
 
 public class Enclosure {
-    private static Random rand = new Random();
+    private static final Random rand = new Random();
 
-    private String name;
-    private Vector<Animal> animalList = new Vector<>();
+    private final String name;
+    private final Vector<Animal> animalList = new Vector<>();
 
     public Vector<Animal> getAnimalList() {
         return animalList;

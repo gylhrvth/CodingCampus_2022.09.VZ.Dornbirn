@@ -2,17 +2,15 @@ package michel.week08.Tiergarten;
 
 
 public class Animal {
-    private String name;
-    private String gattung;
+    private final String name;
+    private final String gattung;
 
-    private AnimalFeed food;
-    private double amountOfFood;
-
-    private int maxHealth;
+    private final AnimalFeed food;
+    private final double amountOfFood;
 
     private int actualHealth;
 
-    private int bite;
+    private final int bite;
 
     public Animal(String name, String gattung, AnimalFeed food, double amountOfFood, int bite, int maxHealth) {
         this.name = name;
@@ -20,7 +18,6 @@ public class Animal {
         this.food = food;
         this.amountOfFood = amountOfFood;
         this.bite = bite;
-        this.maxHealth = maxHealth;
         actualHealth = maxHealth;
     }
 

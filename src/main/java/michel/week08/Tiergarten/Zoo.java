@@ -35,7 +35,7 @@ public class Zoo {
         for (Map.Entry<AnimalFeed, Double> entry : foods.entrySet()) {
             AnimalFeed food = entry.getKey();
             double amount = entry.getValue();
-            Double price = food.getUnitPrice() * amount;
+            double price = food.getUnitPrice() * amount;
             overallPrice += price;
             System.out.printf("%-17s %10.2f kg | %7.2f €\n", entry.getKey().getName(), entry.getValue(), price);
         }
@@ -82,8 +82,7 @@ public class Zoo {
         }
     }
     public void simulateDay(){
-        Vector<Enclosure>enclosuresToClean = new Vector<>();
-        enclosuresToClean.addAll(enclosureList);
+        Vector<Enclosure> enclosuresToClean = new Vector<>(enclosureList);
         int countEnclosureLeftToClean = Integer.MAX_VALUE;
         while(!enclosuresToClean.isEmpty()&&enclosuresToClean.size()<countEnclosureLeftToClean){
             countEnclosureLeftToClean = enclosuresToClean.size();
