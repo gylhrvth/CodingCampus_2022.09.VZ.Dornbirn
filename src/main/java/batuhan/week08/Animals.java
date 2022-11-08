@@ -35,6 +35,6 @@ public class Animals {
         return animalName;
     }
     public String toSting(){
-        return "│      ├──   " + animalName + " the " +animalBreed + food ;
+        return "│      ├──   " + animalName + " the " +animalBreed + food  ;
     }
 }
