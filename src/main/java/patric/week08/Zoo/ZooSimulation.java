@@ -29,13 +29,13 @@ public class ZooSimulation {
         //Gehege hinzufügen mit Liste
         //Gehege neuRied = myZoo.getGehegeList().get(myZoo.getGehegeList().size() - 1);
 
-        Tier tier1 = new Tier("Alfredo", "Gecko");
-        Tier tier2 = new Tier("Rijska", "Kuh");
-        Tier tier3 = new Tier("Hugo", "Storch");
-        Tier tier4 = new Tier("Gustaf", "Fisch");
+        Tier tier1 = new Tier("Alfredo", "Gecko", 50, 20, 100);
+        Tier tier2 = new Tier("Rijska", "Kuh", 20, 30, 100);
+        Tier tier3 = new Tier("Hugo", "Storch", 40, 60, 100);
+        Tier tier4 = new Tier("Gustaf", "Fisch", 30, 10, 100);
         wasserwelt.putTierToGehege(tier4);
-        Tier tier5 = new Tier("Idaxis", "Storch");
-        Tier tier6 = new Tier("Schorscherl", "Fisch");
+        Tier tier5 = new Tier("Idaxis", "Storch", 80, 50, 100);
+        Tier tier6 = new Tier("Schorscherl", "Fisch", 10, 50, 100);
         riedNeu.putTierToGehege(tier5);
         myGehege1.putTierToGehege(tier2);
         myGehege1.putTierToGehege(tier5);
@@ -99,20 +99,27 @@ public class ZooSimulation {
 
         System.out.println("Tagesbedarf Futter:");
         System.out.println();
+        for (Futter f : futterAmountMap.keySet()) {
+            System.out.println(f.getName() + ": " + futterAmountMap.get(f) + " x " + f.getEinheit());
+        }
+
+        /*
         System.out.println("Heu: "+ futterAmountMap.get(heu)+" x "+heu.getEinheit());
         System.out.println("Trocken: "+ futterAmountMap.get(trocken)+" x " +trocken.getEinheit());
         System.out.println("Flocken: "+ futterAmountMap.get(flocken)+" x "+flocken.getEinheit());
         System.out.println("Kitkat: "+ futterAmountMap.get(kitkat)+" x "+kitkat.getEinheit());
+         */
 
 //        for(Map.Entry<Futter, Double> futterEntry: futterAmountMap.entrySet()) {
 //            System.out.println("Futter: "+futterEntry.getKey().getName()+ ", Gesamtverbrauch: "+futterEntry.getValue());
 //        }
         System.out.println();
-        System.out.println("Preis für Futter pro Tag: " + myZoo.calculateFoodPricePerDay()+" €");
+        System.out.println("Preis für Futter pro Tag: " + myZoo.calculateFoodPricePerDay() + " €");
         System.out.println();
 
-        Pfleger pf1 = new Pfleger("Hansi");
-        Pfleger pf2 = new Pfleger("Jürgen");
+        // TODO: 08.11.2022 Hier brauche ich noch ein zusätzlicher Pfleger 
+        Pfleger pf1 = new Pfleger("Hansi", "Storch");
+        Pfleger pf2 = new Pfleger("Jürgen", "Fisch");
 
         pf1.putAufgabeToPfleger("Käfig reinigen");
         pf1.putAufgabeToPfleger("Müll lehren");
@@ -129,5 +136,14 @@ public class ZooSimulation {
         wasserwelt.putPflegerToGehege(pf2);
 
         myZoo.printListWithGehege();
+
+        for (int tag = 1; tag <= 10; tag++) {
+            System.out.println();
+            System.out.println();
+            System.out.println("==== TAG " + tag + " ====");
+
+            myZoo.simulate();
+        }
+
     }
 }
