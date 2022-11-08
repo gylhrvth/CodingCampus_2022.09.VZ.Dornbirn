@@ -7,6 +7,11 @@ public class ZooSimulation {
         myZoo.searchAndCreateZooKeeper("MaseJr", "Alpenwiese", "Ried", "Schweinestall");
         myZoo.searchAndCreateZooKeeper("Patric", "Ried", "Terrarium", "Vogelkäfig");
         myZoo.searchAndCreateZooKeeper("Martin", "Vogelkäfig", "Schweinestall","Teich");
+
+        myZoo.searchAndCreateZooDoctor("Dr Dre");
+        myZoo.searchAndCreateZooDoctor("Dr Doolittle");
+        myZoo.searchAndCreateZooDoctor("Frankenstein");
+
         AnimalFeed hay = new AnimalFeed("Heu", 1.0, 1.99);
         AnimalFeed worms = new AnimalFeed("Regenwürmer", 1.0, 4.99);
         AnimalFeed grasshopper = new AnimalFeed("Grashüpfer", 1.0, 2.99);
@@ -25,9 +30,7 @@ public class ZooSimulation {
         Animal animal11 = myZoo.searchAndCreateAnimal("Vogelkäfig", "Tick", "Duck", worms, 0.7, 5,80);
         Animal animal12 = myZoo.searchAndCreateAnimal("Vogelkäfig", "Trick", "Duck", worms, 0.7, 5,80);
         Animal animal13 = myZoo.searchAndCreateAnimal("Vogelkäfig", "Truck", "Duck", worms, 0.7, 5,80);
-        myZoo.searchAndCreateZooDoctor("Dr Dre");
-        myZoo.searchAndCreateZooDoctor("Dr Doolittle");
-        myZoo.searchAndCreateZooDoctor("Frankenstein");
+
         for (int i = 1; i <= 10; i++) {
             myZoo.searchAndCreateAnimal("Alpenwiese", "Kuh Nr. " + i, "Kuh", hay, 10.0, 20,150);
         }
