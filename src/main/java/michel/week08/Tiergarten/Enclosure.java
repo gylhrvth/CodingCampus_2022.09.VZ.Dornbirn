@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Enclosure {
+
+    private String description;
+    private List<Animal> animalList =new ArrayList<>();
     public String getDescription() {
         return description;
     }
@@ -12,8 +15,9 @@ public class Enclosure {
         this.description = description;
     }
 
-    private String description;
-    private List<Animal> animalList =new ArrayList<>();
+    public List<Animal> getAnimalList() {
+        return animalList;
+    }
 
     public Enclosure(String description){
         this.description=description;

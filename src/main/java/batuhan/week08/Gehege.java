@@ -45,10 +45,10 @@ public class Gehege {
 //    }
 
     public void printStuktur() {
-        System.out.println("│   ├── Gehege: " + animalenclosure);
+        System.out.println("│   ├── Gehege: " + animalenclosure  );
 
         if (listOfAnimal.size() == 0) {
-            System.out.println("│      ├──   leer");
+            System.out.println("│      ├──   leer" );
         } else {
 
 

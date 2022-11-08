@@ -36,4 +36,13 @@ public class Zoo {
             enc.printStructure();
         }
     }
+
+    public void simulateOneDay() {
+        System.out.println();
+        System.out.println("A new day at the zoo '" + name + "' begins \n");
+        for(Enclosure e : enclosureList) {
+            e.doWork();
+            System.out.println();
+        }
+    }
 }

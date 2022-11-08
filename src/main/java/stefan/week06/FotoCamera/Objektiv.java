@@ -5,35 +5,13 @@ public class Objektiv {
     private int minBrennweite;
     private int filterdurchmesser;
 
-    public Objektiv(int maxBrennweite) {
-        maxBrennweite = maxBrennweite;
-        minBrennweite = 1;
-        filterdurchmesser = 3;
+    public Objektiv(int filterdurchmesser) {
+       this.filterdurchmesser= filterdurchmesser;
 
     }
 
-
-    public int getMaxBrennweite() {
-        return maxBrennweite;
-    }
-
-    public int setMaxBrennweite() {
-        return maxBrennweite;
-    }
-
-    public int getMinBrennweite() {
-        return minBrennweite;
-    }
-
-    public int setMinBrennweite() {
-       return minBrennweite;
-    }
-
-    public int getFilterdurchmesser() {
-        return filterdurchmesser;
-    }
-
-    public int setFilterdurchmesser() {
-        return filterdurchmesser;
+    @Override
+    public String toString() {
+        return "Filterdurchmesser:"+ filterdurchmesser;
     }
 }
