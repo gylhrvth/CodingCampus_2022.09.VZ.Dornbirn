@@ -47,5 +47,4 @@ public class Animal {
             System.out.println("Das Tier: " + name + " wurde von " + otherAnimal.getName() + " getötet");
         }
     }
-
 }

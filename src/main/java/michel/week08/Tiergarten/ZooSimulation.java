@@ -18,10 +18,10 @@ public class ZooSimulation {
         Animal animal4 = myZoo.searchAndCreateAnimal("Terrarium", "Id axis", "Frosch", grasshopper, 0.3, 50,100);
         Animal animal5 = myZoo.searchAndCreateAnimal("Schweinestall", "RudiRüssel", "Schwein", kartoffeln, 2.5, 40,100);
         Animal animal6 = myZoo.searchAndCreateAnimal("Vogelkäfig", "DonaldDuck", "Duck", worms, 0.7, 15,80);
-
         for (int i = 1; i <= 10; i++) {
             myZoo.searchAndCreateAnimal("Alpenwiese", "Kuh Nr. " + i, "Kuh", hay, 10.0, 60,100);
         }
+
 
         for (int i = 1; i <= 5; i++) {
             System.out.println("\nTag " + i + " beginnt");
