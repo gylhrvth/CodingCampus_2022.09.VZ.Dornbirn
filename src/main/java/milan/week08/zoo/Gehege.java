@@ -34,6 +34,7 @@ public class Gehege {
             result = "Aufgaben in " + name + " wurden noch nicht erledigt!!";
         }
         return result;
+        // Alternative: (? = if true) (: = else)
         //return status?"Aufgaben in " + name + " wurden erledigt!!":"Aufgaben in " + name + " wurden noch nicht erledigt!!";
     }
 
@@ -84,7 +85,6 @@ public class Gehege {
             }
         }
     */
-
 
     public void rumbleInTheJungle() {
         for (Tier tier : tiereListe) {
