@@ -34,9 +34,7 @@ public class ZooSimulation {
 
 
         for (int i = 1; i <= 5; i++) {
-            System.out.print("\n ---------------");
-            System.out.println("\n| Tag " + i + " beginnt |");
-            System.out.println(" ---------------");
+            System.out.print("\n ---------------\n"+"| Tag " + i + " beginnt |\n"+" ---------------\n");
             myZoo.simulateDay();
         }
 
