@@ -58,7 +58,7 @@ public class Enclosure {
     }
 
     public void simulateDay(ZooKeeper zooKeeper) {
-        System.out.printf("%s füttert die Tiere und reinigt das Gehege %s\n", zooKeeper.getName(), name);
+        System.out.printf("\n├── %s füttert die Tiere und reinigt das Gehege %s", zooKeeper.getName(), name);
     }
 }
 

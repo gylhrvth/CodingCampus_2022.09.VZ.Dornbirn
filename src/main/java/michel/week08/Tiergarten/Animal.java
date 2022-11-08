@@ -8,6 +8,7 @@ public class Animal {
     private final AnimalFeed food;
     private final double amountOfFood;
 
+    private final int maxHealth;
     private int actualHealth;
 
     private final int bite;
@@ -18,9 +19,15 @@ public class Animal {
         this.food = food;
         this.amountOfFood = amountOfFood;
         this.bite = bite;
+        this.maxHealth=maxHealth;
         actualHealth = maxHealth;
     }
-
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+    public void setActualHealth(int actualHealth) {
+        this.actualHealth = actualHealth;
+    }
     public int getActualHealth() {
         return actualHealth;
     }
@@ -38,7 +45,7 @@ public class Animal {
     }
 
     public void printAnimal() {
-        System.out.println("│      ├── " + name + ", " + gattung + ", Gesundheit: " + actualHealth + " HP");
+        System.out.println("│      ├── " + name + ", " + gattung + ", Gesundheit: " + actualHealth + " HP von " + maxHealth);
     }
 
     public void bite(Animal otherAnimal) {
