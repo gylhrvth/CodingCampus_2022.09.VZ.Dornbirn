@@ -7,13 +7,54 @@ public class Zoo {
     private int yearFounding;
     private Gehege gehege;
     private Vector<Gehege> gehegeListe;
+    private Vector<Pfleger> mitarbeiterListe;
+
+    private Vector<TierArzt> aerzteListe;
 
 
     public Zoo(String name) {
         this.name = name;
         yearFounding = 0;
         gehegeListe = new Vector<>();
+        mitarbeiterListe = new Vector<>();
+        aerzteListe = new Vector<>();
     }
+
+    public void zooSimulation() {
+        for (Pfleger mitarbeiter : mitarbeiterListe) {
+            mitarbeiter.getToTheChoppa();
+        }
+        System.out.println();
+        for (Gehege gehege : gehegeListe) {
+            gehege.rumbleInTheJungle();
+            System.out.println();
+            gehege.printTierGesundheitStatistic();
+        }
+        for (Gehege x : gehegeListe) {
+            x.removeDeadAnimals();
+            x.setStatus(false);
+        }
+        healAnimals();
+        System.out.println();
+    }
+
+    public void healAnimals() {
+        for (TierArzt x : aerzteListe) {
+            System.out.print(x.getName() + " versorgt " + findWeakestAnimal().getName() + " ");
+            x.healAnimal(findWeakestAnimal());
+        }
+    }
+
+    public Tier findWeakestAnimal() {
+        Tier tmp = null;
+        for (Gehege x : gehegeListe) {
+            if (tmp == null || x.findWeakestAnimal().getRelativeGesundheit() < tmp.getRelativeGesundheit()) {
+                tmp = x.findWeakestAnimal();
+            }
+        }
+        return tmp;
+    }
+
 
     public String printFoodStatistic() {
 //        StringBuilder text = new StringBuilder();
@@ -36,7 +77,7 @@ public class Zoo {
                     case "Trockenfutter" -> sumTrockenfutter = sumTrockenfutter + y.getMenge();
                     case "Nassfutter" -> sumNassfutter = sumNassfutter + y.getMenge();
                     case "Gras" -> sumGras = sumGras + y.getMenge();
-                    case "Insekt"  -> sumInsect = sumInsect + y.getMenge();
+                    case "Insekt" -> sumInsect = sumInsect + y.getMenge();
                 }
             }
         }
@@ -77,6 +118,14 @@ public class Zoo {
         gehegeListe.add(gehege);
     }
 
+    public void addTierArztToList(TierArzt arzt) {
+        aerzteListe.add(arzt);
+    }
+
+    public void addPflegerToList(Pfleger pfleger) {
+        mitarbeiterListe.add(pfleger);
+    }
+
     @Override
     public String toString() {
         return getName() + ", gegründet " + getYearFounding();
@@ -96,5 +145,13 @@ public class Zoo {
 
     public String getName() {
         return name;
+    }
+
+    public Vector<Gehege> getGehegeListe() {
+        return gehegeListe;
+    }
+
+    public Vector<Pfleger> getMitarbeiterListe() {
+        return mitarbeiterListe;
     }
 }

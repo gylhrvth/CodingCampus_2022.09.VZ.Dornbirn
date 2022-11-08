@@ -8,6 +8,7 @@ public class Zoo {
 
     private String zooName;
     private int foundingYear;
+
     private Vector<Gehege> enclosureList;
 
 
@@ -26,6 +27,7 @@ public class Zoo {
     public String getZooname(){
         return zooName;
     }
+
     public void addgehegelist(Gehege gehege){
         enclosureList.add(gehege);
     }
@@ -34,11 +36,13 @@ public class Zoo {
         System.out.println("├── Zoo: " + zooName + ", gegründet " + foundingYear);
         for (Gehege g: enclosureList) {
             g.printStuktur();
+
            /* for (Animals a :g.listOfAnimal) {
                 System.out.println(a.toSting());
 
             }*/
         }
+        //System.out.println("It´s Monday 8:30 AM " + );
     }
 
 }

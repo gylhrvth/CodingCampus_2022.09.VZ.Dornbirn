@@ -1,20 +1,37 @@
 package milan.week08.zoo;
 
 
-public class Tier {
-    private static int lastId = 1;
+import java.util.Random;
 
-    private int id;
+public class Tier {
+    private static Random ran = new Random();
+
     private String name;
     private String gattung;
     private Futter nahrung;
     private double menge;
+    private int maxGesundheit;
+    private int biss;
+    private int gesundheit;
 
-    public Tier(String name, String gattung) {
-        id = lastId;
-        ++lastId;
+    public Tier(String name, String gattung, int biss) {
         this.name = name;
         this.gattung = gattung;
+        maxGesundheit = 100;
+        this.biss = biss;
+        gesundheit = maxGesundheit;
+    }
+
+    public void attack(Tier opfer) {
+        int wahrscheinlichkeit = ran.nextInt(100);
+        if (gesundheit > 0 && wahrscheinlichkeit < 40) {
+            opfer.setGesundheit(opfer.getGesundheit() - biss);
+            System.out.println(getName() + " beisst " + opfer.getName() + " und zieht " + opfer.getName() + " " + biss + " Gesundheit ab!");
+        }
+    }
+
+    public double getRelativeGesundheit() {
+        return 100.0 / getMaxGesundheit() * getGesundheit();
     }
 
     public void setMenge(double menge) {
@@ -49,7 +66,29 @@ public class Tier {
         return gattung;
     }
 
-    public int getId() {
-        return id;
+    public int getGesundheit() {
+        return gesundheit;
+    }
+
+    public void setGesundheit(int gesundheit) {
+        this.gesundheit = gesundheit;
+    }
+
+    public int getBiss() {
+        return biss;
+    }
+
+    public int getMaxGesundheit() {
+        return maxGesundheit;
+    }
+
+    public void heal() {
+        int before = gesundheit;
+        gesundheit += (0.3 + ran.nextDouble() * 0.7) * maxGesundheit;
+        if (gesundheit > maxGesundheit) {
+            gesundheit = maxGesundheit;
+        }
+        int diff = gesundheit - before;
+        System.out.println("und die Gesundheit steigt um " + diff + " auf " + gesundheit + ".");
     }
 }
