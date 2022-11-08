@@ -20,6 +20,12 @@ public class ZooSimulation {
         Tier tier4 = myZoo.putTierToGehege("Terrarium","Idaxis","Storh");
         Tier tier5 = myZoo.putTierToGehege("Feldkirch-Wildpark","Jack","Wildkatze");
 
+<<<<<<< HEAD
+=======
+        Tier tier1 = new Tier("Alfred", "Storch",100,50,60);
+        Tier tier2 = new Tier("Hugo", "Storch",100,50,60);
+        Tier tier3 = new Tier("Rijksa", "Kuh",100,50,60);
+>>>>>>> eb57ce7442036e6ede6745773f083fa07ee05938
 
         myZoo.putPflegerToGehege("Stefan","Alpenwiese","Ried");
 
