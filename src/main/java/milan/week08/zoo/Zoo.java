@@ -9,24 +9,51 @@ public class Zoo {
     private Vector<Gehege> gehegeListe;
     private Vector<Pfleger> mitarbeiterListe;
 
+    private Vector<TierArzt> aerzteListe;
+
 
     public Zoo(String name) {
         this.name = name;
         yearFounding = 0;
         gehegeListe = new Vector<>();
         mitarbeiterListe = new Vector<>();
+        aerzteListe = new Vector<>();
     }
 
     public void zooSimulation() {
         for (Pfleger mitarbeiter : mitarbeiterListe) {
             mitarbeiter.getToTheChoppa();
         }
-        for (Gehege gehege : gehegeListe){
+        System.out.println();
+        for (Gehege gehege : gehegeListe) {
             gehege.rumbleInTheJungle();
+            System.out.println();
+            gehege.printTierGesundheitStatistic();
         }
-
+        for (Gehege x : gehegeListe) {
+            x.removeDeadAnimals();
+            x.setStatus(false);
+        }
+        healAnimals();
+        System.out.println();
     }
 
+    public void healAnimals() {
+        for (TierArzt x : aerzteListe) {
+            System.out.print(x.getName() + " versorgt " + findWeakestAnimal().getName() + " ");
+            x.healAnimal(findWeakestAnimal());
+        }
+    }
+
+    public Tier findWeakestAnimal() {
+        Tier tmp = null;
+        for (Gehege x : gehegeListe) {
+            if (tmp == null || x.findWeakestAnimal().getRelativeGesundheit() < tmp.getRelativeGesundheit()) {
+                tmp = x.findWeakestAnimal();
+            }
+        }
+        return tmp;
+    }
 
 
     public String printFoodStatistic() {
@@ -89,6 +116,10 @@ public class Zoo {
 
     public void addGehegeToList(Gehege gehege) {
         gehegeListe.add(gehege);
+    }
+
+    public void addTierArztToList(TierArzt arzt) {
+        aerzteListe.add(arzt);
     }
 
     public void addPflegerToList(Pfleger pfleger) {

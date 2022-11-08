@@ -1,13 +1,9 @@
-
-
-import java.util.HashMap;
-import java.util.Map;
+package viktor.week08;
 
 public class Tier {
 
     private String name;
     private String gattung;
-    private double quantity;
 
 
     public Tier(String name, String gattung) {
@@ -15,12 +11,12 @@ public class Tier {
         this.gattung = gattung;
     }
 
-
-
-
-    @Override
-    public String toString() {
-        return name + ", " + gattung + "\n";
+    public String getName() {
+        return name;
     }
+
+   public void printStructure(){
+       System.out.println("|                |---- Tier: " + name + " " + gattung);
+   }
 
 }

@@ -6,33 +6,32 @@ public class TestZoo {
 
     public static void main(String[] args) {
 
-        Tag montag = new Tag();
-        Zoo zoo1 = new Zoo("Tiergarten Dornbirn");
-        zoo1.setYearFounding(2022);
+        Zoo tgDornbirn = new Zoo("Tiergarten Dornbirn");
+        tgDornbirn.setYearFounding(2022);
         Gehege alpenwiese = new Gehege("Alpenwiese");
         Gehege ried = new Gehege("Ried");
         Gehege terrarium = new Gehege("Terrarium");
         Gehege affenKaefig = new Gehege("Affenkäfig");
-        zoo1.addGehegeToList(ried);
-        zoo1.addGehegeToList(alpenwiese);
-        zoo1.addGehegeToList(terrarium);
-        zoo1.addGehegeToList(affenKaefig);
+        tgDornbirn.addGehegeToList(ried);
+        tgDornbirn.addGehegeToList(alpenwiese);
+        tgDornbirn.addGehegeToList(terrarium);
+        tgDornbirn.addGehegeToList(affenKaefig);
 
         //Tier erstellung:
-        Tier tier1 = new Tier("Rijska", "Kuh");
-        Tier tier2 = new Tier("Garmond","Storch");
-        Tier tier3 = new Tier("Hugo", "Storch");
-        Tier tier4 = new Tier("Idaxis", "Storch");
-        Tier tier5 = new Tier("Samba", "Orang-Utan");
-        Tier tier6 = new Tier("Glubschaugi","Pfeilgiftfrosch");
-        Tier tier7 = new Tier("Slytherin","Schlange");
-        Tier tier8 = new Tier("Gideon", "Schimpanse");
-        Tier tier9 = new Tier("Marla", "Silberrücken-Gorilla");
-        Tier tier10 = new Tier("Brutus", "Wolf");
-        Tier tier11 = new Tier("Carla", "Marder");
-        Tier tier12 = new Tier("Farul", "Marder");
-        Tier tier13 = new Tier("Spikee", "Skorpion");
-        Tier tier14 = new Tier("Gustav", "Ziege");
+        Tier tier1 = new Tier("Rijska", "Kuh", 25);
+        Tier tier2 = new Tier("Garmond", "Storch", 10);
+        Tier tier3 = new Tier("Hugo", "Storch", 8);
+        Tier tier4 = new Tier("Idaxis", "Storch", 12);
+        Tier tier5 = new Tier("Samba", "Orang-Utan", 35);
+        Tier tier6 = new Tier("Glubschaugi", "Pfeilgiftfrosch", 5);
+        Tier tier7 = new Tier("Slytherin", "Schlange", 15);
+        Tier tier8 = new Tier("Gideon", "Schimpanse", 15);
+        Tier tier9 = new Tier("Marla", "Silberrücken-Gorilla", 40);
+        Tier tier10 = new Tier("Brutus", "Wolf", 33);
+        Tier tier11 = new Tier("Carla", "Marder", 20);
+        Tier tier12 = new Tier("Farul", "Marder", 22);
+        Tier tier13 = new Tier("Spikee", "Skorpion", 8);
+        Tier tier14 = new Tier("Gustav", "Ziege", 9);
 
         //Tier zum Gehege:
         terrarium.addAnimalToList(tier13);
@@ -50,7 +49,7 @@ public class TestZoo {
         alpenwiese.addAnimalToList(tier10);
         alpenwiese.addAnimalToList(tier14);
 
-        System.out.println(zoo1.printStructureList());
+        System.out.println(tgDornbirn.printStructureList());
 
         //Futter anlegen:
         Futter trockenfutter = new Futter("Trockenfutter", 4.99);
@@ -75,13 +74,31 @@ public class TestZoo {
         tier4.setNahrung(trockenfutter);
         tier4.setMenge(0.28);
         System.out.println("------------------------");
-        //System.out.println(zoo1.printFoodStatistic());
+        //System.out.println(tgDornbirn.printFoodStatistic());
         System.out.println("------------------------");
+
+        for (int i = 1; i <= 20; i++) {
+            Tier t = new Tier("Croc " + i, "Krokodil", 40);
+            alpenwiese.addAnimalToList(t);
+            t.setNahrung(trockenfutter);
+            t.setMenge(0.8);
+        }
 
         //Pfleger anlegen:
         Pfleger milan = new Pfleger("Milan");
         Pfleger marie = new Pfleger("Marie");
         Pfleger hans = new Pfleger("Hans");
+
+        //Ärzte anlegen:
+        TierArzt johanna = new TierArzt("Johanna");
+        TierArzt peter = new TierArzt("Peter");
+        TierArzt klaus = new TierArzt("Klaus");
+
+        //Ärzte zum Zoo:
+        tgDornbirn.addTierArztToList(johanna);
+        tgDornbirn.addTierArztToList(peter);
+        tgDornbirn.addTierArztToList(klaus);
+
 
         //Pfleger zum Gehege:
         milan.addGehege(terrarium);
@@ -89,9 +106,9 @@ public class TestZoo {
         marie.addGehege(alpenwiese);
         hans.addGehege(affenKaefig);
         hans.addGehege(ried);
-        zoo1.addPflegerToList(milan);
-        zoo1.addPflegerToList(marie);
-        zoo1.addPflegerToList(hans);
+        tgDornbirn.addPflegerToList(milan);
+        tgDornbirn.addPflegerToList(marie);
+        tgDornbirn.addPflegerToList(hans);
 
         //Aufgaben anlegen:
         Aufgabe beobachten = new Aufgabe("beobachtet");
@@ -118,26 +135,13 @@ public class TestZoo {
         terrarium.addToDos(wasserAuffuellen);
         terrarium.addToDos(wasserFiltern);
 
-        //Arbeitsauftrag erteilen:
-        zoo1.zooSimulation();
+        // Zoo Simulation
 
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Tag " + i + " im Zoo\n");
+            tgDornbirn.zooSimulation();
+        }
 
-        System.out.println(ried.getStatusText());
-        System.out.println(affenKaefig.getStatusText());
-        System.out.println(terrarium.getStatusText());
-        System.out.println(alpenwiese.getStatusText());
-        montag.endOfDay(zoo1);
-        System.out.println(ried.getStatusText());
-        System.out.println(affenKaefig.getStatusText());
-        System.out.println(terrarium.getStatusText());
-        System.out.println(alpenwiese.getStatusText());
-        milan.getToTheChoppa();
-        marie.getToTheChoppa();
-        hans.getToTheChoppa();
-        System.out.println(ried.getStatusText());
-        System.out.println(affenKaefig.getStatusText());
-        System.out.println(terrarium.getStatusText());
-        System.out.println(alpenwiese.getStatusText());
 
     }
 }
