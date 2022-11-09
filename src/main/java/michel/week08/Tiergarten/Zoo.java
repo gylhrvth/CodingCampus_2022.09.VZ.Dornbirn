@@ -3,13 +3,14 @@ package michel.week08.Tiergarten;
 import java.util.*;
 
 public class Zoo {
-
-    private String name;
+    private final String name;
     private final int foundingYear;
 
-    private List<Enclosure> enclosureList = new ArrayList<>();
+    private final List<Enclosure> enclosureList = new ArrayList<>();
 
-    private List<ZooKeeper> zooKeeperList = new ArrayList<>();
+    private final List<Doctor> doctorList = new ArrayList<>();
+
+    private final List<ZooKeeper> zooKeeperList = new ArrayList<>();
 
     public Zoo(String name, int foundingYear) {
         this.name = name;
@@ -35,7 +36,7 @@ public class Zoo {
         for (Map.Entry<AnimalFeed, Double> entry : foods.entrySet()) {
             AnimalFeed food = entry.getKey();
             double amount = entry.getValue();
-            Double price = food.getUnitPrice() * amount;
+            double price = food.getUnitPrice() * amount;
             overallPrice += price;
             System.out.printf("%-17s %10.2f kg | %7.2f €\n", entry.getKey().getName(), entry.getValue(), price);
         }
@@ -43,7 +44,7 @@ public class Zoo {
     }
 
     public void printZoo() {
-        System.out.println("├── Zoo: " + name + ", gegründet " + foundingYear);
+        System.out.println("\n├── Zoo: " + name + ", gegründet " + foundingYear);
         for (Enclosure enc : enclosureList) {
             enc.printEnclosure();
         }
@@ -63,38 +64,63 @@ public class Zoo {
         return enc;
     }
 
-    public Animal searchAndCreateAnimal(String enclosureName, String name, String art, AnimalFeed food, Double amountOfFood) {
+    public Animal searchAndCreateAnimal(String enclosureName, String name, String art, AnimalFeed food, Double amountOfFood, int bite, int maxHealth) {
         Enclosure enc = searchAndCreateEnclosure(enclosureName);
-        return enc.searchAndCreate(name, art, food, amountOfFood);
+        return enc.searchAndCreate(name, art, food, amountOfFood, bite, maxHealth);
     }
 
-    public ZooKeeper searchAndCreateZooKeeper(String name, String... enclosureNames) {
+    public void searchAndCreateZooKeeper(String name, String... enclosureNames) {
         for (ZooKeeper zooKeeper : zooKeeperList) {
             if (zooKeeper.getName().equals(name)) {
-                return zooKeeper;
+                return;
             }
-
         }
         ZooKeeper zooKeeper = new ZooKeeper(name);
         zooKeeperList.add(zooKeeper);
         for (String encName : enclosureNames) {
             zooKeeper.putTaskToZooKeeper(searchAndCreateEnclosure(encName));
         }
-        return zooKeeper;
     }
-    public void simulateDay(){
-        Vector<Enclosure>enclosuresToClean = new Vector<>();
-        enclosuresToClean.addAll(enclosureList);
+    public void searchAndCreateZooDoctor(String name) {
+        for (Doctor doctor : doctorList) {
+            if (doctor.getName().equals(name)) {
+                return;
+            }
+        }
+        Doctor doctor = new Doctor(name);
+        doctorList.add(doctor);
+    }
+    public void simulateDay() {
+        Vector<Enclosure> enclosuresToClean = new Vector<>(enclosureList);
         int countEnclosureLeftToClean = Integer.MAX_VALUE;
-        while(!enclosuresToClean.isEmpty()&&enclosuresToClean.size()<countEnclosureLeftToClean){
+        while (!enclosuresToClean.isEmpty() && enclosuresToClean.size() < countEnclosureLeftToClean) {
             countEnclosureLeftToClean = enclosuresToClean.size();
-            for (ZooKeeper zooKeeper:zooKeeperList) {
+            for (ZooKeeper zooKeeper : zooKeeperList) {
                 zooKeeper.simulateDay(enclosuresToClean);
             }
         }
-        for (Enclosure enclosure:enclosuresToClean) {
+        for (Enclosure enclosure : enclosuresToClean) {
             System.out.println(enclosure.getName() + " hat keinen Pfleger, es wurde nicht betreut!");
+        }
+        System.out.println();
+        for (Enclosure enc : enclosureList) {
+            enc.simulateAttacks();
+        }
+        for (Doctor doc:doctorList) {
+            doc.simulateHealing(searchAnimalWithLowestHP());
         }
     }
 
+    public Animal searchAnimalWithLowestHP() {
+        Animal lowest = enclosureList.get(0).getAnimalList().get(0);
+        for (Enclosure enc : enclosureList) {
+            for (Animal animal : enc.getAnimalList()) {
+                if ((animal.getActualHealth()*100)/ animal.getMaxHealth() < (lowest.getActualHealth()*100)/ lowest.getMaxHealth()) {
+                   lowest = animal;
+                }
+            }
+        }
+        System.out.println("│      ├── Das Tier: "+lowest.getName() + " hat nur noch " + lowest.getActualHealth() + " Hp bitte den Doctor anrufen");
+        return lowest;
+    }
 }

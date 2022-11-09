@@ -6,7 +6,7 @@ import java.util.*;
 public class ZooKeeper {
     private final String name;
 
-    private HashSet<Enclosure> tasksZooKeeperEnclosure = new HashSet<>();
+    private final HashSet<Enclosure> tasksZooKeeperEnclosure = new HashSet<>();
 
     public ZooKeeper(String name) {
         this.name = name;
