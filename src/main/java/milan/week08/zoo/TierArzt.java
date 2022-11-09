@@ -12,7 +12,7 @@ public class TierArzt {
     }
 
     public void healAnimal(Tier tier) {
-        System.out.println(name + " heilt " + tier.getName());
+        //System.out.println(name + " heilt " + tier.getName());
         tier.heal();
     }
 

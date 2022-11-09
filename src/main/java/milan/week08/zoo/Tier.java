@@ -22,6 +22,7 @@ public class Tier {
         gesundheit = maxGesundheit;
     }
 
+
     public void attack(Tier opfer) {
         int wahrscheinlichkeit = ran.nextInt(100);
         if (gesundheit > 0 && wahrscheinlichkeit < 40) {

@@ -11,6 +11,7 @@ public class Gehege {
     private Vector<Tier> tiereListe;
     private ArrayList<Aufgabe> toDo;
 
+
     private boolean status;
 
     public Gehege(String name) {
@@ -25,6 +26,12 @@ public class Gehege {
     public boolean getStatus() {
         return status;
     }
+
+//    public void printFoodStatistic() {
+//        for (Tier x : tiereListe) {
+//            System.out.println(x.getNahrung().getName() + " " + x.getMenge());
+//        }
+//    }
 
     public String getStatusText() {
         String result = null;
@@ -49,6 +56,7 @@ public class Gehege {
     public void addAnimalToList(Tier tier) {
         tiereListe.add(tier);
     }
+
 
     public Tier findWeakestAnimal() {
         Tier tmp = null;

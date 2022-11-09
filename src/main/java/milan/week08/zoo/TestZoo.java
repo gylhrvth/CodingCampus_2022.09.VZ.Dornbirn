@@ -57,6 +57,13 @@ public class TestZoo {
         Futter gras = new Futter("Gras", 0.05);
         Futter insekt = new Futter("Insekt", 0.09);
 
+        //Futter zur Liste:
+        tgDornbirn.addFutterToList(trockenfutter);
+        tgDornbirn.addFutterToList(nassfutter);
+        tgDornbirn.addFutterToList(gras);
+        tgDornbirn.addFutterToList(insekt);
+
+
         //Futter zum Tier:
 
         tier7.setNahrung(insekt);
@@ -88,6 +95,7 @@ public class TestZoo {
         Pfleger milan = new Pfleger("Milan");
         Pfleger marie = new Pfleger("Marie");
         Pfleger hans = new Pfleger("Hans");
+
 
         //Ärzte anlegen:
         TierArzt johanna = new TierArzt("Johanna");
@@ -142,6 +150,7 @@ public class TestZoo {
             tgDornbirn.zooSimulation();
         }
 
+        tgDornbirn.printFoodStatistic();
 
     }
 }
