@@ -2,6 +2,7 @@ package patric.week08.Zoo;
 
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Random;
 
 public class Gehege {
@@ -9,9 +10,9 @@ public class Gehege {
 
     private String description;
 
-    ArrayList<Tier> tierList = new ArrayList<Tier>();
+    private ArrayList<Tier> tierList = new ArrayList<Tier>();
 
-    ArrayList<Pfleger> pflegerList = new ArrayList<>();
+    private ArrayList<Pfleger> pflegerList = new ArrayList<>();
 
     public Gehege(String description) {
         this.description = description;
@@ -55,7 +56,7 @@ public class Gehege {
     public double calculateFoodPricePerDay() {
         double price = 0;
         for (Tier t : tierList) {
-            price += t.getFutterToTier().getEinheitPreis() * t.getAmountOfFutter();
+            price += t.calculateFoodPricePerDay();
         }
         return price;
     }
@@ -90,6 +91,12 @@ public class Gehege {
                     tierZuBeisen.biss(t);
                 }
             }
+        }
+    }
+
+    public void calculateFoodMap(Map<Futter, Double> futterAmountMap){
+        for (Tier t : tierList) {
+            t.calculateFoodMap(futterAmountMap);
         }
     }
 

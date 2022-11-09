@@ -25,41 +25,46 @@ public class ZooSimulation {
 
         myZoo.removeGehegeFromZoo(myGehege2);
 
+        //Futter Erstellung
+        Futter kitkat = new Futter("KitKat", "500g Dose", 1.79);
+        Futter trocken = new Futter("Trockenfutter", "300g Pack", 3.99);
+        Futter flocken = new Futter("Fischflocken", "5g", 0.09);
+        Futter heu = new Futter("Heu", "1 Ballen", 20.0);
+        Futter besucher = new Futter("Zoo Besucher", "Stk", 0.0);
 
         //Gehege hinzufügen mit Liste
         //Gehege neuRied = myZoo.getGehegeList().get(myZoo.getGehegeList().size() - 1);
 
-        Tier tier1 = new Tier("Alfredo", "Gecko", 50, 20, 100);
-        Tier tier2 = new Tier("Rijska", "Kuh", 20, 30, 100);
-        Tier tier3 = new Tier("Hugo", "Storch", 40, 60, 100);
-        Tier tier4 = new Tier("Gustaf", "Fisch", 30, 10, 100);
+        Tier tier1 = new Tier("Alfredo", "Gecko");
+        Tier tier2 = new Tier("Rijska", "Kuh");
+        Tier tier3 = new Tier("Hugo", "Storch");
+        Tier tier4 = new Tier("Gustaf", "Fisch");
         wasserwelt.putTierToGehege(tier4);
-        Tier tier5 = new Tier("Idaxis", "Storch", 80, 50, 100);
-        Tier tier6 = new Tier("Schorscherl", "Fisch", 10, 50, 100);
+        Tier tier5 = new Tier("Idaxis", "Storch");
+        Tier tier6 = new Tier("Schorscherl", "Fisch");
+        Tier tier7 = new Tier("Oarsch", "Gecko");
+        Tier tier8 = new Tier("Ossi", "Kuh");
+        Tier tier9 = new Tier("Buschla", "Kuh");
+
+
         riedNeu.putTierToGehege(tier5);
         myGehege1.putTierToGehege(tier2);
         myGehege1.putTierToGehege(tier5);
         myGehege1.putTierToGehege(tier6);
         riedNeu.putTierToGehege(tier3);
         myGehege3.putTierToGehege(tier1);
+        myGehege3.putTierToGehege(tier7);
+        myGehege1.putTierToGehege(tier8);
+        myGehege1.putTierToGehege(tier9);
 
         myGehege1.removeTierFromGehege(tier6);
         wasserwelt.putTierToGehege(tier6);
 
         myGehege1.removeTierFromGehege(tier5);
 
-        //Futter Erstellung
-        Futter kitkat = new Futter("KitKat", "500g Dose", 1.79);
-        Futter trocken = new Futter("Trockenfutter", "300g Pack", 3.99);
-        Futter flocken = new Futter("Fischflocken", "5g", 0.09);
-        Futter heu = new Futter("Heu", "1 Ballen", 20.0);
 
-        tier2.setFutter(heu, 10);
-        tier3.setFutter(trocken, 5);
-        tier6.setFutter(flocken, 10);
-        tier5.setFutter(trocken, 10);
-        tier4.setFutter(flocken, 3);
-        tier1.setFutter(kitkat, 3);
+
+
 
 
 //        System.out.println("Wieviel kostet die Tiernahrung");

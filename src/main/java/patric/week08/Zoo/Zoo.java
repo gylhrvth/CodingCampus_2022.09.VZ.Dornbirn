@@ -47,16 +47,7 @@ public class Zoo {
         //der Wert ist die Menge vom Futter
         Map<Futter, Double> futterAmountMap = new HashMap<>();
         for (Gehege g : geheheList) {
-            for (Tier t : g.tierList) {
-                Futter currentFutter = t.getFutterToTier();
-                Double currentSumOfTierFutter = futterAmountMap.get(currentFutter);
-                if (currentSumOfTierFutter == null) {
-                    currentSumOfTierFutter = t.getAmountOfFutter();
-                } else {
-                    currentSumOfTierFutter += t.getAmountOfFutter();
-                }
-                futterAmountMap.put(currentFutter, currentSumOfTierFutter);
-            }
+            g.calculateFoodMap(futterAmountMap);
         }
         return futterAmountMap;
     }

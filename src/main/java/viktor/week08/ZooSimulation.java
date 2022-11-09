@@ -22,9 +22,9 @@ public class ZooSimulation {
         myZoo.removeGehegeFromZoo(myGehege2);
         myZoo.putGehegeToZoo(new Gehege("Ried"));
 
-        Tier tier1 = new Tier("Alfred", "Storch",100,50,60);
-        Tier tier2 = new Tier("Hugo", "Storch",100,50,60);
-        Tier tier3 = new Tier("Rijksa", "Kuh",100,50,60);
+        Tier tier1 = new Tier("Alfred", "Storch");
+        Tier tier2 = new Tier("Hugo", "Storch");
+        Tier tier3 = new Tier("Rijksa", "Kuh");
 
         myGehege1.putTierToGehege(tier1);
         myGehege1.putTierToGehege(tier3);
