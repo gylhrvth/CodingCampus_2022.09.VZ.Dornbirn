@@ -1,7 +1,5 @@
 package stefan.week07.Vector;
 
-import stefan.week07.Vector.VectorErstellen;
-
 import java.util.Vector;
 
 public class VectorKompieniren {
