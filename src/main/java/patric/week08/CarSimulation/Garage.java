@@ -10,6 +10,7 @@ public class Garage {
         myGarage.add(new Car("BMW", "318", 100, 50, "Verbrenner", 1700));
         myGarage.add(new Car("Audi", "Q8", 300, 80, "Verbrenner", 2200));
         myGarage.add(new Car("Hyndai", "Tuscon", 104, 60, "Verbrenner", 1700));
+        myGarage.add(new Car("Mini","One",45,40,"Verbrenner",500));
         Random random = new Random();
 
         for (Car c : myGarage) {
