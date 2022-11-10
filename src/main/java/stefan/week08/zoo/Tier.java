@@ -1,19 +1,19 @@
-package stefan.weeek08;
+package stefan.week08.zoo;
 
 public class Tier {
 
     private String name;
     private String gattung;
     private Futter futter;
-private double futtermenge;
+    private double futtermenge;
     public Tier(String name, String gattung) {
         this.name = name;
         this.gattung = gattung;
     }
 
-    public void setFutter(Futter futter,double futtermenge) {
+    public void setFutter(Futter futter, double futtermenge) {
         this.futter = futter;
-        this.futtermenge=futtermenge;
+        this.futtermenge = futtermenge;
     }
 
     public String getName() {

@@ -1,10 +1,6 @@
 package stefan.week07.Person;
 
-import fatima.week06.Person.PersonSimulation;
-
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 import java.util.Vector;
 
 public class Personsimulation {

@@ -1,4 +1,4 @@
-package stefan.weeek08;
+package stefan.week08.zoo;
 
 public class Futter {
 
