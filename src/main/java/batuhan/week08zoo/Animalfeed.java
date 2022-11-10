@@ -1,9 +1,5 @@
-package batuhan.week08;
+package batuhan.week08zoo;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.Vector;
 
 public class Animalfeed {
@@ -22,6 +18,18 @@ public class Animalfeed {
 
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public int getAmountInKG() {
+        return amountInKG;
+    }
+
+    public void setAmountInKG(int amountInKG) {
+        this.amountInKG = amountInKG;
+    }
+
     public void setFood() {
         this.food = food;
     }
@@ -35,14 +43,13 @@ public class Animalfeed {
         this.amountInKG = amountInKG;
     }
 
-
-
-
-
+    public String getFood() {
+        return food;
+    }
 
     public String toString() {
-//        System.out.println(" benötigt" + amountInKG +"KG" + feed +"dies kostet je KG" + price);
-        return " benötigt " + amountInKG + "KG " + food + " dies kostet je KG " + price ;
+
+        return food;
     }
 
 

@@ -1,4 +1,4 @@
-package milan.week09.car;
+package milan.week09.carExtended;
 
 import java.util.Random;
 
@@ -19,6 +19,8 @@ public class Car {
     private double tankinhalt;
     private double maxTankinhalt;
     public double gewicht;
+    private Motor motor;
+    private Tank tank;
 
     public Car(String modell, String hersteller, double maxTankinhalt, int kWLeistung, double gewicht) {
         this.modell = modell;
