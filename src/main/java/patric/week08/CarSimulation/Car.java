@@ -2,32 +2,73 @@ package patric.week08.CarSimulation;
 
 public class Car {
 
-    public String Hersteller;
-    public String Model;
+    public String hersteller;
+    public String model;
     public int kW;
-    public int Tankinhalt;
-    public String Antriebsart;
-    public int Gewicht;
+    public int tankinhalt;
+    public String antriebsart;
+    public int gewicht;
+    private int aktuellerTankFuellstand;
+
+    private int fuel;
 
 
-    public Car(String Hersteller, String Model, int kW, int Tankinhalt, String Antriebsart, int Gewicht) {
-        this.Hersteller = Hersteller;
-        this.Model =Model;
+    public Car(String hersteller, String model, int kW, int tankinhalt, String antriebsart, int gewicht) {
+        this.hersteller = hersteller;
+        this.model = model;
         this.kW = kW;
-        this.Tankinhalt = Tankinhalt;
-        this.Antriebsart = Antriebsart;
-        this.Gewicht = Gewicht;
+        this.tankinhalt = tankinhalt;
+        this.antriebsart = antriebsart;
+        this.gewicht = gewicht;
+        this.aktuellerTankFuellstand = tankinhalt;
+        this.fuel = fuel;
+    }
+
+    private double fuelUsagePer100KM() {
+        return gewicht * 0.005 + kW * 0.025;
+    }
+
+    public int getAktuellerTankFuellstand() {
+        return aktuellerTankFuellstand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int drive(int km) {
+        double maxDistanceKM = aktuellerTankFuellstand / fuelUsagePer100KM() * 100;
+
+        int drivenKM;
+        if (maxDistanceKM >= km) {
+            drivenKM = km;
+        } else {
+            drivenKM = (int) maxDistanceKM;
+        }
+
+        double consumptionForDrivenKM = (fuelUsagePer100KM() / 100) * drivenKM;
+        aktuellerTankFuellstand -= consumptionForDrivenKM;
+        return drivenKM;
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "Hersteller='" + Hersteller + '\'' +
-                ", Model='" + Model + '\'' +
+                "Hersteller='" + hersteller + '\'' +
+                ", Model='" + model + '\'' +
                 ", kW=" + kW +
-                ", Tankinhalt=" + Tankinhalt +
-                ", Antriebsart='" + Antriebsart + '\'' +
-                ", Gewicht=" + Gewicht +
+                ", Tankinhalt=" + tankinhalt +
+                ", Antriebsart='" + antriebsart + '\'' +
+                ", Gewicht=" + gewicht +
                 '}';
     }
+
+    public String getHersteller() {
+        return hersteller;
+    }
+
+//    public int getFuel(int fuel) {
+//        if(aktuellerTankFuellstand == 0);
+//        return ;
+//    }
 }
