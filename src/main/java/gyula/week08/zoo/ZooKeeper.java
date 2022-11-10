@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Vector;
 
 public class ZooKeeper {
-    private String name;
-    private HashSet<Enclosure> responsibleForEnclosures = new HashSet<>();
+    private final String name;
+    private final HashSet<Enclosure> responsibleForEnclosures = new HashSet<>();
 
     public ZooKeeper(String name){
         this.name = name;

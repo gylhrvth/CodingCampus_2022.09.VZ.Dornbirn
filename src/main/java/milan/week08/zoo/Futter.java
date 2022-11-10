@@ -39,6 +39,10 @@ public class Futter {
     public String getEinheit() {
         return einheit;
     }
+    public void printFoodStatistic() {
+        System.out.println("Futter: " + name);
+
+    }
 
     public double getEinheitsPreis() {
         return einheitsPreis;

@@ -1,14 +1,10 @@
 package martin.week08;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Caretaker {
     private String name;
     private List<Enclosure> enclListOfCT = new LinkedList<>();
-    private Map<Enclosure, Enclosuretasks> enTasksOfCT = new HashMap<>();
 
     public Caretaker() {
         name = "Jemand";
@@ -18,18 +14,35 @@ public class Caretaker {
         this.name = name;
     }
 
-    public void addEnclosureAndTask(Enclosure encl, Enclosuretasks enTasks) {
-        enclListOfCT.add(encl);
-        encl.addEnclTask(enTasks);
+    public String getName() {
+        return name;
     }
 
-    public void remEnclosureAndTask(Enclosure encl, Enclosuretasks enTasks){
-        enclListOfCT.remove(encl);
-        encl.remEnclTask(enTasks);
+    public void addEnclResp(Enclosure encl) {
+        enclListOfCT.add(encl);
     }
 
     @Override
     public String toString() {
-        return "Pfleger: " + name;
+        StringBuilder CTPr = new StringBuilder(String.format("│   ├── Pfleger: %s, verantwortlich für ", name));
+        boolean firstElement = true;
+        for (Enclosure enc : enclListOfCT) {
+            if (!firstElement) {
+                CTPr.append(", ");
+            }
+            firstElement = false;
+            CTPr.append(enc.getName());
+        }
+        return CTPr.toString();
+    }
+
+    public void simulateDay(List<Enclosure> toClean) {
+        for (Enclosure enc : enclListOfCT) {
+            if (toClean.contains(enc)) {
+                enc.simulateDay(this);
+                toClean.remove(enc);
+                break;
+            }
+        }
     }
 }

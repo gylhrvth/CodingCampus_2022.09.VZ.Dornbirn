@@ -1,54 +1,48 @@
 package michel.week08.Tiergarten;
 
 
-
 public class ZooSimulation {
     public static void main(String[] args) {
-        Zoo myZoo = new Zoo("Tiergarten Dornbirn",2022);
+        Zoo myZoo = new Zoo("Tiergarten Dornbirn", 2022);
+        myZoo.searchAndCreateZooKeeper("MaseJr", "Alpenwiese", "Ried", "Schweinestall");
+        myZoo.searchAndCreateZooKeeper("Patric", "Ried", "Terrarium", "Vogelkäfig");
+        myZoo.searchAndCreateZooKeeper("Martin", "Vogelkäfig", "Schweinestall","Teich");
 
-        Enclosure enclosure1 = new Enclosure("Alpenwiese");
-        Enclosure enclosure2 = new Enclosure("Ried");
-        Enclosure enclosure3 = new Enclosure("Terrarium (warm)");
+        myZoo.searchAndCreateZooDoctor("Dr Dre");
+        myZoo.searchAndCreateZooDoctor("Dr Doolittle");
+        myZoo.searchAndCreateZooDoctor("Frankenstein");
 
-        Animal animal1 = new Animal("Rijska","Kuh");
-        Animal animal2 = new Animal("Garmond","Storch");
-        Animal animal3 = new Animal("Hugo","Storch");
-        Animal animal4 = new Animal("Idaxis","Storch");
+        AnimalFeed hay = new AnimalFeed("Heu", 1.0, 1.99);
+        AnimalFeed worms = new AnimalFeed("Regenwürmer", 1.0, 4.99);
+        AnimalFeed grasshopper = new AnimalFeed("Grashüpfer", 1.0, 2.99);
+        AnimalFeed kartoffeln = new AnimalFeed("Kartoffeln", 1.0, 2.69);
 
-        ZooKeeper p1 = new ZooKeeper("Mase");
-        ZooKeeper p2 = new ZooKeeper("Stefan");
-        ZooKeeper p3 = new ZooKeeper("Patric");
+        Animal animal1 = myZoo.searchAndCreateAnimal("Alpenwiese", "Stier", "Kuh", hay, 5.5, 15,90);
+        Animal animal2 = myZoo.searchAndCreateAnimal("Ried", "Raymond", "Storch", worms, 0.5, 10,85);
+        Animal animal3 = myZoo.searchAndCreateAnimal("Ried", "Hugo", "Storch", worms, 0.7, 15,80);
+        Animal animal4 = myZoo.searchAndCreateAnimal("Terrarium", "Id axis", "Frosch", grasshopper, 0.3, 10,100);
+        Animal animal5 = myZoo.searchAndCreateAnimal("Terrarium", "Crazy Frog", "Frosch", grasshopper, 0.3, 20,120);
+        Animal animal6 = myZoo.searchAndCreateAnimal("Terrarium", "Froggy", "Frosch", grasshopper, 0.3, 10,100);
+        Animal animal7 = myZoo.searchAndCreateAnimal("Schweinestall", "RudiRüssel", "Schwein", kartoffeln, 2.5, 25,100);
+        Animal animal8 = myZoo.searchAndCreateAnimal("Schweinestall", "Wildschwein", "Schwein", kartoffeln, 2.5, 25,100);
+        Animal animal9 = myZoo.searchAndCreateAnimal("Schweinestall", "Rosi", "Schwein", kartoffeln, 2.5, 25,100);
+        Animal animal10 = myZoo.searchAndCreateAnimal("Vogelkäfig", "DonaldDuck", "Duck", worms, 1.2, 10,100);
+        Animal animal11 = myZoo.searchAndCreateAnimal("Vogelkäfig", "Tick", "Duck", worms, 0.7, 5,80);
+        Animal animal12 = myZoo.searchAndCreateAnimal("Vogelkäfig", "Trick", "Duck", worms, 0.7, 5,80);
+        Animal animal13 = myZoo.searchAndCreateAnimal("Vogelkäfig", "Truck", "Duck", worms, 0.7, 5,80);
 
-        AnimalFeed hay = new AnimalFeed("Heu",1.0,1.99);
-        AnimalFeed worms = new AnimalFeed("Regenwürmer",1.0,4.99);
+        for (int i = 1; i <= 10; i++) {
+            myZoo.searchAndCreateAnimal("Alpenwiese", "Kuh Nr. " + i, "Kuh", hay, 10.0, 20,150);
+        }
 
-        myZoo.addGehege(enclosure1);
-        myZoo.addGehege(enclosure2);
-        myZoo.addGehege(enclosure3);
-        enclosure1.addAnimal(animal1);
-        enclosure2.addAnimal(animal2);
-        enclosure2.addAnimal(animal3);
-        enclosure2.addAnimal(animal4);
-        animal1.setFood(hay,15);
-        animal2.setFood(worms,0.5);
-        animal3.setFood(worms,0.6);
-        animal4.setFood(worms,0.5);
 
-        p1.putTaskToZooKeeper(enclosure2,"Ausmisten");
-        p1.putTaskToZooKeeper(enclosure1,"Füttern");
-        p1.putTaskToZooKeeper(enclosure2,"Rasen mähen");
-        p2.putTaskToZooKeeper(enclosure2,"Füttern");
-        p2.putTaskToZooKeeper(enclosure3,"Pflege");
-        p2.putTaskToZooKeeper(enclosure2,"Mase kontrollieren");
-        p2.putTaskToZooKeeper(enclosure3,"Reinigen");
-        p3.putTaskToZooKeeper(enclosure3,"Füttern");
-        p3.putTaskToZooKeeper(enclosure1,"Rasen mähen");
+        for (int i = 1; i <= 5; i++) {
+            System.out.print("\n ---------------\n"+"| Tag " + i + " beginnt |\n"+" ---------------\n");
+            myZoo.simulateDay();
+        }
 
         myZoo.printZoo();
-        myZoo.getDailyFoodNeedsAndCosts();
-        p1.printZooKeeperTasks();
-        p2.printZooKeeperTasks();
-        p3.printZooKeeperTasks();
 
+        myZoo.getDailyFoodNeedsAndCosts();
     }
 }

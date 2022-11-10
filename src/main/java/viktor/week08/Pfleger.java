@@ -1,28 +1,50 @@
 package viktor.week08;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Pfleger {
 
     private String name;
-    List<String> tasksOfMaintener = new ArrayList<>();
+    HashSet<Gehege> listOfGehege = new HashSet<>();
 
 
-    public Pfleger(String name){
+    public Pfleger(String name) {
         this.name = name;
     }
 
-    public void putTasksToMaintener(String name){
-        tasksOfMaintener.add(name);
-    }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    @Override
-    public String toString() {
-        return "Pfleger: " + name + " " + tasksOfMaintener;
+    public void addGehegeForPfleger(Gehege g) {
+        listOfGehege.add(g);
     }
+
+
+    public void printStructure() {
+        System.out.printf("|    |---- Pfleger: %s, zuständig für ", name);
+        boolean comma = true;
+
+        for (Gehege g : listOfGehege) {
+            if (!comma) {
+                System.out.print(", ");
+            }
+            comma = false;
+            System.out.print(g.getDiscription());
+        }
+
+        System.out.println();
+    }
+
+    public void simulateDay(ArrayList<Gehege> zumPutzen){
+        for(Gehege gehege: listOfGehege){
+            if (zumPutzen.contains(gehege)){
+                gehege.simulation(this);
+                zumPutzen.remove(gehege);
+                break;
+            }
+        }
+    }
+
 }
