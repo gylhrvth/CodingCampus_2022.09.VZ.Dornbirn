@@ -1,5 +1,7 @@
-package batuhan.week08;
+package batuhan.week08zoo;
 
+import java.util.Map;
+import java.util.Random;
 import java.util.Vector;
 
 public class Gehege {
@@ -8,7 +10,7 @@ public class Gehege {
     private String animalenclosure;   //Tiergehege
     private static int lastID = 1;
     private int id;
-    public Vector<Animals> listOfAnimal = new Vector<Animals>();
+    public Vector<Animal> listOfAnimal = new Vector<Animal>();
 
 
     public Gehege(String animalenclosure) {
@@ -21,10 +23,19 @@ public class Gehege {
 
     }
 
+    public Vector<Animal> getListOfAnimal() {
+        return listOfAnimal;
+    }
+
     public int getId() {
         return id;
     }
-//public void setAnimalname(String animalname){
+
+    public String getAnimalenclosure() {
+        return animalenclosure;
+    }
+
+    //public void setAnimalname(String animalname){
 //        this.animalname = animalname;
 //}
 //public void setAnimalbreed(String animalbreed){
@@ -33,16 +44,21 @@ public class Gehege {
 //}
 
 
-    public void putAnimal(Animals animals) {
+    public void putAnimal(Animal animals) {
         listOfAnimal.add(animals);
 
 
     }
 
+    public String toString(){
+
+        return animalenclosure;
+    }
+
 //    public void printStuktur(){
 //
-//        System.out.println("│   ├── Gehege: " + animalenclosure);
-//    }
+//
+//    }   System.out.println("│   ├── Gehege: " + animalenclosure);
 
     public void printStuktur() {
         System.out.println("│   ├── Gehege: " + animalenclosure  );
@@ -52,10 +68,25 @@ public class Gehege {
         } else {
 
 
-            for (Animals a :listOfAnimal) {
+            for (Animal a :listOfAnimal) {
                 System.out.println(a.toSting());
 
             }
         }
     }
+    public String watchFavAnimal(Zookeeper zookeeper) {
+        Random random = new Random();
+        int randomindex = random.nextInt(listOfAnimal.size());
+        Animal animal = listOfAnimal.get(randomindex);
+        return animal.getAnimalName();
+    }
+
+
+
+    public void calculateFoodMap(Map<Animalfeed, Double> foodMap) {
+        for (Animal a : listOfAnimal){
+            a.calculateFoodMap(foodMap);
+        }
+    }
+
 }
