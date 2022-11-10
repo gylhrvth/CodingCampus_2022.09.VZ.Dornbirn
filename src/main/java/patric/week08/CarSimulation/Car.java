@@ -10,9 +10,24 @@ public class Car {
     public int Gewicht;
 
 
-    public Car(String Hersteller,String Model,int kW,int Tankinhalt,String Antriebsart,int Gewicht){
-        this.Hersteller=Hersteller;
-        this.Model=Model;
+    public Car(String Hersteller, String Model, int kW, int Tankinhalt, String Antriebsart, int Gewicht) {
+        this.Hersteller = Hersteller;
+        this.Model =Model;
+        this.kW = kW;
+        this.Tankinhalt = Tankinhalt;
+        this.Antriebsart = Antriebsart;
+        this.Gewicht = Gewicht;
     }
 
+    @Override
+    public String toString() {
+        return "Car{" +
+                "Hersteller='" + Hersteller + '\'' +
+                ", Model='" + Model + '\'' +
+                ", kW=" + kW +
+                ", Tankinhalt=" + Tankinhalt +
+                ", Antriebsart='" + Antriebsart + '\'' +
+                ", Gewicht=" + Gewicht +
+                '}';
+    }
 }

@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 public class WieVieleSonntageHatDerMonat {
     public static void main(String[] args) {
 
-        System.out.println(getSundays(2021, 10));
+        System.out.println(getSundays(2022, 10));
         System.out.println("------------------------------------");
         System.out.println(getSundays(2021, 9));
     }
