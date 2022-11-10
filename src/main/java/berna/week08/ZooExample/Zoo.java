@@ -48,11 +48,11 @@ public class Zoo {
         System.out.println("The day starts... ");
         for (Enclosure e : enclosureList) {
             System.out.println("In enclosure " + e.nameOfEnclosure + "");
-            System.out.println("    there is still a lot to do....");
+            System.out.println("    there is still a lot to do at the beginning of the day ...");
             //it´s just a simplification, stupid!
-            System.out.println("      >> send Keeper " + chooseKeeper());
+            System.out.println("        >> send Keeper " + chooseKeeper());
             //TODO: check if keeper has the required skills
-            System.out.println("      >> work in progress");
+            System.out.println("        >> work in progress");
             //TODO: add a delay
             e.simulateOneDay();
         }
