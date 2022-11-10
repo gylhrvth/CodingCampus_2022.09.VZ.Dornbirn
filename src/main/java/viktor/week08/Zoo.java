@@ -1,59 +1,98 @@
 package viktor.week08;
 
-import batuhan.week03.Array;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class Zoo {
 
     private String name;
     private int yearOfFounding;
-    private Futter feed;
 
 
     ArrayList<Gehege> list = new ArrayList<Gehege>();
-    Map<String, Double> foods = new HashMap<String, Double>();
+    ArrayList<Pfleger> pflegerList = new ArrayList<>();
+
 
     public Zoo(String name, int yearOfFounding) {
         this.name = name;
         this.yearOfFounding = yearOfFounding;
     }
 
-    public void putGehegeToZoo(Gehege d) {
-        list.add(d);
+    public Gehege putGehegeToZoo(String name) {
+        for (Gehege g : list) {
+            if (g.getDiscription().equals(name)) {
+                return g;
+            }
+        }
+
+        Gehege gehege = new Gehege(name);
+        list.add(gehege);
+        return gehege;
     }
 
-    public void removeGehegeFromZoo(Gehege d) {
-        list.remove(d);
+    public void removeGehege(Gehege g){
+        list.remove(g);
     }
+
+
+    public Tier putTierToGehege(String gehegename, String tiername, String tierart) {
+        Gehege gehege = putGehegeToZoo(gehegename);
+        return gehege.putTierToGehege(tiername, tierart);
+    }
+
+
+    public void removeGehegeFromZoo(Gehege s) {
+        list.remove(s);
+    }
+
+
+    public Pfleger putPflegerToGehege(String name, String... gehegeNamen) {
+
+        for (Pfleger p : pflegerList) {
+            if (p.getName().equals(name)) {
+                return p;
+            }
+        }
+
+        Pfleger p = new Pfleger(name);
+        pflegerList.add(p);
+
+        for (String gname : gehegeNamen) {
+            p.addGehegeForPfleger(putGehegeToZoo(gname));
+        }
+        return p;
+    }
+
+
 
     public void printListWithEnclosures() {
 
         System.out.println("|----Zoo: " + name + ", gegründet " + yearOfFounding);
         for (Gehege g : list) {
             g.printGehege();
-
+        }
+        for (Pfleger p : pflegerList) {
+            p.printStructure();
         }
     }
 
-    public void putFoodToAnimal(Futter food, double quantity) {
-        foods.put(food.getName(), quantity);
-    }
+    public void simulateDay() {
+        ArrayList<Gehege> zuPutzendeGehegen = new ArrayList<>();
+        zuPutzendeGehegen.addAll(list);
 
+        int zählerDerNochNichtGeputztenGehegen = Integer.MAX_VALUE;
 
-    public void showAllFoods() {
+        while (!zuPutzendeGehegen.isEmpty() && zuPutzendeGehegen.size() < zählerDerNochNichtGeputztenGehegen) {
+            zählerDerNochNichtGeputztenGehegen = zuPutzendeGehegen.size();
 
-        for (String i : foods.keySet()) {
-            System.out.println(i + " " + foods.get(i));
+            for (Pfleger p : pflegerList) {
+
+                p.simulateDay(zuPutzendeGehegen);
+            }
         }
-    }
-
-
-
-    public String toString() {
-        return "|----Zoo: " + name + ", gegründet " + yearOfFounding;
+        for (Gehege g : zuPutzendeGehegen) {
+            System.out.println(g.getDiscription() + " hat keinen Pfleger!");
+        }
     }
 }
 

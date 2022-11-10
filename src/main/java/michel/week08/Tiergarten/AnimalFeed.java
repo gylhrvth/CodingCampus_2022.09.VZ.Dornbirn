@@ -6,7 +6,7 @@ public class AnimalFeed {
     private String name;
     private final double unit;
 
-    private double unitPrice;
+    private final double unitPrice;
 
     public AnimalFeed(String name, double unit, double unitPrice) {
         this.name = name;
