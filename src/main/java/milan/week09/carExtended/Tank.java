@@ -8,4 +8,12 @@ public class Tank {
     public Tank(String model) {
         this.model = model;
     }
+
+    public String getHersteller() {
+        return hersteller;
+    }
+
+    public String getModel() {
+        return model;
+    }
 }

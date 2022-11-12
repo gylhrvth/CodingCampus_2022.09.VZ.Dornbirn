@@ -11,4 +11,16 @@ public class RepairStation {
     public RepairStation(String name) {
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void addTankToList(Tank tank) {
+        tankListe.add(tank);
+    }
+
+    public void addMotorToList(Motor motor) {
+        motorenListe.add(motor);
+    }
 }
