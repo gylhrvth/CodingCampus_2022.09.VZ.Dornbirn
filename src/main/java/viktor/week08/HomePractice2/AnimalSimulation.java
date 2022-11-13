@@ -9,17 +9,14 @@ public class AnimalSimulation {
         for (Animal a : list) {
             if (a instanceof Crocodile) {
                 System.out.print("Instance of class Crocodile -> ");
-                a.iAmEating();
 
             } else if (a instanceof Cat) {
                 System.out.print("Instance of class Cat -> ");
-                a.iAmEating();
 
             } else if (a instanceof Murmile) {
                 System.out.print("Instance of class Murmile -> ");
-                a.iAmEating();
             }
-
+            a.iAmEating();
         }
         System.out.println();
     }
@@ -29,16 +26,15 @@ public class AnimalSimulation {
 
             if (a instanceof Crocodile) {
                 System.out.print("Instance of class Crocodile -> ");
-                a.iAmLiving();
 
             } else if (a instanceof Cat) {
                 System.out.print("Instance of class Cat -> ");
-                a.iAmLiving();
 
             } else if (a instanceof Murmile) {
                 System.out.print("Instance of class Murmile -> ");
-                a.iAmLiving();
+
             }
+            a.iAmLiving();
         }
         System.out.println();
     }
@@ -48,16 +44,15 @@ public class AnimalSimulation {
 
             if (a instanceof Crocodile) {
                 System.out.print("Instance of class Crocodile -> ");
-                a.iAmSleeping();
 
             } else if (a instanceof Cat) {
                 System.out.print("Instance of class Cat -> ");
-                a.iAmSleeping();
 
             } else if (a instanceof Murmile) {
                 System.out.print("Instance of class Murmile -> ");
-                a.iAmSleeping();
+
             }
+            a.iAmSleeping();
         }
         System.out.println();
     }
