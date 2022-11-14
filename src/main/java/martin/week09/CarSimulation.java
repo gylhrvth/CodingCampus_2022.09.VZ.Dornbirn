@@ -30,9 +30,9 @@ public class CarSimulation {
             Audlis.add(makeRandCar());
         }
 
-        Engine aduilE1 = new Engine(EngineType.GAS, 69,1400);
+        Engine aduilE1 = new Engine(EngineType.GAS, 69, 95);
         Tank aduilT1 = new Tank(52);
-        Audlis.add(new Car(aduilE1, aduilT1, 95, "PlAu", "Aduil C4"));
+        Audlis.add(new Car(aduilE1, aduilT1, 1400, "PlAu", "Aduil C4"));
         for (Car car : Audlis) {
             printCarKenndaten(car);
         }
@@ -86,10 +86,12 @@ public class CarSimulation {
             if (car.needRefill(10)) {
                 System.out.print("\u001B[34m, hat dann " +
                         car.refill(rand.nextInt(45, 95)) +
-                        "L nachgetankt\u001B[0m");
+                        "L nachgetankt\u001B[0m und ");
+            } else {
+                System.out.print(" und hat ");
             }
-            System.out.print("\u001B[35m und hat ");
-            System.out.println(schoenLeben[wieSchoen] + "\u001B[0m");
+
+            System.out.println("\u001B[35m"+schoenLeben[wieSchoen] + "\u001B[0m");
         }
     }
 }
