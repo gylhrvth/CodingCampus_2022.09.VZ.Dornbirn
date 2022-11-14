@@ -1,7 +1,5 @@
 package mase.week08.Zoo;
 
-import mase.week08.Enclosure;
-
 public class ZooObjekt {
     public static void main(String[] args) {
         Zoo myZoo = new Zoo("Tiergarten Dornbirn",2022);

@@ -1,4 +1,4 @@
-package mase.week08;
+package mase.week08.Zoo;
 
 import mase.week08.Zoo.Animal;
 
@@ -9,6 +9,10 @@ public class Enclosure {
     private String description;
 
     private List<Animal> animalList = new ArrayList<>();
+
+    public String getDescription() {
+        return description;
+    }
 
     public Enclosure(String description){
         this.description= description;
@@ -33,4 +37,6 @@ public class Enclosure {
     public String toString() {
         return   description;
     }
+
+
 }

@@ -1,74 +1,96 @@
 package milan.week09.carExtended;
 
-import java.util.Random;
 
-public class Car {
-
-    enum Antriebsart {
-        BENZIN,
-        DIESEL,
-        GAS,
-        STROM,
-    }
-
-    public static Random ran = new Random();
+public abstract class Car {
 
     private String hersteller;
     private String modell;
-    private int kWLeistung;
-    private double tankinhalt;
-    private double maxTankinhalt;
-    public double gewicht;
-    private Motor motor;
+
+    protected double gewicht;
+    protected Motor motor;
     private Tank tank;
 
-    public Car(String modell, String hersteller, double maxTankinhalt, int kWLeistung, double gewicht) {
-        this.modell = modell;
-        this.hersteller = hersteller;
-        this.maxTankinhalt = maxTankinhalt;
-        tankinhalt = maxTankinhalt;
-        this.kWLeistung = kWLeistung;
-        this.gewicht = gewicht;
 
+    public Car(String modell, String hersteller, double gewicht) {
+        this(
+                new Motor("Dummy Motor", 75),
+                modell,
+                hersteller,
+                gewicht
+        );
+    }
+    public Car(String motorType, int leistung, String modell, String hersteller, double gewicht) {
+        this(
+                new Motor(motorType, leistung),
+                modell,
+                hersteller,
+                gewicht
+        );
     }
 
-    public void carSimulation(int kilometer) {
-        int kmSum = 0;
-        while (kmSum < kilometer) {
-            int km = drive(kilometer);
-            if (km < kilometer) {
-                kmSum += km;
-                if (kmSum < kilometer) {
-                    System.out.println("Nach " + km + " km war der Tank leer und es wurde nachgedankt. (Zurückgelegte Gesamtstrecke: " + kmSum + " km).");
+    public Car(Motor motor, String modell, String hersteller, double gewicht) {
+        this.motor = motor;
+        this.modell = modell;
+        this.hersteller = hersteller;
+        this.gewicht = gewicht;
+        tank = new FuelTank(" ");
+    }
+
+
+    public void carSimulation(int kilometerZumZiel) {
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nDer " + getModell() + " fährt los!\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        int kmSumme = 0;
+        while (kmSumme < kilometerZumZiel) {
+            int kmProEttape = drive(kilometerZumZiel);
+            if (kmProEttape < kilometerZumZiel) {
+                kmSumme += kmProEttape;
+                if (kmSumme < kilometerZumZiel) {
+                    System.out.println("Nach " + kmProEttape + " km war der " + getSpeicherName() + " leer. (Zurückgelegte Gesamtstrecke: " + kmSumme + " km).");
+                    addKmToKmStand(kmProEttape);
+                    if (!getStatus()) {
+                        break;
+                    }
                     refuelCar();
                 } else {
-                    System.out.println("Nach " + (kilometer - (kmSum - km)) + " km wurde das Ziel erreicht. (Zurückgelegte Gesamtstrecke: " + kilometer + " km).");
+                    addKmToKmStand(kilometerZumZiel - (kmSumme - kmProEttape));
+                    System.out.println("Nach " + (kilometerZumZiel - (kmSumme - kmProEttape)) + " km wurde das Ziel erreicht. (Zurückgelegte Gesamtstrecke: " + kilometerZumZiel + " km).\n");
+                    if (!getStatus()) {
+                        break;
+                    }
                 }
             } else {
-                System.out.println("Nach " + kilometer + " km wurde das Ziel erreicht.");
+                System.out.println("Nach " + kilometerZumZiel + " km wurde das Ziel erreicht.\n");
                 break;
             }
+
         }
     }
 
     public void refuelCar() {
-        setTankinhalt(maxTankinhalt - ran.nextDouble(maxTankinhalt / 10));
-        System.out.printf("Es wurden %.2f Liter getankt.\n", tankinhalt);
+        tank.refuelTank();
     }
 
     public int drive(int kilometer) {
+        motor.setStatusRunning(true);
         double neededFuel = (calculateVerbrauch() / 100 * kilometer);
-        if (neededFuel > tankinhalt) {
-            double rest = tankinhalt;
+        if (neededFuel > getTankinhalt()) {
+            double rest = getTankinhalt();
             setTankinhalt(0);
+            motor.setStatusRunning(false);
             return (int) ((rest / calculateVerbrauch()) * 100);
         }
-        setTankinhalt(tankinhalt - ((kilometer * calculateVerbrauch()) / 100));
+        setTankinhalt(getTankinhalt() - ((kilometer * calculateVerbrauch()) / 100));
+        addKmToKmStand(kilometer);
+        motor.setStatusRunning(false);
         return kilometer;
     }
 
+    public void addKmToKmStand(int kilometer) {
+        motor.addKmToKmStand(kilometer);
+    }
+
     public double calculateVerbrauch() {
-        return ((kWLeistung * 1.1) / (gewicht * 1.1) / 7.5);
+        return (motor.getkWLeistung() / gewicht / 7.5);
     }
 
     public String getHersteller() {
@@ -80,11 +102,31 @@ public class Car {
     }
 
     public double getTankinhalt() {
-        return tankinhalt;
+        return tank.getTankinhalt();
+    }
+
+    public void getTankinhaltText() {
+        tank.getTankinhaltText();
     }
 
     public double getMaxTankinhalt() {
-        return maxTankinhalt;
+        return tank.getMaxTankinhalt();
+    }
+
+    public boolean getStatus() {
+        return motor.getStatusNotDefect();
+    }
+
+    public void getMotorStatusText() {
+        motor.getMotorStatusText();
+    }
+
+    public double getGewicht() {
+        return gewicht;
+    }
+
+    public int getEngineKmStand() {
+        return motor.getKmStand();
     }
 
     public void setHersteller(String hersteller) {
@@ -96,10 +138,26 @@ public class Car {
     }
 
     public void setTankinhalt(double tankinhalt) {
-        this.tankinhalt = tankinhalt;
+        tank.setTankinhalt(tankinhalt);
     }
 
-    public void setMaxTankinhalt(double maxTankinhalt) {
-        this.maxTankinhalt = maxTankinhalt;
+    public void setMotor(Motor motor) {
+        this.motor = motor;
+    }
+
+    public void setTank(Tank tank) {
+        this.tank = tank;
+    }
+
+    public String getMotorName() {
+        return motor.getModel();
+    }
+
+    protected Motor getMotor() {
+        return motor;
+    }
+
+    public String getSpeicherName() {
+        return tank.getSpeicherName();
     }
 }
