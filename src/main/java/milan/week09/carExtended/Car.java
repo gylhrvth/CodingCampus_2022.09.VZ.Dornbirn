@@ -1,4 +1,4 @@
-package milan.week09.car;
+package milan.week09.carExtended;
 
 import java.util.Random;
 
@@ -18,7 +18,9 @@ public class Car {
     private int kWLeistung;
     private double tankinhalt;
     private double maxTankinhalt;
-    public double gewicht;
+    private double gewicht;
+    private Motor motor;
+    private Tank tank;
 
     public Car(String modell, String hersteller, double maxTankinhalt, int kWLeistung, double gewicht) {
         this.modell = modell;
@@ -27,25 +29,35 @@ public class Car {
         tankinhalt = maxTankinhalt;
         this.kWLeistung = kWLeistung;
         this.gewicht = gewicht;
+        motor = new Motor(" ");
 
     }
 
-    public void carSimulation(int kilometer) {
-        int kmSum = 0;
-        while (kmSum < kilometer) {
-            int km = drive(kilometer);
-            if (km < kilometer) {
-                kmSum += km;
-                if (kmSum < kilometer) {
-                    System.out.println("Nach " + km + " km war der Tank leer und es wurde nachgedankt. (Zurückgelegte Gesamtstrecke: " + kmSum + " km).");
+    public void carSimulation(int kilometerZumZiel) {
+        int kmSumme = 0;
+        while (kmSumme < kilometerZumZiel) {
+            int kmProEttape = drive(kilometerZumZiel);
+            if (kmProEttape < kilometerZumZiel) {
+                kmSumme += kmProEttape;
+                if (kmSumme < kilometerZumZiel) {
+                    System.out.println("Nach " + kmProEttape + " km war der Tank leer und es wurde nachgedankt. (Zurückgelegte Gesamtstrecke: " + kmSumme + " km).");
+                    addKmToKmStand(kmProEttape);
+                    if (!getStatus()) {
+                        break;
+                    }
                     refuelCar();
                 } else {
-                    System.out.println("Nach " + (kilometer - (kmSum - km)) + " km wurde das Ziel erreicht. (Zurückgelegte Gesamtstrecke: " + kilometer + " km).");
+                    addKmToKmStand(kilometerZumZiel - (kmSumme - kmProEttape));
+                    System.out.println("Nach " + (kilometerZumZiel - (kmSumme - kmProEttape)) + " km wurde das Ziel erreicht. (Zurückgelegte Gesamtstrecke: " + kilometerZumZiel + " km).");
+                    if (!getStatus()) {
+                        break;
+                    }
                 }
             } else {
-                System.out.println("Nach " + kilometer + " km wurde das Ziel erreicht.");
+                System.out.println("Nach " + kilometerZumZiel + " km wurde das Ziel erreicht.");
                 break;
             }
+
         }
     }
 
@@ -55,6 +67,7 @@ public class Car {
     }
 
     public int drive(int kilometer) {
+
         double neededFuel = (calculateVerbrauch() / 100 * kilometer);
         if (neededFuel > tankinhalt) {
             double rest = tankinhalt;
@@ -62,7 +75,12 @@ public class Car {
             return (int) ((rest / calculateVerbrauch()) * 100);
         }
         setTankinhalt(tankinhalt - ((kilometer * calculateVerbrauch()) / 100));
+        addKmToKmStand(kilometer);
         return kilometer;
+    }
+
+    public void addKmToKmStand(int kilometer) {
+        motor.addKmToKmStand(kilometer);
     }
 
     public double calculateVerbrauch() {
@@ -85,6 +103,18 @@ public class Car {
         return maxTankinhalt;
     }
 
+    public boolean getStatus() {
+        return motor.getStatus();
+    }
+
+    public double getGewicht() {
+        return gewicht;
+    }
+
+    public int getEngineKmStand() {
+        return motor.getKmStand();
+    }
+
     public void setHersteller(String hersteller) {
         this.hersteller = hersteller;
     }
@@ -99,5 +129,9 @@ public class Car {
 
     public void setMaxTankinhalt(double maxTankinhalt) {
         this.maxTankinhalt = maxTankinhalt;
+    }
+
+    public void setMotor(Motor motor) {
+        this.motor = motor;
     }
 }

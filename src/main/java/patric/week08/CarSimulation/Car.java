@@ -6,14 +6,11 @@ public class Car {
     public String model;
     public int kW;
     public int tankinhalt;
-    public String antriebsart;
+    public Antriebsart antriebsart;
     public int gewicht;
     private int aktuellerTankFuellstand;
 
-    private int fuel;
-
-
-    public Car(String hersteller, String model, int kW, int tankinhalt, String antriebsart, int gewicht) {
+    public Car(String hersteller, String model, int kW, int tankinhalt, Antriebsart antriebsart, int gewicht) {
         this.hersteller = hersteller;
         this.model = model;
         this.kW = kW;
@@ -21,7 +18,10 @@ public class Car {
         this.antriebsart = antriebsart;
         this.gewicht = gewicht;
         this.aktuellerTankFuellstand = tankinhalt;
-        this.fuel = fuel;
+    }
+
+    public Antriebsart getAntriebsart() {
+        return antriebsart;
     }
 
     private double fuelUsagePer100KM() {
@@ -67,8 +67,7 @@ public class Car {
         return hersteller;
     }
 
-//    public int getFuel(int fuel) {
-//        if(aktuellerTankFuellstand == 0);
-//        return ;
-//    }
+    public void refill() {
+     aktuellerTankFuellstand = tankinhalt;
+    }
 }
