@@ -1,5 +1,7 @@
 package viktor.week08.Car;
 
+import java.sql.SQLOutput;
+
 public class Car {
 
     private String hersteller;
@@ -47,17 +49,27 @@ public class Car {
         double consumptionForDrive = consumptionPerKM * currentState;
         tankInhalt -= consumptionForDrive;
 
-        if (tankInhalt > 0) {
-            System.out.println("Tankinhalt : " + tankInhalt);
-        } else {
-            System.out.println("Dein Tank ist leer!");
-        }
+        System.out.printf("Tank content (l): %23.2f%n", tankInhalt);
 
         return currentState;
 
     }
 
+    public boolean checkTankContant(){
+
+        if (tankInhalt < 1){
+            System.out.println("Your tank level is very low, you need to tank!");
+            return false;
+        }
+        return true;
+    }
+
     public void refill() {
+        System.out.println("Your tank is again full loaded, you can drive further!");
         this.tankInhalt = maxTankInhalt;
     }
+
+
+
+
 }
