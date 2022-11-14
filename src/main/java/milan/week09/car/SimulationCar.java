@@ -17,6 +17,7 @@ public class SimulationCar {
         }
 
 
+
         int entfernung = 10000;
 
         for (Car x : carList) {

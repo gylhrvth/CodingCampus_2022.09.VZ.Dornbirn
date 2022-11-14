@@ -9,28 +9,30 @@ public class SimulationCar {
 
     public static void main(String[] args) {
 
-        Motor v8 = new Motor("V8");
+        Motor v8 = new Motor("V8", 180);
+        Motor v6 = new Motor("V8", 180);
 
-        List<Car> carList = new ArrayList<>();
+        NormalCar bmw = new NormalCar(v8, "i4", "BMW", 1.2 + ran.nextDouble(0.8));
+        SelfRepairingCar bmw2 = new SelfRepairingCar(v6, "i4", "BMW", 1.2 + ran.nextDouble(0.8));
 
-        for (int i = 1; i < 2; i++) {
-            Car vw = new Car("Golf" + i, "Volkswagen", 60 + ran.nextInt(40), 80 + ran.nextInt(40), 1.2 + ran.nextDouble(0.8));
-            carList.add(vw);
-            vw.setMotor(v8);
 
+        Tank tank = new Battery("Varta");
+        bmw.setTank(tank);
+
+        bmw.carSimulation(3000);
+        bmw2.carSimulation(3000);
+
+        RepairStation oeamtc = new RepairStation("ÖMTC");
+
+        for (int i = 0; i < 20; i++) {
+            Motor engine = new Motor("xy" + i, 80 + ran.nextInt(80));
+            oeamtc.addMotorToList(engine);
         }
+        bmw.setMotor(v8);
 
-
-        int entfernung = 500000;
-
-        for (Car x : carList) {
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            System.out.println(x.getModell() + " fährt los: ");
-            System.out.println(x.getMaxTankinhalt() + "\n" + x.calculateVerbrauch());
-            System.out.println();
-            x.carSimulation(entfernung);
-
-        }
+        System.out.println("Vor dem Tausch: " + bmw.getMotorName());
+        oeamtc.changeEnginge(bmw);
+        System.out.println("Nach dem Tausch: " + bmw.getMotorName());
 
 
     }

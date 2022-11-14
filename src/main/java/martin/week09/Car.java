@@ -51,12 +51,13 @@ public class Car {
     }
 
     public int drive(int kilometer) {
-        int canDrive = this.tankInhalt() * this.verbrauch();
+
+        int canDrive = (int) Math.ceil(this.tankInhalt() * this.verbrauch());
         if (canDrive > kilometer) {
             this.tankFill(this.tankInhalt() - (kilometer / verbrauch()));
             return kilometer;
         } else {
-            //this.tankFill(0);
+            this.tankFill(0);
             return canDrive;
         }
     }
