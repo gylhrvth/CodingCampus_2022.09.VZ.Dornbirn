@@ -1,6 +1,8 @@
-package batuhan.week08;
+package batuhan.week08zoo;
 
-public class Animals {
+import java.util.Map;
+
+public class Animal {
 
 
     private String animalBreed;
@@ -8,12 +10,10 @@ public class Animals {
     private Animalfeed food;
     private double amountOfFood;
 
-    public Animals(String animalBreed, String animalName){
+
+    public Animal(String animalBreed, String animalName, Animalfeed food, double amountOfFood){
         this.animalBreed =animalBreed;
         this.animalName = animalName;
-    }
-
-    public void setFood(Animalfeed food, double amountOfFood) {
         this.food = food;
         this.amountOfFood = amountOfFood;
     }
@@ -35,6 +35,19 @@ public class Animals {
         return animalName;
     }
     public String toSting(){
-        return "│      ├──   " + animalName + " the " +animalBreed + food  ;
+        return "│      ├──   " + animalName + " the " +animalBreed  ;
     }
+
+
+    public void calculateFoodMap(Map<Animalfeed, Double> foodMap) {
+        if (food != null) {
+            Double amount = 0.0;
+            if (foodMap.containsKey(food)) {
+                amount = foodMap.get(food);
+            }
+            amount += amountOfFood;
+            foodMap.put(food, amount);
+        }
+    }
+
 }
