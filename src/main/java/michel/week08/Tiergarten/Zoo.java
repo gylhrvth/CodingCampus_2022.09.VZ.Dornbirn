@@ -1,48 +1,22 @@
 package michel.week08.Tiergarten;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Zoo {
+    private final String name;
+    private final int foundingYear;
 
-    private String name;
-    private int foundingYear;
+    private final List<Enclosure> enclosureList = new ArrayList<>();
 
-    private Enclosure enclosure;
-    private Animal animal;
-    private List<Enclosure> enclosureList = new ArrayList<>();
+    private final List<Doctor> doctorList = new ArrayList<>();
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getFoundingYear() {
-        return foundingYear;
-    }
-
-    public void setFoundingYear(int foundingYear) {
-        this.foundingYear = foundingYear;
-    }
-
+    private final List<ZooKeeper> zooKeeperList = new ArrayList<>();
 
     public Zoo(String name, int foundingYear) {
         this.name = name;
         this.foundingYear = foundingYear;
     }
 
-    public void addGehege(Enclosure selectedEnclosure) {
-        enclosureList.add(selectedEnclosure);
-    }
-
-    public void removeGehege(Enclosure selectedEnclosure) {
-        enclosureList.remove(selectedEnclosure);
-    }
 
     public void getDailyFoodNeedsAndCosts() {
         Map<AnimalFeed, Double> foods = new HashMap<>();
@@ -62,21 +36,91 @@ public class Zoo {
         for (Map.Entry<AnimalFeed, Double> entry : foods.entrySet()) {
             AnimalFeed food = entry.getKey();
             double amount = entry.getValue();
-            Double price = food.getUnitPrice() * amount;
+            double price = food.getUnitPrice() * amount;
             overallPrice += price;
-            System.out.printf("%-17s %10.2f kg | %5.2f €\n", entry.getKey().getName(), entry.getValue(), price);
+            System.out.printf("%-17s %10.2f kg | %7.2f €\n", entry.getKey().getName(), entry.getValue(), price);
         }
-        System.out.printf("Gesammtkosten pro Tag:  %15.2f €\n\n", overallPrice);
+        System.out.printf("Gesamtkosten pro Tag:  %18.2f €\n\n", overallPrice);
     }
 
     public void printZoo() {
-        System.out.println("|--- Zoo: " + name + ", gegründet " + foundingYear);
-        for (Enclosure g : enclosureList) {
-            g.printEnclosure();
+        System.out.println("\n├── Zoo: " + name + ", gegründet " + foundingYear);
+        for (Enclosure enc : enclosureList) {
+            enc.printEnclosure();
+        }
+        for (ZooKeeper zooKeeper : zooKeeperList) {
+            zooKeeper.printZooKeeper();
         }
     }
 
-    public String toString() {
-        return "Zoo: " + name + ", gegründet " + foundingYear;
+    public Enclosure searchAndCreateEnclosure(String name) {
+        for (Enclosure enc : enclosureList) {
+            if (enc.getName().equals(name)) {
+                return enc;
+            }
+        }
+        Enclosure enc = new Enclosure(name);
+        enclosureList.add(enc);
+        return enc;
+    }
+
+    public Animal searchAndCreateAnimal(String enclosureName, String name, String art, AnimalFeed food, Double amountOfFood, int bite, int maxHealth) {
+        Enclosure enc = searchAndCreateEnclosure(enclosureName);
+        return enc.searchAndCreate(name, art, food, amountOfFood, bite, maxHealth);
+    }
+
+    public void searchAndCreateZooKeeper(String name, String... enclosureNames) {
+        for (ZooKeeper zooKeeper : zooKeeperList) {
+            if (zooKeeper.getName().equals(name)) {
+                return;
+            }
+        }
+        ZooKeeper zooKeeper = new ZooKeeper(name);
+        zooKeeperList.add(zooKeeper);
+        for (String encName : enclosureNames) {
+            zooKeeper.putTaskToZooKeeper(searchAndCreateEnclosure(encName));
+        }
+    }
+    public void searchAndCreateZooDoctor(String name) {
+        for (Doctor doctor : doctorList) {
+            if (doctor.getName().equals(name)) {
+                return;
+            }
+        }
+        Doctor doctor = new Doctor(name);
+        doctorList.add(doctor);
+    }
+    public void simulateDay() {
+        Vector<Enclosure> enclosuresToClean = new Vector<>(enclosureList);
+        int countEnclosureLeftToClean = Integer.MAX_VALUE;
+        while (!enclosuresToClean.isEmpty() && enclosuresToClean.size() < countEnclosureLeftToClean) {
+            countEnclosureLeftToClean = enclosuresToClean.size();
+            for (ZooKeeper zooKeeper : zooKeeperList) {
+                zooKeeper.simulateDay(enclosuresToClean);
+            }
+        }
+        for (Enclosure enclosure : enclosuresToClean) {
+            System.out.println(enclosure.getName() + " hat keinen Pfleger, es wurde nicht betreut!");
+        }
+        System.out.println();
+        for (Enclosure enc : enclosureList) {
+            enc.simulateAttacks();
+        }
+        for (Doctor doc:doctorList) {
+            doc.simulateHealing(searchAnimalWithLowestHP());
+        }
+    }
+
+    public Animal searchAnimalWithLowestHP() {
+        Animal lowest = enclosureList.get(0).getAnimalList().get(0);
+        for (Enclosure enc : enclosureList) {
+            for (Animal animal : enc.getAnimalList()) {
+                if ((animal.getActualHealth()*100)/ animal.getMaxHealth() < (lowest.getActualHealth()*100)/ lowest.getMaxHealth()) {
+                   lowest = animal;
+                }
+            }
+        }
+        System.out.println("│      ├── Das Tier: "+lowest.getName() + " hat nur noch " + lowest.getActualHealth() + " Hp bitte den Doctor anrufen");
+        return lowest;
     }
 }

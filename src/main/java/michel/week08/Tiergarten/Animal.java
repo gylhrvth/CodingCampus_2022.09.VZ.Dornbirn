@@ -1,47 +1,57 @@
 package michel.week08.Tiergarten;
 
 
-
 public class Animal {
-    private String name;
-    private String gattung;
-    private AnimalFeed food;
-    private double amountOfFood;
+    private final String name;
+    private final String gattung;
+
+    private final AnimalFeed food;
+    private final double amountOfFood;
+
+    private final int maxHealth;
+    private int actualHealth;
+
+    private final int bite;
+
+    public Animal(String name, String gattung, AnimalFeed food, double amountOfFood, int bite, int maxHealth) {
+        this.name = name;
+        this.gattung = gattung;
+        this.food = food;
+        this.amountOfFood = amountOfFood;
+        this.bite = bite;
+        this.maxHealth=maxHealth;
+        actualHealth = maxHealth;
+    }
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+    public void setActualHealth(int actualHealth) {
+        this.actualHealth = actualHealth;
+    }
+    public int getActualHealth() {
+        return actualHealth;
+    }
+
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGattung() {
-        return gattung;
-    }
-
-    public void setGattung(String gattung) {
-        this.gattung = gattung;
     }
 
     public AnimalFeed getFood() {
         return food;
     }
+
     public double getAmountOfFood() {
         return amountOfFood;
     }
 
-    public Animal(String name, String gattung) {
-        this.name = name;
-        this.gattung = gattung;
+    public void printAnimal() {
+        System.out.println("│      ├── " + name + ", " + gattung + ", Gesundheit: " + actualHealth + " HP von " + maxHealth);
     }
 
-    public void setFood(AnimalFeed food, double amountOfFood) {
-        this.food = food;
-        this.amountOfFood = amountOfFood;
-    }
-
-
-    public String toString() {
-        return name + ", " + gattung;
+    public void bite(Animal otherAnimal) {
+        actualHealth -= otherAnimal.bite;
+        if (actualHealth < 0) {
+            System.out.println("Das Tier: " + name + " wurde von " + otherAnimal.getName() + " getötet");
+        }
     }
 }
