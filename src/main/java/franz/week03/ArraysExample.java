@@ -9,22 +9,20 @@ public class ArraysExample {
     private static Random rand = new Random();
 
     public static void main(String[] args) {
-      //  uebersicht();
-      // uebungNumberArray();
+        uebersicht();
+        uebungNumberArray();
 
 
-
-
-//        int[] testArray = generateNumberArray();
-//        int[] secondArray = uebungCopy(testArray);
+        int[] testArray = generateNumberArray();
+        int[] secondArray = uebungCopy(testArray);
         int[] thirdArray = generateNumberArray2(20);
 
 
-//        System.out.println("original: " + Arrays.toString(testArray));
-//        System.out.println("copy    : " + Arrays.toString(secondArray));
-          System.out.println("newarr  : " + Arrays.toString(thirdArray));
+        System.out.println("original: " + Arrays.toString(testArray));
+        System.out.println("copy    : " + Arrays.toString(secondArray));
+        System.out.println("newarr  : " + Arrays.toString(thirdArray));
 
-        }
+    }
 
 
     public static void uebersicht() {
@@ -98,23 +96,25 @@ public class ArraysExample {
             }
         }
     }
-    public static int[] uebungCopy(int [] original) {
+
+    public static int[] uebungCopy(int[] original) {
         int[] myCopy = new int[original.length];
-        for (int i = 0; i < original.length ; i++) {
-           myCopy[i] = original[i];
+        for (int i = 0; i < original.length; i++) {
+            myCopy[i] = original[i];
         }
         return myCopy;
     }
 
-    public static int arrRandom(){
-        int arrRandom = rand.nextInt(0,101);
-                return arrRandom;
+    public static int arrRandom() {
+        int arrRandom = rand.nextInt(0, 101);
+        return arrRandom;
     }
+
     public static int[] generateNumberArray2(int size) {
         System.out.println("Array wird Automatisch ausgegeben");
         int[] template = new int[size];
         for (int i = 0; i < template.length; i++) {
-            template[i] = rand.nextInt(0,101);
+            template[i] = rand.nextInt(0, 101);
         }
         return template;
     }
