@@ -1,7 +1,5 @@
 package mase.week08.Zoo;
 
-import mase.week08.Enclosure;
-
 import java.util.ArrayList;
 import java.util.List;
 
