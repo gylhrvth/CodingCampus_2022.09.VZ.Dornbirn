@@ -1,73 +1,81 @@
 package fatima.week08.zoo;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.Vector;
 
 public class Enclosure {
+    private static Random rand = new Random();
 
     private String nameOfEnclosure;
-
     private List<Animals> animalsList;
     private List<Zookeeper> zookeeperList;
-    private List<ToDosInEnclosure> toDosInEnclosureList;
 
+    private boolean hasToClean = true;
 
     public Enclosure(String nameOfEnclosure) {
         this.nameOfEnclosure = nameOfEnclosure;
 
         animalsList = new Vector<>();
         zookeeperList = new Vector<>();
-        toDosInEnclosureList = new Vector<>();
     }
 
     public void addAnimals(Animals... animals) {
         animalsList.addAll(Arrays.asList(animals));
     }
 
-    public void addToDosInEnclosure(ToDosInEnclosure... toDosInEnclosures) {
-        toDosInEnclosureList.addAll(Arrays.asList(toDosInEnclosures));
-    }
-
-    public void doWork() {
-        System.out.println("Working progress in " + "'" + nameOfEnclosure + "'...");
-        for (ToDosInEnclosure todos : toDosInEnclosureList) {
-            System.out.printf("%-5s %-7s %-5s\n", todos.getZookeeper().getName(), " -----> ", todos.getToDos(), "\n");
+    public void addZookeeper(Zookeeper... zookeepers) {
+        for (Zookeeper zk : zookeepers) {
+            if (!zookeeperList.contains(zk)) {
+                zookeeperList.add(zk);
+                zk.addEnclosure(this);
+            }
         }
     }
 
     public void printStructure() {
-        StringBuilder sB = new StringBuilder();
-
-        Map<Zookeeper, String> zookeeperTaskMap = new HashMap<>();
-
-        for (ToDosInEnclosure toDo : toDosInEnclosureList) {
-            String allTodosOfZookeeper = zookeeperTaskMap.get(toDo.getZookeeper());
-            if (allTodosOfZookeeper == null) {
-                allTodosOfZookeeper = toDo.getToDos();
-            } else {
-                allTodosOfZookeeper += ", " + toDo.getToDos();
+        StringBuilder sb = new StringBuilder();
+        for (Zookeeper zk : zookeeperList) {
+            if (!sb.isEmpty()) {
+                sb.append(", ");
             }
-            zookeeperTaskMap.put(toDo.getZookeeper(), allTodosOfZookeeper);
+            sb.append(zk.getName());
         }
-
-        for (Map.Entry<Zookeeper, String> zookeeperTodoEntry : zookeeperTaskMap.entrySet()) {
-            sB.append(zookeeperTodoEntry.getKey().getName() + " → " + zookeeperTodoEntry.getValue() + "; ");
-        }
-
-        String str2 = sB.toString();
-
-        if (toDosInEnclosureList.isEmpty()) {
-            System.out.println("│   ├── enclosure: " + nameOfEnclosure + " ▶ no keeper");
+        System.out.print("│   ├── enclosure: " + nameOfEnclosure + " ▶ keepers: ");
+        if (zookeeperList.isEmpty()) {
+            System.out.println("ATTENTION this enclosure needs Zookeepers!");
         } else {
-            System.out.println("│   ├── enclosure: " + nameOfEnclosure + " ▶ keeper: " + str2.substring(0, str2.length() - 2));
+            System.out.println(sb);
         }
-
         if (animalsList.isEmpty()) {
-            System.out.println("│       ├── (empty)");
+            System.out.println("│           ├── (empty)");
         } else {
             for (Animals ani : animalsList) {
                 ani.printStructure();
             }
         }
     }
+
+    public void resetHasToClean() {
+        this.hasToClean = true;
+    }
+
+    public boolean hasToClean() {
+        return hasToClean;
+    }
+
+    public void workingProgress(Zookeeper zk) {
+        System.out.println(zk.getName() + " is entering the enclosure '" + nameOfEnclosure +"'");
+
+        for (Animals a : animalsList) {
+            System.out.println("- " + zk.getName() + " is feeding " + a.getNameOfAnimal() + "...");
+        }
+        hasToClean = false;
+        zk.staring(animalsList.get(rand.nextInt(animalsList.size())));
+    }
+
 }
+
+
 

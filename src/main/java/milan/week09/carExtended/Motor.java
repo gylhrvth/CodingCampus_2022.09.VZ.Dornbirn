@@ -3,19 +3,22 @@ package milan.week09.carExtended;
 import java.util.Random;
 
 public class Motor {
-    private static Random ran = new Random();
+    protected static Random ran = new Random();
 
     private String model;
     private String hersteller;
-    private boolean status;
+    private boolean statusNotDefect;
+    private boolean statusRunning;
+    private int kWLeistung;
 
-    private int kmStand;
+    protected int kmStand;
 
-    public Motor(String model) {
+    public Motor(String model, int leistung) {
         this.model = model;
         kmStand = 0;
-        status = true;
-
+        statusNotDefect = true;
+        statusRunning = false;
+        this.kWLeistung = leistung;
     }
 
     public void addKmToKmStand(int kilometer) {
@@ -25,13 +28,16 @@ public class Motor {
 
     public void statusUpdate() {
         if (kmStand > ran.nextInt(30000000)) {
-            setStatus(false);
-            System.out.println("Achtung!!!! Motorschaden nach " + kmStand + " km.");
+            setStatusNotDefect(false);
+            System.out.println("Achtung!!!! Motorschaden nach " + kmStand + " km.\n" + "!!!Bitte zur RepairStation gehen!!!");
         }
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setStatusNotDefect(boolean statusNotDefect) {
+        this.statusNotDefect = statusNotDefect;
+    }
+    public void setStatusRunning(boolean statusRunning) {
+        this.statusRunning = statusRunning;
     }
 
     public int getKmStand() {
@@ -46,7 +52,22 @@ public class Motor {
         return model;
     }
 
-    public boolean getStatus() {
-        return status;
+    public boolean getStatusNotDefect() {
+        return statusNotDefect;
+    }
+    public boolean getStatusRunning() {
+        return statusRunning;
+    }
+
+    public int getkWLeistung() {
+        return kWLeistung;
+    }
+
+    public void getMotorStatusText() {
+        if (!getStatusNotDefect()) {
+            System.out.println("Motor ist defekt!!!");
+        } else {
+            System.out.println("Motor läuft einwandfrei!!!");
+        }
     }
 }
