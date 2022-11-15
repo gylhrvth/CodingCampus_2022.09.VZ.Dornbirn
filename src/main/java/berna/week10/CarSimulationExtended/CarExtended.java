@@ -5,78 +5,63 @@ package berna.week10.CarSimulationExtended;
 
 
 public class CarExtended {
-    public Engine engine;
-    public Tank tank;
+
+    public Engine myEngine;
+    public Tank myTank;
     public int weightOfCar;
     public double fuelConsumptionAverage;
     public boolean go;
 
-    public CarExtended(Engine engine, Tank tank, int weightOfCar) {
-        this.engine = engine;
-        this.tank = tank;
-        this.weightOfCar = weightOfCar;
-        double weightFactor1 = (weightOfCar / (engine.getKW() * 1000.0));
+    public CarExtended(Engine engine, int weightOfCarKG) {
+        this.myEngine = engine;
+        this.myTank = engine.getTank();
+        this.weightOfCar = weightOfCarKG;
+        double weightFactor1 = (weightOfCarKG / (engine.getKW() * 1000.0));
         // higher consumption with higher factor
         fuelConsumptionAverage = 7.0 + (7 * weightFactor1); // reference consumption per 100km
     }
 
-    public Engine getEngine() {
-        return engine;
-    }
 
-    public Tank getTank() {
-        return tank;
-    }
-
-    public String getStateOfEngine() {
-        if (engine.isNeedToRepair()) {
-            return "Engine needs to be repaired! \n";
-        } else {
-            return "Engine is ok. No maintenance needed yet! \n";
-        }
-    }
-    public String getFillLevelTank() {
-        return "Actual fill level: " + tank.getTankFillLevel() + " units. \n";
-    }
 
     public void drive(double distanceWanted) {
         //drive as long you have fuel
 
-        double reachableDistance = (tank.actualAmountFuel / fuelConsumptionAverage) * 100;
+        double reachableDistance = (myTank.actualAmountFuel / fuelConsumptionAverage) * 100;
         double drivenDistance;
 
         if (distanceWanted <= reachableDistance) {
             drivenDistance = distanceWanted;
-            System.out.printf("     You drove %.2f km, you reached your goal! ", drivenDistance);
+            System.out.printf("     You drove %.2f km and you reached your goal! ", drivenDistance);
 
         } else {
             drivenDistance = reachableDistance;
-            System.out.printf("     Not enough fuel for this distance! %n");
-            System.out.printf("     You only drove %.2f km ! %n", reachableDistance);
+            System.out.printf("     Not enough fuel! %n");
+            System.out.printf("     You only drove %.2f km now you have to refill your tank to continue! %n", reachableDistance);
         }
-        //you drove, so reduce the amount of fuel in dependence of the car´s fuelConsumptionAverage
-        tank.reduceTankFillLevel(drivenDistance, fuelConsumptionAverage);
-        engine.addDistance(drivenDistance);
+        //you drove, so reduce the amount of fuel and add driven distance to engines distance
+        myTank.reduceTankFillLevel(drivenDistance, fuelConsumptionAverage);
+        myEngine.addDistance(drivenDistance);
 
-        System.out.printf("%n >> Info from board computer << %n");
-        System.out.printf("     TANK:  %.2f units left %n", tank.getTankFillLevel());
-        System.out.printf("     ENGINE:  %d starts, total covered distance:  %.2f km, P(breakdown) = %.5f %n", engine.getCounterStarts(),engine.getCoveredDistanceEngine(),engine.getBreakdownProbability());
+        System.out.printf("%n   << Info from board computer >> %n");
+        System.out.printf("     ENGINE:  %d starts, total covered distance:  %.2f km, P(breakdown) = %.5f %n", myEngine.getCounterStarts(), myEngine.getCoveredDistanceEngine(), myEngine.getBreakdownProbability());
+        System.out.printf("     TANK:    %.2f units left %n", myTank.getTankFillLevel());
         System.out.println("-------------------------------------------------------------------------");
     }
 
 
     public void simulateDriving(int distanceWanted) {
-        System.out.println("So you want to drive " + distanceWanted + " km? ");
 
-        if (engine.isNeedToRepair() || tank.actualAmountFuel <= 0) {
+        System.out.println("So you want to drive " + distanceWanted + " km? ");
+        //Check first if the myEngine is ok and if you have fuel
+        if (myEngine.isNeedToRepair() || myTank.actualAmountFuel <= 0) {
             System.out.println("There is a problem:");
-            if (engine.isNeedToRepair()) {
-                System.out.println("    Your engine is broken! Let your car pick up... ");
+            if (myEngine.isNeedToRepair()) {
+                System.out.println("    Your myEngine is broken! Let your car pick up... ");
                 RepairStation garage = new RepairStation(this);
                 System.out.println(garage.printRepairStation());
                 go = true;
             }
-            if (tank.actualAmountFuel <= 0) {
+            if (myTank.actualAmountFuel <= 0) {
                 System.out.println("    The tank is empty! Let your car pick up... ");
                 GasStation gasStation = new GasStation();
                 System.out.println(gasStation.printGasStationInfo());
@@ -89,21 +74,27 @@ public class CarExtended {
         if (go) {
             System.out.println("Engine is o.k and you have fuel, so let´s drive ... ");
             //double smallSteps = distanceWanted / 10.0;
-            engine.setEngineOn(true);
+            myEngine.setEngineOn(true);
             drive(distanceWanted);
-            engine.isEngineRandomBroken();
-            engine.setEngineOn(false);
+            myEngine.isEngineRandomBroken();
+            myEngine.setEngineOn(false);
         }
     }
 
     @Override
     public String toString() {
-        StringBuilder text = new StringBuilder("===========================================================\n");
-        text.append("No more Bobby Cars...\nCAR SIMULATION EXTENDED VERSION \n");
-        text.append("===========================================================\n");
-        text.append(getStateOfEngine());
-        text.append(getFillLevelTank());
+        StringBuilder text = new StringBuilder("\n ===========================================================\n");
+        text.append("No more Bobby Cars...\nCAR SIMULATION EXTENDED VERSION \n" +
+                    "===========================================================\n" +
+                    "   << YOUR CAR >> \n" +
+                    "Engine: " + myEngine.kW + " kW , total driven distance: " +myEngine.coveredDistanceEngine + " km \n" +
+                    "Tank:   " + myTank.maxCapacityTank + " units total tank capacity, " + myTank.actualAmountFuel + " units actually available \n" +
+                    "===========================================================\n");
         return text.toString();
     }
+
+    public Engine getMyEngine() {return myEngine;}
+
+    public Tank getTank() {return myTank;}
 
 }

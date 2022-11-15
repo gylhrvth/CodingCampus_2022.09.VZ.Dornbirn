@@ -2,7 +2,7 @@ package berna.week10.CarSimulationExtended;
 
 public class Engine {
     public int kW;
-
+    public Tank tank;
     public double breakdownProbability;
     public double maxDistanceEngine;
     public double coveredDistanceEngine;
@@ -14,12 +14,12 @@ public class Engine {
     public Tank myTank;
 
 
-    public Engine(int kW, Tank myTank) {
+    public Engine(int kW,int maxCapacityTank, double fillLevel ) {
 
         this.kW = kW;
-        this.myTank = myTank;
-        maxDistanceEngine = 30000; // after 30000km, change engine
-        breakdownProbability = 0.01; //initial value
+        this.myTank = new Tank(maxCapacityTank,fillLevel);
+        maxDistanceEngine = 30000; // after 30000km, change myEngine
+        breakdownProbability = 0.3; //initial value
         needToRepair = false;
         engineRandomBroken = false;
     }
@@ -27,6 +27,8 @@ public class Engine {
     public int getKW() {
         return kW;
     }
+    public Tank getTank() {return myTank;}
+
 
     public boolean setEngineOn(boolean startEngine) {
         if (startEngine) {
@@ -42,9 +44,10 @@ public class Engine {
     }
 
     public boolean isEngineRandomBroken() {
-        // the more you drive, and the more often you started, the higher the failure prob
+        //TODO: formula for breakdownProbability is nonsense!!
+        //the more you drive, and the more often you started, the higher the failure prob
         if (coveredDistanceEngine > 0) { //but you must drive to change P(break)!
-            breakdownProbability = (breakdownProbability * coveredDistanceEngine * counterStarts) / 100;
+            breakdownProbability = (breakdownProbability * coveredDistanceEngine *counterStarts)/100;
             return true;
         } else {
             return false;
@@ -53,8 +56,8 @@ public class Engine {
 
 
     public boolean isNeedToRepair() {
-        //when is the engine broken? either max distance is reached or P(break)>0.7
-        if (coveredDistanceEngine == maxDistanceEngine && isEngineRandomBroken()) {
+        //when is the myEngine broken? either max distance is reached or P(break)>0.7
+        if (coveredDistanceEngine == maxDistanceEngine || isEngineRandomBroken()) {
             needToRepair = true;
         } else {
             needToRepair = false;
@@ -66,7 +69,7 @@ public class Engine {
         this.needToRepair = needToRepair;
     }
 
-    public void resetMaxDistanceEngine() {
+    public void resetCoveredDistanceEngine() {
         coveredDistanceEngine = maxDistanceEngine;
     }
     public double getCoveredDistanceEngine(){return coveredDistanceEngine;}
