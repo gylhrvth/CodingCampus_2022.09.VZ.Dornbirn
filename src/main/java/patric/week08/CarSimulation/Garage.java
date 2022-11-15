@@ -1,6 +1,6 @@
 package patric.week08.CarSimulation;
 
-import gyula.week08.fahrzeug.ElektroFahrzeug;
+
 
 import java.util.Random;
 import java.util.Vector;
@@ -13,7 +13,7 @@ public class Garage {
 
         myGarage.add(new Car("BMW", "318", 100, 50, GAS, 1700));
         myGarage.add(new Car("Audi", "Q8", 300, 80, ELEKTRO, 2200));
-        myGarage.add(new Car("Hyndai", "Tuscon", 104, 60, DIESEL, 1700));
+        myGarage.add(new Car("Hyundai", "Tuscon", 104, 60, DIESEL, 1700));
         myGarage.add(new Car("Mini", "One", 45, 40, BENZIN, 500));
         Random random = new Random();
 
