@@ -14,7 +14,7 @@ public class AeroDynamicCar extends Car {
         return ((motor.getkWLeistung() / gewicht / 7.5) / 2);
     }
 
-//    Alternative mit (Car -> get.Motor()) Methode "protected"!!!
+//    Alternative mit (Car -> get.Motor()) Methode und Sichtbarkeit "protected"!!!
 //    @Override
 //    public double calculateVerbrauch() {
 //        return ((getMotor().getkWLeistung() / gewicht / 7.5) / 2);
