@@ -70,4 +70,9 @@ public class Motor {
             System.out.println("Motor läuft einwandfrei!!!");
         }
     }
+
+    public Motor clone() {
+        Motor m = new Motor(model, kWLeistung);
+        return m;
+    }
 }

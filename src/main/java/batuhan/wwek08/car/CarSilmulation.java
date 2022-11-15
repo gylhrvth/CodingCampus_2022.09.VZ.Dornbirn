@@ -2,11 +2,16 @@ package batuhan.wwek08.car;
 
 public class CarSilmulation {
     public static void main(String[] args) {
+        RepairStation rs = new RepairStation("Pink Motor");
 
-
-        Car car = new Car("Mercedes benz", "AmgGT63s", 345, "Benzin", 1850, 120);
+        Car car = new Car("Mercedes benz", "AmgGT63s", 345, "Benzin", 1850, 120,new Engine("Verbenner Motor"));
         car.drive(250);
-        Car car1 = new Car("Audi", "RS7", 315, "Benzin", 1950, 120);
+        car.defekt(new Engine("verbrenner"));
+
+        Car car1 = new Car("Audi", "RS7", 315, "Benzin", 1950, 120,new Engine("Verbenner"));
+        car1.setMyRepairStation(rs);
+
+
 
 //        System.out.println(car1.toString());
 //        System.out.println(car.toString());

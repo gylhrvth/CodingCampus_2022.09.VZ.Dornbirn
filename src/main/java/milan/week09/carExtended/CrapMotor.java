@@ -13,5 +13,10 @@ public class CrapMotor extends Motor {
             System.out.println("Achtung!!!! Motorschaden nach " + kmStand + " km.\n" + "!!!Bitte zur RepairStation gehen!!!");
         }
     }
+
+    @Override
+    public Motor clone() {
+        return new CrapMotor(getModel(), getkWLeistung());
+    }
 }
 

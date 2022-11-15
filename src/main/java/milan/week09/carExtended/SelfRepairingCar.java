@@ -2,8 +2,8 @@ package milan.week09.carExtended;
 
 public class SelfRepairingCar extends Car{
 
-    public SelfRepairingCar(Motor motor, String modell, String hersteller, double gewicht) {
-        super(motor, modell, hersteller, gewicht);
+    public SelfRepairingCar(String motorType, int leistung, String modell, String hersteller, double gewicht) {
+        super(motorType, leistung, modell, hersteller, gewicht);
     }
 
     @Override

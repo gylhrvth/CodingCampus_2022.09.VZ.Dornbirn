@@ -10,6 +10,8 @@ public class Car {
     private double tankInhalt;
     private double maxTankInhalt;
 
+    private int drivenKM = 0;
+
     public enum Antriebsart {BENZIN, DIESEL, GAS, ELECTRICITY}
 
     private double gewicht;
@@ -49,15 +51,26 @@ public class Car {
         double consumptionForDrive = consumptionPerKM * currentState;
         tankInhalt -= consumptionForDrive;
 
+        drivenKM += currentState;
+
         System.out.printf("Tank content (l): %23.2f%n", tankInhalt);
 
         return currentState;
 
     }
 
-    public boolean checkTankContant(){
+    public boolean defekt() {
 
-        if (tankInhalt < 1){
+        if (drivenKM > 100) {
+            return true;
+        }
+        return false;
+
+    }
+
+    public boolean checkTankContant() {
+
+        if (tankInhalt < 1) {
             System.out.println("Your tank level is very low, you need to tank!");
             return false;
         }
@@ -68,8 +81,6 @@ public class Car {
         System.out.println("Your tank is again full loaded, you can drive further!");
         this.tankInhalt = maxTankInhalt;
     }
-
-
 
 
 }

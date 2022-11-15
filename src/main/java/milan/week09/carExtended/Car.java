@@ -10,9 +10,18 @@ public abstract class Car {
     protected Motor motor;
     private Tank tank;
 
+
     public Car(String modell, String hersteller, double gewicht) {
         this(
-                new CrapMotor("Dummy Motor", 111),
+                new Motor("Dummy Motor", 75),
+                modell,
+                hersteller,
+                gewicht
+        );
+    }
+    public Car(String motorType, int leistung, String modell, String hersteller, double gewicht) {
+        this(
+                new Motor(motorType, leistung),
                 modell,
                 hersteller,
                 gewicht
@@ -29,7 +38,6 @@ public abstract class Car {
 
 
     public void carSimulation(int kilometerZumZiel) {
-
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nDer " + getModell() + " fährt los!\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         int kmSumme = 0;
         while (kmSumme < kilometerZumZiel) {

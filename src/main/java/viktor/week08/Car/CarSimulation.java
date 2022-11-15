@@ -9,6 +9,8 @@ public class CarSimulation {
 
         List<Car> list = new ArrayList<>();
 
+        RepairStation repairStation = new RepairStation("Repaire Station",1000);
+
         Car ford = new Car("Mustang", 20.0, 400, Car.Antriebsart.BENZIN, 1500);
         Car chevrolet = new Car("Corvett", 25.0, 500, Car.Antriebsart.BENZIN, 1450);
         Car pontiac = new Car("Firebird", 30.0, 500, Car.Antriebsart.BENZIN, 1800);
@@ -45,10 +47,18 @@ public class CarSimulation {
 
             while (car.checkTankContant()) {
                 int drive = car.drive(20);
-                System.out.printf("%s has driven%20d km %n",car.getModell(),drive);
+
+                if(!car.defekt()) {
+                    System.out.printf("%s has driven%20d km %n", car.getModell(), drive);
+                }else{
+                    System.out.printf("%s has driven%20d km %n", car.getModell(), drive);
+                    System.out.println("Motor ist defekt!");
+                    repairStation.addNewEngineToCar();    // hier wird ein neuer Motor eingebaut
+                    break;
+                }
                 System.out.println();
             }
-            car.refill();
+            car.refill(); // nach dem Motor-Tausch wird das Auto voll betankt und kann weiterfahren
             text = true;
         }
     }
