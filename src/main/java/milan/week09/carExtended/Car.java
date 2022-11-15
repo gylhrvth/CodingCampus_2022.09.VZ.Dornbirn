@@ -19,6 +19,7 @@ public abstract class Car {
                 gewicht
         );
     }
+
     public Car(String motorType, int leistung, String modell, String hersteller, double gewicht) {
         this(
                 new Motor(motorType, leistung),
@@ -105,10 +106,12 @@ public abstract class Car {
         return tank.getTankinhalt();
     }
 
+    @SuppressWarnings("unused")
     public void getTankinhaltText() {
         tank.getTankinhaltText();
     }
 
+    @SuppressWarnings("unused")
     public double getMaxTankinhalt() {
         return tank.getMaxTankinhalt();
     }
@@ -117,6 +120,7 @@ public abstract class Car {
         return motor.getStatusNotDefect();
     }
 
+    @SuppressWarnings("unused")
     public void getMotorStatusText() {
         motor.getMotorStatusText();
     }
@@ -125,6 +129,7 @@ public abstract class Car {
         return gewicht;
     }
 
+    @SuppressWarnings("unused")
     public int getEngineKmStand() {
         return motor.getKmStand();
     }
