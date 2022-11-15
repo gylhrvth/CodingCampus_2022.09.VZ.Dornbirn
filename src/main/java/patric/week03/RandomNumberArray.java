@@ -7,7 +7,7 @@ public class RandomNumberArray {
     private static Random rand = new Random();
 
     public static void main(String[] args) {
-        int[] values = generateRandomValues(10);
+        int[] values = generateRandomValues(6);
 
         System.out.println(Arrays.toString(values));
 
@@ -42,7 +42,7 @@ public class RandomNumberArray {
     public static void printWithForI(int[] values) {
         System.out.print("[");
         boolean firstLine = true;
-        for (int i = 0; i < values.length; i++) {
+        for (int i = 1; i < values.length; i++) {
             if (firstLine) {
                 firstLine = false;
             } else {
@@ -59,8 +59,8 @@ public class RandomNumberArray {
     public static int[] generateRandomValues(int size) {
         int[] array = new int[size];
 
-        for (int i = 0; i < array.length; i++) {
-            array[i] = rand.nextInt(101);
+        for (int i = 1; i < array.length; i++) {
+            array[i] = rand.nextInt(46);
         }
         return array;
     }
