@@ -9,11 +9,10 @@ public class CarExtendedMain {
         CarExtended car1 = new CarExtended(eng1,tank1,1500);
 
         car1.toString();
-        car1.driveSimulation(55);
-        car1.driveSimulation(100);
 
-
-
+        for (int i = 10; i < 250; i= i+20) {
+            car1.simulateDriving(i);
+        }
 
 
     }

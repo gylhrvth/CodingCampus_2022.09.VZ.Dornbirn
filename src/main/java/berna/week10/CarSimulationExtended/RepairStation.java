@@ -8,10 +8,10 @@ public class RepairStation {
     public  RepairStation(CarExtended carToRepair) {
         this.carToRepair = carToRepair;
         carToRepair.getEngine().resetMaxDistanceEngine(); // reset km Max of engine
-        carToRepair.getEngine().setNeedToRepair(false);
+        carToRepair.getEngine().setNeedToRepair(false);  // no need to repair anymore
     }
     public String printRepairStation(){
-        return "    Welcome to the repair Station!\n"+
-                "   Your engine is changed now, have a good journey!";
+        return "        Welcome to the repair Station!\n"+
+                "       Your engine is maintained now, have a good journey!";
     }
 }

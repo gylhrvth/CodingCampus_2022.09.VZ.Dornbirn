@@ -1,5 +1,9 @@
 package berna.week10.CarSimulationExtended;
 
+
+//TODO 15.11.22 {Bugs: P should not be larger than one (or change the Breakdown criteria!), solve tank issue!!
+
+
 public class CarExtended {
     public Engine engine;
     public Tank tank;
@@ -31,47 +35,49 @@ public class CarExtended {
             return "Engine is ok. No maintenance needed yet! \n";
         }
     }
-
     public String getFillLevelTank() {
         return "Actual fill level: " + tank.getTankFillLevel() + " units. \n";
     }
 
-    public double drive(double distanceWanted) {
+    public void drive(double distanceWanted) {
         //drive as long you have fuel
 
         double reachableDistance = (tank.actualAmountFuel / fuelConsumptionAverage) * 100;
         double drivenDistance;
 
         if (distanceWanted <= reachableDistance) {
-            System.out.println("You reached your goal!");
             drivenDistance = distanceWanted;
-            System.out.printf("You drove %.2f km ", drivenDistance);
-        } else {
-            System.out.println("Not enough fuel for this distance!");
-            System.out.printf("You only drove %.2f km ! %n", reachableDistance);
-            drivenDistance = reachableDistance;
-        }
+            System.out.printf("     You drove %.2f km, you reached your goal! ", drivenDistance);
 
+        } else {
+            drivenDistance = reachableDistance;
+            System.out.printf("     Not enough fuel for this distance! %n");
+            System.out.printf("     You only drove %.2f km ! %n", reachableDistance);
+        }
         //you drove, so reduce the amount of fuel in dependence of the car´s fuelConsumptionAverage
         tank.reduceTankFillLevel(drivenDistance, fuelConsumptionAverage);
-        System.out.printf("and you have %.2f units left in your tank! %n", tank.getTankFillLevel());
-        return drivenDistance;
+        engine.addDistance(drivenDistance);
+
+        System.out.printf("%n >> Info from board computer << %n");
+        System.out.printf("     TANK:  %.2f units left %n", tank.getTankFillLevel());
+        System.out.printf("     ENGINE:  %d starts, total covered distance:  %.2f km, P(breakdown) = %.5f %n", engine.getCounterStarts(),engine.getCoveredDistanceEngine(),engine.getBreakdownProbability());
+        System.out.println("-------------------------------------------------------------------------");
     }
 
 
-    public void driveSimulation(int distanceWanted) {
+    public void simulateDriving(int distanceWanted) {
         System.out.println("So you want to drive " + distanceWanted + " km? ");
 
         if (engine.isNeedToRepair() || tank.actualAmountFuel <= 0) {
             System.out.println("There is a problem:");
             if (engine.isNeedToRepair()) {
-                System.out.println("Your engine is broken! Let your car pick up... ");
+                System.out.println("    Your engine is broken! Let your car pick up... ");
                 RepairStation garage = new RepairStation(this);
                 System.out.println(garage.printRepairStation());
                 go = true;
             }
             if (tank.actualAmountFuel <= 0) {
-                System.out.println("The tank is empty! Let your car pick up... ");
+                System.out.println("    The tank is empty! Let your car pick up... ");
                 GasStation gasStation = new GasStation();
                 System.out.println(gasStation.printGasStationInfo());
                 go = true;
@@ -81,10 +87,12 @@ public class CarExtended {
         }
 
         if (go) {
-            System.out.println("Let´s drive ... ");
+            System.out.println("Engine is o.k and you have fuel, so let´s drive ... ");
             //double smallSteps = distanceWanted / 10.0;
-            drive(distanceWanted);
             engine.setEngineOn(true);
+            drive(distanceWanted);
+            engine.isEngineRandomBroken();
+            engine.setEngineOn(false);
         }
     }
 
