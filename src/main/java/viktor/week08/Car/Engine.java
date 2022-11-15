@@ -28,6 +28,15 @@ public class Engine {
          return false;
     }
 
+    public void startMotor(){
+
+        System.out.println("Der Motor wurde gestartet !");
+    }
+
+    public void stopMotor(){
+        System.out.println("Der Motor wurde gestoppt!");
+    }
+
 
     @Override
     public String toString(){
