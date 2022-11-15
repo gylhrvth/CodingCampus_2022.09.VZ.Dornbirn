@@ -8,26 +8,22 @@ public class Zoo {
 
     private String name;
     private int year;
+    private List<Enclosure> enclosureList = new Vector<>();
+    private List<Zookeeper> zookeeperList = new Vector<>();
 
-    private List<Enclosure> enclosureList;
+    private List<Animals> animalList = new Vector<>();
 
     public Zoo(String name, int year) {
         this.name = name;
         this.year = year;
-
-        enclosureList = new Vector<>();
     }
 
     public void addEnclosure(Enclosure... enclosures) {
         enclosureList.addAll(Arrays.asList(enclosures));
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getYear() {
-        return year;
+    public void addZooKeepers(Zookeeper... zk) {
+        zookeeperList.addAll(Arrays.asList(zk));
     }
 
     public void printStructure() {
@@ -38,11 +34,19 @@ public class Zoo {
     }
 
     public void simulateOneDay() {
-        System.out.println();
-        System.out.println("A new day at the zoo '" + name + "' begins \n");
-        for(Enclosure e : enclosureList) {
-            e.doWork();
-            System.out.println();
+        System.out.println("A new day at the zoo '" + name + "' begins:");
+        for (Zookeeper zk: zookeeperList) {
+            zk.doNextWork();
+        }
+    }
+
+    public void resetEnclosureStatus() {
+        for (Enclosure e:enclosureList){
+            e.resetHasToClean();
         }
     }
 }
+
+
+
+
