@@ -1,5 +1,7 @@
 package viktor.week08.Car;
 
+import jdk.jshell.spi.ExecutionControl;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +11,14 @@ public class CarSimulation {
 
         List<Car> list = new ArrayList<>();
 
+        RepairStation repairStation = new RepairStation("Repaire Station",1000);
+        Engine myEngine = new Engine(Engine.Antriebsart.BENZIN);
+
+
         Car ford = new Car("Mustang", 20.0, 400, Car.Antriebsart.BENZIN, 1500);
         Car chevrolet = new Car("Corvett", 25.0, 500, Car.Antriebsart.BENZIN, 1450);
         Car pontiac = new Car("Firebird", 30.0, 500, Car.Antriebsart.BENZIN, 1800);
+
         /*int drive1 = ford.drive(2);
 
         System.out.println("Ich fahre jetzt " + drive1 + " km.\n");
@@ -44,11 +51,25 @@ public class CarSimulation {
             System.out.println();
 
             while (car.checkTankContant()) {
+
+                myEngine.startMotor();
                 int drive = car.drive(20);
-                System.out.printf("%s has driven%20d km %n",car.getModell(),drive);
+                myEngine.stopMotor();
+
+                if(!car.defekt()) {
+                    System.out.printf("%s has driven%20d km %n", car.getModell(), drive);
+                    System.out.println("Motor ist funktionsfähig!");
+                }
+                else {
+                    System.out.printf("%s has driven%20d km %n", car.getModell(), drive);
+                    System.out.println("Motor ist defekt!");
+                    Engine newEngine = repairStation.addNewEngineToCar();    // hier wird ein neuer Motor eingebaut
+                    car.refill();
+                    newEngine.startMotor();
+                    break;
+                }
                 System.out.println();
             }
-            car.refill();
             text = true;
         }
     }
