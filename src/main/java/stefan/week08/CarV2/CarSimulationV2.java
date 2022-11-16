@@ -36,12 +36,17 @@ public class CarSimulationV2 {
 
 
             }
-            drivenKM = drivenKM + drivenKM;
-            if (drivenKM > 600)
+
+
+            if (drivenKM > 400)
                 System.out.println(c.getHersteller() + c.getModell() + " Hat MoterSchaden nach " + drivenKM + "km");
-           c.repairCar();
-            System.out.println("Motor wurde gewchselt");
-            System.out.println("Fahrziel wurde nach "+c.drive(fahrstrecke)+"km erreicht");
+
+            c.repairCar();
+            System.out.println("Der neue Verbrauch "+c.calculateLitersPer100KM());
+            System.out.println("Fahrziel wurde nach " + c.drive(fahrstrecke) + "km erreicht");
+
+
+
         }
         System.out.println();
     }

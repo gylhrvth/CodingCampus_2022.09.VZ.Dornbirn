@@ -8,14 +8,17 @@ public class Engine {
 
 
     public Engine(int kw) {
-      leistung=kw;
+        leistung = kw;
 
     }
 
 
-
     public int getLeistung() {
         return leistung;
+    }
+
+    public void setLeistung(int leistung) {
+        this.leistung = leistung;
     }
 
 }

@@ -22,6 +22,7 @@ public class CarV2 {
         this.gewicht = gewicht;
         this.tankinhaltUebrig = tankinhalt;
         repairStation = new RepairStation(kw);
+
     }
 
 
@@ -94,8 +95,26 @@ public class CarV2 {
         return engine;
     }
 
+    @Override
+    public String toString() {
+        return "CarV2{" +
+                "repairStation=" + repairStation +
+                '}';
+    }
+
     public void repairCar() {
-repairStation=new RepairStation(100);
+    engine.setLeistung(100);
+        System.out.println(hersteller +" ist in der Wekstatt");
+    System.out.println("Der neue Motor hat "+engine.getLeistung()+"Kw");
+    }
+
+
+
+
+
+    public void startEngine() {
+
+
     }
 }
 

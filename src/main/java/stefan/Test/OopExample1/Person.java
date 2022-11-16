@@ -7,20 +7,20 @@ public class Person {
 
     private String name;
     private int age;
+    private Geslecht geslecht;
 
-    public enum person {
-        female,
-        male,
-        diverse;
+    public enum Geslecht {
+        FEMALE, MALE, DIVERSE;
+
     }
 
-    public Person(String name, int age) {
+    public Person(String name, int age, Geslecht geslecht) {
         this.name = name;
         this.age = age;
+        this.geslecht = geslecht;
     }
 
     public String getName() {
-        System.out.println("Seine Name ist");
         return name;
 
     }
@@ -41,10 +41,11 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+        return "Person: " +
+                "name: " + name + " " +
+                "  age: " + age +
+                " Geschlecht: " + geslecht +
+                " ";
     }
 
     public void addPeson() {
@@ -52,13 +53,15 @@ public class Person {
     }
 
     public void schlafen() {
-        System.out.println(name + "\t Schläft ");
+
+
     }
 
-    public void female() {
-        System.out.println(name + "\t ist \t" + person.female);
+    public Geslecht getGeslecht() {
+        return geslecht;
     }
-public void male(){
-    System.out.println(name +"\t ist \t"+person.male);
-}
+
+    public void setGeslecht(Geslecht geslecht) {
+        this.geslecht = geslecht;
+    }
 }
