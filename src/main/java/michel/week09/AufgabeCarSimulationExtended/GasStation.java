@@ -5,7 +5,6 @@ import java.util.Random;
 public class GasStation {
     private Random random = new Random();
     private String name;
-    private Tank tank;
 
     public GasStation(String name) {
         this.name = name;
