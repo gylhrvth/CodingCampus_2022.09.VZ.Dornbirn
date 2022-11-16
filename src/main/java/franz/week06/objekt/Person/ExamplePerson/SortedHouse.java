@@ -12,7 +12,7 @@ public class SortedHouse extends House {
     @Override
     public void addPerson(ExamplePerson p1) {
         super.addPerson(p1);
-        super.setInhabitants(bubblesortPerson(super.getInhabitants()));
+        bubblesortPerson(super.getInhabitants());
     }
 
     private List<ExamplePerson> bubblesortPerson(List<ExamplePerson> persons) {
