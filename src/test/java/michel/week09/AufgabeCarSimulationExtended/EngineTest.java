@@ -1,11 +1,9 @@
 package michel.week09.AufgabeCarSimulationExtended;
 
-import gyula.week08.zoo.Enclosure;
-import gyula.week08.zoo.ZooKeeper;
+
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
