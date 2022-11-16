@@ -9,7 +9,7 @@ public class Aufgabe {
         this.aufgaben = aufgaben;
     }
 
-    public String getAufgabe() {
+    public String getAufgabeNamen() {
         return aufgaben;
     }
 
