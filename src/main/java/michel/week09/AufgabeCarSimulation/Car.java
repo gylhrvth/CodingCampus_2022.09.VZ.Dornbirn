@@ -29,18 +29,6 @@ public class Car {
         return weight * 0.0005 + powerKW * 0.025;
     }
 
-    public double getActualTank() {
-        return actualTank;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setActualTank(int actualTank) {
-        this.actualTank = actualTank;
-    }
-
     public int drive(int distance) {
         double maxDistanceCar = (actualTank / fuelUsage100km()) * 100;
         int drivenDistance;
@@ -60,7 +48,17 @@ public class Car {
         setActualTank(fill);
         System.out.print(", es wurden: " + fill + " l getankt");
     }
+    public double getActualTank() {
+        return actualTank;
+    }
 
+    public String getModel() {
+        return model;
+    }
+
+    public void setActualTank(int actualTank) {
+        this.actualTank = actualTank;
+    }
     public String toString() {
         return "Car{" +
                 "Hersteller = " + manufacturer +

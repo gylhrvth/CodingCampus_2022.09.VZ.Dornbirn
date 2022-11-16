@@ -7,7 +7,8 @@ import java.util.Scanner;
 
 public class Ratespiel {
     public static void main(String[] args) {
-        rateZahl(100);
+        rateZahl(10000
+        );
     }
 
     static void rateZahl(int wertebereich) {

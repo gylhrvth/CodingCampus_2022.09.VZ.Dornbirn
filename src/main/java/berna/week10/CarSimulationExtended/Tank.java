@@ -11,14 +11,14 @@ public class Tank {
     }
 
     //TODO: 14.11.22 is refill really in class Tank?
-    public double refill(double howMuch) {
+    public void refill(double howMuch) {
+
         if (howMuch + actualAmountFuel > maxCapacityTank) {
-            System.out.println("Stupid! Your tank still has " + actualAmountFuel + " units and you can only have  " + maxCapacityTank + " units. Try again!");
+            System.out.println("Stupid! Your tank still has " + actualAmountFuel + " units and you can only have  " + maxCapacityTank + " units in total. Try again!");
         } else {
             actualAmountFuel = actualAmountFuel + howMuch;
             System.out.printf("successfully refilled! new actual amount of fuel %.02f units %n ", actualAmountFuel);
         }
-        return actualAmountFuel;
     }
 
     public double reduceTankFillLevel(double drivenDistance, double fuelConsumptionReference){
@@ -34,7 +34,7 @@ public class Tank {
 
     public String printTankInfo(){
         return
-                "Tank:  " + maxCapacityTank + " units max.Capacity,  "+ actualAmountFuel + " units actually available.\n ";
+                "Tank:  " + maxCapacityTank + " units max. capacity,  "+ actualAmountFuel + " units actually available.\n ";
     }
 
 

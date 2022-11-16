@@ -2,10 +2,10 @@ package berna.week10.CarSimulationExtended;
 
 public class Engine {
     public int kW;
-
+    public Tank tank;
     public double breakdownProbability;
-    public double initialMaxDistanceEngine;
-    public double maxDistLeftEngine;
+    public double maxDistanceEngine;
+    public double coveredDistanceEngine;
     public boolean needToRepair;
     public boolean engineRandomBroken;
 
@@ -14,44 +14,50 @@ public class Engine {
     public Tank myTank;
 
 
-
-    public Engine(int kW, Tank myTank) {
+    public Engine(int kW,int maxCapacityTank, double fillLevel ) {
 
         this.kW = kW;
-        this.myTank = myTank;
-        initialMaxDistanceEngine = 30000; // after 30000km, change engine
-        breakdownProbability = 0.01; //initial value
-        maxDistLeftEngine = initialMaxDistanceEngine;
+        this.myTank = new Tank(maxCapacityTank,fillLevel);
+        maxDistanceEngine = 30000; // after 30000km, change myEngine
+        breakdownProbability = 0.3; //initial value
         needToRepair = false;
         engineRandomBroken = false;
     }
+
     public int getKW() {
         return kW;
     }
-
-    //TODO: 14.11.22: implement the random broken engine
-/*    public double getMaxDistLeftEngine(double distanceDriven) {
-        maxDistLeftEngine = initialMaxDistanceEngine - distanceDriven;
-        return maxDistLeftEngine;
-    }*/
+    public Tank getTank() {return myTank;}
 
 
-    private boolean isEngineRandomBroken() {
-        double distanceSoFar= initialMaxDistanceEngine - maxDistLeftEngine;
+    public boolean setEngineOn(boolean startEngine) {
+        if (startEngine) {
+            counterStarts = counterStarts + 1;
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-        // the more you drive, the higher the prob!
-        if (distanceSoFar > 0) { //but you must drive to change P(break)!
-            breakdownProbability = (breakdownProbability * distanceSoFar) / 100;
-        }return true;
+    public void addDistance(double distanceCovered) {
+        coveredDistanceEngine = coveredDistanceEngine + distanceCovered;
+    }
+
+    public boolean isEngineRandomBroken() {
+        //TODO: formula for breakdownProbability is nonsense!!
+        //the more you drive, and the more often you started, the higher the failure prob
+        if (coveredDistanceEngine > 0) { //but you must drive to change P(break)!
+            breakdownProbability = (breakdownProbability * coveredDistanceEngine *counterStarts)/100;
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
     public boolean isNeedToRepair() {
-        //when is the engine broken?
-        //either max distance is reached or P(break)>0.7
-        if (maxDistLeftEngine <= 0) {
-            needToRepair = true;
-        } else if (isEngineRandomBroken()) {
+        //when is the myEngine broken? either max distance is reached or P(break)>0.7
+        if (coveredDistanceEngine == maxDistanceEngine || isEngineRandomBroken()) {
             needToRepair = true;
         } else {
             needToRepair = false;
@@ -59,27 +65,25 @@ public class Engine {
         return needToRepair;
     }
 
-    public void setNeedToRepair(boolean needToRepair) {
+    public void setNeedToRepair(boolean needToRepair) { //the repair Station resets the motor
         this.needToRepair = needToRepair;
     }
 
-    public boolean setEngineOn(boolean bool) {
-        if (bool) {
-            counterStarts = counterStarts + 1;
-        }
-        return true;
+    public void resetCoveredDistanceEngine() {
+        coveredDistanceEngine = maxDistanceEngine;
     }
+    public double getCoveredDistanceEngine(){return coveredDistanceEngine;}
 
+    public int getCounterStarts() {return counterStarts;}
 
-    public double resetMaxDistanceEngine() {
-        maxDistLeftEngine = initialMaxDistanceEngine;
-        return maxDistLeftEngine;
+    public double getBreakdownProbability() {
+        return breakdownProbability;
     }
 
     public String printEngineInfo() {
         return
-                "Engine: " + kW + " kW, maximal Distance before repair needed: " + initialMaxDistanceEngine + "\n" +
-                        "You can still drive " + maxDistLeftEngine + " km. Then maintenance is needed!" + "\n";
+                "Engine: " + kW + " kW, maximal Distance before repair needed: " + maxDistanceEngine + "\n" +
+                        "You can still drive " + coveredDistanceEngine + " km. Then maintenance is needed!" + "\n";
     }
 }
 

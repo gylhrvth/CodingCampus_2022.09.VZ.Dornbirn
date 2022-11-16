@@ -33,6 +33,9 @@ public class Car {
     public int getKW() {
         return this.engine.getKW();
     }
+    public EngineType getEnType(){
+        return this.engine.getEnType();
+    }
 
     public int tankInhalt() {
         return this.tank.inhalt();
@@ -69,5 +72,11 @@ public class Car {
 
     public boolean needRefill(int needRef) {
         return tank.inhalt() < needRef;
+    }
+    public boolean getEnWorks(){
+        return this.engine.getEnWorks();
+    }
+    public void engineBreaks(int kmDriven){
+        this.engine.enBreaks(kmDriven);
     }
 }
