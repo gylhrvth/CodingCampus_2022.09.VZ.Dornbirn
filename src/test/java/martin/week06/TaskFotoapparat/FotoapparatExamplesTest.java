@@ -90,9 +90,9 @@ class FotoapparatExamplesTest {
 
         /* Prepare Objects */
         Fotoapparat testCam = new Fotoapparat();
-        KameraObjektiv testObjectiv = new KameraObjektiv(3, 11);
+        KameraObjektiv testObjektiv = new KameraObjektiv(3, 11);
         Speicherkarte testKarte = new Speicherkarte(10, 7, 5);
-        testCam.attachCamOb(testObjectiv);
+        testCam.attachCamOb(testObjektiv);
         testCam.slotCard(testKarte);
 
         /* The core of the test */
@@ -115,9 +115,9 @@ class FotoapparatExamplesTest {
 
         /* Prepare Objects */
         Fotoapparat testCam = new Fotoapparat();
-        KameraObjektiv testObjectiv = new KameraObjektiv(3, 11);
+        KameraObjektiv testObjektiv = new KameraObjektiv(3, 11);
         Speicherkarte testKarte = new Speicherkarte(10, 7, 5);
-        testCam.attachCamOb(testObjectiv);
+        testCam.attachCamOb(testObjektiv);
         testCam.slotCard(testKarte);
         testCam.takeLS();
         testCam.abdeckungAufmachen(true);
@@ -142,9 +142,9 @@ class FotoapparatExamplesTest {
 
         /* Prepare Objects */
         Fotoapparat testCam = new Fotoapparat();
-        KameraObjektiv testObjectiv = new KameraObjektiv(3, 11);
+        KameraObjektiv testObjektiv = new KameraObjektiv(3, 11);
         Speicherkarte testKarte = new Speicherkarte(10, 7, 5);
-        testCam.attachCamOb(testObjectiv);
+        testCam.attachCamOb(testObjektiv);
         testCam.slotCard(testKarte);
         testCam.abdeckungAufmachen(true);
 
