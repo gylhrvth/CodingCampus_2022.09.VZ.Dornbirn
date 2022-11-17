@@ -13,9 +13,6 @@ public class Tank {
         this.actualTankCapacity = tankMaxCapacity;
     }
 
-
-
-
     public int getActualTankCapacity() {
         return actualTankCapacity;
     }

@@ -3,7 +3,6 @@ package milan.week08.zoo;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
-import java.util.Vector;
 
 public class Pfleger {
 
@@ -26,21 +25,21 @@ public class Pfleger {
                 x.getToDo().sort(new Comparator<Aufgabe>() {
                     @Override
                     public int compare(Aufgabe o1, Aufgabe o2) {
-                        if (o1.getAufgabe().equals(o2.getAufgabe())) {
+                        if (o1.getAufgabeNamen().equals(o2.getAufgabeNamen())) {
                             return 0;
                         }
-                        if (o1.getAufgabe().equals("fuettert")) {
+                        if (o1.getAufgabeNamen().equals("fuettert")) {
                             return -1;
                         }
                         return 0;
                     }
                 });
                 for (Aufgabe y : x.getToDo()) {
-                    if (!y.getAufgabe().equals("beobachtet")) {
-                        text.append("...").append(y.getAufgabe()).append("\n");
+                    if (!y.getAufgabeNamen().equals("beobachtet")) {
+                        text.append("...").append(y.getAufgabeNamen()).append("\n");
                     } else {
                         Tier beobachten = x.getTiereListe().get(ran.nextInt(x.getTiereListe().size()));
-                        text.append("...").append(beobachten.getGattung()).append(" ").append(beobachten.getName()).append(" wird länger ").append(y.getAufgabe()).append("\n");
+                        text.append("...").append(beobachten.getGattung()).append(" ").append(beobachten.getName()).append(" wird länger ").append(y.getAufgabeNamen()).append("\n");
                     }
                 }
                 x.setStatus(true);

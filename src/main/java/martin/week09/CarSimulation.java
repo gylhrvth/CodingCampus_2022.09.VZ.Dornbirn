@@ -1,6 +1,7 @@
 package martin.week09;
 
 import martin.week10.Engine;
+import martin.week10.RepairStation;
 import martin.week10.Tank;
 
 import java.util.LinkedList;
@@ -9,6 +10,7 @@ import java.util.Random;
 
 public class CarSimulation {
     public static final Random rand = new Random();
+    public static final String cR = "\u001B[0m";
     public static final String[] schoenLeben = {
             "sich ein Eis gekauft.",
             "die Vögel an einer Raststätte beobachtet.",
@@ -25,6 +27,7 @@ public class CarSimulation {
             "jemanden per Anhalter mitgenommen."};
 
     public static void main(String[] args) {
+        RepairStation rudys = new RepairStation("Rudys Werkstatt", 5);
         List<Car> Audlis = new LinkedList<>();
         for (int i = 0; i < 5; i++) {
             Audlis.add(makeRandCar());
@@ -40,7 +43,7 @@ public class CarSimulation {
         System.out.println();
 
         for (int i = 0; i < 20; i++) {
-            driveAll(Audlis);
+            driveAll(Audlis,rudys);
             System.out.println();
         }
     }
@@ -70,39 +73,47 @@ public class CarSimulation {
     }
 
     public static void printCarKenndaten(Car car) {
-        System.out.println(car.getModell() + ":" + car.getId() + " kW:" + car.getKW() +
-                " Tank: " + car.tankInhalt() + "l Gew.:" + car.getGewicht() +
-                " Engine: " + car.getEnType());
+        System.out.println(car.getModell() + ":" + car.getId() +
+                " kW:" + car.getKW() +
+                " Tank: " + car.tankInhalt() +
+                "l Gew.: " + car.getGewicht() +
+                "kg Engine: " + car.getEnType());
     }
 
-    public static void driveAll(List<Car> allCarToDrive) {
+    public static void driveAll(List<Car> allCarToDrive, RepairStation whoseWerkstatt) {
         for (Car car : allCarToDrive) {
             int wieSchoen = rand.nextInt(schoenLeben.length);
-            int kmToDrive = rand.nextInt(10, 100);
+            int kmToDrive = rand.nextInt(10, 200);
             int canDrive = car.drive(kmToDrive);
-            System.out.print("\u001B[33mEin " + car.getModell() + ":" + car.getId());
+            System.out.print("\u001B[33mEin "
+                    + car.getModell() + ":" + car.getId());
             if ((canDrive >= kmToDrive) && car.getEnWorks()) {
-                System.out.print(" ist " + canDrive + " km gefahren\u001B[0m");
+                System.out.print(" ist " + canDrive + " km gefahren" + cR);
                 car.engineBreaks(kmToDrive);
             } else {
                 System.out.print(" wollte " + kmToDrive + "km fahren. ");
                 if (!car.getEnWorks()) {
-                    System.out.print("Aber der Motor sprang' nicht an.\u001B[0m");
-                    break;
+                    System.out.print("Aber der Motor sprang' nicht an." + cR);
                 } else {
-                    System.out.println("Musste aber nach " +
-                            canDrive + "km anhalten\u001B[0m");
+                    System.out.print("Musste aber nach " +
+                            canDrive + "km anhalten" + cR);
                     car.engineBreaks(canDrive);
                 }
             }
-            if (car.needRefill(10) && car.getEnWorks()) {
-                System.out.print("\u001B[34m, hat dann " +
-                        car.refill(rand.nextInt(45, 95)) +
-                        "L nachgetankt\u001B[0m und ");
-            } else {
-                System.out.print(" und hat ");
+            if (car.getEnWorks()) {
+                if (car.needRefill(10)) {
+                    System.out.print("\u001B[34m, hat dann " +
+                            car.refill(rand.nextInt(45, 95)) +
+                            "L nachgetankt" + cR + " und ");
+                } else {
+                    System.out.print(" und hat ");
+                }
+                System.out.println("\u001B[35m" + schoenLeben[wieSchoen] + cR);
+            } else{
+                System.out.print("\u001B[36m Deswegen wurde er zu "
+                        +whoseWerkstatt.getName()+ " abgeschleppt.");
+                System.out.println();
             }
-            System.out.println("\u001B[35m" + schoenLeben[wieSchoen] + "\u001B[0m");
         }
     }
 }
