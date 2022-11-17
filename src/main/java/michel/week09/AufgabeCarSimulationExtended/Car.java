@@ -26,7 +26,7 @@ public class Car {
         actualTank = tank.getActualTankCapacity();
         double maxDistanceCar = (actualTank / fuelUsage100km()) * 100;
         int drivenDistance;
-
+        engine.startMotor();
         if (maxDistanceCar >= distance) {
             drivenDistance = distance;
         } else {
@@ -42,6 +42,7 @@ public class Car {
 
         if (!engine.getFunctionStatus()) {
             System.out.println("\nAchtung Motorschaden!! Bei km -> " + engine.getKmStand());
+            engine.stopMotor();
         }
         return drivenDistance;
     }
