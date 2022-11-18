@@ -21,7 +21,8 @@ public class RepairStation {
 }
 
     public void upgradeTank(Car car, String model, int capacity) {
-        car.setTank(new Tank(model, capacity));
+        car.changeTank(model,capacity);
+//        car.setTank(new Tank(model, capacity));
         System.out.println("Der Tank von -> " + car.getManufacturer() + " " + car.getModel() + " <- wurde gewechselt. Der neue " + car.getTank());
     }
 

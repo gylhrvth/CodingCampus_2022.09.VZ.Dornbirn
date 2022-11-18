@@ -30,7 +30,8 @@ public class Engine {
         if(kmDriven>condition){
             this.enWorks =false;
         } else {
-            this.condition -= this.condition/(kmDriven/10);
+            this.condition -=
+                    (int)(Math.ceil(Math.sqrt(kmDriven)));
         }
     }
 }
