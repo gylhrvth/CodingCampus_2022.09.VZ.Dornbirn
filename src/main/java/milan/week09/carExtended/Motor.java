@@ -26,7 +26,7 @@ public class Motor {
         statusUpdate();
     }
 
-    public void statusUpdate() {
+    private void statusUpdate() {
         if (kmStand > ran.nextInt(30000000)) {
             setStatusNotDefect(false);
             System.out.println("Achtung!!!! Motorschaden nach " + kmStand + " km.\n" + "!!!Bitte zur RepairStation gehen!!!");
@@ -74,5 +74,9 @@ public class Motor {
     public Motor clone() {
         Motor m = new Motor(model, kWLeistung);
         return m;
+    }
+
+    public void setHersteller(String hersteller) {
+        this.hersteller = hersteller;
     }
 }

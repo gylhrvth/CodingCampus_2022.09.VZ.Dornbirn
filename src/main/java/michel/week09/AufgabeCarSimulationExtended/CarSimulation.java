@@ -25,10 +25,10 @@ public class CarSimulation {
 
         cars.add(car1);
         cars.add(car2);
-
+        System.out.println(engine);
 
         for (Car car : cars) {
-            System.out.println(car.getModel());
+            System.out.println(car.getManufacturer() + car.getModel());
             for (int i = 0; i < 50; i++) {
                 car.drive(100000);
                 if (car.getActualTank() <= 1 && car.getEngine().getFunctionStatus()) {

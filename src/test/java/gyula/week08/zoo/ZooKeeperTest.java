@@ -38,7 +38,8 @@ class ZooKeeperTest {
         /* Repair Mock-Up */
         System.setOut(oldSystemOut);
         /* Evaluate Result from Mock-Up */
-        assertEquals("│   ├── Pfleger: Alfonso, Verantwortlich für Savanna\n", baos.toString().replaceAll("\r\n", "\n"));
+        assertEquals("│   ├── Pfleger: Alfonso, Verantwortlich für Savanna\n",
+                baos.toString().replaceAll("\r\n", "\n"));
     }
 
     @ParameterizedTest(name = "Test ZooKeeper.getName_asList for name: {0}.")
