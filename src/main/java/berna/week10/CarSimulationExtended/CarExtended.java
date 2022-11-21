@@ -76,7 +76,7 @@ public class CarExtended {
             //double smallSteps = distanceWanted / 10.0;
             myEngine.setEngineOn(true);
             drive(distanceWanted);
-            myEngine.isEngineRandomBroken();
+            myEngine.checkNeedToRepair();
             myEngine.setEngineOn(false);
         }
     }
@@ -87,7 +87,7 @@ public class CarExtended {
         text.append("No more Bobby Cars...\nCAR SIMULATION EXTENDED VERSION \n" +
                     "===========================================================\n" +
                     "   << YOUR CAR >> \n" +
-                    "Engine: " + myEngine.kW + " kW , total driven distance: " +myEngine.coveredDistanceEngine + " km \n" +
+                    myEngine +
                     "Tank:   " + myTank.maxCapacityTank + " units total tank capacity, " + myTank.actualAmountFuel + " units actually available \n" +
                     "===========================================================\n");
         return text.toString();

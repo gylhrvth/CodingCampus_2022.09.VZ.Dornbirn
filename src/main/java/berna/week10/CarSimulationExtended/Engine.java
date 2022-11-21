@@ -1,27 +1,32 @@
 package berna.week10.CarSimulationExtended;
 
+import java.util.Random;
+
 public class Engine {
-    public int kW;
-    public Tank tank;
-    public double breakdownProbability;
-    public double maxDistanceEngine;
-    public double coveredDistanceEngine;
-    public boolean needToRepair;
-    public boolean engineRandomBroken;
+    private static Random rand = new Random();
 
-    public int counterStarts;
+    private int kW;
+    private Tank tank;
+    private double breakdownProbability;
+    private double maxDistanceEngine;
+    private double coveredDistanceEngine;
+    private boolean needToRepair;
+    private boolean engineRandomBroken;
 
-    public Tank myTank;
+    private int counterStarts;
+
+    private Tank myTank;
 
 
     public Engine(int kW,int maxCapacityTank, double fillLevel ) {
 
         this.kW = kW;
         this.myTank = new Tank(maxCapacityTank,fillLevel);
-        maxDistanceEngine = 30000; // after 30000km, change myEngine
+        maxDistanceEngine = 3000000; // after 30000km, change myEngine
         breakdownProbability = 0.3; //initial value
         needToRepair = false;
         engineRandomBroken = false;
+        coveredDistanceEngine = 0.0;
     }
 
     public int getKW() {
@@ -43,25 +48,21 @@ public class Engine {
         coveredDistanceEngine = coveredDistanceEngine + distanceCovered;
     }
 
-    public boolean isEngineRandomBroken() {
-        //TODO: formula for breakdownProbability is nonsense!!
-        //the more you drive, and the more often you started, the higher the failure prob
-        if (coveredDistanceEngine > 0) { //but you must drive to change P(break)!
-            breakdownProbability = (breakdownProbability * coveredDistanceEngine *counterStarts)/100;
-            return true;
-        } else {
-            return false;
-        }
-    }
 
 
-    public boolean isNeedToRepair() {
+    public boolean checkNeedToRepair() {
         //when is the myEngine broken? either max distance is reached or P(break)>0.7
-        if (coveredDistanceEngine == maxDistanceEngine || isEngineRandomBroken()) {
+        double probability = (maxDistanceEngine - coveredDistanceEngine) / maxDistanceEngine;
+        System.out.printf("Probability of engine failure: %.2f%%\n", (1-probability)*100);
+        if (probability < rand.nextDouble()) {
             needToRepair = true;
         } else {
             needToRepair = false;
         }
+        return needToRepair;
+    }
+
+    public boolean isNeedToRepair() {
         return needToRepair;
     }
 
@@ -70,7 +71,7 @@ public class Engine {
     }
 
     public void resetCoveredDistanceEngine() {
-        coveredDistanceEngine = maxDistanceEngine;
+        coveredDistanceEngine = 0.0;
     }
     public double getCoveredDistanceEngine(){return coveredDistanceEngine;}
 
@@ -84,6 +85,11 @@ public class Engine {
         return
                 "Engine: " + kW + " kW, maximal Distance before repair needed: " + maxDistanceEngine + "\n" +
                         "You can still drive " + coveredDistanceEngine + " km. Then maintenance is needed!" + "\n";
+    }
+
+    @Override
+    public String toString() {
+        return "Engine: " + kW + " kW , total driven distance: " + coveredDistanceEngine + " km \n";
     }
 }
 
