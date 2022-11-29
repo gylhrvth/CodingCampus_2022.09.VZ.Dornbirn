@@ -2,8 +2,14 @@ package lukas.week10.uebungsfirma;
 
 
 import lukas.week10.Database;
+import lukas.week10.uebungsfirma.model.Mitarbeiter;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseManager {
     private Database database;
@@ -16,6 +22,9 @@ public class DatabaseManager {
         PreparedStatement statement = database.getConnection().prepareStatement(sql);
         try {
             statement.executeUpdate();
+        } catch (SQLException exc) {
+            System.err.println("That failed: " + exc.getMessage());
+            throw exc;
         } finally {
             statement.close();
         }
@@ -38,7 +47,7 @@ public class DatabaseManager {
                 )""");
         executeUpdate("""
                 CREATE TABLE IF NOT EXISTS `mitarbeiter` (
-                  `Svn` int NOT NULL,
+                  `Svn` int NOT NULL AUTO_INCREMENT,
                   `Name` varchar(255) NOT NULL,
                   `abteilung_abteilungsnummer_fk` int DEFAULT NULL,
                   `vorgesetzter_fk` int DEFAULT NULL,
@@ -69,5 +78,47 @@ public class DatabaseManager {
                   CONSTRAINT `fk_projekt` FOREIGN KEY (`Projekt_ProjektName_fk`) REFERENCES `projekt` (`ProjektName`) ON DELETE CASCADE ON UPDATE CASCADE
                 )
                 """);
+    }
+
+    public int insertMitarbeiter(Mitarbeiter m1) throws SQLException {
+        PreparedStatement statement = database.getConnection().prepareStatement("INSERT INTO " +
+                "`uebungsfirmatest`.`mitarbeiter`" +
+                "(`Name`, `abteilung_abteilungsnummer_fk`, `vorgesetzter_fk`)" +
+                "VALUES (?, ?, ?);", PreparedStatement.RETURN_GENERATED_KEYS);
+        statement.setString(1, m1.getName());
+        if (m1.getAbteilungAbteilungsnummerFk() == 0) {
+            statement.setNull(2, Types.INTEGER);
+        } else {
+            statement.setInt(2, m1.getAbteilungAbteilungsnummerFk());
+        }
+        if (m1.getVorgesetzterFk() == 0) {
+            statement.setNull(3, Types.INTEGER);
+        } else {
+            statement.setInt(3, m1.getVorgesetzterFk());
+        }
+        int affectedRows = statement.executeUpdate();
+        if (affectedRows > 0) {
+            ResultSet set = statement.getGeneratedKeys();
+            set.next();
+            m1.setSvn(set.getInt(1));
+        }
+        return affectedRows;
+
+    }
+
+    public List<Mitarbeiter> getMitarbeiter() throws SQLException {
+        PreparedStatement statement = database.getConnection().prepareStatement("SELECT svn, name, abteilung_abteilungsnummer_fk, vorgesetzter_fk FROM mitarbeiter;");
+        ResultSet resultSet = statement.executeQuery();
+        List<Mitarbeiter> mitarbeiters = new ArrayList<>();
+        while (resultSet.next()) {
+            int svn = resultSet.getInt(1);
+            String name = resultSet.getString(2);
+            int abteilungsFk = resultSet.getInt(3);
+            int vorgesetzterFk = resultSet.getInt(4);
+            Mitarbeiter mitarbeiter = new Mitarbeiter(name, abteilungsFk, vorgesetzterFk);
+            mitarbeiter.setSvn(svn);
+            mitarbeiters.add(mitarbeiter);
+        }
+        return mitarbeiters;
     }
 }

@@ -1,23 +1,22 @@
 package lukas.week10.uebungsfirma.model;
 
 public class Mitarbeiter {
-    private String svn;
+    private int svn;
     private String name;
     private int abteilungAbteilungsnummerFk;
-    private String vorgesetzterFk;
+    private int vorgesetzterFk;
 
-    public Mitarbeiter(String svn, String name, int abteilungAbteilungsnummerFk, String vorgesetzterFk) {
-        this.svn = svn;
+    public Mitarbeiter(String name, int abteilungAbteilungsnummerFk, int vorgesetzterFk) {
         this.name = name;
         this.abteilungAbteilungsnummerFk = abteilungAbteilungsnummerFk;
         this.vorgesetzterFk = vorgesetzterFk;
     }
 
-    public String getSvn() {
+    public int getSvn() {
         return svn;
     }
 
-    public void setSvn(String svn) {
+    public void setSvn(int svn) {
         this.svn = svn;
     }
 
@@ -37,11 +36,11 @@ public class Mitarbeiter {
         this.abteilungAbteilungsnummerFk = abteilungAbteilungsnummerFk;
     }
 
-    public String getVorgesetzterFk() {
+    public int getVorgesetzterFk() {
         return vorgesetzterFk;
     }
 
-    public void setVorgesetzterFk(String vorgesetzterFk) {
+    public void setVorgesetzterFk(int vorgesetzterFk) {
         this.vorgesetzterFk = vorgesetzterFk;
     }
 }
