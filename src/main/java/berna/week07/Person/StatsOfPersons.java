@@ -12,34 +12,22 @@ public class StatsOfPersons {
         this.list = new Vector<>();
     }
 
-    public void addPerson(Person... personList) {
+    public Vector<Person> addPerson(Person... personList) {
         for (Person p : personList) {
             list.add(p);
         }
+        return list;
+    }
+    public Person getMinSize2() {
+        return Collections.min(list, new PersonCompBySize());
     }
 
-
-/*  for loop is o.k, but there are shorter ways, see below
-    private int calculateMinSize(Vector<Person> list) {
-
-        int minSize = 0;
-
-        for (int i = 0; i < list.size(); i++) {
-            int size1 = list.get(i).getSize();
-            int size2 = list.get(i + 1).getSize();
-
-            if (size1 < size2) {
-                minSize = size1;
-            }
-        }
-        return minSize;
+    public void sortBySize(){
+        list.sort(new PersonCompBySize());
+        System.out.println(list);
     }
+    //2.11.22 TODO: sortByAge, sortByWeight
 
- */
-
-    public int getMinSize2() {
-        return Collections.min(list, new PersonCompBySize()).getSize();
-    }
 
     public Person getMinSize() {
         Person smallest = null;

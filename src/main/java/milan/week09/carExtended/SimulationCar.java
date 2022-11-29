@@ -23,7 +23,7 @@ public class SimulationCar {
 
         for (int i = 0; i < 20; i++) {
             Motor engine = new Motor("xy" + i, 80 + ran.nextInt(80));
-            //oeamtc.addMotorToList(engine);
+            //oeamtc.addMotorToList(myEngine);
         }
 
         System.out.println("Vor dem Tausch: " + bmw.getMotorName() + "("+ bmw.getMotor().getKmStand()+" km)");
