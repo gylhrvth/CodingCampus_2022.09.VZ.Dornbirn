@@ -4,7 +4,7 @@ public class Car {
     public String brand;
     public String modell;
     public int kW;
-    public int maxFuel;
+    public double maxFuel;
     public double actualAmountFuel;
 
     public double fuelConsumptionReference;
@@ -40,8 +40,9 @@ public class Car {
 
         double fuelConsumed = (drivenDistance / 100) * fuelConsumptionReference;
         //System.out.printf("consumed fuel : %.2f units %n ", fuelConsumed);
-        double fuelLeft = actualAmountFuel - fuelConsumed;
-        System.out.printf(" You reached your goal! Fuel left: %.2f units %n", fuelLeft);
+        actualAmountFuel -= fuelConsumed;
+
+        System.out.printf(" You reached your goal! Fuel left: %.2f units %n", actualAmountFuel);
 
         return drivenDistance;
     }

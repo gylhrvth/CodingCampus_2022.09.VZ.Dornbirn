@@ -66,7 +66,7 @@ public class TwodimensionalArray {
             try {
                 wish = sc.nextInt();
                 if ((wish < 1) || (wish > 2)) {
-                    System.out.println("there are only task 1 or 2! choose again: ");
+                    System.out.println("there are only skill 1 or 2! choose again: ");
                     wish = 0;  // reset the number to zero because you defined while ==0!
                 }
             } catch (InputMismatchException ime) {
