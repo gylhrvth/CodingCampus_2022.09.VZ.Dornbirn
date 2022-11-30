@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Database {
     private static final String[] pw = {String.valueOf((char) 0156), String.valueOf((char) 0157), String.valueOf((char) 0165), String.valueOf((char) 0163), String.valueOf((char) 0143), String.valueOf((char) 0164)};
-    private static final String pwrd1 = pw[4] + pw[1] + pw[4] + pw[1] + pw[0] + pw[2] + pw[5] + pw[3];
+    public static final String pwrd1 = pw[4] + pw[1] + pw[4] + pw[1] + pw[0] + pw[2] + pw[5] + pw[3];
     private String url;
     private Connection connection;
 
