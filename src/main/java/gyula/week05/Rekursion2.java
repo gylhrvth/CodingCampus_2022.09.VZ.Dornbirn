@@ -8,17 +8,15 @@ public class Rekursion2 {
         printFileList("", f);
     }
 
-
-    public static void printFileList(String prefix, File start){
+    public static void printFileList(String prefix, File start) {
         System.out.println(prefix + start.getName());
-        if (start.isDirectory()){
+        if (start.isDirectory()) {
             File[] children = start.listFiles();
-            if (children != null){
-                for (File f: children){
+            if (children != null) {
+                for (File f : children) {
                     printFileList("  " + prefix, f);
                 }
             }
         }
     }
-
 }
