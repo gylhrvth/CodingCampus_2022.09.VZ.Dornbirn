@@ -34,7 +34,7 @@ public class UserInputWithMenu {
             try {
                 nr = sc.nextInt();
                 if ((nr < 1) || (nr > 3)) {
-                    System.out.println("there are only task 1, 2, or 3! choose again: ");
+                    System.out.println("there are only skill 1, 2, or 3! choose again: ");
                     nr = 0;  // reset the number to zero because you defined while ==0!
                 }
             } catch (InputMismatchException ime) {

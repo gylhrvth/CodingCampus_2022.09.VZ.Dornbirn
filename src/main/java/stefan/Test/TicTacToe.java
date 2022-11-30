@@ -4,82 +4,36 @@ import java.util.*;
 
 public class TicTacToe {
 
-
     public static void main(String[] args) {
-        char[][] board = {{'1', '|', '2', '|', '3'},
-                {'-', '+', '-', '+', '-'},
-                {'4', '|', '5', '|', '6'},
-                {'-', '+', '-', '+', '-'},
-                {'7', '|', '8', '|', '9'}};
+        String[] board = new String[10];
+        String player1 = "x";
+        String player2 = "0";
+        for (int i = 0; i < board.length; i++) {
+            board[i] = String.valueOf((i + 1));
 
-        prinntboard(board);
-        boolean win = false;
-
-        while (!win) {
-            Scanner scan = new Scanner(System.in);
-            System.out.println("Gib deine postion an (1-9)");
-            int playerpos = scan.nextInt();
-
-            placePiece(board, playerpos, "player");
-
-            Random randy = new Random();
-            int cpuPos = randy.nextInt(9) + 1;
-            placePiece(board, cpuPos, "cpu");
-            prinntboard(board);
         }
+        printBoard(board);
+        int user = userInput();
+        switchBoard(user, "x", board, "0");
+        printBoard(board);
     }
 
-    public static void prinntboard(char[][] board) {
-        for (char[] row : board) {
-            for (char c : row) {
-                System.out.print(c);
-            }
-            System.out.println();
-        }
+    public static void switchBoard(int user, String player1, String board[], String player2) {
 
     }
 
-    public static void placePiece(char[][] board, int pos, String user) {
-        char symbol = ' ';
 
-        if (user.equals("player")) {
-            symbol = 'x';
+    public static int userInput() {
+        int user = 0;
+        System.out.println("Spieler 1 setzen sie ");
+        Scanner sc = new Scanner(System.in);
+        user = sc.nextInt();
+        return user;
+    }
 
-        } else if (user.equals("cpu"))
-            symbol = '0';
-
-        switch (pos) {
-            case 1:
-                board[0][0] = symbol;
-                break;
-            case 2:
-                board[0][2] = symbol;
-                break;
-            case 3:
-                board[0][4] = symbol;
-                break;
-            case 4:
-                board[2][0] = symbol;
-                break;
-            case 5:
-                board[2][2] = symbol;
-                break;
-            case 6:
-                board[2][4] = symbol;
-                break;
-            case 7:
-                board[4][0] = symbol;
-                break;
-            case 8:
-                board[4][2] = symbol;
-                break;
-            case 9:
-                board[4][4] = symbol;
-                break;
-            default:
-                break;
-        }
+    public static void printBoard(String[] board) {
+        System.out.println(board[0] + " | " + board[1] + " | " + board[2]);
+        System.out.println(board[3] + " | " + board[4] + " | " + board[5]);
+        System.out.println(board[6] + " | " + board[7] + " | " + board[8]);
     }
 }
-
-
