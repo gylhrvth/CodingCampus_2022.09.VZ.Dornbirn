@@ -6,14 +6,14 @@ public class Konto {
     private int iban;
     private int kontonummerFK;
     private double kontoStand;
-    private int transaktionsnummerFK;
 
 
-    public Konto(int iban, int kontonummerFK, double kontoStand, int transaktionsnummerFK) {
+
+    public Konto(int iban, int kontonummerFK, double kontoStand) {
         this.kontoStand = kontoStand;
         this.kontonummerFK = kontonummerFK;
         this.iban = iban;
-        this.transaktionsnummerFK = transaktionsnummerFK;
+
     }
 
 
@@ -41,11 +41,5 @@ public class Konto {
         this.kontoStand = kontoStand;
     }
 
-    public int getTransaktionsnummerFK() {
-        return transaktionsnummerFK;
-    }
 
-    public void setTransaktionsnummerFK(int transaktionsnummerFK) {
-        this.transaktionsnummerFK = transaktionsnummerFK;
-    }
 }
