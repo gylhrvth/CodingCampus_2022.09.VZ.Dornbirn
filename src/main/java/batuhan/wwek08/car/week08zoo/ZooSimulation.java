@@ -1,4 +1,4 @@
-package batuhan.week08zoo;
+package batuhan.wwek08.car.week08zoo;
 
 
 
@@ -27,12 +27,10 @@ public class ZooSimulation {
         Animal elephant = new Animal("Elephant", "Benjamin", fooda,1.99);
         afrika.putAnimal(elephant);
         zoo1.addgehegelist(afrika);
-        lukas.putEnclosure(afrika);
         lukas.timeToEat(lion,false);
         Gehege reptiel = new Gehege("Reptielien");
         Animal crocodil = new Animal("Crocodil", "Kroko", food,2.0);
         zoo1.addgehegelist(reptiel);
-        ahmet.putEnclosure(reptiel);
         reptiel.putAnimal(crocodil);
         Gehege arktis = new Gehege("Arktis");
         Animal pinguin = new Animal("Pinguin", "Pingu", food_fisch, 0.5);

@@ -1,4 +1,4 @@
-package batuhan.wwek08.car;
+package batuhan.week09.car;
 
 import java.util.Random;
 
@@ -12,7 +12,6 @@ public class Car {
     private double currenttankcontent;
     private Engine motor;
     private RepairStation myRepairStation;
-    private Engine startStop;
 
 
     public Car(String manufacturer, String model, String typeOfDrive, double weight, double tank, Engine motor) {
@@ -26,6 +25,7 @@ public class Car {
 
 
     }
+
 
 
 
@@ -72,8 +72,7 @@ public class Car {
 
 
 
-        motor.setStarEngine(false);
-        motor.istmeinMotoran();
+
         return driveKM;
     }
 

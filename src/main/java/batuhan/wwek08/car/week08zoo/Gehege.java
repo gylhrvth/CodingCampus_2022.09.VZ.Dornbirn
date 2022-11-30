@@ -1,4 +1,4 @@
-package batuhan.week08zoo;
+package batuhan.wwek08.car.week08zoo;
 
 import java.util.Map;
 import java.util.Random;

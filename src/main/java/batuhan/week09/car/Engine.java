@@ -1,4 +1,4 @@
-package batuhan.wwek08.car;
+package batuhan.week09.car;
 
 public class Engine {
     private String motor;
@@ -25,15 +25,11 @@ public class Engine {
         this.starEngine = starEngine;
     }
 
-    public void setStopEngine(boolean stopEngine) {
-        this.stopEngine = stopEngine;
-    }
+
     public boolean getStartEngine(){
         return  starEngine;
     }
-    public boolean getStopEngine(){
-        return  stopEngine;
-    }
+
 
     public String getMotor() {
         return motor;
@@ -45,10 +41,10 @@ public class Engine {
     }
     public void istmeinMotoran(){
         if (getStartEngine()){
-            System.out.println("Motor ist an.");
+            System.out.println("Der Motor wird eingeschaltet.");
         }
         else {
-            System.out.println("Motor ist aus");
+            System.out.println("Der Motor wird ausgeschaltet");
         }
     }
 
