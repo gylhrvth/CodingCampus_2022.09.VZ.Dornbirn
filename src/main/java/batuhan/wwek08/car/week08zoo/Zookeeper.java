@@ -1,6 +1,4 @@
-package batuhan.week08zoo;
-
-import java.util.Vector;
+package batuhan.wwek08.car.week08zoo;
 
 public class Zookeeper {
 
@@ -12,8 +10,6 @@ public class Zookeeper {
     private String timetoClean;
     private String animalenclosure;
 
-
-    private Vector<Gehege> listofEnclosure = new Vector<Gehege>();
 
 
     public Zookeeper(String zookeeper) {
@@ -36,10 +32,7 @@ public class Zookeeper {
         }
     }
 
-    public void putEnclosure(Gehege gehege) {
-        listofEnclosure.add(gehege);
 
-    }
 
     public String timeToClean(Gehege timetoClean,Animal animal, boolean clean) {
         this.cleanEnclosure = cleanEnclosure;
