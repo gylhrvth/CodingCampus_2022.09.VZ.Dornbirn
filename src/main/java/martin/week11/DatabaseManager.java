@@ -2,11 +2,10 @@ package martin.week11;
 
 
 import martin.week11.zahlungssystem.Database;
+import martin.week11.zahlungssystem.model.Konto;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Types;
 import java.util.List;
 
 /**
@@ -114,5 +113,9 @@ public class DatabaseManager {
         for (String table : tableNames) {
             dropTable(table);
         }
+    }
+    //execute dataSetInsertion
+    public int iKonto (Konto konto){
+        return 3;
     }
 }

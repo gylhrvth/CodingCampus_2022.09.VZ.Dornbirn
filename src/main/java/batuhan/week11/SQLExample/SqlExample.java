@@ -1,15 +1,12 @@
-//package batuhan.week11.SQLExample;
-//
-//import com.mysql.cj.jdbc.PreparedStatementWrapper;
-//import com.sun.jdi.connect.spi.Connection;
-//
+package batuhan.week11.SQLExample;
+
 //import java.sql.*;
-//import java.util.Scanner;
-//
-//public class SqlExample {
-//
-//    public static void main(String[] args) {
-//
+
+import java.util.Scanner;
+
+public class SqlExample {
+
+    public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
 //        System.out.println("Geben Sie ein Land Name ein");
 //        String land = sc.nextLine();
@@ -46,4 +43,6 @@
 //        }
 //    }
 //
-//}
+//
+    }
+}
