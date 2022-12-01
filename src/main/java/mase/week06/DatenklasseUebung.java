@@ -3,6 +3,9 @@ package mase.week06;
 import java.util.Arrays;
 
 public class DatenklasseUebung {
+    public static void main(String[] args) {
+
+    }
     public int[] arr;
     public int max;
     public int min;
