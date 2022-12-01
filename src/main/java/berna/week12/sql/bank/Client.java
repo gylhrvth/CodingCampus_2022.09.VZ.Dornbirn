@@ -4,14 +4,20 @@ package berna.week12.sql.bank;
 public class Client {
 
     public String clientName;
-    public int clientID;
+
     public String clientBirthday;
+    public int ID;
 
 
     public Client(String clientName, String clientBirthday) {
         this.clientName = clientName;
         this.clientBirthday = clientBirthday;
-        ++clientID;
+    }
+
+    public Client(String clientName, String clientBirthday, int ID) {
+        this.clientName = clientName;
+        this.clientBirthday = clientBirthday;
+        this.ID = ID;
     }
 
     public String getClientName() {
@@ -22,19 +28,19 @@ public class Client {
         this.clientName = clientName;
     }
 
-    public int getClientID() {
-        return clientID;
-    }
-
-    public void setClientID(int clientID) {
-        this.clientID = clientID;
-    }
-
     public String getClientBirthday() {
         return clientBirthday;
     }
 
     public void setClientBirthday(String clientBirthday) {
         this.clientBirthday = clientBirthday;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public int getID() {
+        return ID;
     }
 }
