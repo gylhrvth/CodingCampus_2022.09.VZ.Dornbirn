@@ -14,8 +14,7 @@ public class Kunde {
     private int kunden_id;
     private String name;
 
-    public Kunde(int id, String name) {
-        kunden_id = id;
+    public Kunde(String name) {
         this.name = name;
     }
 

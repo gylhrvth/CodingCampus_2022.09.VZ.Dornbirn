@@ -1,11 +1,16 @@
 package martin.week11;
 
 
+
 import martin.week11.zahlungssystem.Database;
 import martin.week11.zahlungssystem.model.Konto;
+import martin.week11.zahlungssystem.model.Kunde;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -115,7 +120,57 @@ public class DatabaseManager {
         }
     }
     //execute dataSetInsertion
-    public int iKonto (Konto konto){
-        return 3;
+    public int insKonto (Konto konto) throws SQLException{
+        PreparedStatement stat = database.gCon().prepareStatement("INSERT INTO " +
+                        "`zahlungssystem`.`konto`" + "(`iban`, `stand`)" + "VALUES (?, ?);", PreparedStatement.RETURN_GENERATED_KEYS);
+        if(konto.getStand()==0){
+            stat.setNull(2, Types.NULL);
+        } else {
+            stat.setInt(2, konto.getStand());
+        }
+        int affectedRows = stat.executeUpdate();
+        if (affectedRows > 0) {
+            ResultSet set = stat.getGeneratedKeys();
+            set.next();
+            konto.setIban(set.getInt(1));
+        }
+        return affectedRows;
+    }
+
+    public List<Konto> getKonto() throws SQLException{
+        PreparedStatement stat = database.gCon().prepareStatement("SELECT iban, stand FROM konto;");
+        ResultSet resultSet = stat.executeQuery();
+        List<Konto> konten = new ArrayList<>();
+        while (resultSet.next()) {
+            int stand = resultSet.getInt(2);
+            Konto konto = new Konto(stand);
+            konten.add(konto);
+        }
+        return konten;
+    }
+
+    public int insKunde (Kunde kunde) throws SQLException{
+        PreparedStatement stat = database.gCon().prepareStatement("INSERT INTO " +
+                "`zahlungssystem`.`kunde`" + "(`kundenid`, `name`)" + "VALUES (?, ?);", PreparedStatement.RETURN_GENERATED_KEYS);
+        stat.setString(2,kunde.getName());
+        int affectedRows = stat.executeUpdate();
+        if (affectedRows > 0) {
+            ResultSet set = stat.getGeneratedKeys();
+            set.next();
+            kunde.setKunden_id(set.getInt(1));
+        }
+        return affectedRows;
+    }
+
+    public List<Kunde> getKunde() throws SQLException{
+        PreparedStatement stat = database.gCon().prepareStatement("SELECT kundenid, name FROM kunde;");
+        ResultSet resultSet = stat.executeQuery();
+        List<Kunde> kunden = new ArrayList<>();
+        while (resultSet.next()) {
+            String name = resultSet.getString(2);
+            Kunde kunde = new Kunde(name);
+            kunden.add(kunde);
+        }
+        return kunden;
     }
 }

@@ -14,14 +14,12 @@ public class Konto {
     private int iban;
     private int stand;
 
-    public Konto(int iban, int stand) {
-        this.iban = iban;
+    public Konto(int stand) {
         this.stand = stand;
     }
 
-    public Konto(int iban, int stand, boolean semiRand) {
-        this.iban = iban;
-        if (semiRand) {
+    public Konto(int stand, boolean semiRand) {
+              if (semiRand) {
             this.stand = (int) Math.sqrt(stand);
         } else {
             this.stand = stand;
@@ -30,6 +28,10 @@ public class Konto {
 
     public int getIban() {
         return iban;
+    }
+
+    public void setIban(int iban){
+        this.iban = iban;
     }
 
     public int getStand() {
