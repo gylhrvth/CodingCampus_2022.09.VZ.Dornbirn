@@ -1,7 +1,7 @@
 package martin.week11;
 
 
-import lukas.week10.Database;
+import martin.week11.zahlungssystem.Database;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -86,7 +86,7 @@ public class DatabaseManager {
 
     //execute singular Update Funktion
     private void exUp(String sql) throws SQLException {
-        PreparedStatement statement = database.getConnection().prepareStatement(sql);
+        PreparedStatement statement = database.gCon().prepareStatement(sql);
         try {
             statement.executeUpdate();
         } catch (SQLException exc) {
