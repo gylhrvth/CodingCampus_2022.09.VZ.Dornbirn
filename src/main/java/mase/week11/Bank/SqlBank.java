@@ -1,6 +1,7 @@
 package mase.week11.Bank;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -10,8 +11,12 @@ public class SqlBank {
             Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/Bank?user=root&password=leomessi10");
             System.out.println("Erfolgreich");
 
+            List<Konto> kontoList = getKonto(conn);
             List<Kunde> kundenList = getAlleKunden(conn);
+            printQueryResultAsTable(conn);
+
             System.out.println("Kunden: " + kundenList);
+            System.out.println("Konto: " + kontoList);
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
@@ -47,7 +52,7 @@ public class SqlBank {
     public static List<Kunde> getAlleKunden(Connection conn){
         List<Kunde> result = new Vector<>();
         try {
-            ResultSet rs = conn.createStatement().executeQuery("SELECT svnr, name FROM kunde;");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM  kunde;");
 
             while (rs.next()){
                 result.add(new Kunde(
@@ -57,6 +62,22 @@ public class SqlBank {
             }
         }catch (SQLException e){
             e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static List<Konto> getKonto(Connection conn){
+        List<Konto> result = new ArrayList<>();
+        try {
+            ResultSet rs = conn.createStatement().executeQuery("SELECT KontoNr, Kontostand FROM Konto ");
+            while (rs.next()){
+                result.add(new Konto(
+                        rs.getInt(1),
+                        rs.getInt(2)
+                ));
+            }
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
         }
         return result;
     }
