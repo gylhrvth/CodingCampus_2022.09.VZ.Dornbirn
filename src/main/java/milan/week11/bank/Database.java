@@ -12,7 +12,7 @@ public class Database {
     private Connection connection;
 
     public Database() {
-        this("jdbc:mysql://localhost:3306/bank?user=milan&password=Brutus");
+        this("jdbc:mysql://localhost:3306/banktest?user=milan&password=Brutus");
     }
 
     public Database(String url){

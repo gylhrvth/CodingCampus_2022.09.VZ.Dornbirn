@@ -6,6 +6,15 @@ public class Car {
    public Random rand = new Random();
    private String Hersteller;
    private String Modell;
+
+   public void setHersteller(String hersteller) {
+      Hersteller = hersteller;
+   }
+
+   public String getHersteller() {
+      return Hersteller;
+   }
+
    private int kw;
    private int Tankinhalt;
    private int aktullerTankinhalt;
@@ -14,8 +23,8 @@ public class Car {
       return Modell;
    }
 
-   enum Antriebe {Benzin,Diesel,Gas,Strom}
-   private Antriebe antriebsArt;
+   public enum Antriebe {Benzin,Diesel,Gas,Strom}
+   public Antriebe antriebsArt;
    private int Gewicht;
 
 

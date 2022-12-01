@@ -3,15 +3,25 @@ package milan.week11.bank.model;
 public class Kunde {
 
 
-    private int kundenNummer;
+    private Integer kundenNummer;
     private String name;
 
+    public Kunde(String name) {
+        this.kundenNummer = null;
+        this.name = name;
+    }
     public Kunde(int kundenNummer, String name) {
         this.kundenNummer = kundenNummer;
         this.name = name;
     }
 
-    public int getKundenNummer() {
+    @Override
+    public String toString() {
+        return getName() + " " +
+                getKundenNummer();
+    }
+
+    public Integer getKundenNummer() {
         return kundenNummer;
     }
 
