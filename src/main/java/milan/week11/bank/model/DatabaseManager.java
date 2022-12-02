@@ -2,18 +2,29 @@ package milan.week11.bank.model;
 
 import milan.week11.bank.Database;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseManager {
-
+    private static DatabaseManager instance = null;
     private Database database;
 
-    public DatabaseManager(Database database) {
-        this.database = database;
+    private DatabaseManager() {
+        try {
+            database = new Database();
+            database.connect();
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+    }
+
+
+    public static DatabaseManager getInstance() {
+        if (instance == null) {
+            instance = new DatabaseManager();
+        }
+        return instance;
     }
 
     private void executeUpdate(String sql) throws SQLException {
@@ -63,8 +74,8 @@ public class DatabaseManager {
                 PRIMARY KEY (`TransaktionsNummer`),
                 KEY `Quelle_Kontonummer_fk_idx` (`Quelle`),
                 KEY `Ziel_Kontonummer_fk_idx` (`Ziel`),
-                CONSTRAINT `Quelle_Kontonummer_fk` FOREIGN KEY (`Quelle`) REFERENCES `konto` (`KontoNummer`) ON UPDATE CASCADE,
-                CONSTRAINT `Ziel_Kontonummer_fk` FOREIGN KEY (`Ziel`) REFERENCES `konto` (`KontoNummer`) ON UPDATE CASCADE
+                CONSTRAINT `Quelle_Kontonummer_fk` FOREIGN KEY (`Quelle`) REFERENCES `konto` (`KontoNummer`) ,
+                CONSTRAINT `Ziel_Kontonummer_fk` FOREIGN KEY (`Ziel`) REFERENCES `konto` (`KontoNummer`)
                 )
                 """);
         executeUpdate("""
@@ -74,8 +85,8 @@ public class DatabaseManager {
                 `Rolle` varchar(45) DEFAULT NULL,
                 PRIMARY KEY (`fk_KontoNummer`,`fk_KundenNummer`),
                 KEY `KundeKontoVerbindung_Kunde_KundenNummer_fk_idx` (`fk_KundenNummer`),
-                CONSTRAINT `KundeKontoVerbindung_Konto_KontoNummer_fk` FOREIGN KEY (`fk_KontoNummer`) REFERENCES `konto` (`KontoNummer`) ON DELETE CASCADE ON UPDATE CASCADE,
-                CONSTRAINT `KundeKontoVerbindung_Kunde_KundenNummer_fk` FOREIGN KEY (`fk_KundenNummer`) REFERENCES `kunde` (`KundenNummer`) ON DELETE CASCADE ON UPDATE CASCADE
+                CONSTRAINT `KundeKontoVerbindung_Konto_KontoNummer_fk` FOREIGN KEY (`fk_KontoNummer`) REFERENCES `konto` (`KontoNummer`) ,
+                CONSTRAINT `KundeKontoVerbindung_Kunde_KundenNummer_fk` FOREIGN KEY (`fk_KundenNummer`) REFERENCES `kunde` (`KundenNummer`)
                 )
                 """);
     }
@@ -92,12 +103,13 @@ public class DatabaseManager {
         statement.setString(1, kunde.getName());
         int affectedRows = statement.executeUpdate();
         if (affectedRows > 0) {
-            ResultSet set = statement.getGeneratedKeys();
-            set.next();
-            kunde.setKundenNummer(set.getInt(1));
+            ResultSet result = statement.getGeneratedKeys();
+            result.next();
+            kunde.setKundenNummer(result.getInt(1));
         }
         return affectedRows;
     }
+
 
     public int updateKunde(Kunde kunde) throws SQLException {
         if (kunde.getKundenNummer() == null) {
@@ -123,6 +135,38 @@ public class DatabaseManager {
     }
 
 
+    public List<Kunde> getKundeByName(String name) throws SQLException {
+        PreparedStatement statement = database.getConnection().prepareStatement("SELECT * " +
+                "FROM kunde " +
+                "WHERE Name = ?");
+        statement.setString(1, name);
+        ResultSet resultSet = statement.executeQuery();
+        List<Kunde> kunden = new ArrayList<>();
+        while (resultSet.next()) {
+            int kundennummer = resultSet.getInt(1);
+            String kname = resultSet.getString(2);
+            Kunde kunde = new Kunde(kundennummer, kname);
+            kunden.add(kunde);
+        }
+        return kunden;
+    }
+
+    public Kunde getKundeByKundenNummmer(Integer kundennummer) throws SQLException {
+        Kunde kunde = null;
+        PreparedStatement statement = database.getConnection().prepareStatement("SELECT * " +
+                "FROM kunde " +
+                "WHERE KundenNummer = ?");
+        statement.setInt(1, kundennummer);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            int knummer = resultSet.getInt(1);
+            String name = resultSet.getString(2);
+            kunde = new Kunde(knummer, name);
+        }
+        return kunde;
+    }
+
+
     public List<Kunde> getKunde() throws SQLException {
         PreparedStatement statement = database.getConnection().prepareStatement("SELECT KundenNummer, Name FROM kunde;");
         ResultSet resultSet = statement.executeQuery();
@@ -140,11 +184,40 @@ public class DatabaseManager {
         PreparedStatement statement = database.getConnection().prepareStatement("INSERT INTO " +
                 "`banktest`.`konto`" +
                 "(`KontoNummer`, `Kontostand`)" +
-                "VALUES (?,?);", PreparedStatement.RETURN_GENERATED_KEYS);
+                "VALUES (?,?);");
         statement.setInt(1, konto.getKontoNummer());
         statement.setDouble(2, konto.getKontostand());
         int affectedRows = statement.executeUpdate();
         return affectedRows;
     }
 
+    public int deleteKonto(Konto konto) throws SQLException {
+        PreparedStatement statement = database.getConnection().prepareStatement("DELETE FROM " +
+                "`banktest`.`konto`" +
+                " WHERE KontoNummer = ?");
+        statement.setInt(1, konto.getKontoNummer());
+        int affectedRows = statement.executeUpdate();
+        return affectedRows;
+    }
+
+    public int insertKundeKontoVerbindung(Kunde kunde, Konto konto) throws SQLException {
+        PreparedStatement statement = database.getConnection().prepareStatement("INSERT INTO " +
+                "`banktest`.`kundekontoverbindung`" +
+                "(`fk_KontoNummer`, `fk_KundenNummer`)" +
+                "VALUES (?,?);");
+        statement.setInt(1, konto.getKontoNummer());
+        statement.setInt(2, kunde.getKundenNummer());
+        int affectedRows = statement.executeUpdate();
+        return affectedRows;
+    }
+
+    public int deleteKundenKontoVerbindung(Kunde kunde, Konto konto) throws SQLException {
+        PreparedStatement statement = database.getConnection().prepareStatement("DELETE FROM " +
+                "`banktest`.`kundekontoverbindung`" +
+                " WHERE fk_KontoNummer = ? AND fk_KundenNummer = ?");
+        statement.setInt(1, konto.getKontoNummer());
+        statement.setInt(2, kunde.getKundenNummer());
+        int affectedRows = statement.executeUpdate();
+        return affectedRows;
+    }
 }

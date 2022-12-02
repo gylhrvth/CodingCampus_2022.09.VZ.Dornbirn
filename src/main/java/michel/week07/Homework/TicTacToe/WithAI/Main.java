@@ -24,6 +24,7 @@ public class Main {
         }
         drawBoard(fields);
         System.out.println("Game is over");
+
     }
 
     public static void drawBoard(Fields fields){

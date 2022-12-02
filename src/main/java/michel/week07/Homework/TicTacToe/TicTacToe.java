@@ -10,9 +10,7 @@ public class TicTacToe {
         String player = "X";
         int round = 1;
         String[] fields = new String[9];
-        for (int i = 0; i < fields.length; i++) {
-            fields[i] = String.valueOf((i + 1));
-        }
+        for (int i = 0; i < fields.length; i++);
         boolean win = false;
         //Los gehts!
         System.out.println("\nWillkommen zum 3x3 TicTacToe!\n");
