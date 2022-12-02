@@ -23,11 +23,11 @@ public class AI {
             }
         }
 
-        System.out.println(possibleMoves);
-        System.out.println(movesList);
+//        System.out.println(possibleMoves);
+//        System.out.println(movesList);
 
         int action = possibleMoves.get(bestIndex).getPosition();
-        System.out.println("Action: " + action);
+//        System.out.println("Action: " + action);
         return action;
     }
 
@@ -41,7 +41,7 @@ public class AI {
         for (Fields possibleMove: successorsOf(fields)) {
             v = Math.max(v, minValue(possibleMove));
         }
-        System.out.println(v);
+//        System.out.println(v);
         return v;
     }
 
@@ -76,6 +76,7 @@ public class AI {
             }
 
             if(takenSpots == 9){
+
                 return true;
             }
         }
@@ -96,6 +97,7 @@ public class AI {
             }
         }
         return 0;
+
     }
 
     //Alle Gewinn Möglichkeiten

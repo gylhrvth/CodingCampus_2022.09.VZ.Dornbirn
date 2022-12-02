@@ -27,7 +27,7 @@ public class Car {
         double maxDistanceCar = (actualTank / fuelUsage100km()) * 100;
         int drivenDistance;
         engine.startMotor();
-        if (maxDistanceCar >= distance) {
+        if (maxDistanceCar >= distance && engine.startMotor()) {
             drivenDistance = distance;
         } else {
             drivenDistance = (int) maxDistanceCar;
