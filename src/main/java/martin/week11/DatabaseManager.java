@@ -1,10 +1,10 @@
 package martin.week11;
 
 
-
 import martin.week11.zahlungssystem.Database;
 import martin.week11.zahlungssystem.model.Konto;
 import martin.week11.zahlungssystem.model.Kunde;
+import martin.week11.zahlungssystem.model.KundeKonto;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -119,11 +119,13 @@ public class DatabaseManager {
             dropTable(table);
         }
     }
+
     //execute dataSetInsertion
-    public int insKonto (Konto konto) throws SQLException{
+    public int insKonto(Konto konto) throws SQLException {
         PreparedStatement stat = database.gCon().prepareStatement("INSERT INTO " +
-                        "`zahlungssystem`.`konto`" + "(`iban`, `stand`)" + "VALUES (?, ?);", PreparedStatement.RETURN_GENERATED_KEYS);
-        if(konto.getStand()==0){
+                "`zahlungssystem`.`konto`" + "(`iban`, `stand`)" +
+                "VALUES (?, ?);", PreparedStatement.RETURN_GENERATED_KEYS);
+        if (konto.getStand() == 0) {
             stat.setNull(2, Types.NULL);
         } else {
             stat.setInt(2, konto.getStand());
@@ -137,7 +139,7 @@ public class DatabaseManager {
         return affectedRows;
     }
 
-    public List<Konto> getKonto() throws SQLException{
+    public List<Konto> getKonto() throws SQLException {
         PreparedStatement stat = database.gCon().prepareStatement("SELECT iban, stand FROM konto;");
         ResultSet resultSet = stat.executeQuery();
         List<Konto> konten = new ArrayList<>();
@@ -149,10 +151,11 @@ public class DatabaseManager {
         return konten;
     }
 
-    public int insKunde (Kunde kunde) throws SQLException{
+    public int insKunde(Kunde kunde) throws SQLException {
         PreparedStatement stat = database.gCon().prepareStatement("INSERT INTO " +
-                "`zahlungssystem`.`kunde`" + "(`kundenid`, `name`)" + "VALUES (?, ?);", PreparedStatement.RETURN_GENERATED_KEYS);
-        stat.setString(2,kunde.getName());
+                "`zahlungssystem`.`kunde`" + "(`kundenid`, `name`)" +
+                "VALUES (?, ?);", PreparedStatement.RETURN_GENERATED_KEYS);
+        stat.setString(2, kunde.getName());
         int affectedRows = stat.executeUpdate();
         if (affectedRows > 0) {
             ResultSet set = stat.getGeneratedKeys();
@@ -162,7 +165,7 @@ public class DatabaseManager {
         return affectedRows;
     }
 
-    public List<Kunde> getKunde() throws SQLException{
+    public List<Kunde> getKunde() throws SQLException {
         PreparedStatement stat = database.gCon().prepareStatement("SELECT kundenid, name FROM kunde;");
         ResultSet resultSet = stat.executeQuery();
         List<Kunde> kunden = new ArrayList<>();
@@ -172,5 +175,33 @@ public class DatabaseManager {
             kunden.add(kunde);
         }
         return kunden;
+    }
+
+    public int insKundeKonto(KundeKonto kundekonto) throws SQLException {
+        PreparedStatement stat = database.gCon().prepareStatement("INSERT INTO " +
+                "`zahlungssystem`.`kundekonto`" + "(`kundenid_fk`, `iban_fk`, `rolle`)" +
+                "VALUES (?, ?, ?);", PreparedStatement.RETURN_GENERATED_KEYS);
+        stat.setInt(1, kundekonto.getKundenid_fk());
+        stat.setInt(2, kundekonto.getIban_fk());
+        if (kundekonto.getRolle() != null) {
+            stat.setString(3, kundekonto.getRolle());
+        } else {
+            stat.setNull(3, Types.VARCHAR);
+        }
+        return stat.executeUpdate();
+    }
+
+    public List<KundeKonto> getKundeKonto() throws SQLException {
+        PreparedStatement stat = database.gCon().prepareStatement("SELECT kundenid_fk, iban_fk FROM kundekonto;");
+        ResultSet resultSet = stat.executeQuery();
+        List<KundeKonto> kundenkonten = new ArrayList<>();
+        while (resultSet.next()) {
+            int id = resultSet.getInt(1);
+            int iban = resultSet.getInt(2);
+            String rolle = resultSet.getString(3);
+            KundeKonto kundekonto = new KundeKonto(id, iban, rolle);
+            kundenkonten.add(kundekonto);
+        }
+        return kundenkonten;
     }
 }
