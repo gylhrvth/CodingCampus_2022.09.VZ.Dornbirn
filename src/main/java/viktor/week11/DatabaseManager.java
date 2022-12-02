@@ -120,9 +120,11 @@ public class DatabaseManager {
 
 
     public void dropTables() throws SQLException {
-        executeUpdate("DROP TABLE banktest");
-        executeUpdate("DROP TABLE kundentest");
-        executeUpdate("DROP TABLE kontotest");
+        executeUpdate("DROP TABLE bank");
+        executeUpdate("DROP TABLE kunde");
+        executeUpdate("DROP TABLE konto");
+        executeUpdate("DROP TABLE rolle");
+        executeUpdate("DROP TABLE transaktion");
 
     }
 
