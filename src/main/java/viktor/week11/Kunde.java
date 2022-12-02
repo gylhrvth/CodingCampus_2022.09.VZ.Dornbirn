@@ -1,6 +1,6 @@
 package viktor.week11;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Kunde {
 
