@@ -1,0 +1,90 @@
+@font-face {
+    font-family: "indie";
+    src: url(resources/font/IndieFlower-Regular.ttf) format("truetype");
+}
+
+body{
+    font-family: "indie";
+}
+
+h1{
+    text-align: center;
+}
+
+p {
+    text-align: left;
+    font-size: 30px;   
+}
+
+p.prof {
+font-size: 70px;
+padding: 0 0 0 60px;
+}
+
+p.a {
+    font-size:50px;
+    text-align: center;
+    text-decoration-line: underline;
+}
+
+p.text_in_p {
+    width: 620px;
+    justify-content: left;
+    font-size: 35px;
+}
+div.first {
+    background-color: aqua;
+    height: 590px;
+}
+
+
+
+img {
+    float: right;
+}
+div.second {
+    border:2px solid;
+    display: flex;
+    
+}
+ol.skillslist {
+    list-style-type: none;
+    padding:0;
+    line-height: 50px;
+    font-size: 35px;
+}
+
+div.third {
+    border:2px solid; 
+    width:500px;
+    float:right;
+    position: absolute;
+}
+
+#skill{
+    border:2px solid;
+    width:1050px;
+    height: 950px;
+}
+
+div.exp, #experience{
+    font-size: 30px;
+    padding:0;
+}
+
+ol.explist{
+    list-style-type: none;
+}
+
+.language{
+    list-style-type: none;
+    padding:0;
+    line-height: 50px;
+    font-size: 35px;
+}
+
+div.third {
+    width: 100%;
+    background-color: aqua;
+}
+
