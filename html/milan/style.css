@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "SourceCodeProBlack";
+    src: url(ressources/fonts/SourceCodePro-Black.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "SourceCodeProNormal";
+    src: url(ressources/fonts/SourceCodePro-Medium.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "SourceCodeProLight";
+    src: url(ressources/fonts/SourceCodePro-Light.ttf) format("truetype");
+}
+
+img {
+
+    width: 200px;
+    float: right;
+    margin-right: 75px;
+    margin-top: 60px;
+    padding: 1px;
+    border: hsl(271, 69%, 77%) 10px solid;
+    border-radius: 50%;
+    box-shadow: 5px 5px 15px hsl(271, 69%, 50%);
+
+}
+
+h1 {
+    font-family: "SourceCodeProBlack";
+    font-size: 45px;
+    padding-left: 10px;
+}
+
+h2 {
+    font-family: "SourceCodeProBlack";
+    text-decoration: underline;
+    padding-left: 10px;
+}
+
+h3 {
+    word-wrap: break-word;
+}
+
+h4 {
+    font-family: "SourceCodeProLight";
+}
+
+body {
+    font-family: "SourceCodeProNormal";
+    /*background-color: #aa6ce4;*/
+    background-image: linear-gradient(to bottom right, #aa6ce4, #aa6ce4, #c69ced, #c69ced, #c69ced);
+}
+
+ul {
+    padding-left: 60px;
+    list-style: square;
+}
+
+.jobErfahrung {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding-left: 25px;
+}
