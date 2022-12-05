@@ -1,0 +1,15 @@
+.PersönlicheDatenBeschreibung{
+    background-color: beige;
+    border: 1px solid transparent;
+    width: 170px;
+}
+.PersönlicheDatenInhalt{
+    background-color: beige;
+    border: 1px solid transparent;
+    width: 200px;
+    float: right;
+}
+
+h2, h3, h4 {
+    margin-block-end: 0;
+}
