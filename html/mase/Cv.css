@@ -1,0 +1,45 @@
+.Person{
+text-align: center;
+
+}
+
+.dev{
+    color: aqua;
+}
+
+body{
+    background-color: 1F1C27;
+    color: aliceblue;
+}
+
+.Kontakt{
+    text-align: left;
+    width: 500px;
+    height: 500px;
+    margin-right: 1000px;
+    margin-top: 1000px;
+}
+.Info{
+    color: aqua;
+}
+
+.School{
+text-align: left;
+}
+
+.Skill{
+    text-align: left;
+}
+
+.Sprache{
+text-align: left;
+}
+
+.Work{
+    border: 1px solid transparent;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    margin-left: 1000px;
+    margin-bottom: 1000px;
+}
