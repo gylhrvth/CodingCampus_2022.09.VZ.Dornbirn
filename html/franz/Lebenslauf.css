@@ -1,0 +1,10 @@
+.foto {    
+    padding: 4px;
+    border: solid hsl(118, 93%, 85%) 8px;
+    border-radius: 20%;
+    box-shadow: 10px 3px hsla(118, 93%, 85%, 0.2);
+}
+
+li {
+    padding-top: 8px;
+}
