@@ -14,8 +14,8 @@ body{
 
 .Kontakt{
     text-align: left;
-    width: 500px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
     margin-right: 1000px;
     margin-top: 1000px;
 }
@@ -39,7 +39,7 @@ text-align: left;
     border: 1px solid transparent;
     width: 500px;
     height: 500px;
-    text-align: center;
+    text-align: right;
     margin-left: 1000px;
     margin-bottom: 1000px;
 }
