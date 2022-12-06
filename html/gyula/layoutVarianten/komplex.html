@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .kopf {
+      background-color: beige;
+    }
+
+    .left {
+      background-color: hsl(150, 100%, 80%);
+    }
+    .center {
+      background-color: hsl(150, 100%, 70%);
+    }
+    .right {
+      background-color: hsl(150, 100%, 60%);
+    }
+    .footer {
+      background-color: blue;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 25% 50% 25%;
+    }
+ 
+    @media only screen and (max-width: 600px) {
+      .container {
+        grid-template-columns: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="kopf">
+    <h1>Kopf</h1>
+    <p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, illo inventore! Libero, ipsam minus incidunt nisi sapiente fugiat aliquid. Eius ipsum tempore ex rerum cumque recusandae quam ut quas rem.
+    </p>
+  </div>
+  <div class="container">
+    <div class="left">
+      <h1>Left</h1>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis maiores, cum, cumque ipsum explicabo quis culpa incidunt numquam adipisci omnis voluptatum illo commodi sit. Voluptate accusamus sed eligendi nostrum sit.
+    </div>
+    <div class="center">
+      <h1>Center</h1>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias a nobis cumque similique ducimus cupiditate voluptatibus vel nihil explicabo autem beatae numquam sed magnam inventore aperiam, voluptatum mollitia accusamus unde?
+    </div>
+    <div class="right">
+      <h1>Right</h1>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae amet repellendus, ipsa neque ratione harum, deleniti laboriosam unde quae quas nesciunt aperiam, dolore assumenda eos doloribus? Provident quibusdam reprehenderit eum.
+    </div>
+  </div>
+  <div class="footer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat veniam doloremque mollitia ipsa similique neque deserunt error ab nam temporibus sequi repellendus possimus, cum inventore magnam aspernatur ex deleniti ea.</div>
+</body>
+</html>
