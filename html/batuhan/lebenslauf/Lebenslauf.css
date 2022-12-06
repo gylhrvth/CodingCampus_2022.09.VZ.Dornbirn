@@ -1,0 +1,62 @@
+body{
+    font-size: 25px;
+}
+
+
+li{
+    font-size:20px;
+}
+
+.lebenslauftext {
+    background-color: lightblue;
+    
+    display: grid;
+    grid-template-columns: 30% 70%;
+    
+}
+.passfoto{
+    size: 100%;
+}
+.strich{
+    background-color: rgb(49, 49, 154);
+    height: 25px;
+    width: 100%;
+}
+.strich2{
+    background-color: rgb(98, 50, 175);
+    height: 20px;
+    width: 100%;
+}
+
+
+.lebenslauftext > img {    
+    width: 80%;
+    height: auto;
+    padding: 20px 50px 20px 20px;
+}
+
+.twocolumns {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 70px;
+}
+.arbeit{
+    
+}
+
+.twodingbums{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 70px;
+
+}
+h1{
+    color: lightblue;
+    font-size: 35px;
+}
+
+.alleStricheByGyula{
+    background-image: linear-gradient(rgb(49, 49, 154), rgb(49, 49, 154), rgb(98, 50, 175), rgb(98, 50, 175));
+    height: 50px;
+    width: 100%;
+}
