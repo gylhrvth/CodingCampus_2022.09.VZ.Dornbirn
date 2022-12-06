@@ -14,27 +14,41 @@
     src: url(ressources/fonts/SourceCodePro-Light.ttf) format("truetype");
 }
 
-img {
+@font-face {
+    font-family: "SourceCodeProLightItalic";
+    src: url(ressources/fonts/SourceCodePro-LightItalic.ttf) format("truetype");
+}
+
+.profilfoto {
     width: 250px;
     float: right;
     margin-right: 75px;
     margin-top: 60px;
-    padding: 1px;
+    padding: 3px;
     border: hsl(271, 69%, 77%) 10px solid;
     border-radius: 50%;
     box-shadow: 12px 12px 25px hsl(271, 69%, 50%);
     transform: rotate(-5deg);
 }
 
-h1 {
-    font-family: "SourceCodeProBlack";
-    font-size: 45px;
-    padding-left: 10px;
+svg{
+    align-content: center;
+}
+
+p{
+    font-family: "SourceCodeProNormal";
     color: white;
 }
 
-h2 {
+h1 {
     font-family: "SourceCodeProBlack";
+    font-size: 45px;
+    padding-left: 15px;
+    color: #ffffff;
+}
+
+h2 {
+    font-family: "SourceCodeProNormal";
     text-decoration: underline;
     padding-left: 10px;
     color: white;
@@ -43,27 +57,42 @@ h2 {
 h3 {
     word-wrap: break-word;
     color: white;
+    padding-left: 15px;
 }
 
 h4 {
     font-family: "SourceCodeProLight";
     color: white;
+    font-family: "SourceCodeProLightItalic";
+    padding-left: 20px;
 }
 
 body {
     font-family: "SourceCodeProNormal";
     /*background-color: #aa6ce4;*/
-    background-image: linear-gradient(to bottom right, #aa6ce4, #aa6ce4, #c69ced, #c69ced);
+    background-image: linear-gradient(to bottom right, hsl(271, 69%, 1%), hsl(271, 69%, 30%), #c69ced, #c69ced);
 }
 
 ul {
+    font-family: "SourceCodeProNormal";
     padding-left: 60px;
     list-style: square;
     color: white;
 }
 
-.jobErfahrung {
+.gridAufteilung {
     display: grid;
-    grid-template-columns: 35% 65%;
-    padding-left: 25px;
+    grid-template-columns: 50% 50%;
+
+}
+
+.kontaktdatenGrid{
+    display: grid;
+    grid-template-columns: 10% 90%;
+}
+
+.centerSVG {
+    display: flex;
+    align-items: center;
+    justify-items: center;
 }
