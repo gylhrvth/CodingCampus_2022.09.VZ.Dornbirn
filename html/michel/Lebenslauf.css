@@ -1,12 +1,17 @@
+.persoenlichedaten{
+    display: grid;
+}
 .PersönlicheDatenBeschreibung{
     background-color: beige;
     border: 1px solid transparent;
-    
+    display: grid;
     width: 170px;
 }
 .PersönlicheDatenInhalt{
     background-color: beige;
     border: 1px solid transparent;
+    display: grid;
+    align-content: center;
     width: 200px;
     float: right;
 }
