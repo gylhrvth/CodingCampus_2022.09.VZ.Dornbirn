@@ -1,7 +1,7 @@
 @font-face {
     font-family: "SourceCodeProBlack";
     src: url(ressources/fonts/SourceCodePro-Black.ttf) format("truetype");
-    color: white;
+
 }
 
 @font-face {
@@ -24,34 +24,30 @@
     float: right;
     margin-right: 75px;
     margin-top: 60px;
-    padding: 3px;
-    border: hsl(271, 69%, 77%) 10px solid;
+    padding: 4px;
+    border: hsl(271, 69%, 30%) 2px solid;
     border-radius: 50%;
-    box-shadow: 12px 12px 25px hsl(271, 69%, 50%);
+    box-shadow: 24px 15px 100px hsl(271, 69%, 77%);
     transform: rotate(-5deg);
 }
 
-svg{
-    align-content: center;
-}
-
-p{
+p {
     font-family: "SourceCodeProNormal";
     color: white;
 }
 
 h1 {
     font-family: "SourceCodeProBlack";
-    font-size: 45px;
+    font-size: 55px;
     padding-left: 15px;
     color: #ffffff;
 }
 
 h2 {
     font-family: "SourceCodeProNormal";
-    text-decoration: underline;
     padding-left: 10px;
     color: white;
+    margin-bottom: 0;
 }
 
 h3 {
@@ -70,7 +66,7 @@ h4 {
 body {
     font-family: "SourceCodeProNormal";
     /*background-color: #aa6ce4;*/
-    background-image: linear-gradient(to bottom right, hsl(271, 69%, 1%), hsl(271, 69%, 30%), #c69ced, #c69ced);
+    background-image: linear-gradient(to bottom right, hsl(271, 69%, 1%), hsl(271, 69%, 30%), hsl(271, 69%, 77%));
 }
 
 ul {
@@ -86,13 +82,25 @@ ul {
 
 }
 
-.kontaktdatenGrid{
+.kontaktdatenGrid {
     display: grid;
-    grid-template-columns: 10% 90%;
+    grid-template-columns: 8% 92%;
+
+
 }
 
 .centerSVG {
     display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
+}
+
+
+.underline {
+    height: 2px;
+    width: 70%;
+    margin-left: 10px;
+    background-color: #ffffff;
+    border-radius: 1px 100% 100% 1px;
+
 }
