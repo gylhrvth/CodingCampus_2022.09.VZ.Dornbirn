@@ -1,7 +1,7 @@
 @font-face {
     font-family: "SourceCodeProBlack";
     src: url(ressources/fonts/SourceCodePro-Black.ttf) format("truetype");
-    color: white;
+
 }
 
 @font-face {
@@ -14,56 +14,93 @@
     src: url(ressources/fonts/SourceCodePro-Light.ttf) format("truetype");
 }
 
-img {
+@font-face {
+    font-family: "SourceCodeProLightItalic";
+    src: url(ressources/fonts/SourceCodePro-LightItalic.ttf) format("truetype");
+}
+
+.profilfoto {
     width: 250px;
     float: right;
     margin-right: 75px;
     margin-top: 60px;
-    padding: 1px;
-    border: hsl(271, 69%, 77%) 10px solid;
+    padding: 4px;
+    border: hsl(271, 69%, 30%) 2px solid;
     border-radius: 50%;
-    box-shadow: 12px 12px 25px hsl(271, 69%, 50%);
+    box-shadow: 24px 15px 100px hsl(271, 69%, 77%);
     transform: rotate(-5deg);
+}
+
+p {
+    font-family: "SourceCodeProNormal";
+    color: white;
 }
 
 h1 {
     font-family: "SourceCodeProBlack";
-    font-size: 45px;
-    padding-left: 10px;
-    color: white;
+    font-size: 55px;
+    padding-left: 15px;
+    color: #ffffff;
 }
 
 h2 {
-    font-family: "SourceCodeProBlack";
-    text-decoration: underline;
+    font-family: "SourceCodeProNormal";
     padding-left: 10px;
     color: white;
+    margin-bottom: 0;
 }
 
 h3 {
     word-wrap: break-word;
     color: white;
+    padding-left: 15px;
 }
 
 h4 {
     font-family: "SourceCodeProLight";
     color: white;
+    font-family: "SourceCodeProLightItalic";
+    padding-left: 20px;
 }
 
 body {
     font-family: "SourceCodeProNormal";
     /*background-color: #aa6ce4;*/
-    background-image: linear-gradient(to bottom right, #aa6ce4, #aa6ce4, #c69ced, #c69ced);
+    background-image: linear-gradient(to bottom right, hsl(271, 69%, 1%), hsl(271, 69%, 30%), hsl(271, 69%, 77%));
 }
 
 ul {
+    font-family: "SourceCodeProNormal";
     padding-left: 60px;
     list-style: square;
     color: white;
 }
 
-.jobErfahrung {
+.gridAufteilung {
     display: grid;
-    grid-template-columns: 35% 65%;
-    padding-left: 25px;
+    grid-template-columns: 50% 50%;
+
+}
+
+.kontaktdatenGrid {
+    display: grid;
+    grid-template-columns: 8% 92%;
+
+
+}
+
+.centerSVG {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.underline {
+    height: 2px;
+    width: 70%;
+    margin-left: 10px;
+    background-color: #ffffff;
+    border-radius: 1px 100% 100% 1px;
+
 }

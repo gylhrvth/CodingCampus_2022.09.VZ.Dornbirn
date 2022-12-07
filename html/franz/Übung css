@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <title> Lebenslauf</title>
+    <link rel = "stylesheet" href="MySyle.css"/>
+</head> 
+
+    <body>
+    <style>
+    body{background-color: green;}
+    
+            <img src="https://wasserrettung-bludenz.at/images/mitglieder/Winkler-Franz.jpg" >
+            
+            <h1>{color:red;}Franz Winkler</h1>
+                 
+                        <p>
+                <h2>Kontakt</h2>
+            </p>
+                <ul>
+                    <li>E-Mail: franzwinkler@hotmail.com</li>
+                    <li>Mobil: +43 664 40 73 766</li>
+                    <li>linkedin: winkler-476ab9232</li>
+                    <li>Vogelgsang 20</li>
+                    <li>6713 Ludesch</li>
+                </ul>
+                <p>
+                    <h2>Beruflicher Werdegang</h2>
+                </p>
+                    <ul><p>
+                        <li>06/2016 - 09/2022 // Fliesenpool GmbH, Götzis</li>
+                        Arbeitsvorbereitung, 3D Planung, Verkauf
+                        <p>
+                        <li>03/2016 - 06/2016 // Expert Tschanett, Rankweil </li>
+                        Verkaufsberater
+                        <p>
+                        <li>06/2013 - 11/2015 // Merkur Versicherung, Dornbirn</li>
+                        Versicherungsvertreter
+                        <p>
+                        <li>11/2012 - 06/2014 // Lech Wash, Lech</li>
+                        Auslieferungsfahrer
+                        <p>
+                        <li>10/2011 - 10/2012 // MSE Personal AG, Eschen</li>
+                        Metallarbeiter
+                        <p>
+                        <li>09/2005 - 09/2010 // Liebherr Group, Nenzing</li> 
+                        Lehre 09/2005 - 09/2008 <br />
+                        Universalschweißer
+                        </p>                  
+                    </ul>
+                    <p>
+                       <h2>Bildungsweg</h2> 
+                    </p>
+                        <ul><p>
+                            <li>09.2022 - 02.2023 // Digital Campus Vorarlberg </li>
+                            Softwareentwickler
+                            <p>
+                                <li>10.2020 - 05.2022 // aufZAQ, Wien</li>
+                                Trainer für Erwachsenenbildung
+                            <p>
+                            <li>2010 - 2011 // Krankenpflegeschule, Bregenz </li>
+                            Krankenpfleger (Ohne Abschluss)
+                            <p>
+                            <li>2005 - 2008 // Berufsschule, Bludenz</li>
+                            Fachbereich Stahlbau und Schweißen
+                                                        <p>
+                            <li>2004 - 2005 //Polytechnische Schule,  Thüringen</li>
+                            Fachbereich Metall                        
+                            </p>                  
+                        </ul>
+                        <p>
+                            <h2>Sprachen</h2> 
+                         </p>
+                             <ul>Deutsch - Muttersprache <br/>
+                                Englisch - Wort und Schrift
+                             </p>
+                             </ul>
+                             <p>
+                                <h2>Kompetenzen</h2> 
+                            </p>
+                                <ul>MS Office <br/>
+                                 Projektbegleitung<br/>
+                                 Flexibilität<br/>
+                                 Belastbar
+                                </p>
+                                </ul>
+                             <p>
+                             <h2>Ehrenamt</h2> 
+                            </p>
+                                <ul>Trainer für Jugendleiter seit 2022 <br/>
+                                    Pfadfinderleiter seit 2007<br/>
+                                    Einsatzmannschaft der Wasserrettung seit 2006
+                                </p>
+                                </ul>
+                                <p>
+                                    <h2>Hobbys</h2> 
+                                   </p>
+                                       <ul>Pfadfinder <br/>
+                                        Schwimmen<br/>
+                                        Handwerken
+                                       </p>
+                                       </ul>
+         </style>                          
+        </body>
+</html>  
