@@ -26,11 +26,30 @@
       display: grid;
       grid-template-columns: 25% 50% 25%;
     }
- 
+
+    @media only screen and (max-width: 800px) {
+      .container {
+        grid-template-columns: 25% 75%;
+      }
+    }
     @media only screen and (max-width: 600px) {
       .container {
         grid-template-columns: 100%;
       }
+    }
+
+    h1 {
+      display: table;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    h1:after {
+      border-bottom: 4px solid red;
+      content: '';
+      display: block;
+      margin-left: 0%;
+      width: 120%;
     }
   </style>
 </head>
@@ -48,11 +67,16 @@
     </div>
     <div class="center">
       <h1>Center</h1>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias a nobis cumque similique ducimus cupiditate voluptatibus vel nihil explicabo autem beatae numquam sed magnam inventore aperiam, voluptatum mollitia accusamus unde?
+      <p>      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias a nobis cumque similique ducimus cupiditate voluptatibus vel nihil explicabo autem beatae numquam sed magnam inventore aperiam, voluptatum mollitia accusamus unde?
+      </p>
+      <p>
+        <a href="../viewport/viewportExample.html">Bitte hier drücken</a>
+
+      </p>
     </div>
     <div class="right">
       <h1>Right</h1>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae amet repellendus, ipsa neque ratione harum, deleniti laboriosam unde quae quas nesciunt aperiam, dolore assumenda eos doloribus? Provident quibusdam reprehenderit eum.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae amet repellendus, ipsa neque ratione harum, deleniti laboriosam unde quae quas nesciunt aperiam, dolore assumenda eos doloribus? Provident quibusdam reprehenderit eum.    
     </div>
   </div>
   <div class="footer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat veniam doloremque mollitia ipsa similique neque deserunt error ab nam temporibus sequi repellendus possimus, cum inventore magnam aspernatur ex deleniti ea.</div>
