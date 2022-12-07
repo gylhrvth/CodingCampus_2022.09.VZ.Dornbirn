@@ -24,7 +24,7 @@
     float: right;
     margin-right: 75px;
     margin-top: 60px;
-    padding: 4px;
+    padding: 5px;
     border: hsl(271, 69%, 30%) 2px solid;
     border-radius: 50%;
     box-shadow: 24px 15px 100px hsl(271, 69%, 77%);
@@ -48,12 +48,14 @@ h2 {
     padding-left: 10px;
     color: white;
     margin-bottom: 0;
+    
 }
 
 h3 {
     word-wrap: break-word;
     color: white;
     padding-left: 15px;
+
 }
 
 h4 {
