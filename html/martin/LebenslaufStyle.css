@@ -1,0 +1,67 @@
+
+.Topline {
+    background-color:
+        rgb(166, 166, 166);
+    color:
+        rgb(166, 166, 166);
+        height: 20px;
+        margin-top: 0%;
+}
+header {
+    position: -webkit-sticky;
+    position: sticky;
+}
+
+.Pers-Data-Box {
+    padding-left: 25px;
+    background-color:
+        rgb(37, 95, 133);
+    color: white;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: end;
+}
+
+.Pers-Data-Text {
+    font-size: 100%;
+    padding-left: 30px;
+}
+
+.Pers-Data-Name {
+    font-size: 150%;
+}
+
+.Pers-Data-Foto {
+    width: auto;
+    height: min(30vh, 30vw);
+    display: grid;
+    align-items: baseline;
+    background-color:
+        rgb(166, 166, 166);
+}
+
+
+
+
+
+
+
+.blackbox {
+    background-color: black;
+    color: black;
+    padding-left: 15px;
+}
+
+.grid-container-bottom {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+}
+
+.articlebot {
+    padding-left: 15px;
+    padding-top: 15px;
+    
+
+}
