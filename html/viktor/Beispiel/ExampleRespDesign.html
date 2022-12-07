@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, inital-scale=1.0">
+            <title>Example</title>
+        
+            <style>
+                .unit{
+                    border: 2px solid;
+                    height: 500px;
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: 25% 50% 25%;
+                }
+                .unit > div{
+                    background-color: dodgerblue;
+                    border: 5px solid;
+                    font-size: 30px;
+                }
+
+                @media only screen and (max-width:800px) {
+                    .unit > div:nth-child(2) {
+                        background-color: orange;
+                    }
+                }
+            </style>
+
+    </head>
+
+<body>
+    
+    <div class="unit">
+
+        <div>Ausbildung</div>
+        <div>Skills</div>
+        <div>Berufliche Erfahrung</div>
+
+    </div>
+
+
+</body>
+
+</html>
