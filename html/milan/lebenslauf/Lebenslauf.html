@@ -1,20 +1,23 @@
 <html>
     <head>
         <title>Mein Lebenslauf</title>
+        <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <br>
-        <img class="profilfoto" src="37807335.jpg" alt="Skeletor with He-Man
+        <img class="profilfoto"
+            src="ressources/img/37807335-removebg-preview.png" alt="Skeletor
+            with He-Man
             wig">
-        <h1>MILAN ALEKSIC</h1>
+            <h1>MILAN ALEKSIC</h1>
         <br>
         <div>
             <h2>KONTAKTDATEN</h2>
-            <div class="underline" style="margin-bottom: 20px;">
+            <div class="underline">
             </div>
-            <div class="kontaktdatenGrid">
+            <div class="kontaktdatenGrid" style="margin-top: 8px;">
                 <div class="centerSVG">
                     <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"
                         height="24"
@@ -31,8 +34,8 @@
                             11.575 15 12t.288.712Q15.575 13 16 13Z"/>
                         </svg>
                     </div>
-                    <p>Burggasse 13</p>
-                    <div class="centerSVG">
+                    <p class="kontaktDatenAnordnung">Burggasse 13, 6714 Nüziders</p>
+                    <div class="centerSVG"  onclick="copyEmailToClipboard()">
                         <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24
                             24" height="24"
                             width="24">
@@ -47,7 +50,8 @@
                                 8V6v12Z"/>
                             </svg>
                         </div>
-                        <p> meinemailadresse@gmail.com </p>
+                        <p id="myEmailAddr" class="kontaktDatenAnordnung" onclick="copyEmailToClipboard()">
+                            meinemailadresse@gmail.com</p>
                         <div class="centerSVG">
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 viewbox="0 0 24 24" height="24"
@@ -69,7 +73,7 @@
                                     8.95Z"/>
                                 </svg>
                             </div>
-                            <p>0660/1111111</p>
+                            <p class="kontaktDatenAnordnung">0660/1111111</p>
                         </div>
                         <br>
                         <div class="gridAufteilung">
@@ -78,30 +82,30 @@
                                 <div class="underline">
                                 </div>
                                 <h3 style="margin-bottom:
-                                    5px;">Veranstaltungstechniker</h3>
-                                <h4 style="margin-top: 0px;">Kleinunternehmer
+                                    5px;">Ver&shy;anstaltungs&shy;techniker</h3>
+                                <h4 style="margin-top: 0px;">Klein&shy;unternehmer
                                     2019 - 2022</h4>
                                 <ul>
                                     <li>Erstellung und Umsetzung von
-                                        Veranstaltungs&shy;konzepten</li>
-                                    <li>Kundenbetreuung</li>
+                                        Ver&shy;anstaltungs&shy;konzepten</li>
+                                    <li>Kunden&shy;betreuung</li>
                                     <li>Aufbau von Ton und
-                                        Lichtanlagen</li>
+                                        Licht&shy;anlagen</li>
                                 </ul>
                                 <h3 style="margin-bottom:
-                                    5px;">Veranstaltungstechniker</h3>
+                                    5px;">Ver&shy;anstaltungs&shy;techniker</h3>
                                 <h4 style="margin-top: 0px;">Montforthaus
                                     Feldkirch GmbH 2016
                                     - 2022</h4>
                                 <ul>
                                     <li>Erstellung und Umsetzung von
-                                        Veranstaltungs&shy;konzepten</li>
-                                    <li>Kundenbetreuung</li>
+                                        Ver&shy;anstaltungs&shy;konzepten</li>
+                                    <li>Kunden&shy;betreuung</li>
                                     <li>Aufbau von Ton und
-                                        Lichtanlagen</li>
+                                        Licht&shy;anlagen</li>
                                 </ul>
                                 <h3 style="margin-bottom:
-                                    5px;">Fertigungsfachmann</h3>
+                                    5px;">Fertigungs&shy;fachmann</h3>
                                 <h4 style="margin-top: 0px;">HTW Molds GmbH 2012
                                     - 2016</h4>
                                 <ul>
@@ -110,9 +114,9 @@
                                         Maschinen</li>
                                     <li>Fertigung von Prototypen</li>
                                 </ul>
-                            </div>                            
+                            </div>
                             <div class="bildungswegRechts">
-                                <h2>BILDUNGSWEG</h2>
+                                <h2>BILDUNGS&shy;WEG</h2>
                                 <div class="underline">
                                 </div>
                                 <h3 style="margin-bottom:
@@ -130,7 +134,7 @@
                                     <li>Programmiersprache: JAVA</li>
                                 </ul>
                                 <h3 style="margin-bottom:
-                                    5px;">Jungfacharbeiter Programm</h3>
+                                    5px;">Jung&shy;fach&shy;arbeiter Programm</h3>
                                 <h4 style="margin-top: 0px;">Hilti AG 2008 -
                                     2010</h4>
 
@@ -138,13 +142,12 @@
                                     <li>Abgeschlossene Ausbildung
                                         zum
                                         Maschinen&shy;mechaniker</li>
-                                    <li>Zerspanungstechnik</li>
+                                    <li>Zerspanungs&shy;technik</li>
                                     <li>Technische Konstruktion</li>
                                     <li>Programmierung CNC Maschinen</li>
                                 </ul>
                             </div>
                         </div>
-                        <br>
                         <h2>SONSTIGE KENNTNISSE</h2>
                         <div class="underline">
                         </div>
@@ -154,7 +157,7 @@
                                 <ul>
                                     <li>Grundkurs 16 - stündig</li>
                                 </ul>
-                                <h3>Brandschutzwart</h3>
+                                <h3>Brand&shy;schutz&shy;wart</h3>
                                 <ul>
                                     <li>Modul 1 & 2</li>
                                 </ul>
@@ -178,5 +181,12 @@
                                 </ul>
                             </div>
                         </div>
+
+<script>
+    function copyEmailToClipboard(){
+        navigator.clipboard.writeText(document.getElementById('myEmailAddr').innerText)
+    }
+</script>
+
                     </body>
                 </html>
