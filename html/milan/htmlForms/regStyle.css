@@ -1,0 +1,132 @@
+@font-face {
+    font-family: "SairaCondensed-Regular";
+    src: url(ressources/fonts/SairaCondensed-Regular.ttf);
+}
+
+@font-face {
+    font-family: "SairaCondensed-Bold";
+    src: url(ressources/fonts/SairaCondensed-Bold.ttf);
+}
+
+body {
+    background-image: url('ressources/img/empty road.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: "SairaCondensed-Regular";
+    font-size: 4vh;
+}
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border-radius: 6px;
+    background: #f1f1f1;
+    font-size: 3vh;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+
+}
+
+input[type=checkbox] {
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+
+hr {
+    border: 1px solid #f1f1f1;
+}
+
+p {
+    color: white;
+}
+
+
+h1 {
+    font-family: "SairaCondensed-Bold";
+    font-size: 9vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background-color: greenyellow;
+    color: blue;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.7;
+}
+
+button:hover {
+    opacity: 1;
+}
+.road {
+    border-radius: 30px;
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signUpBox {
+    max-width: 23em;
+    margin: 90px;
+    border-radius: 30px;
+    border: 1.3vw solid transparent;
+    box-shadow: 7px 10px 90px, inset 0 0 9px white;
+    
+}
+/*
+.signUpBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px; 
+  padding: 1vh; 
+  background:linear-gradient(45deg,rgb(9, 255, 0),rgb(125, 61, 230),rgb(80, 46, 231)); 
+
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude; 
+}
+*/
+.radient-box{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    max-width: 25em;
+    position: relative;
+    padding: 5%;
+}
+
+.grid_rows {
+    display: grid;
+    grid-template-rows: 100%;
+    padding: 16px;
+}
+
+.outterBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
