@@ -1,0 +1,101 @@
+body {
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    font-family: monospace;
+    
+}
+
+.Headline {
+    text-align: center;
+    color: green;
+    font-size: 1.5rem;
+
+}
+h1{
+    text-align: center;
+}
+
+
+.twocolums {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    margin-top: 10px;
+    
+    
+}
+
+img {
+    max-width: 840px;
+    max-height: 990px;
+    margin-bottom: 25px;
+    margin-left: 90px;
+    
+
+
+
+}
+
+.SignIn {
+    color: green;
+    font-size: 1.5rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 70px;
+}
+
+
+
+@media only screen and (max-width: 1380px) {
+    .twocolums {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 25px;
+       margin-left: -125px;
+        align-items: center;
+        
+        
+       
+
+
+    }
+}
+
+
+
+
+#gebdate {
+    margin-left: 0px;
+
+}
+
+input {
+    text-shadow: 5px 10px 8px;
+    color: rgb(124, 124, 124);
+    margin-top: 5px;
+    font-size: 15px;
+    
+
+
+
+}
+
+button:hover {
+    background-color: white;
+}
+
+button {
+    width: 330px;
+    height: 42px;
+    color: red;
+    background-color: rgba(65, 61, 61, 0);
+    border: 1px solid white;
+    
+}
+
+select {
+    margin-top: 5px;
+}
