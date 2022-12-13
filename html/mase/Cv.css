@@ -58,6 +58,9 @@ text-align: left;
 
 .Bildung{
     color: aqua;
+    border-bottom: solid aqua 5px;
+    
+    
 }
 
 .Können{
@@ -69,6 +72,15 @@ text-align: left;
 }
 
 .rightSide {
-    border-left: solid aqua 10px;
+    border-left: solid aqua 5px;
     padding-left: 16px;
+    margin-top: 10px;
+    
+    ;
+}
+
+.leftside{
+    border-left: solid aqua 5px;
+    padding-left: 16px;
+    margin-top: 10px;
 }
