@@ -8,3 +8,21 @@
 li {
     padding-top: 8px;
 }
+.container {
+    width: 400px;
+      height: 400px;
+    
+  }
+  .container2 {
+    width: 400px;
+      height: 200px;
+    
+  }
+
+.rightSide > :last-child {
+    height: 900px;
+}
+
+.magicList > :nth-child(2n){
+    background-color: darkblue;
+}

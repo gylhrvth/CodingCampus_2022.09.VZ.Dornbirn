@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DnD Character</title>
+    <link rel="stylesheet" href="character_page_style.css">
+    <script>
+        function updateAlignment() {
+            let selectedValue = event.target.options[event.target.options.selectedIndex].value
+            console.log("updateAlignment", selectedValue)
+            event.target.classList.remove(
+                'lg', 'ln', 'le', 'ng', 'nn', 'ne', 'cg', 'cn', 'ce')
+            if (selectedValue === 'lg') {
+                event.target.classList.add('lg')
+            } else if (selectedValue === 'ln') {
+                event.target.classList.add('ln')
+            } else if (selectedValue === 'le') {
+                event.target.classList.add('le')
+            } else if (selectedValue === 'ne') {
+                event.target.classList.add('ne')
+            } else if (selectedValue === 'nn') {
+                event.target.classList.add('nn')
+            } else if (selectedValue === 'ng') {
+                event.target.classList.add('ng')
+            } else if (selectedValue === 'cg') {
+                event.target.classList.add('cg')
+            } else if (selectedValue === 'cn') {
+                event.target.classList.add('cn')
+            } else if (selectedValue === 'ce') {
+                event.target.classList.add('ce')
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="header tempg tempg-40-60">
+        <div><input type="text" placeholder="character name">
+            <div class="tempg charName posCB">Character Name</div>
+        </div>
+        <div class="charProfile tempg tempg-33-33-33">
+            <input type="text" placeholder="Class & Level">
+            <input type="text" placeholder="Background">
+            <input type="text" placeholder="Player name">
+            <input type="text" placeholder="Race">
+            <select id="alignment" name="alignment" onchange="updateAlignment()">
+                <option value="lg">lawful good</option>
+                <option value="ln">lawful neutral</option>
+                <option value="le">lawful evil</option>
+                <option value="ng">neutral good</option>
+                <option value="nn">true neutral</option>
+                <option value="ne">neutral evil</option>
+                <option value="cg">chaotic good</option>
+                <option value="cn">chaotic neutral</option>
+                <option value="ce">chaotic evil</option>
+            </select>
+
+            <input type="number" placeholder="EXP">
+        </div>
+    </div>
+    <!--Page one-->
+    <div class="tempg tempg-33-33-33">
+        <div class="leftCol">
+            <div class="attribute-skills tempg tempg-40-60">
+                <div class="tempg attribute">
+                    <div class="attr">
+                        <input type="number">
+
+                        Strength
+                    </div>
+                    <div class="attr">Dex</div>
+                    <div class="attr">Con</div>
+                    <div class="attr">Int</div>
+                    <div class="attr">Wis</div>
+                    <div class="attr">Cha</div>
+                </div>
+                <div class="skills">
+                    <div class="tempg inspiration">Inspiration</div>
+                    <div class="tempg profBonus">Proficency Bonus</div>
+                    <div class="tempg saving">
+                        <ul>
+                            <li style=" list-style-type: circle;">Str</li>
+                            <li>Dex</li>
+                            <li>Con</li>
+                            <li style="list-style-type: circle;">Int</li>
+                            <li>Wis</li>
+                            <li>Cha</li>
+                        </ul>
+                        <p class="posCC">Saving Throws</p>
+                    </div>
+                    <div class="tempg skills">
+                        <ul>
+                            <li style=" list-style-type: circle;">acrobatics</li>
+                            <li>animal handling</li>
+                            <li>arcana</li>
+                            <li style="list-style-type: circle;">athletics</li>
+                            <li>deception</li>
+                            <li>history</li>
+                            <li>insight</li>
+                            <li>intimidation</li>
+                            <li>investigation</li>
+                            <li>medicine</li>
+                            <li>nature</li>
+                            <li>perception</li>
+                            <li>performance</li>
+                            <li>persuasion</li>
+                            <li>religion</li>
+                            <li>sleight of hand</li>
+                            <li>stealth</li>
+                            <li>survival</li>
+                        </ul>
+                        <p class="posCC">Skills</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tempg passiveWisdom posCC">passive Wisdom</div>
+            <div class="tempg languages posCB">languages</div>
+        </div>
+        <div class="centerCol">
+            <!--FightStats start-->
+            <div class="tempg tempg-33-33-33">
+                <div>Armorclass</div>
+                <div>Initiative</div>
+                <div>Speed</div>
+            </div>
+            <div class="tempg posCB">Current Hit Points</div>
+            <div class="tempg posCB">Temporary Hit Points</div>
+            <div style="display: grid; column-gap: 0px; grid-template-columns: 50% 50%;">
+                <div class="tempg posCB">Hit dice</div>
+                <div class="tempg posCB">Death saves</div>
+            </div>
+            <!--FightStats ende-->
+            <div class="tempg">Attacks & Spellcasting</div>
+            <div class="tempg posCB">Equipment</div>
+        </div>
+        <div class="rightCol">
+            <div class="tempg">Personality Traits</div>
+            <div class="tempg">Ideals</div>
+            <div class="tempg">Bonds</div>
+            <div class="tempg">Flaws</div>
+            <div class="tempg">Features & Traits</div>
+        </div>
+    </div>
+    <!--Page two-->
+    <div class="tempg tempg-40-60">
+        <div class="tempg">
+            <div class="tempg">Character appearance</div>
+            <div class="tempg">Character backstory</div>
+        </div>
+        <div class="tempg">
+            <div class="tempg">Allies & Organizazions</div>
+            <div class="tempg">Additional Features & Traits</div>
+            <div class="tempg">Treasure</div>
+        </div>
+    </div>
+</body>
+
+</html>
