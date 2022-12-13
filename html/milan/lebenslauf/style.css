@@ -1,0 +1,157 @@
+@font-face {
+    font-family: "SourceCodeProBlack";
+    src: url(ressources/fonts/SourceCodePro-Black.ttf) format("truetype");
+
+}
+@font-face {
+    font-family: "SourceCodeProNormal";
+    src: url(ressources/fonts/SourceCodePro-Medium.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "SourceCodeProLight";
+    src: url(ressources/fonts/SourceCodePro-Light.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "SourceCodeProLightItalic";
+    src: url(ressources/fonts/SourceCodePro-LightItalic.ttf) format("truetype");
+}
+
+.profilfoto {
+    width: clamp(50px, 30vw, 210px);
+    float: right;
+    margin-right: 60px;
+    margin-top: 30px;
+    padding: 5px;
+    border: hsl(271, 70%, 27%) 0.8vh solid;
+    border-radius: 50%;
+    box-shadow: 24px 24px 70px hsl(271, 69%, 77%);
+    transform: rotate(-5deg);
+}
+
+@media only screen and (max-width: 700px) {
+    .profilfoto {
+        float: none;
+        margin-left: 4.5vh;
+        margin-top: 0px;
+        transform: rotate(5deg) scaleX(-1);
+        border: hsl(271, 71%, 13%) 0.8vh solid;
+        border-radius: 50%;
+        box-shadow: 0px 0px 50px #c69ced;
+    }
+}
+
+p {
+    margin-top: 1vh;;
+    font-family: "SourceCodeProNormal";
+    color: white;
+    font-size: clamp(12px, 1.3vw, 48px);
+}
+
+
+h1 {
+    font-family: "SourceCodeProBlack";
+    font-size: clamp(24px, 5vw, 48px);
+    padding-left: 15px;
+    color: #ffffff;
+}
+
+h2 {
+    margin-top: 4vh;
+    font-family: "SourceCodeProNormal";
+    padding-left: 10px;
+    color: white;
+    margin-bottom: 0;
+    font-size: clamp(14px, 2vw, 48px);
+}
+
+h3 {
+    margin-top: 2vh;
+    word-wrap: break-word;
+    color: white;
+    padding-left: 15px;
+    font-size: clamp(13px, 1.5vw, 48px);
+}
+
+h4 {
+    font-family: "SourceCodeProLight";
+    color: white;
+    font-family: "SourceCodeProLightItalic";
+    padding-left: 20px;
+    font-size: clamp(12px, 1vw, 48px);
+}
+
+body {
+    margin: 0;
+    font-family: "SourceCodeProNormal";
+    /*background-color: #aa6ce4;
+    background-image: radial-gradient(circle at top left, hsl(271, 69%, 1%), hsl(271, 69%, 30%), hsl(271, 69%, 77%));
+*/
+    background-image: linear-gradient(to bottom right, hsl(271, 69%, 1%), hsl(271, 69%, 30%), hsl(271, 69%, 77%));
+    /*
+    background: url(ressources/img/skeletor.png) rgba(0, 0, 0, 0);
+*/
+}
+
+ul {
+    margin-top: 1vh;
+    font-family: "SourceCodeProNormal";
+    padding-left: 60px;
+    list-style: square;
+    color: white;
+    font-size: clamp(12px, 1.3vw, 48px);
+}
+
+.gridAufteilung {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.kontaktdatenGrid {
+    display: grid;
+    grid-template-columns: 8% 92%;
+}
+
+.centerSVG {
+    margin-top: 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centerSVG>svg {
+    width: clamp(14px, 2vw, 400px);
+    height: auto;
+}
+
+.underline {
+    height: 2px;
+    width: clamp(200px, 35vw, 1000px);
+    margin-left: 10px;
+    background-color: #ffffff;
+    border-radius: 1px 100% 100% 1px;
+
+}
+
+@media only screen and (max-width: 830px) {
+    .gridAufteilung {
+        grid-template-columns: 100%;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .kontaktdatenGrid {
+        grid-template-columns: 100%;
+    }
+
+    .centerSVG {
+        padding-left: 10px;
+        justify-content: left;
+    }
+
+    .kontaktDatenAnordnung {
+        padding-left: 10px;
+    }
+
+}
