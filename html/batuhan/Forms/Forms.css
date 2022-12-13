@@ -35,9 +35,6 @@ img {
     margin-bottom: 25px;
     margin-left: 90px;
 
-
-
-
 }
 
 .SignIn {
@@ -50,12 +47,7 @@ img {
     margin-top: 100px;
     display: grid;
     grid-row: 50% 50%;
-
-
 }
-
-
-
 
 
 
@@ -76,11 +68,6 @@ img {
 }
 
 
-
-
-
-
-
 input {
     text-shadow: 5px 10px 8px;
     color: rgb(124, 124, 124);
@@ -98,18 +85,20 @@ label {
 button:hover {
     background-color: white;
     transition: all 0.5s;
+
 }
 
 button {
+
     width: 330px;
     height: 42px;
     color: red;
     background-color: rgba(65, 61, 61, 0);
     border: 1px solid white;
-    -webkit-box-shadow: 5px 5px 69px 7px rgba(158,150,158,1);
-    -moz-box-shadow: 5px 5px 69px 7px rgba(158,150,158,1);
-    box-shadow: 5px 5px 69px 7px rgba(158,150,158,1);
-    
+    -webkit-box-shadow: 5px 5px 69px 7px rgba(158, 150, 158, 1);
+    -moz-box-shadow: 5px 5px 69px 7px rgba(158, 150, 158, 1);
+    box-shadow: 5px 5px 69px 7px rgba(158, 150, 158, 1);
+
 }
 
 select {
@@ -117,24 +106,25 @@ select {
     height: 33px;
     width: 256px;
 }
-.gebdate{
+
+.gebdate {
     height: 29px;
     width: 251px;
 }
-
-
 
 h2 {
     text-align: center;
     margin-bottom: 20px;
     color: var(--illuminaty-color);
 }
-button{
-text-align: center;
-margin-left: 30px;
-font-size: 20px;
+
+button {
+    text-align: center;
+    margin-left: 100px;
+    font-size: 20px;
 }
-.signin1{
+
+.signin1 {
     margin-right: 50px;
     display: grid;
     grid-template-columns: 50% 50%;
