@@ -1,0 +1,33 @@
+.button1 {
+    margin: 3vw;
+    width: 10%;
+    height: 5%;
+    font-size: 16px;
+}
+
+.button2 {
+    margin: 3vw;
+    border-radius: 20px;
+    width: 10%;
+    height: 6%;
+    background-color: rgb(235, 185, 19);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button2:hover {
+    background-color: black;
+    color: white;
+    transition: all 0.4s;
+}
+
+.button3 {
+    margin: 3vw;
+    border-radius: 30px;
+    font-size: 16px;
+    background-image: linear-gradient(to right, rgb(17, 99, 17), rgb(8, 53, 122));
+    color: white;
+    width: 10%;
+    height: 6%;
+}
+
