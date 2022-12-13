@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <html>
     <link rel="stylesheet" href="/html/viktor/Lebenslauf.css">
     <title>
@@ -6,63 +10,66 @@
     </title>
 
     <body>
-        <h1 style="font-size:90px">
+        <h1 style="font-size:6vw">
             LEBENSLAUF
         </h1>
     
         <div class="first">
-            
-            <img src="/html/viktor/selffoto.png" height="790px; width=200px">
-            <p style="font-size:60px; text-align: center">
+            <p style="font-size:4vw; text-align: center">
                 Software Developer
             </p>
-            <p style="font-size:50px; text-align:left; padding-left:40px">
+            <p style="font-size:4vw; text-align:left; padding-left:40px">
                 Viktor Selmeczi
             </p>
-            <p class="text_in_p">
-                Nach meiner Ausbildung als Software Devepoler beim Coding Campus Vorarlberg würde ich bei Ihnen sehr gerne mein bisheriges Wissen
-                in der Softwareentwicklung einsetzen und kontinuierlich erweitern.
-            </p>
+            
+            <div class="imageNextToText">
+                    <img src="/html/viktor/selffoto.png" style="height:auto; width:clamp(300px, 70%, 750px); padding: 10%">
+            
+                    <p class="text_in_p">
+                        Nach meiner Ausbildung als Software&nbsp;Developer beim Coding&shy;Campus&shy;Vorarlberg würde ich bei Ihnen sehr gerne mein bisheriges Wissen
+                        in der Software&shy;entwicklung einsetzen und kontinuierlich erweitern.
+                    </p>
+            </div>
         </div>
    
 
         <div class="second">
 
-            <div id="skill">
-                <p style="font-size:60px">
-                    <strong>
+            <div id="skill" style = "order: 1">
+                <p>
+                    <strong style="font-size:5vw">
                         SKILLS
                     </strong>
                 </p>
                 <ol class="skillslist">
-                    <li> - JAVA      </li></br>
-                    <li> - mySQL     </li></br>
-                    <li> - HTML, CSS </li></br>
-                    <li> - Git       </li>
+                    <li>JAVA      </li></br>
+                    <li>mySQL     </li></br>
+                    <li>HTML,CSS </li></br>
+                    <li>Git       </li>
                 </ol>
 
-                <p style="font-size:60px">
-                    <strong> 
+                <p>
+                    <strong style="font-size:5vw"> 
                         Sprachen
                     </strong>
                 </p>
                 <ol class = "language">
-                    <li>- Deutsch   </li>
-                    <li>- Englisch  </li>
-                    <li>- Ungarisch </li>
+                    <li>Deutsch</li></br>
+                    <li>Englisch</li></br>
+                    <li>Ungarisch</li></br>
                 
                 </ol>
             </div>
 
-            <div class="exp">
+            <div class="exp" style  = "order: 2">
                 <p id="experience" style="font-size:60px">
-                     <strong>
+                     <strong style="font-size:5vw">
                         Berufliche Erfahrungen
                     </strong>
                 </p>
                 <ol class="explist">
                     <li>
-                        <strong style="font-size:45px">
+                        <strong style="font-size:3vw">
                             Kundenbetreuer
                         </strong> | 01.2022 - 08.2022<br>
                         TIP - Technik und Informatik Partner GmbH<br></br>
@@ -71,7 +78,7 @@
                     </li>
                     </br>
                     <li>
-                        <strong style="font-size:45px">
+                        <strong style="font-size:3vw">
                             Junior Sales Engineer</strong> | 10.2017 - 12.2021<br>
                         Dorner Electronic GmbH<br></br>
                         - Angebots- und Auftragserstellung für Software und Hardwarelösungen in der Betonindustrie<br>
@@ -83,35 +90,48 @@
         </div>
    
         <div class = "person-inf">
-            <div style="width:1000px; height: 560px; float:right; padding-left: 50px">
-                <span style="font-size: 45px">Kontakt-Infos:<br></br>
-                6900 | Bregenz | Dorf Rieden 23.<br></br>
-                Tel.: +43 664 8654735 <br></br>
-                E-Mail: selm.viktor@gmail.com
-                </span>
-            </div>
-                <span style="font-size:40px; padding-left: 30px">
+
+            <div class="text_in_person_inf" style="order: 1">
+                <span style="font-size:3vw; padding-left: 30px">
                     SOFTWARE DEVELOPER
                 </span>
-                <br></br>
-                <span style="font-size:60px; padding-left: 30px">
-                    VIKTOR SELMECZI
+                <br></br></br>
+                <span style="font-size:3vw; padding-left: 30px">
+                    <strong>VIKTOR SELMECZI</strong>
                 </span>
                 <br></br>
-                <p>
+                <p id="persondata" style="font-size: 3vw">
                 Geburtsdatum: 26.01.1988<br>
                 Staatsbürgerschaft: Ungarn<br>
                 Familienstand: ledig<br>
                 Kinder: keine <br>
                 </p>
-                
+            </div>  
+
+
+            <div class="contakt_data" style="float:right; padding-left: 50px; order: 2">
+                <div style="font-size: 3vw; word-wrap:break-word;">
+                    <p><strong>Kontakt-Infos:</strong><br>
+                        6900 | Bregenz | <br>
+                        Dorf Rieden 23.
+                    </p>
+                    <p>
+                        Tel.:<br> +43 664 8654735
+                    </p>
+                    <p>
+                        E-Mail:<br>selm.viktor@gmail.com
+                    </p>
+                </div>
+            </div>
+
+             
         </div>
     </br></br>
         <div class="third" style="background-color:white">
 
-                <div class="competence">
+                <div class="competence" style="order:1">
                     <p style="padding-left:50px; font-size: 60px">
-                        <strong>
+                        <strong style="font-size:5vw">
                             WEITERE KOMPETENZEN
                         </strong>
                     </p>
@@ -139,11 +159,11 @@
 
                     </ul></br></br></br></br></br></br>
                     <ul class = "hobbies">
-                        <p style="font-size: 60px">
-                            <strong>
+                        <p>
+                            <strong style="font-size:5vw">
                                 HOBBY
                             </strong>
-                        </p><br></br></br>
+                        </p><br>
                         <li>
                             Filme
                         </li>
@@ -157,15 +177,15 @@
                 </div>
               
 
-                <div class = "edu">
-                    <p style="padding-left:160px; font-size: 60px">
+                <div class = "edu" style="order:2">
+                    <p style="padding-left:160px; font-size: 5vw">
                         <strong>
                             AUSBILDUNG
                         </strong>
                         
                     </p>
                     <ul class="edulist">
-                        <p style="font-size: 40px">
+                        <p style="font-size: 3vw">
                              <span style = "text-decoration: underline">
                                 SOFTWARE DEVELOPER
                             </span><br>
