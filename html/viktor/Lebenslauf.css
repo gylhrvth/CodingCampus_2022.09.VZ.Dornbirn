@@ -1,49 +1,39 @@
 @font-face {
-    font-family: "indie";
-    src: url(resources/font/IndieFlower-Regular.ttf) format("truetype");
+    font-family: "roboto";
+    src: url(resources/font/Roboto-Regular.ttf) format("truetype");
 }
 
 body{
-    font-family: "indie";
+    font-family: "roboto";
+    font-size: 30px;
 }
 
 h1{
     text-align: center;
 }
 
-p {
-    text-align: left;
-    font-size: 30px;   
-}
-
 p.prof {
-font-size: 70px;
+font-size: 50px;
 padding: 0 0 0 60px;
 }
 
-p.a {
-    font-size:50px;
+.a {
+    font-size:80px;
     text-align: center;
     text-decoration-line: underline;
 }
 
 p.text_in_p {
-    width: 620px;
     justify-content: left;
-    font-size: 35px;
+    font-size: 3vw;
+    padding-left: 20px;
 }
 div.first {
     background-color: aqua;
-    height: 590px;
 }
 
 
-
-img {
-    float: right;
-}
 div.second {
-    border:2px solid;
     display: flex;
     
 }
@@ -51,40 +41,158 @@ ol.skillslist {
     list-style-type: none;
     padding:0;
     line-height: 50px;
-    font-size: 35px;
+    font-size: 3vw;
 }
 
 div.third {
-    border:2px solid; 
+     
     width:500px;
     float:right;
     position: absolute;
 }
 
 #skill{
-    border:2px solid;
-    width:1050px;
+    padding-left: 40px;
+    width:1450px;
     height: 950px;
 }
 
+
 div.exp, #experience{
-    font-size: 30px;
-    padding:0;
+    font-size: 35px;
+    padding-left: 60px;
 }
 
 ol.explist{
     list-style-type: none;
+    
 }
 
+ol.explist > li{
+font-size: 3vw;
+
+}
 .language{
     list-style-type: none;
     padding:0;
     line-height: 50px;
-    font-size: 35px;
+    font-size: 3vw;
 }
 
-div.third {
-    width: 100%;
+.person-inf {
+    display: grid;
+    grid-template-columns: 50% 50%;
     background-color: aqua;
 }
 
+.text_in_person-inf, #persondata {
+    padding-left: 40px;
+    font-size: 10vw;
+}
+
+
+div.third {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    height: 1400px;
+    background-color: aqua;
+
+}
+
+
+.competence-list{
+    list-style-type: none;
+}
+.competence-list > li{
+    padding-left: 250px;
+    font-size: 3vw;
+}
+
+.competence-list > img {
+    height: 100px;
+    float: left;
+}
+
+
+.hobbies{
+    list-style-type: none;
+}
+
+.edulist{
+    list-style-type: none;
+}
+
+.edulist > li {
+    font-size: 3vw;
+
+}
+
+.hobbies > li{
+    font-size: 3vw;
+    line-height: 100px;
+}
+
+.fourth{
+    width: 100%;
+    height: 200px;
+    background-color: aqua;
+}
+
+/*
+.abc > li {
+    list-style: none;
+    background-color: hsl(180, 90%, 85%);
+}
+
+.abc > li:hover {
+    font-weight: 900;
+    padding-left: 30px;
+
+}
+
+.abc > li:nth-child(2n){
+    background-color: hsl(240, 90%, 85%);
+}*/
+
+.imageNextToText{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.imageNextToText > :first-child {
+    order: 2;
+}
+.imageNextToText > :last-child {
+    order: 1;
+}
+
+
+@media only screen and (max-width: 800px){
+    .imageNextToText{
+        grid-template-columns: 100%;
+    }
+    
+    .imageNextToText > :first-child {
+        order: 1;
+    }
+    .imageNextToText > :last-child {
+        order: 2;
+    }
+    .person-inf {
+        grid-template-columns: 100%;
+    }
+
+    div.third{
+        grid-template-columns: 100%;
+    }
+}
+
+
+@media only screen and (max-width: 500px){
+
+    .second{
+        grid-template-columns: 100%;
+    }
+}    

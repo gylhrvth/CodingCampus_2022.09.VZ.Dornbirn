@@ -1,21 +1,82 @@
-.persoenlichedaten{
-    display: grid;
+@font-face {
+    font-family: "JosefinSans";
+    src: url(ressources/fonts/JosefinSans-Regular.ttf) format("truetype");
 }
-.PersönlicheDatenBeschreibung{
-    background-color: beige;
-    border: 1px solid transparent;
-    display: grid;
-    width: 170px;
+body{
+    
 }
-.PersönlicheDatenInhalt{
-    background-color: beige;
-    border: 1px solid transparent;
+.leftright{
     display: grid;
-    align-content: center;
-    width: 200px;
-    float: right;
+    max-height: max-content;
+    background-color: white;
+    grid-template-columns: 40% 60%;
+    
+}
+    .lefttop{
+        background-color: orange;
+        height: 550;
+    }
+    .image{
+        display: grid;
+        padding-top: 50px;
+        float: right;
+    }
+    .vorname{
+       font-size: larger;
+      
+        
+    }
+    .leftbottom{
+        background-color: black;
+        color: white;
+        padding-top: 50px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+    }
+
+    .jobbeschreibung{
+        padding: 10;
+        text-align: center;
+    }
+    .persoenlichedaten{
+        display: grid;
+        grid-template-columns: 45% 55%;    
+    }
+    .persoenlichedaten > p {
+        margin-block-start: 0.3em;
+    }
+
+    .pd-left{
+        border: 1px solid transparent;
+        display: grid;
+        width: 150px;
+    }
+    .pd-right{
+
+        border: 1px solid transparent;
+        display: grid;
+        width: 200px;
+    }
+
+.right{
+padding-left: 30px;
+
 }
 
-h2, h3, h4 {
-    margin-block-end: 0;
+
+
+*{
+margin-block-end: 0;
 }
+h2, h3, h4 {
+    margin-block-end: 5px;
+}
+
+.Faehigkeiten {
+    padding-inline-start: 20px;
+}
+.Faehigkeiten > li {
+    margin-top: 0.3em;
+}
+

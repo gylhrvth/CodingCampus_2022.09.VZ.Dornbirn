@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Sign Up
+        </title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="regStyle.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="outterBox">
+            <div class="signUpBox">
+                <h1>SIGN UP</h1>
+                <div class="grid_rows">
+                    <form action="/action_page.php">
+                        <label for="username">
+                            Username
+                        </label>
+                        <input type="text" name="username"
+                            placeholder="Your desired username.."
+                            required>
+                        <label for="uemail">
+                            Email
+                        </label>
+                        <input type="text"
+                            name="mailaddr" placeholder="Your email"
+                            required>
+                        <label for="password">
+                            Password
+                        </label>
+                        <input type="password" name="password"
+                            placeholder="Your Password" required>
+                        <label for="repeatPW">
+                            Repeat Password
+                        </label>
+                        <input type="password" name="password"
+                            placeholder="Repeat Your Password" required>
+
+                        <input type="checkbox" checked="checked"
+                            name="remember"
+                            style="margin-bottom:15px; appearance: auto;">
+                        <label for="remember" class="">Remember me</label>
+
+                        <p>By creating an account you agree to our <a
+                                href="#" style="color: dodgerblue">Terms
+                                &
+                                Privacy</a></p>
+                        <div class="button_window">
+                            <button type="signup"
+                                class="button" name="usignup">Sign up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
