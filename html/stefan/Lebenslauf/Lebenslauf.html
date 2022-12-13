@@ -1,0 +1,125 @@
+<html>
+
+<head>
+   <link rel="stylesheet" href="Style.css">
+   <title>Lebenslauf</title>
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<a href="https://www.google.at/"><img class="google" style="width:15%" src="google.gif" alt="google"> </a>
+
+<body>
+
+   <h1>Softwareentwickler</h1>
+   <a href="https://www.youtube.com/watch?v=ehGP69PG4tY&ab_channel=BlueFresh"><img class="Katze" 
+      src="katze.jpg" alt="Katzen Foto"></a>
+
+   <h2>Stefan Sardelic</h2>
+  
+   
+
+   <div class="kontakt" >
+      
+      
+
+      <p>Kontakt</p>
+
+      <ul>
+         <li>Mobil : 0999/0999956</li>
+         <li><a href="mailto:max.muster@gmail.com">max.muster@gmail.com</a></li>
+         <li>Adresse: Langestraße </li>
+         <li>6832 Weitweg</li>
+      </ul>
+   
+
+       <p>Qualifaktion</p>
+      <ul>
+      <li>Pünktlich</li>
+      <li>Motiviert</li>
+      <li>Zielstrebig</li>
+      </ul>
+
+       <p onclick="toggleVisibility()">Sprachen</p>
+
+       <ul id="sprachen">
+      <li>Deutsch-Muttersprache</li>
+      <li>Englisch-B2</li>
+       </ul>
+
+       <p onclick="toggleVisibility()">Hobbys</p>
+      <ul id="hobbys">
+      <li>Badminton</li>
+      <li>Aquarium</li>
+      <li>FPV Drohnen</li>
+      </ul>
+
+   </div>
+
+
+   
+
+
+
+   <div class="box">
+      <div>
+         <h2>Beruflicher Werdegang</h2>
+
+         <p1>Software Developer</p1>
+         <ul>
+            <li>Digigatlcapus Dornbirn 2022-Aktuell</li>
+            <Li>Strukturiertes Programmieren</Li>
+         </ul>
+
+         <p1>Metallbautechnicker</p1>
+
+         <ul>
+            <li>Jobarid Metallbau 2018-2018</li>
+            <li>Montage Arbeiten</li>
+            <li>Fertigung von Fassaden,Türen</li>
+
+
+      </div>
+      <div>
+         <h2>Schulausbildung</h2>
+         <p1>
+            Volkhochschule Götzis
+         </p1>
+         <ul id="schulabschl">
+            <li>Berufreifeprüfung</li>
+         </ul>
+      </div>
+   </div>
+
+
+
+   <div>
+
+
+      <input id="infoText" type="text">
+      <button type="button" onclick="doMagic()">Weitere info zufügen</button>
+
+<script>
+   function doMagic(){
+      // alert("Hallo")
+
+      let schulabschlElement = document.getElementById("schulabschl")
+      let infoElement = document.createElement("li")
+      infoElement.innerText = document.getElementById('infoText').value
+      schulabschlElement.appendChild(infoElement)
+      
+
+      let elementsToDelete = document.getElementsByClassName("kontakt")
+      for (const iterator of elementsToDelete) {
+         iterator.parentElement.removeChild(iterator)
+      }
+   }
+
+   function toggleVisibility(){
+      document.getElementById("sprachen").classList.toggle("hidden")
+      document.getElementById("hobbys").classList.toggle("h")
+   }
+  
+</script>
+
+
+</body>
+</html>
