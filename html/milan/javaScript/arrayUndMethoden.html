@@ -10,6 +10,111 @@
     
     <script>
 
+        /*
+        Arrays
+        */
+       let car1 = "Volvo";
+       let car2 = "BMW";
+       let car3 = "Audi";
+       const arrayArr = [car1, car2, car3];
+       console.log(arrayArr)
+
+       /*
+       Alternative Array erstellung
+       */
+        const farben = [];
+        farben[0]= "Blau";
+        farben[1]= "Rot";
+        farben[2]= "Grün";
+        farben[9]= "Weiß";
+        console.log(farben)
+
+        /*
+        Gibt den Index 0 des Arrays Farben aus
+        */
+        console.log(farben[0])
+        
+        /*
+        Man kann Array Elemente ersetzen
+        */
+        farben[0]= "Weiß";
+        console.log(farben)
+
+        /*
+        Array Eigenschaften und Funktionen
+        */
+        console.log(farben.length);
+        farben.sort();
+        farben.reverse();
+        console.log(farben)
+
+        /*
+        Looping Arrays
+        In diesem Beispiel wird eine ul erstellt, bestehend aus allen Array Elementen als li.
+        */
+        const fruits = ["Banana", "Apple", "Mango"];
+        let fLen = fruits.length;
+
+        let text = "<ul>";
+        for (let i = 0; i < fLen; i++){
+            text += "<li>" + fruits[i] + "</li>";
+        } 
+        
+        text += "</ul>";
+
+        console.log(text);
+
+        /*
+        Alternative mit Array.forEach()
+        */
+        const früchte = ["Kiwi", "Apfel", "Birne"];
+
+        let satz = "<ul>";
+        früchte.forEach(myFunction);
+        satz += "</ul>";
+
+        function myFunction(value){
+            satz += "<li>" + value + "</li>";
+        }
+
+        console.log(satz);
+
+        /*
+        push() Methode wird verwendet um Elemente dem Array hinzuzufügen
+        */   
+        früchte.push("Zitrone");
+        console.log(früchte);
+
+        /*
+        pop() Methode wird verwendet um Elemente aus dem Array zu entfernen.
+        pop() entfernt das letzte Element im Array.
+        */
+        früchte.push("Mango");
+        console.log(früchte);
+        früchte.pop();
+        console.log(früchte);
+
+        /*
+        man kann auch Elemente hinzufügen indem man als Index [.length] angibt:
+        früchte[früchte.length] = "Kirsche";
+        */
+
+        /*
+        Konvention von Arrays zu Strings mit
+        toString()
+        Ergebnis String: Kiwi,Apfel,Birne,Zitrone
+        */
+
+        console.log(früchte.toString());
+
+        /*
+        join() verbindet alle Elemente eines Arrays und erstellt einen String.
+        join() verhält sich wie toString(), zusätzlich kann man einen Separator definieren.
+        In diesem Beispiel ist der Separator (" * "). Ergebnis String: Kiwi * Apfel * Birne * Zitrone
+        */
+
+        console.log(früchte.join(" * "));
+
         
     </script>
 
