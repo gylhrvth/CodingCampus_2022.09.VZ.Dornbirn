@@ -170,6 +170,31 @@
         let buchstabe = tier.charAt(0);
         console.log(buchstabe)
 
+        /*
+        <!-- charCodeAt() gibt den Unicode des Chars an der angegebenen Index Position zurück. -->
+        */
+        let auto = "Opel";
+        let unicode = auto.charCodeAt(0);
+        console.log("Unicode:", unicode)
+
+        /*
+        <!-- split() Methode kann einen String in ein Array umwandeln. 
+            
+            text.split(",")    // Split on commas
+            text.split(" ")    // Split on spaces
+            text.split("|")    // Split on pipe
+            
+            Wird der Separator weggelassen so wird der ganze String im Array Index [0] plaziert.
+
+            Wird folgender Separator verwendet:
+            
+            text.split("")
+
+            Dann füllt jeder Char, im String, nacheinander die Index Positionen, des Arrays, auf.
+            -->
+    
+        */
+
     </script>
     </body>
 </html>
