@@ -1,0 +1,59 @@
+@font-face {
+    font-family: "BernaLieblingsSchrift";
+    src: url(ressources/fonts/Quicksand-VariableFont_wght.ttf) format("truetype");
+}
+
+
+body{
+    font-family: BernaLieblingsSchrift; 
+    font-size: 18pt;
+    /*background-image: url("ressources/images/pexels-anni-roenkae-3276049.jpg");*/
+    /*background-image: url("ressources/images/pexels-steve-johnson-1509534.jpg");*/
+    color:black;
+    background-color: rgb(173, 102, 102);
+}
+
+h1{
+color:white;
+    font-size: 30pt;
+    font-weight: 900;
+}
+
+
+.box_strength {
+    border: 2px solid rgb(123, 90, 124);
+    background-color: rgb(174, 175, 189);
+    margin: 40px;
+    width: 60vw;    
+    
+  }
+
+  .box_strength > ul > li{
+    margin-top: 20px;
+    list-style-type: circle;
+  }
+
+  .headerbox{
+    background-color: rgb(123, 90, 124);
+    position: relative;
+    top: -15px;
+    left: -20px;
+    display: inline;
+    font-size: 45pt;
+  }
+
+.box_portrait{
+    border: 2px solid rgb(123, 90, 124);
+    background-color: rgb(115, 120, 186);
+    display: inline;
+    height: 300px;
+    width: 300px;
+    float: right;
+    border-radius: 90%;
+    top: +55px;
+    left: +50px;
+}
+
+
+
+
