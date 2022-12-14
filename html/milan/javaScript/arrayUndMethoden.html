@@ -80,19 +80,56 @@
         console.log(satz);
 
         /*
-        push() Methode wird verwendet um Elemente dem Array hinzuzufügen
+        push() Methode wird verwendet um Elemente dem Array hinzuzufügen. Es wird an letzter Stelle platziert!.
         */   
         früchte.push("Zitrone");
         console.log(früchte);
 
         /*
-        pop() Methode wird verwendet um Elemente aus dem Array zu entfernen.
-        pop() entfernt das letzte Element im Array.
+        unshift() fügt dem Array ein neues Element, am Anfang, hinzu.
+        */
+
+        /*
+        splice() wird verwendet um neue Elemente hinzuzufügen und oder zu entfernen.
+        
+        Add Beispiel:
+        
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.splice(2, 0, "Lemon", "Kiwi");
+        
+        Der erste Parameter (2) definiert auf welcher Position hinzugefügt wird (spliced in).
+        Der zweite Parameter (0) definiert wie viele Elemente gelöscht werden.
+        Die restlichen Parameter ("Lemon", "Kiwi") entsprechen den Elementen die hinzugefügt werden.
+        
+        Remove Beispiel:
+
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.splice(0, 1);
+
+        Der erste Parameter (0) definiert auf welcher Position hinzugefügt wird.
+        Der zweite Parameter (1) definiert wie viele Elemente gelöscht werden.
+        Es gibt keine weiteren Parameter. Es wird nichts hinzugefügt.
+        */
+
+        /*
+        pop() Methode wird verwendet um  das letzte Elemente aus dem Array zu entfernen.
+        Mit pop() kann man auch den Value des "gepopptem" Elements zurückgeben. (ACHTUNG, dabei wird die pop() Funktion aufgerufen!) 
         */
         früchte.push("Mango");
         console.log(früchte);
-        früchte.pop();
+        let value = früchte.pop();
         console.log(früchte);
+        console.log(value);
+
+        /*
+        shift() funktioniert wie pop() zielt aber nicht auf das letzte Element sondern auf das Erste ab.
+        */
+
+        /*
+        delete() löscht Elemente aus dem Array.
+        !!! A C H T U N G !!! 
+        Die Benutzung von delete() hinterlässt undefined Elemente im Array!
+        */
 
         /*
         man kann auch Elemente hinzufügen indem man als Index [.length] angibt:
@@ -115,7 +152,49 @@
 
         console.log(früchte.join(" * "));
 
+        /*
+        Array Merging (Concatenating)
+        concat() erstellt ein neues Array indem es vorhandene Arrays kombiniert.
+        Es können auch mehrere Arrays angehängt werden.
+
+        const arr1 = ["Cecilie", "Lone"];
+        const arr2 = ["Emil", "Tobias", "Linus"];
+        const arr3 = ["Robin", "Morgan"];
+        const myChildren = arr1.concat(arr2, arr3);
+        */
+
+        const myGirls = ["Marie", "Viktoria"];
+        const myBoys = ["Bernhard", "Hans"];
+
+        const myChildren = myGirls.concat(myBoys);
+        console.log(myChildren);
+
+        /*
+        slice() schneidet ein Teil aus dem Array in ein neues Array.
+
+        const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+        const citrus = fruits.slice(1);
         
+        Ergebnis: citrus = Orange,Lemon,Apple,Mango
+
+        Note
+        The slice() method creates a new array.
+        The slice() method does not remove any elements from the source array.
+
+        slice() funktioniert auch mit zwei Parametern. 
+
+        Beispiel:
+
+        const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+        const citrus = fruits.slice(1, 3);
+        
+        Der erste Parameter definiert das Start Element, der zweite Parameter das Ende (inkludiert aber nicht das End Element)
+
+        Ergebnis: citrus = Orange,Lemon
+
+        */
+
+
     </script>
 
 </body>
