@@ -1,19 +1,28 @@
-
-.Topline {
-    background-color:
-        rgb(166, 166, 166);
-    color:
-        rgb(166, 166, 166);
-        height: 20px;
-        margin-top: 0%;
+html {
+    font-family: "Poppins-Light";
+    font-size: 40px;
 }
+
 header {
     position: -webkit-sticky;
     position: sticky;
 }
 
-.Pers-Data-Box {
-    padding-left: 25px;
+p {
+    margin: 5px;
+    font-size: 90%;
+}
+
+.topline {
+    background-color: rgb(166, 166, 166);
+    color: rgb(166, 166, 166);
+    height: 3vh;
+    margin-top: 0%;
+}
+
+
+.PData-Box {
+    padding-left: 3vw;
     background-color:
         rgb(37, 95, 133);
     color: white;
@@ -22,46 +31,79 @@ header {
     align-items: end;
 }
 
-.Pers-Data-Text {
+.PData-Text {
     font-size: 100%;
-    padding-left: 30px;
+    padding-left: 5vw;
 }
 
-.Pers-Data-Name {
+.PData-Name {
     font-size: 150%;
 }
 
-.Pers-Data-Foto {
+.PData-Foto {
     width: auto;
-    height: min(30vh, 30vw);
+    height: 20vw;
+    
     display: grid;
     align-items: baseline;
-    background-color:
-        rgb(166, 166, 166);
+    background-color: rgb(166, 166, 166);
 }
-
-
-
-
-
-
 
 .blackbox {
     background-color: black;
     color: black;
-    padding-left: 15px;
+    padding-left: 2vh;
 }
 
 .grid-container-bottom {
     background-color: white;
     display: grid;
     grid-template-columns: 50% 50%;
-
 }
 
 .articlebot {
     padding-left: 15px;
     padding-top: 15px;
-    
 
+    display: table;
+}
+
+.blocktitle {
+    size: 4px;
+    margin-left: 30px;
+}
+
+.blocktitle:before {
+    content: '';
+    display: block;
+    background: #000;
+    height: 4px;
+    width: 15cm;
+    margin-left: -15px;
+}
+
+.blocktitle:after {
+    content: '';
+    display: block;
+    background: #000;
+    height: 4px;
+    width: 15cm;
+    margin-left: -15px;
+}
+
+.sublist {
+    list-style-type: circle;
+    margin-left: 50px;
+    margin-top: 0px;
+}
+
+@font-face {
+    font-family: "Poppins-Light";
+    src: url(ressources/Poppins/Poppins-Light.ttf) format("truetype");
+}
+
+@media only screen and (max-width: 1000px) {
+    .grid-container-bottom {
+        grid-template-columns: 100%;
+    }
 }
