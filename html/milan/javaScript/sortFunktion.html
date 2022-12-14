@@ -10,7 +10,95 @@
 
     <script>
 
+        /*
+        sort() sortiert ein Array Lexikographisch (Ascending, Aufsteigend)
+        */
+
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.sort();
+        console.log(fruits);
+
+        /*
+        reverse() dreht die Lexikographische Sortierung (Descending, Absteigend)
+        */
+        fruits.reverse();
+        console.log(fruits);
+
+        /*
+        Per default sortiert sort() mit String Werten.
+        Das funktioniert einwandfrei mit Strings ("Apfel" kommt Lexikographisch vor "Banane").
+        Allerding, bei Zahlen die als String dargestellt werden, funktioniert es nicht richtig.
+        "25" ist Lexicographisch größer als "100", weil "2" > "1".
+        Dadurch wird ein falsches Ergebnis ausgegeben.
+        Zahlen die als String im Array enthalten sind, lassen sich mit einer compare Funktion sortieren. 
+        */
+
+        const points = [40, 100, 1, 5, 25, 10];
+        points.sort(
+            function(a, b){
+                return a - b
+            }
+        );
+        console.log(points)
+
+        /*
+        So lässt es sich auch Absteigend sortieren:
+        */
+        points.sort(
+            function(a, b){
+                return b - a
+            }
+        );
+        console.log(points)
+
+        /*
+        Die compare Funktion wird verwendet um eine alternative Sortierung zu definieren.
+        Sie gibt entweder einen negativen, 0 oder einen positiven Wert zurück, abhängig vom Argument.
         
+        function(a, b){return a - b}
+
+        Beim vergleichen (compare) zweier Werte mit der sort() Funktion, werden die Werte zur compare Funktion geschickt,
+        hier wird der Wert mit dem zurückgegebenen Wert (negativ, null, positiv) vergliechen. 
+
+        Falls der Wert negativ ist, a > b.
+        Falls der Wert positiv ist, b > a.
+        Falls der Wert null ist, wird die sortier Reihenfolge nicht verändert.
+        */
+
+        /*
+        Random Sortierung
+        Beispiel:
+        */
+
+        const zahlen = [40, 100, 1, 5, 25, 10];
+        zahlen.sort(
+            function(){
+                return 0.5 - Math.random()
+            }
+        );
+        console.log(zahlen);
+
+        /*
+        Das obere Beispiel ist nicht akkurat, es bevorzugt einige Zahlen.
+        Die beliebteste "richtige" Methode nennt sich Fisher Yates shuffle.
+        So sieht ein Fisher Yates Beispiel in JavaScript aus:
+        */
+            
+        const nummern = [40, 100, 1, 5, 25, 10];
+
+        for (let i = nummern.length -1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i+1));
+            let k = nummern[i];
+            nummern[i] = nummern[j];
+            nummern[j] = k;
+        }
+        console.log("Fisher Yates Shuffle", nummern);
+        
+        let rand = Math.random();
+        console.log(rand);
+
+        
+
     </script>
     
 </body>
