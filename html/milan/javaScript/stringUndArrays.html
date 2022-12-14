@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <script>
-        let text = "Hallo Welt"
-        let laenge = text.length
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <script>
+        let text = "Hallo Welt";
+        let laenge = text.length;
 
         console.log(text, laenge)
 
@@ -21,13 +21,155 @@
         nopqrstuvwxyz?"
         console.log(frage2)
 
+        /*
         <!-- A safer way to break up a string, is to use string addition -->
+        */
         let frage3 = "Was bedeutet abcdefghijklm" + 
         "nopqrstuvwxyz?"
         console.log(frage3)
+        
+        /*
+        <!-- == vergleicht den Inhalt und gibt TRUE zurück (x ist gleich y), === vergleicht das Objekt und gibt FALSE zurück (.equalsTo) -->
+        */
+        let x = "John";
+        let y = new String("John");
+        console.log(x==y)
+        console.log(x===y)
 
+        /*
+        <!-- Ausgabe ist gleich FALSE, JavaScript Objekte kann man nicht vergleichen!!! -->
+        */
+        let xy = new String("John");
+        let yx = new String("John");
+        console.log(xy==yx);
+        console.log(xy===yx);
+
+        /*
+        <!-- Slice gibt einen Teil des Strings zurück und benötigt als Paramter einen Start und einen Endpunkt. --> 
+        */
+        let rad = 'schifffahrtskonferenz'; 
+        let part = rad.slice(6, 21);
+        console.log(part);
+
+        /*
+        <!-- Falls man den zweiten Parameter nicht angibt schneidet Slice bis zum Ende des Strings -->
+        */
+        let yxz = part.slice(6);
+        console.log(yxz);
+
+        /*
+        <!-- Bei negativem Wert wird vom Ende aus die Position gezählt und der vordere Teil wird abgeschnitten-->
+        */
+        let beispiel = "Blau, Rot, Grün";
+        let geschnitten = beispiel.slice(-9);
+        console.log(geschnitten)
+
+        /*
+        <!-- Beim ersten negativen Wert wird der vordere Teil abgeschnitten, beim zweiten negativem Wert der hintere Teil. Position wird vom Ende aus gezählt-->
+        */
+        let farben = "Blau, Rot, Grün";
+        let rot = farben.slice(-9, -6);
+        console.log(rot)
+
+        /*
+        <!-- substring() is similar to slice(). The difference is that start and end values less than 0 are treated as 0 in substring() -->
+        */
+        let radx = 'schifffahrtskonferenz'; 
+        let partx = rad.substring(6);
+        console.log(partx)
+        
+        /*
+        <!-- substr() is similar to slice(). Der Unterschied ist, dass der zweite Parameter die Länge des abgeschnittenen Teiles definiert.
+            Falls kein zweiter Paramater angegeben wird, wird alles nach dem Paramter abgeschnitten. 
+            Falls der Wert negativ ist, wird vom Ende aus gezählt -->
+        */
+        let obst = "Apfel, Banane, Kiwi";
+        let einObst = obst.substr(7,6)
+        console.log(einObst) 
+
+        /*
+        <!-- Replace ersetzt den definierten Teil mit einem, angegebenen, anderen Teil 
+        Es ersetzt nur den ersten gefundenen Teil!
+        Es ist case sensitive!-->
+        */
+        let micro = "Bitte besuchen Sie Microsoft";
+        let soft = micro.replace("Microsoft", "W3Schools");
+        console.log(soft)
+
+        /*
+        <!-- um case sensitive zu umgehen wird regEx verwendet, dazu wird ein /i flag verwendet! (/i = insensitive) -->
+        */
+       let stadt = "Besuchen Sie Hohenems";
+       let andereStadt = stadt.replace(/HOHENEMS/i, "Feldkirch");
+       console.log(andereStadt)
+
+       /*
+       <!-- Um alle Matches zu ersetzt wird regEx verwendet, dazu wird ein /g flag verwendet! (/g = global match) -->
+       */
+        let dorf = "Besuchen Sie Ludesch und Ludesch"
+        let anderesdorf = dorf.replace(/Ludesch/g, "Nüziders");
+        console.log(anderesdorf)
+
+        /*
+        <!-- ReplaceAll() ersetzt alle Matches. -->
+        */
+        let satz = "I love dogs. Dogs are very easy to love. Dogs are awesome."
+        satz = satz.replaceAll("dogs", "cats");
+        satz = satz.replaceAll("Dogs", "Cats");
+        console.log(satz)
+
+        /*
+        <-- toUpperCase und toLowerCase ändert alle Elemente auf Groß - bzw. Kleinbuchstaben -->
+        */
+        let hallo = "Hallo"
+        let hallo2 = hallo.toLowerCase();
+        console.log(hallo2)
+
+        let tschau = "tschau";
+        let tschau2 = tschau.toUpperCase();
+        console.log(tschau2)
+
+        /*
+        <!-- concat() verbindet mehrere Strings 
+            The concat() method can be used instead of the plus operator. -->
+        */
+        let teil1 = "Ich";
+        let teil2 = "lerne";
+        let teil3 = "JavaScript!";
+        let ganzes = teil1.concat(" ", teil2, " ", teil3)
+        console.log(ganzes) 
+
+        /*
+        <!-- Die trim() Methode entfernt whitespace am Anfang und Ende des Strings! (nicht zwischen den Wörtern!) 
+            trimStart() entfernt nur whitespace zischen Anfang des Strings und dem ersten Char
+            trimEnd() entfernt nur whitespace zwischen letzem Char und Ende des Strings -->
+        */
+        let bsp = "          Hallo Welt!           ";
+        let bsp2 = bsp.trim();
+        console.log(bsp2)
+        
+        /*
+        <!-- padStart() Methode fügt vor dem String ein angegebenes Element ein. 
+            Die Anzahl definiert die String.length, die differenz wird mit dem Element vor dem String aufgefüllt.
+            Die padStart() Methode ist eine String Methode! Um Zahlen zu padden muss die Zahl erst in einen String
+            umgewandelt werden! (mit .toString() Methode)-->
+        */
+       let qwe = "qwe";
+       let qwe2 = qwe.padStart(8,"0")
+       console.log(qwe2)
+
+       /*
+       <!-- padEnd() macht das gleiche wie padStart() nur füllt es am Ende aus! 
+        -->
+        */
+
+        /*
+        <!-- charAt() gibt den Char an dem angegebenen Index zurück. -->
+        */
+        let tier = "Shari";
+        let buchstabe = tier.charAt(0);
+        console.log(buchstabe)
 
     </script>
-
-</body>
+    </body>
 </html>
