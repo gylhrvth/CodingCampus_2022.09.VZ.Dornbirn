@@ -1,0 +1,41 @@
+html {
+    width: 100%;
+    height: 100%;
+    background-color: yellowgreen;
+}
+
+body {
+    width: 50%;
+    height: 50%;
+    padding: 0px;
+    margin: 0px;
+    background-color: blue;
+}
+
+.myFlexbox {
+    height: 50%;
+    width: 50%;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+}
+
+.button1 {
+    flex-grow: 0.5;
+    width: fit-content;
+}
+
+.button2 {
+    flex-grow: 1;
+    align-self: center;
+    width: fit-content;
+}
+
+.buttonContainer3 {
+    display: flex;
+    justify-content: space-between;
+    background-color: green;
+    flex-grow: 0.1;
+    align-self: flex-end;
+    width: 100px;
+}

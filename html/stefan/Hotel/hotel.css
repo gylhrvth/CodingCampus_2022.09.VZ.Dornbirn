@@ -1,0 +1,32 @@
+
+.topnav a{
+     float:left;
+ border: #000000;
+ display: block;
+ color: black;
+ text-align: center;
+ padding: 35px 50px;
+font-size: 30px;
+}
+
+
+
+.topnav  a:hover:not(active)  {
+    background-color: black;
+    color: white;
+ font-size: 30px;
+}
+    
+    
+
+.uber{
+    position: relative;
+font-size: 30px;
+}
+ 
+ 
+body{
+    background-image: url('Palmen.jpg');
+    background-position: right;
+padding: 35px 30px;
+}
