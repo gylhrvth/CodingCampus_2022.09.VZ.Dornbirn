@@ -1,0 +1,99 @@
+@font-face {
+    font-family: "quicksand_light";
+    src: url(ressources/fonts/Quicksand-Light.ttf) format("truetype");
+}
+
+body {
+    background-image: url(ressources/images/snowtrees.jpg);
+    font: 20pt rgb(0, 0, 0);
+    font-family: "quicksand_light";
+    padding: 1.5%;
+
+    --berna-primary: #02402A;
+    --berna-secondary: #f5f6f6;
+
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+}
+
+.introh1 {
+    font-size: 3em;
+    line-height: 1;
+    font-weight: 400;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: capitalize;
+}
+
+/* width of input fields */
+input[type=text],
+input[type=password] {
+    width: 90%;
+    padding: 2.5%;
+    background: var(--berna-secondary);
+    margin: 10px 40px 10px 0px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border-style: none;
+    font-size: 1em;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #c0e773;
+    ;
+    outline: none;
+}
+
+/* Overwrite default styles of the horizontal line hr */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+    background-color: var(--berna-primary);
+    color: white;
+    font-size: 1.5em;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 60%;
+    opacity: 0.9;
+    position: relative;
+    border-radius: 10pt;
+
+}
+
+.registerbtn:hover {
+    opacity: 9;
+    color: #f5f7ea;
+}
+
+/* Add an extra text color to links */
+a {
+    color: rgb(111, 54, 13);
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+    background-color: #02794D;
+    text-align: center;
+    padding: 16px 20px;
+    margin: 8px 0;
+    width: 60%;
+    opacity: 0.9;
+    position: relative;
+    border:none;
+    border-radius: 10pt;
+    font-size: 1.2em;
+    color: beige;
+    font-size: 1.2em;
+}
+
+/*#062450*/

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Hallo Welt!!!</h1>
+        <script>
+
+        function countTo(limit){
+            for(let i = 0; i <= limit; i++){
+                console.log(i)
+            }
+        }
+
+        function printEven(limit){
+            for(let i = 0; i <= limit; i++){
+                if(i % 2 == 0){
+                    console.log(i)
+                }
+            }
+        }
+
+        function countBackwards(limit){
+            for(let i = limit; i >= 0; i--){
+                console.log(i)
+            }
+        }
+
+        function printChar(zeichen, limit){
+            for(let i = 0; i <= limit; i++){
+                    console.log(zeichen) 
+            }
+        }
+            
+        function printSquare(zeichen, limit){
+            for(let i = 1; i <= limit; i++){
+                document.write("<br>")
+                for(let j = 1; j <= limit; j++){
+                    document.write(zeichen)
+                
+                } 
+            }
+        }
+        
+        countTo(10)
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        printEven(10)
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        countBackwards(10)
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        printChar("x", 12)
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        printSquare("x", 10)
+
+    </script>
+    </body>
+</html>
