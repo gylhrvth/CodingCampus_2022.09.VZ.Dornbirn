@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let clickCount = localStorage.getItem("clicked") | 0;
+
+        window.onload = () => {
+            document.getElementById("clickCount").innerText = clickCount
+        }
+
+        function onButtonClicked() {
+
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="onButtonClicked()">Click me</button>
+    <span>Button was clicked: </span>
+    <span id="clickCount">0</span>
+    <span> times!</span>
+</body>
+
+</html>
