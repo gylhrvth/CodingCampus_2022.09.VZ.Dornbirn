@@ -59,12 +59,23 @@ function createRemovableElement(text, container) {
     //Now we create button and add an event listener
     const button = document.createElement("button")
     button.innerText = "DELETE"
+    //Adding an event listener with the generic addEventListener method
+    //See: https://www.w3schools.com/tags/ref_eventattributes.asp
     button.addEventListener("click", () => {
         //Removes the div container from the parent container
         container.removeChild(div)
         //We remove the text from localstorage
         removeRemovableElementText(text)
     })
+
+    //The event listener can also be added like this
+    // button.onclick = () => {
+    //     //Removes the div container from the parent container
+    //     container.removeChild(div)
+    //     //We remove the text from localstorage
+    //     removeRemovableElementText(text)
+    // }
+
     //Button is appended to the div container
     div.appendChild(button)
     return div
