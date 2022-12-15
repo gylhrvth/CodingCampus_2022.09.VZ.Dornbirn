@@ -16,6 +16,9 @@
     <div id="container"></div>
     <button onclick="onButtonClicked2()">Add Removable Element</button>
     <div id="container2"></div>
+    <span>Number only field</span>
+    <!-- https://stackoverflow.com/questions/469357/html-text-input-allow-only-numeric-input -->
+    <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, ' $1');">
 </body>
 
 </html>
