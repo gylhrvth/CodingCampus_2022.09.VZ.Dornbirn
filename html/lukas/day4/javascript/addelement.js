@@ -1,3 +1,9 @@
+let container;
+
+window.onload = () => {
+    container = document.getElementById("container")
+}
+
 function createTextNode(text) {
     const textNode = document.createElement("span")
     textNode.innerText = text
@@ -9,7 +15,6 @@ function createBr() {
 }
 
 function onButtonClicked() {
-    const container = document.getElementById("container")
     container.appendChild(createTextNode("Hallo"))
     container.appendChild(createBr())
 }
