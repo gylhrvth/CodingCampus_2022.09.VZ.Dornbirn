@@ -1,6 +1,9 @@
+//We cannot initialize the container here, as it is not yet in the dom
 let container;
 
 window.onload = () => {
+    //This method gets called when page load is finished
+    //Now we can access the container element
     container = document.getElementById("container")
     updateClickCount()
     initRemovableElements()
@@ -49,14 +52,20 @@ function updateClickCount() {
 }
 
 function createRemovableElement(text, container) {
+    //At first we create a div element
     const div = document.createElement("div")
+    //Then we append a text node as child
     div.appendChild(createTextNode(text))
+    //Now we create button and add an event listener
     const button = document.createElement("button")
     button.innerText = "DELETE"
     button.addEventListener("click", () => {
+        //Removes the div container from the parent container
         container.removeChild(div)
+        //We remove the text from localstorage
         removeRemovableElementText(text)
     })
+    //Button is appended to the div container
     div.appendChild(button)
     return div
 }
