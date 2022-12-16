@@ -5,26 +5,19 @@ window.onload = () => {
 }
 
 function onButtonClicked() {
-    container.appendChild(createRow())
-    container.appendChild(createButton())
+    let p = createRow(container, 'p', createText() + createTimeNode())
+    let button = createRow(p, 'button', 'Remove')
+    button.classList.add('buttonInBlock')
+    button.addEventListener("click", () => {
+            container.removeChild(p)
+        }
+    )
 }
 
-function createButton() {
-    const button = document.createElement("button")
-    button.innerText = "Remove"
-    /*
-    button.onclick = () => {
-    
-    }
-    */
-    return button
-}
-
-function createRow() {
-    const rowInput = document.createElement("p")
-    const text = createText()
-    const date = createTimeNode()
-    rowInput.innerText = text + " " + date
+function createRow(parent, elementType, text) {
+    const rowInput = document.createElement(elementType)
+    rowInput.innerText = text
+    parent.appendChild(rowInput)
     return rowInput
 }
 
@@ -37,3 +30,4 @@ function createTimeNode() {
     today = new Date().toString()
     return today
 }
+
