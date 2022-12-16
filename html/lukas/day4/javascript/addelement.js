@@ -1,4 +1,4 @@
-//We cannot initialize the container here, as it is not yet in the dom
+//We cannot initialize the container here, as it is not yet in the doma
 let container;
 
 window.onload = () => {

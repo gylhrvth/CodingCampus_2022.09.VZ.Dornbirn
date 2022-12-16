@@ -1,7 +1,6 @@
 let container;
 
 window.onload = () => {
-container = document.getElementById("container")
 updateClickCount()
 }
 
