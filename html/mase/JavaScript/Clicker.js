@@ -1,6 +1,8 @@
 let count = 0
 
 function onButtonClicked(){
-    count = +1
-    document.getElementById('clickOnMe').innerHTML= clicks;
+    count++
+    console.log('Button was clicked'+ count)
+    document.getElementById('clickedTimes').innerText=count
+    localStorage.setItem('clickedTimes',count)
 }
