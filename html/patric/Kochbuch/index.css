@@ -1,0 +1,89 @@
+.Auswahl1 {
+  display: flex;
+
+ justify-content: space-between;
+ padding: 80px;
+ 
+}
+body {
+  background-color: rgb(184, 161, 236);
+}
+
+h2 {
+  font-size: 20px;
+  margin-left: 50px;
+}
+
+#main-header {
+  background-color: rgb(184, 161, 236);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+#main-header a {
+  width: 100%;
+  font-size: 25px;
+  color: black;
+  text-decoration: none;
+}
+
+
+#main-nav ul li {
+  margin: 25px 25px;
+}
+
+.BildVorspeisen {
+  width: 450px;
+  border: 5px solid white;
+  border-radius: 50px;
+}
+.BildHauptspeisen {
+  width: 490px;
+  border: 5px solid white;
+  border-radius: 50px;
+}
+
+.BildNachspeisen{
+    width: 431px;
+    border: 5px solid white;
+  border-radius: 50px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+
+.hamburger {
+  display: none;
+}
+
+
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-item {
+  list-style: none;
+  margin-left: 5rem;
+}
+
+
+
+
+#footer {
+  padding-top: 5%;
+  background-color: rgb(184, 161, 236);
+  text-align: center;
+}

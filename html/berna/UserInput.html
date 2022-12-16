@@ -1,0 +1,182 @@
+<html>
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First UI Example </title>
+    <style>
+        @font-face {
+            font-family: "BernaLieblingsSchrift";
+            src: url(ressources/fonts/Quicksand-VariableFont_wght.ttf) format("truetype");
+        }
+
+        body {
+
+            /*font-family: 'AktivGrotesk',sans-serif;*/
+            font-family: BernaLieblingsSchrift;
+            background-color: rgb(167, 199, 167);
+            padding: 40px;
+            font-size: 30px;
+    
+        }
+
+        .boxUI {
+
+            background-color: rgb(226, 231, 86);
+            border-radius: 10px;
+            padding: 80px;
+            border: 10px double rgb(247, 145, 0);
+        }
+
+        input[type=text] {
+            background-color: bisque;
+            margin: 1px;
+            padding: 12px 12px;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .esistrot {
+            background-color: red;
+        }
+
+        .grid-container {
+            display: grid;
+            gap: 10px;
+            padding: 30px 30px 30px 30px;
+            background-color: rgb(111, 172, 225);
+            grid-template-columns: auto auto auto auto auto;
+            column-gap: 40px;
+            border-radius: 10px;
+        }
+
+        .grid-container>div {
+            background-color: rgb(111, 172, 225);
+            text-align: left;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <h2>A lot of ways to implement user input ... </h2>
+        <p>
+            <a href="CV_BK.html">Keine darf hier klicken !!!</a>
+        </p>        
+        <p>
+            <a href="mailto:aaaaaaaaa@gmail.com">E-Mail</a>
+        </p>
+        <p><input type="button" value="In keinen Fall hier klicken !!!" onclick="window.location = 'CV_BK.html'"></p>
+    </div>
+
+
+    <h4> <i> <strong> Alignement!?! </strong></i></h4>
+
+    <div class="container">
+        <div class="boxUI">
+            <form action="/action_page.php"></form>
+            <label> First Input field </label>
+            <input type="text" , placeholder="your first entry ... "> <br><br>
+            <label> Second Input field </label>
+            <input type="text" , placeholder="your second entry ... "><br><br>
+            <label> Second Input field </label>
+            <input type="text" , placeholder="your second entry ... "><br><br>
+            <label> Second Input field </label>
+            <input type="text" , placeholder="your second entry ... "><br>
+
+        </div>
+
+    </div>
+
+
+    <h4> <i> <strong> Field size!?! </strong></i></h4>
+
+
+    <div class="container">
+        <form action="/action_page.php"></form>
+        <span> <label> Second Input field </label>
+            <input type="text" , placeholder="your second entry ... "></span>
+
+    </div>
+    <p>
+        another one...
+    </p>
+
+    <div class="container">
+        <div class="grid-container">
+            <div>first Name</div>
+            <div>last name</div>
+            <div>hometown</div>
+            <div>date of birth</div>
+            <div></div>
+
+            <div><input type="text" , placeholder="your first name ... "></div>
+            <div><input type="text" , placeholder="your last name ... "></div>
+            <div><input type="text" , placeholder="hometown ... "></div>
+            <div><input type="date" , placeholder="your first name ... "></div>
+            <div><input type="submit" value="Add my data"></div>
+
+        </div>
+    </div>
+
+    <h4> <i> <strong> Next try: </strong></i></h4>
+    <h3>radio buttons</h3>
+
+    <div class="container">
+        <form action="/action_page.php">
+            <p>Please select your age:</p>
+            <input type="radio" id="age1" name="age" value="30">
+            <label for="age1">0 - 30</label><br>
+            <input type="radio" id="age2" name="age" value="60">
+            <label for="age2">31 - 60</label><br>
+            <input type="radio" id="age3" name="age" value="100">
+            <label for="age3">61 - 100</label><br>
+            <input type="radio" id="age4" name="age" value="120">
+            <label for="age4"> 100 + </label><br><br>
+
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+            <label for="vehicle1"> I have a bike</label><br>
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+            <label for="vehicle2"> I have a car</label><br>
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+            <label for="vehicle3"> I have a boat</label><br><br>
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+
+    <div>
+        <p>
+            Choose a country: <br>
+            <button style="font-size:20 ;"  type="button" onclick="alert('Salut!')">France</button>
+            <button type="button" onclick="alert('Hola!')">Spain</button>
+            <button type="button" onclick="alert('Hallo!')">Germany</button>
+            <button type="button" onclick="alert('Ciao!')">Italy</button>
+        </p>
+
+        <p>
+            Play with the cursor <br>
+        <button type="menu"> </button>
+
+        </p>
+
+    </div>
+
+</body>
+
+</html>

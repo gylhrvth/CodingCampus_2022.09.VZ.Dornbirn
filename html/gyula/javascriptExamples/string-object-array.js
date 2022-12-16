@@ -1,3 +1,4 @@
+
 console.log("Import ist erfolgreich")
 
 
@@ -40,7 +41,7 @@ let rootE = document.getElementById('root')
 let h1E = document.createElement('h1')
 h1E.innerText = 'Meine Ausbildung'
 rootE.appendChild(h1E)
-for (let i = 0; i < person.ausbildung.length; ++i){
+for (let i = 0; i < person.ausbildung.length; i++){
   let pE = document.createElement('p')
   pE.innerText = person.ausbildung[i]
   if (person.ausbildung[i] == 'Gymnasium') {
