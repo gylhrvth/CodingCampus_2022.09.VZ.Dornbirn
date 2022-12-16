@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1 id= root></h1>
+        <style>
+        .redHearing{
+            color: red;
+            font-size: 1.5em;
+        }
+    </style>
+        <script>
+        let name1 = "mike"
+        let name2 = "mase"
+        let name3 = "berna"
+
+        console.log(name1, name2, name3, "Team-Letze-Reihe")
+
+        console.log(name1 =name1)
+        console.log(name1 == name1)
+        // Equals to
+        console.log(name1 === name1)
+        
+        console.log(name1 = name2)
+        console.log(name1 == name2)
+        console.log(name1 === name2)
+// Object Person
+        let Person = {
+            name : "Mase",
+            urlaubstage : 20,
+            gehalt : 0,
+            ausbildung: ['Kindergarten', 'Volksschule', 'Mittelschule', 'Polytechnische Schule', 'Berufsschule', 'Coding Campus'],
+
+        }
+        //print Person
+        console.log(Person)
+        // add ausbildung = Gymnasium
+        Person.ausbildung = [...Person.ausbildung, "Gymnasium"]
+        // sort ausbildung
+        Person.ausbildung.sort()
+        // var lengthlist = length of every Item and length of the array
+        let lengthlist = Person.ausbildung.map(item => item.length)
+        console.log("length", lengthlist)
+        console.log(Person.urlaubstage)
+        // get index 0 of item ausbildung
+        console.log(Person.ausbildung[0])
+        // var Roote get from html-doc the element root
+        let Roote = document.getElementById('root')
+        // var h1E creates an Elememt h1
+        let h1E = document.createElement('h1')
+        // innerHTML gets or sets in this case sets 
+        h1E.innerHTML = 'Meine Ausbildung'
+        // Roote appends h1E(Meine Ausbildung) 
+        Roote.appendChild(h1E)
+
+        // for i loop throug array.length
+        for (let i = 0; i < Person.ausbildung.length; i++) {
+            let pE = document.createElement('p')            // creats Element in html p
+            pE.innerText = Person.ausbildung[i]             // writes Text in HTML-File 
+            if (Person.ausbildung[i] == 'Gymnasium') {      // if Array contains Gymnasium
+                pE.classList.add('redHearing')              // add redhearing 
+            }
+            Roote.appendChild(pE)                           // appends pe
+        }
+
+</script>
+    </body>
+</html>
