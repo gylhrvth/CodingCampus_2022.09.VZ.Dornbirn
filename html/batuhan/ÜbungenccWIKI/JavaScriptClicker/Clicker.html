@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .even {
+
+            color: green;
+        }
+
+        .uneven {
+
+            color: aqua;
+        }
+    </style>
+
+    <script defer>
+        let clickCount = 0;
+
+
+        function onButtonClicked() {
+            clickCount++;
+            console.log("Button was clicked " + clickCount)
+            const textElemnt = document.getElementById("clickCount")
+            textElemnt.innerText = clickCount
+            textElemnt.style.fontSize = (20 + clickCount) + "px"
+
+            if (clickCount % 2 == 0) {
+                textElemnt.classList.remove("uneven")
+                textElemnt.classList.add("even")
+            } else {
+                textElemnt.classList.add("uneven")
+                textElemnt.classList.remove("even")
+            }
+        }
+
+        
+
+
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button onclick="onButtonClicked()">Click me</button>
+    <span>Button was Clicked</span>
+    <span id="clickCount">0</span>
+    <span>Times</span>
+</body>
+
+</html>
