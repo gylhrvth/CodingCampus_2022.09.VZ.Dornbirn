@@ -9,10 +9,13 @@
     <link rel="stylesheet" href="character_page_style.css">
     <script>
         function updateAlignment() {
-            let selectedValue = event.target.options[event.target.options.selectedIndex].value
+            let selectedValue = event.target.options
+            [event.target.options.selectedIndex].value
             console.log("updateAlignment", selectedValue)
             event.target.classList.remove(
-                'lg', 'ln', 'le', 'ng', 'nn', 'ne', 'cg', 'cn', 'ce')
+                'lg', 'ln', 'le',
+                'ng', 'nn', 'ne',
+                'cg', 'cn', 'ce')
             if (selectedValue === 'lg') {
                 event.target.classList.add('lg')
             } else if (selectedValue === 'ln') {
@@ -34,11 +37,10 @@
             }
         }
     </script>
-
 </head>
 
 <body>
-    <div class="header tempg tempg-40-60">
+    <header class="tempg-40-60">
         <div><input type="text" placeholder="character name">
             <div class="tempg charName posCB">Character Name</div>
         </div>
@@ -58,43 +60,61 @@
                 <option value="cn">chaotic neutral</option>
                 <option value="ce">chaotic evil</option>
             </select>
-
             <input type="number" placeholder="EXP">
         </div>
-    </div>
+    </header>
     <!--Page one-->
     <div class="tempg tempg-33-33-33">
         <div class="leftCol">
             <div class="attribute-skills tempg tempg-40-60">
                 <div class="tempg attribute">
                     <div class="attr">
-                        <input type="number">
-
-                        Strength
+                        <div>STR</div>
+    <input type="number" class="attrValue" max="30"><br>
+    Strength
                     </div>
-                    <div class="attr">Dex</div>
-                    <div class="attr">Con</div>
-                    <div class="attr">Int</div>
-                    <div class="attr">Wis</div>
-                    <div class="attr">Cha</div>
+                    <div class="attr">
+    <input type="number" max="30">
+                        Dex
+                    </div>
+                    <div class="attr"> 
+                        <div>Con</div>
+                        <input type="number" max="30">
+                        Con</div>
+                    <div class="attr">
+                        <div>Int</div> 
+                        <input type="number" max="30">
+                        Int</div>
+                    <div class="attr">
+                        <div>Wis</div> 
+                        <input type="number" max="30">
+                        Wis</div>
+                    <div class="attr">
+                        <div>Cha</div> 
+                        <input type="number" max="30">
+                        Cha</div>
                 </div>
                 <div class="skills">
-                    <div class="tempg inspiration">Inspiration</div>
-                    <div class="tempg profBonus">Proficency Bonus</div>
+                    <div class="tempg inspiration">
+                        <label><input type="checkbox">Inspiration</label>
+                    </div>
+                    <div class="tempg profBonus">
+                        <label><input type="number">Proficency Bonus</label>
+                    </div>
                     <div class="tempg saving">
                         <ul>
-                            <li style=" list-style-type: circle;">Str</li>
-                            <li>Dex</li>
+                            <li style="list-style-type: circle;">Str</li>
+                            <li style="list-style-type: circle;">Dex</li>
                             <li>Con</li>
                             <li style="list-style-type: circle;">Int</li>
                             <li>Wis</li>
                             <li>Cha</li>
                         </ul>
-                        <p class="posCC">Saving Throws</p>
+                        <label class="posCC"> Saving Throws</label>
                     </div>
                     <div class="tempg skills">
                         <ul>
-                            <li style=" list-style-type: circle;">acrobatics</li>
+                            <li style="list-style-type: circle;">acrobatics</li>
                             <li>animal handling</li>
                             <li>arcana</li>
                             <li style="list-style-type: circle;">athletics</li>
@@ -102,18 +122,18 @@
                             <li>history</li>
                             <li>insight</li>
                             <li>intimidation</li>
-                            <li>investigation</li>
+                            <li style="list-style-type: circle;">investigation</li>
                             <li>medicine</li>
                             <li>nature</li>
                             <li>perception</li>
                             <li>performance</li>
-                            <li>persuasion</li>
-                            <li>religion</li>
-                            <li>sleight of hand</li>
+                            <li style="list-style-type: circle;">persuasion</li>
+                            <li style="list-style-type: circle;">religion</li>
+                            <li style="list-style-type: circle;">sleight of hand</li>
                             <li>stealth</li>
                             <li>survival</li>
                         </ul>
-                        <p class="posCC">Skills</p>
+                        <span class="posCC">Skills</span>
                     </div>
                 </div>
             </div>
@@ -127,14 +147,16 @@
                 <div>Initiative</div>
                 <div>Speed</div>
             </div>
-            <div class="tempg posCB">Current Hit Points</div>
+            <div class="tempg posCB">
+                <input type="number"> Hit Points
+            </div>
             <div class="tempg posCB">Temporary Hit Points</div>
             <div style="display: grid; column-gap: 0px; grid-template-columns: 50% 50%;">
                 <div class="tempg posCB">Hit dice</div>
                 <div class="tempg posCB">Death saves</div>
             </div>
             <!--FightStats ende-->
-            <div class="tempg">Attacks & Spellcasting</div>
+            <div class="tempg posCB">Attacks & Spellcasting</div>
             <div class="tempg posCB">Equipment</div>
         </div>
         <div class="rightCol">
@@ -152,10 +174,16 @@
             <div class="tempg">Character backstory</div>
         </div>
         <div class="tempg">
-            <div class="tempg">Allies & Organizazions</div>
+            <div class="tempg">Allies & Organizations</div>
             <div class="tempg">Additional Features & Traits</div>
             <div class="tempg">Treasure</div>
         </div>
+    </div>
+    <!--Page third-->
+    <div class="tempg tempg-33-33-33">
+        <div class="tempg">Spells 0-1-2</div>
+        <div class="tempg">Spells 3-4-5</div>
+        <div class="tempg">Spells 6-7-8-9</div>
     </div>
 </body>
 

@@ -3,6 +3,16 @@ html {
     padding: auto;
 }
 
+header {
+    border-radius: 2px;
+    border-color: green;
+    border-style: groove;
+    display: grid;
+    column-gap: 3vw;
+}
+
+
+
 div {
     border-radius: 2px;
     border-color: blue;
@@ -12,7 +22,20 @@ div {
 input {
     border: 2px;
     margin: 3px;
-    width: 60px;
+    width: 140px;
+}
+
+.attr {
+    font-size: 20px;
+}
+
+.attrValue {
+    font-size: 30px;
+    width: 140px;
+    height: 140px;
+    border-style:dashed;
+    border-radius: 5px;
+    
 }
 
 .tempg {
@@ -28,13 +51,12 @@ input {
 
 .tempg-40-60 {
     grid-template-columns: 40% 60%;
-    column-gap: 5px;
+    column-gap: 0px;
 }
 
 .tempg-33-33-33 {
-    grid-template-columns:
-        33% 33% 33%;
-    column-gap: 5px;
+    grid-template-columns: 33.3% 33.4% 33.3%;
+    column-gap: 0px;
 }
 
 .posCC {
@@ -61,48 +83,51 @@ input {
 
 
 #alignment.lg {
-    background-color:
-        blue;
+    background-color: blue;
 }
 
 #alignment.ln {
-    background-color:
-        purple;
+    background-color: purple;
 }
 
 #alignment.le {
-    background-color:
-        red;
+    background-color: red;
 }
 
 #alignment.ng {
-    background-color:
-        rgb(51, 51, 255);
+    background-color: rgb(51, 51, 255);
 }
 
 #alignment.nn {
-    background-color:
-        rgb(255, 51, 255);
+    background-color: rgb(255, 51, 255);
 }
 
 #alignment.ne {
-    background-color:
-        rgb(255, 51, 51);
+    background-color: rgb(255, 51, 51);
 }
 
-#alignment.cg {
-    background-color:
-        rgb(102, 102, 255);
+.cg {
+    background-color: rgb(102, 102, 255);
 }
 
-#alignment.cn {
-    background-color:
-        rgb(255, 102, 255);
+.cg:hover {
+    background-color: rgb(102, 102, 255);
 }
 
-#alignment.ce {
-    background-color:
-        rgb(255, 102, 102);
+.cn {
+    background-color: rgb(255, 102, 255);
+}
+
+.cn:hover {
+    background-color: rgb(255, 102, 255);
+}
+
+.ce {
+    background-color: rgb(255, 102, 102);
+}
+
+.ce:hover {
+    background-color: rgb(255, 32, 32);
 }
 
 
