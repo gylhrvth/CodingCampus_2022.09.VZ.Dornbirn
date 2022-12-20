@@ -3,26 +3,26 @@
     <link rel="stylesheet" href="Nikolaus.css">
     <body>
         <img class="header"
-        src ="https://www.vivat-shop.at/media/image/f2/8c/27/kategorie_kirchenjahr_nikolaus.jpg">
-             
-         <h1>Anmeldung zum Nikolaus in Ludesch</h1>
-         <br>
+            src="https://www.vivat-shop.at/media/image/f2/8c/27/kategorie_kirchenjahr_nikolaus.jpg">
+        <h1>Anmeldung zum Nikolaus in Ludesch</h1>
+        <br>
         <p>"Wählen sie Ihre Straße aus der Liste:</p>
 
-        <form action= "/nikolaus_page.php"></form>
-            <label for="strasse">Ich wohne in der Straße:</label>
-            <select id ="strasse" name= "Straße">
+        <form action="/nikolaus_page.php"></form>
+        <label for="strasse">Ich wohne in der Straße:</label>
+        <select id="strasse" name="Straße">
 
 
 
-            <option value="Allmeinteilweg">Allmeinteilweg</option>
-            <option value="Alte Raggalerstraße">Alte Raggalerstraße</option>
+            <option value="1">Allmeinteilweg</option>
+            <option value="31">Alte Raggalerstraße</option>
             <option value="Altes Kirchwegle">Altes Kirchwegle</option>
             <option value="Auweg">Auweg</option>
             <option value="Bahnhofstraße">Bahnhofstraße</option>
             <option value="Balzweg">Balzweg</option>
             <option value="Barxerstraße">Barxerstraße</option>
-            <option value="Betriebsgebiet Hängender Stein">Betriebsgebiet Hängender Stein</option>
+            <option value="Betriebsgebiet Hängender Stein">Betriebsgebiet
+                Hängender Stein</option>
             <option value="Bieleweg">Bieleweg</option>
             <option value="Blumenweg">Blumenweg</option>
             <option value="Brauentinweg">Brauentinweg</option>
@@ -55,7 +55,7 @@
             <option value="Raiffeisaenstraße">Raiffeisaenstraße</option>
             <option value="Ritza">Ritza</option>
             <option value="Rochusweg">Rochusweg</option>
-            <option value="Rösleweg">Röseleweg</option>            
+            <option value="Rösleweg">Röseleweg</option>
             <option value="Rottaweg">Rottaweg</option>
             <option value="Sägeäcker">Sägeäcker</option>
             <option value="Sägeweg">Sägeweg</option>
@@ -64,7 +64,7 @@
             <option value="Seeger an der Lutz-Weg">Seeger an der Lutz-Weg</option>
             <option value="Siedlung">Siedlung</option>
             <option value="St. Martinsweg">ST. Martinsweg</option>
-            <option value="Strassenäcker">Strassenäcker</option>            
+            <option value="Strassenäcker">Strassenäcker</option>
             <option value="Tannenweg">Tannenweg</option>
             <option value="Torggelweg">Torggelweg</option>
             <option value="Vogelgsang">Vogelgsang</option>
@@ -72,64 +72,71 @@
             <option value="Wiesenweg">Wiesenweg</option>
             <option value="Wingert Geissberg">Wingert Geissberg</option>
             <option value="Zementwerkstraße">Zementwerkstraße</option>
-            <option value="Ziegelhütte">Ziegelhütte</option>            
-            </select>
-            <input type="submit">
-        </form>
-        <br><br>
-        <div class="Ausgabe Termin">
+            <option value="Ziegelhütte">Ziegelhütte</option>
+        </select>
+        <input type="submit">
+    </form>
+    <br><br>
+    <div class="Ausgabe Termin">
         <h2>Der Nikolaus kommt am __________ zwischen 17:00 und 20:00 zu euch.</h2>
     </div>
-<h2>Kontaktdaten</h2>
+    <h2>Kontaktdaten</h2>
 
-<form action="/aa_page.php" target="_blank">
-        <label for="fname"> Vorname:</label>
-            <input type="text" id = "fname" name= "fname" value= "">        <label for="lname"> Nachname:</label>
-            <input type="text"id= "lname"  name="lname" value=""><br><br>
-            
-            <label for="Phnummer"> Telefonnummer:</label>
-            <input type="text" id = "Phnummer" name= "Phnummer" value= "">
-        <label for="Hnummer"> Hausnummer:</label>
-            <input type="number" id = "Hnummer" name= "Hnummer" value= ""><br><br>
-            
-        <label for="Kinder"> Anzahl der Kinder:</label>
-            <input type="text" id = "Kinder" name= "Kinder" value= ""><br><br>    
-        </form>
-
-        <h2>Auswahl Begleiter</h2>
-        <p>Wählen sie zwischen Krampus und Knecht Ruprecht:</p>
-        <div class=" begleiter">
-        <div class="Krampus">
-        
-        <img class="Krampus"
-        src="https://pm1.narvii.com/7075/994091d1d05dd6c0c5ec1f115640c471ddf18002r1-650-963v2_hq.jpg" style="width:186px; height:auto;">
-        <form action="/aa_page.php" target="_blank">
-                        <input type="radio" id="knecht" name="auswahl" placeholder="knecht" value="knecht">
-                <label for="Knecht Ruprecht">Das ist ein Krampus</label>
-            </form> 
-                
-        </div>
-            
-            <div class="KnechtRuprecht">    
-        <img class="KnechtRuprecht"
-    src="http://1.bp.blogspot.com/-H_BmD8QQagQ/UmfqYveVfGI/AAAAAAAAB_c/BnCJObeKW9M/s1600/ruprecht.jpg" style="width:210px; height:auto;"> <br>
     <form action="/aa_page.php" target="_blank">
-      
-       <input type="radio" id="krampus" name="auswahl" placeholder="Kranpus" value="Kranpus">
-            <label for="Krampus">Das ist ein Knecht Ruprecht</label>      
-                </form>        
-                
-            </div>
-              </div>
+        <label for="fname"> Vorname:</label>
+        <input type="text" id="fname" name="fname" value=""> <label for="lname">
+            Nachname:</label>
+        <input type="text" id="lname" name="lname" value=""><br><br>
 
-              <div class="bemerkung"> 
-<h2>Bemerkung</h2>
-<br>
+        <label for="Phnummer"> Telefonnummer:</label>
+        <input type="text" id="Phnummer" name="Phnummer" value="">
+        <label for="Hnummer"> Hausnummer:</label>
+        <input type="text" id="Hnummer" name="Hnummer" value=""><br><br>
+
+        <label for="Kinder"> Anzahl der Kinder:</label>
+        <input type="text" id="Kinder" name="Kinder" value=""><br><br>
+    </form>
+
+    <h2>Auswahl Begleiter</h2>
+    <p>Wählen sie zwischen Krampus und Knecht Ruprecht:</p>
+    <div class=" begleiter">
+        <div class="Krampus">
+
+            <img class="Krampus"
+                src="https://pm1.narvii.com/7075/994091d1d05dd6c0c5ec1f115640c471ddf18002r1-650-963v2_hq.jpg"
+                style="width:186px; height:auto;">
+            <form action="/aa_page.php" target="_blank">
+                <input type="radio" id="knecht" name="auswahl"
+                    placeholder="knecht" value="knecht">
+                <label for="Knecht Ruprecht">Das ist ein Krampus</label>
+            </form>
+
+        </div>
+
+        <div class="KnechtRuprecht">
+            <img class="KnechtRuprecht"
+                src="http://1.bp.blogspot.com/-H_BmD8QQagQ/UmfqYveVfGI/AAAAAAAAB_c/BnCJObeKW9M/s1600/ruprecht.jpg"
+                style="width:210px; height:auto;"> <br>
+            <form action="/aa_page.php" target="_blank">
+
+                <input type="radio" id="krampus" name="auswahl"
+                    placeholder="Kranpus" value="Kranpus">
+                <label for="Krampus">Das ist ein Knecht Ruprecht</label>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="bemerkung">
+        <h2>Bemerkung</h2>
+        <br>
         <p>Platz für Bemerkungen</p>
-        <form action= "/nikolaus_page.php">
+        <form action="/nikolaus_page.php">
             <textarea name="massage" id="massage" cols="30" rows="10">
-         </textarea>
+            </textarea>
             <br>
             <input type="submit" value="submit"></div>
+
+
     </body>
 </html>

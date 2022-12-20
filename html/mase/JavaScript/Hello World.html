@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+<p id="demo"></p>
+  <script>
+
+  console.log('Hello World!')
+  console.log('Hallo Welt')
+
+  let zahl = 10
+  square(zahl)
+  
+  console.log('addieren', zahl+12)
+
+  function square(size){
+    for (let i = 0; i < size; i++) {
+        console.log('x'.repeat(size))
+    }
+    
+  }
+  </script>  
+</body>
+</html>

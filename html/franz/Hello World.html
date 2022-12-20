@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+
+        <script>
+    /*alert('Gib mir Cookies und deine Seele')*/
+    
+console.log('Hello')
+for (i=0; i<=10;i++) {
+    console.log(i)       
+    }
+</script>
+        <h2>arrays</h2>
+        <p id="demo"></p>
+        <script>
+
+    const cars = ["Alpina","Brabus", "Cupra", "Dodge","Etrusco","Fisker", "Gumpert", "Hummer", "Isuzu","Jeep","Königsegg","Lancia","Mazda","NSU"]
+    document.getElementById("demo").innerHTML = cars;
+
+
+    function turnOn(){
+        console.log("Turn ON")
+        document.getElementById('myImage').src = "ressources/pic_bulbon.gif"
+    }
+
+    function turnOff(){
+        console.log("Turn OFF")
+        document.getElementById('myImage').src= "ressources/pic_bulboff.gif"
+    }
+
+</script>
+        <h2>My First JavaScript</h2>
+
+        <button type="button"
+            onclick="document.getElementById('demo1').innerHTML= Date()">
+            Click me to display Date and Time. </button>
+        <p id='demo1'></p>
+
+        <h2>What Can JavaScript Do?</h2>
+        <p>JavaScript can change HTML attribute values.</p>
+
+        <button onclick="turnOn()">Turn on the light
+        </button>
+
+        <img id="myImage" src="" style="width: 100px;">
+
+        <button onclick="turnOff()">Turn off the light
+        </button>
+
+        <h2>What Can JavaScript Do?</h2>
+
+        <p id=""></p>
+    </body>
+</html>
