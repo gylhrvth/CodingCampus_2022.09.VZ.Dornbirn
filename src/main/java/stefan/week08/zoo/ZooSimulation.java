@@ -64,10 +64,13 @@ public class ZooSimulation {
         p1.addGehege(alpenwiese, terrarium, ried);
         p4.addGehege(terrarium, alpenwiese);
 
+
+
+
         for (int i = 1; i <= 5; i++) {
             System.out.println();
             System.out.println();
-            System.out.println("=== Day" + i + " ===");
+            System.out.println("=== Day" +i + " ===");
 
             myZoo.resetGehegeStatus();
             myZoo.simulate();

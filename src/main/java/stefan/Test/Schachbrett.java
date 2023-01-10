@@ -4,8 +4,8 @@ public class Schachbrett {
     public static void main(String[] args) {
 
 
-        int number1 = 10;
-        int number2 = 10;
+        int number1 = 100;
+        int number2 = 100;
         for (
                 int i = 0;
                 i < number1; i++) {

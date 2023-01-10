@@ -9,6 +9,10 @@ public class DatenBaseManger {
 
     private DatabaseBank databaseBank;
 
+    public DatenBaseManger(DatabaseBank databaseBank) {
+        this.databaseBank = databaseBank;
+    }
+
     public DatenBaseManger() {
         try {
             databaseBank = new DatabaseBank();
