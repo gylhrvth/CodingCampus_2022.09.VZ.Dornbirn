@@ -1,4 +1,4 @@
-package stefan.Test.OopExample1;
+package stefan.Example.OopExample1;
 
 import java.util.ArrayList;
 import java.util.List;

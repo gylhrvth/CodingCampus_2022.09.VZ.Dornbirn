@@ -1,4 +1,4 @@
-package stefan.Test.ChatServer;
+package stefan.ChatServer;
 
 
 import java.io.*;
@@ -36,7 +36,7 @@ public class ClientHandler implements Runnable {
                 broadcastMessage(messageFromClient);
             } catch (IOException e) {
                 closeEverything(socket, bufferedReader, bufferedWriter);
-           break;
+                break;
             }
         }
     }
@@ -61,19 +61,19 @@ public class ClientHandler implements Runnable {
 
     }
 
-    public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter){
+    public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter) {
         removeClientHandler();
         try {
-            if(bufferedReader != null){
+            if (bufferedReader != null) {
                 bufferedReader.close();
             }
-        if (bufferedWriter != null){
-            bufferedWriter.close();
-        }
-        if (socket != null){
-            socket.close();
-        }
-        }catch (IOException e){
+            if (bufferedWriter != null) {
+                bufferedWriter.close();
+            }
+            if (socket != null) {
+                socket.close();
+            }
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

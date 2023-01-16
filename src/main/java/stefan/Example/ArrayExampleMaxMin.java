@@ -1,4 +1,4 @@
-package stefan.Test;
+package stefan.Example;
 
 import java.util.Arrays;
 import java.util.Random;

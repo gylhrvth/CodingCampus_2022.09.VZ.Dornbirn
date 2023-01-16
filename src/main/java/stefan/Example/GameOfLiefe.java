@@ -1,7 +1,5 @@
-package stefan.Test;
+package stefan.Example;
 
-import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 public class GameOfLiefe {

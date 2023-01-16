@@ -1,7 +1,4 @@
-package stefan.Test.OopExample1;
-
-import java.util.ArrayList;
-import java.util.List;
+package stefan.Example.OopExample1;
 
 public class Person {
 

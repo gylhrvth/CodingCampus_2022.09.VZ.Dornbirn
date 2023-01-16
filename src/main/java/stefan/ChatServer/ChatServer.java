@@ -1,4 +1,4 @@
-package stefan.Test.ChatServer;
+package stefan.ChatServer;
 
 
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package stefan.Test;
+package stefan.Example;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -29,7 +29,6 @@ public class MeinServer {
         System.out.println("Shutting down Socket server!!");
 
         server.close();
-
 
 
     }

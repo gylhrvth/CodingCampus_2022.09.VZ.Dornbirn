@@ -1,4 +1,4 @@
-package stefan.Test;
+package stefan.Example;
 
 public class Schachbrett {
     public static void main(String[] args) {

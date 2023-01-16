@@ -1,4 +1,4 @@
-package stefan.Test.ChatServer;
+package stefan.ChatServer;
 
 import java.io.*;
 
@@ -43,17 +43,14 @@ public class Client {
     }
 
     public void listenForMessage() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String msgFromGroupChat;
-                while (socket.isConnected()) {
-                    try {
-                        msgFromGroupChat = bufferedReader.readLine();
-                        System.out.println(msgFromGroupChat);
-                    } catch (IOException e) {
-                        closeEverything(socket, bufferedReader, bufferedWriter);
-                    }
+        new Thread(() -> {
+            String msgFromGroupChat;
+            while (socket.isConnected()) {
+                try {
+                    msgFromGroupChat = bufferedReader.readLine();
+                    System.out.println(msgFromGroupChat);
+                } catch (IOException e) {
+                    closeEverything(socket, bufferedReader, bufferedWriter);
                 }
             }
         }).start();
@@ -86,4 +83,6 @@ public class Client {
         client.listenForMessage();
         client.sendMessage();
     }
+
+
 }

@@ -29,9 +29,8 @@ private Integer kundenId = null;
 
     @Override
     public String toString() {
-        return "Kunde{" +
-                "kundenname='" + kundenname + '\'' +
-                ", kundenId=" + kundenId +
-                '}';
+        return "Kunde" +
+                "kundenname " + kundenname +
+                "kundenId " + kundenId ;
     }
 }
